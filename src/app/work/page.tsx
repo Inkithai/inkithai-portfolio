@@ -20,25 +20,30 @@ export default function WorkPage() {
   return (
     <div className="pt-28 pb-20">
       <div className="container-max section-padding">
-        <div className="max-w-[800px] mb-10">
-          <Link href="/" className="inline-flex items-center gap-2 text-[13px] text-[#6F7482] hover:text-[#F5F7FA] mb-6">
+        <div className="max-w-[800px] mb-12">
+          <Link href="/" className="inline-flex items-center gap-2 text-[13px] text-[#64748B] hover:text-[#F8FAFC] mb-6 transition-colors">
             ← Back to home
           </Link>
-          <div className="label-mono text-[#6F7482] mb-3">WORK • {projects.length} Projects</div>
-          <h1 className="heading-section text-[#F5F7FA]">Complete portfolio of products I've shipped.</h1>
-          <p className="text-[15px] leading-relaxed text-[#A5A9B6] mt-4 max-w-[600px]">
+          <div className="label-mono text-[#3B82F6] mb-4 flex items-center gap-2">
+            <span className="w-6 h-px bg-[#3B82F6]" />
+            WORK • {projects.length} Projects
+          </div>
+          <h1 className="heading-section text-[#F8FAFC]">Complete portfolio of products I&apos;ve shipped.</h1>
+          <p className="text-[15px] leading-relaxed text-[#94A3B8] mt-4 max-w-[600px]">
             From AI LMS to email automation, RAG study assistants, and multilingual chatbots. Every project includes challenges, decisions, and learnings — not just screenshots.
           </p>
         </div>
 
         {/* Filters */}
-        <div className="flex flex-wrap gap-2 mb-10 p-1 rounded-full bg-[#101117] border border-[#1E202B] w-fit">
+        <div className="flex flex-wrap gap-1.5 mb-12 p-1.5 rounded-full bg-white/[0.03] border border-white/[0.06] w-fit backdrop-blur-xl">
           {categories.map((cat) => (
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
-              className={`px-4 py-2 rounded-full text-[13px] font-medium transition-all ${
-                activeCategory === cat ? "bg-[#F5F7FA] text-[#08090D]" : "text-[#A5A9B6] hover:text-[#F5F7FA] hover:bg-[#151720]"
+              className={`px-4 py-2 rounded-full text-[13px] font-medium transition-all duration-200 ${
+                activeCategory === cat
+                  ? "bg-gradient-to-r from-[#3B82F6] to-[#06B6D4] text-white shadow-lg shadow-[#3B82F6]/20"
+                  : "text-[#94A3B8] hover:text-[#F8FAFC] hover:bg-white/[0.06]"
               }`}
             >
               {cat}
@@ -48,11 +53,11 @@ export default function WorkPage() {
 
         {/* Featured */}
         {featured.length > 0 && (
-          <div className="mb-14">
+          <div className="mb-16">
             <div className="flex items-center gap-3 mb-6">
-              <h2 className="text-[14px] font-semibold tracking-tight text-[#F5F7FA]">Featured</h2>
-              <span className="px-2 py-0.5 rounded-full bg-[#151720] border border-[#1E202B] text-[11px] font-mono text-[#A5A9B6]">{featured.length}</span>
-              <div className="h-px flex-1 bg-[#101117]" />
+              <h2 className="text-[14px] font-semibold tracking-tight text-[#F8FAFC]">Featured</h2>
+              <span className="px-2.5 py-0.5 rounded-full bg-white/[0.04] border border-white/[0.06] text-[11px] font-mono text-[#94A3B8]">{featured.length}</span>
+              <div className="h-px flex-1 bg-white/[0.06]" />
             </div>
             <div className="grid lg:grid-cols-2 gap-6">
               {featured.map((project, i) => {
@@ -61,15 +66,15 @@ export default function WorkPage() {
                   <motion.div
                     key={project.title}
                     layout
-                    initial={{ y: 12 }}
-                    animate={{ y: 0 }}
+                    initial={{ y: 12, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: i * 0.05 }}
-                    className="rounded-[20px] bg-[#101117] border border-[#1E202B] overflow-hidden hover:border-[#2A2D3A] transition-colors group"
+                    className="rounded-[20px] bg-[#0F172A]/50 backdrop-blur-xl border border-white/[0.06] overflow-hidden hover:border-[#3B82F6]/20 transition-all duration-300 hover:shadow-[0_8px_30px_-8px_rgba(59,130,246,0.1)] group"
                   >
                     <div className="relative h-48 overflow-hidden">
                       <div className={`absolute inset-0 bg-gradient-to-br ${project.imageGradient} opacity-80`} />
                       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.06)_1px,transparent_1px)] bg-[size:24px_24px] opacity-20" />
-                      <div className="absolute inset-4 rounded-[14px] bg-[#0D0E14]/80 backdrop-blur border border-white/10 p-3 flex flex-col">
+                      <div className="absolute inset-4 rounded-[14px] bg-[#0B1120]/80 backdrop-blur border border-white/10 p-3 flex flex-col">
                         <div className="flex items-center gap-1.5">
                           <span className="w-2 h-2 rounded-full bg-red-500" />
                           <span className="w-2 h-2 rounded-full bg-yellow-500" />
@@ -86,21 +91,21 @@ export default function WorkPage() {
                           </div>
                         </div>
                       </div>
-                      <span className="absolute top-4 left-4 px-2.5 py-1 rounded-full bg-[#F5F7FA] text-[#08090D] text-[10px] font-bold">FEATURED</span>
+                      <span className="absolute top-4 left-4 px-2.5 py-1 rounded-full bg-gradient-to-r from-[#3B82F6] to-[#06B6D4] text-white text-[10px] font-bold shadow-lg">FEATURED</span>
                     </div>
                     <div className="p-6">
                       <div className="flex items-start justify-between gap-3">
-                        <h3 className="text-[16px] font-semibold text-[#F5F7FA]">{project.title}</h3>
+                        <h3 className="text-[16px] font-semibold text-[#F8FAFC]">{project.title}</h3>
                         <div className="flex gap-1.5 shrink-0">
-                          <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full bg-[#151720] border border-[#1E202B] flex items-center justify-center text-[#A5A9B6] hover:text-[#F5F7FA]">
+                          <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full bg-white/[0.04] border border-white/[0.08] flex items-center justify-center text-[#94A3B8] hover:text-[#F8FAFC] hover:border-white/[0.15] transition-all">
                             <GithubIcon className="w-4 h-4" />
                           </a>
                         </div>
                       </div>
-                      <p className="text-[13px] leading-relaxed text-[#A5A9B6] mt-2">{project.description}</p>
+                      <p className="text-[13px] leading-relaxed text-[#94A3B8] mt-2">{project.description}</p>
                       <div className="flex flex-wrap gap-1.5 mt-4">
                         {project.technologies.slice(0, 4).map((t) => (
-                          <span key={t} className="px-2.5 py-1 rounded-full bg-[#151720] border border-[#1E202B] text-[11px] text-[#A5A9B6]">
+                          <span key={t} className="px-2.5 py-1 rounded-full bg-white/[0.03] border border-white/[0.06] text-[11px] text-[#94A3B8]">
                             {t}
                           </span>
                         ))}
@@ -108,9 +113,9 @@ export default function WorkPage() {
 
                       <button
                         onClick={() => setExpanded(isExpanded ? null : i)}
-                        className="mt-5 flex items-center gap-2 text-[13px] font-medium text-[#A5A9B6] hover:text-[#F5F7FA] transition-colors"
+                        className="mt-5 flex items-center gap-2 text-[13px] font-medium text-[#94A3B8] hover:text-[#F8FAFC] transition-colors"
                       >
-                        <span className={`w-7 h-7 rounded-full border flex items-center justify-center transition-all ${isExpanded ? "bg-[#F5F7FA] text-[#08090D] border-[#F5F7FA] rotate-180" : "bg-[#151720] border-[#1E202B]"}`}>
+                        <span className={`w-7 h-7 rounded-full border flex items-center justify-center transition-all ${isExpanded ? "bg-gradient-to-r from-[#3B82F6] to-[#06B6D4] text-white border-transparent rotate-180" : "bg-white/[0.04] border-white/[0.08]"}`}>
                           <ChevronDown className="w-4 h-4" />
                         </span>
                         {isExpanded ? "Hide details" : "View build journey"}
@@ -124,18 +129,18 @@ export default function WorkPage() {
                             exit={{ opacity: 0, height: 0 }}
                             className="overflow-hidden"
                           >
-                            <div className="pt-5 mt-5 border-t border-[#1E202B] space-y-5">
+                            <div className="pt-5 mt-5 border-t border-white/[0.06] space-y-5">
                               {[
                                 { label: "Challenges", items: project.challenges },
                                 { label: "Decisions", items: project.decisions },
                                 { label: "Learnings", items: project.learnings },
                               ].map((sec) => (
                                 <div key={sec.label}>
-                                  <div className="text-[11px] font-mono tracking-widest uppercase text-[#6F7482]">{sec.label}</div>
+                                  <div className="text-[11px] font-mono tracking-widest uppercase text-[#3B82F6]">{sec.label}</div>
                                   <ul className="mt-2 space-y-1.5">
                                     {sec.items.map((it, idx) => (
-                                      <li key={idx} className="text-[12px] leading-relaxed text-[#A5A9B6] flex gap-2">
-                                        <span className="text-[#6F7482]">—</span> {it}
+                                      <li key={idx} className="text-[12px] leading-relaxed text-[#94A3B8] flex gap-2">
+                                        <span className="text-[#3B82F6]/40">—</span> {it}
                                       </li>
                                     ))}
                                   </ul>
@@ -157,25 +162,25 @@ export default function WorkPage() {
         {rest.length > 0 && (
           <div>
             <div className="flex items-center gap-3 mb-6">
-              <h2 className="text-[14px] font-semibold tracking-tight text-[#F5F7FA]">More builds</h2>
-              <span className="px-2 py-0.5 rounded-full bg-[#151720] border border-[#1E202B] text-[11px] font-mono text-[#A5A9B6]">{rest.length}</span>
-              <div className="h-px flex-1 bg-[#101117]" />
+              <h2 className="text-[14px] font-semibold tracking-tight text-[#F8FAFC]">More builds</h2>
+              <span className="px-2.5 py-0.5 rounded-full bg-white/[0.04] border border-white/[0.06] text-[11px] font-mono text-[#94A3B8]">{rest.length}</span>
+              <div className="h-px flex-1 bg-white/[0.06]" />
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
               {rest.map((project, i) => (
                 <motion.div
                   key={project.title}
-                  initial={{ y: 10 }}
-                  animate={{ y: 0 }}
+                  initial={{ y: 10, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
                   transition={{ delay: i * 0.04 }}
-                  className="rounded-[16px] bg-[#101117] border border-[#1E202B] p-5 hover:border-[#2A2D3A] transition-colors"
+                  className="rounded-[16px] bg-[#0F172A]/50 backdrop-blur-xl border border-white/[0.06] p-5 hover:border-[#3B82F6]/20 transition-all duration-300 hover:shadow-[0_8px_30px_-8px_rgba(59,130,246,0.1)]"
                 >
                   <div className={`h-1 -mx-5 -mt-5 mb-5 rounded-t-[16px] bg-gradient-to-r ${project.imageGradient}`} />
-                  <h3 className="text-[14px] font-semibold text-[#F5F7FA]">{project.title}</h3>
-                  <p className="text-[12px] leading-relaxed text-[#A5A9B6] mt-2 line-clamp-3">{project.description}</p>
+                  <h3 className="text-[14px] font-semibold text-[#F8FAFC]">{project.title}</h3>
+                  <p className="text-[12px] leading-relaxed text-[#94A3B8] mt-2 line-clamp-3">{project.description}</p>
                   <div className="flex flex-wrap gap-1.5 mt-4">
                     {project.technologies.slice(0, 3).map((t) => (
-                      <span key={t} className="px-2 py-1 rounded-full bg-[#151720] border border-[#1E202B] text-[10px] text-[#A5A9B6]">
+                      <span key={t} className="px-2 py-1 rounded-full bg-white/[0.03] border border-white/[0.06] text-[10px] text-[#94A3B8]">
                         {t}
                       </span>
                     ))}
@@ -188,7 +193,7 @@ export default function WorkPage() {
 
         {filtered.length === 0 && (
           <div className="py-20 text-center">
-            <div className="text-[14px] text-[#6F7482]">No projects in this category. Try another filter.</div>
+            <div className="text-[14px] text-[#64748B]">No projects in this category. Try another filter.</div>
           </div>
         )}
       </div>

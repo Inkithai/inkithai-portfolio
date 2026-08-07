@@ -11,7 +11,7 @@ export const personal = {
   headlineRole: "FULL-STACK SOFTWARE ENGINEER",
   heroTagline: "I build software people actually use.",
   heroDescription:
-    "Full-stack engineer specializing in AI-powered products, scalable backends, and modern frontends. I ship production-grade systems with React, Next.js, Node.js, Python, and LLMs — from prototype to product.",
+    "Full-stack engineer building AI-powered products, scalable backends, and modern frontends. React, Next.js, Node.js, Python, and LLMs — from prototype to production.",
   email: "inkithai@gmail.com",
   phone: "+94 75 037 0177",
   location: "Colombo, Sri Lanka",
@@ -43,10 +43,10 @@ Currently available for freelance projects and seeking Software Engineering oppo
     { icon: "users", text: "Agile collaboration with structured code reviews and sprint workflows" },
   ],
   mindset: [
-    "Engineering mindset - I break complex problems into simple, testable pieces",
-    "Product thinking - I build for users, not just for specs",
-    "AI-native workflow - I use LLMs to accelerate, not replace, engineering judgment",
-    "Ship fast, learn fast - Prototype early, validate with real users",
+    "Break complex problems into simple, testable pieces",
+    "Build for users, not just for specs",
+    "Use LLMs to accelerate engineering, not replace judgment",
+    "Prototype early, validate with real users",
   ],
   interests: ["AI Product Engineering", "Developer Tools", "EdTech", "Applied Research"],
 } as const;
@@ -64,18 +64,18 @@ export const experience = [
       {
         title: "EduFlow — AI-Powered LMS",
         description:
-          "Developed and deployed a production-ready Learning Management System with AI-driven learning features. Built an AI voice assistant with contextual Q&A, OCR fallback, and Google TTS. Developed AI-based assessment generation using PDF/PPT extraction and adaptive MCQs. Implemented intelligent tutoring system with real-time feedback.",
-        technologies: ["React", "Node.js", "OpenAI", "Gemini", "OCR (Tesseract.js)", "Google TTS"],
+          "Production LMS with AI voice assistant, contextual Q&A, OCR fallback, and Google TTS. Adaptive assessments from PDF/PPT with real-time tutoring.",
+        technologies: ["React", "Node.js", "OpenAI", "Gemini", "Tesseract.js", "Google TTS"],
         impact:
-          "Built document processing pipelines (PDF, PPT, OCR) for AI reasoning and integrated multiple LLM providers (OpenAI, Gemini, OpenRouter) with fallback logic for enhanced reliability.",
+          "Multi-LLM pipeline (OpenAI, Gemini, OpenRouter) with fallback logic; document processing for PDF, PPT, and OCR.",
       },
       {
-        title: "Drafty.AI — Email Automation Platform",
+        title: "Drafty.AI — Email Automation",
         description:
-          "Built real-time voice-to-email dictation module and integrated Gemini for email summarization and content generation. Developed a Gmail-like filtering system with classification and confidence scoring.",
+          "Real-time voice-to-email dictation with Gemini-powered summarization. Smart filtering with classification and confidence scoring.",
         technologies: ["Next.js", "Gemini API", "Google Calendar API", "Node.js"],
         impact:
-          "Enabled intelligent email automation with scheduling and meeting management through Google Calendar API integration.",
+          "Intelligent email automation with Google Calendar scheduling and meeting management.",
       },
     ],
   },
@@ -91,30 +91,30 @@ export const experience = [
       {
         title: "Legal Docs Summarization Platform",
         description:
-          "Developed AI-driven internal tools with LLM-based automation, summarization, and validation pipelines for legal document processing.",
+          "AI-driven internal tools with LLM-based summarization and validation for legal documents.",
         technologies: ["Next.js", "Node.js", "TypeScript", "OpenAI APIs"],
-        impact: "Improved document processing efficiency through automated summarization and validation workflows.",
+        impact: "Automated summarization and validation workflows for legal document processing.",
       },
       {
         title: "Full-Stack Feature Development",
         description:
-          "Implemented full-stack features using Next.js, Node.js, TypeScript, and cloud-hosted APIs. Designed reusable backend modules and API utilities to improve developer productivity.",
+          "Full-stack features using Next.js, Node.js, TypeScript. Reusable backend modules and API utilities.",
         technologies: ["React", "Tailwind CSS", "ShadCN", "REST APIs"],
-        impact: "Enhanced UI workflows and optimized client-side rendering for better user experience.",
+        impact: "Improved UI workflows and client-side rendering performance.",
       },
       {
         title: "UI Component & Dashboard Development",
         description:
-          "Implemented reusable UI components using React, Next.js, and optimized client interactions. Built a Laravel-based admin dashboard with CRUD modules, RBAC, and API integrations.",
+          "Reusable UI components with React/Next.js. Laravel admin dashboard with CRUD, RBAC, and API integrations.",
         technologies: ["React", "Next.js", "Laravel", "PHP", "MySQL", "RBAC"],
-        impact: "Improved development velocity through reusable components and delivered comprehensive admin interfaces.",
+        impact: "Faster development velocity through reusable components and comprehensive admin interfaces.",
       },
       {
         title: "Agile Engineering & API Optimization",
         description:
-          "Worked in Agile sprints with structured code reviews and CI/CD deployment workflows. Integrated third-party APIs and improved server response times through query optimization.",
+          "Agile sprints with structured code reviews and CI/CD. Third-party API integrations and query optimization.",
         technologies: ["CI/CD", "Code Reviews", "Agile", "REST APIs"],
-        impact: "Contributed to quality engineering practices and enhanced system performance through optimized database queries.",
+        impact: "Enhanced system performance through optimized database queries and quality engineering practices.",
       },
     ],
   },
@@ -129,17 +129,15 @@ export const experience = [
     achievements: [
       {
         title: "Frontend Development",
-        description:
-          "Developed frontend components in React.js and contributed to dashboard development using Angular.",
+        description: "React.js components and Angular dashboard development.",
         technologies: ["React.js", "Angular", "TypeScript"],
-        impact: "Gained hands-on experience with modern frontend frameworks and component-driven architecture.",
+        impact: "Component-driven architecture with modern frontend frameworks.",
       },
       {
         title: "Backend API Development",
-        description:
-          "Wrote API routes and utility functions using Node.js and REST design patterns.",
+        description: "API routes and utilities with Node.js and REST patterns.",
         technologies: ["Node.js", "REST APIs", "Express.js"],
-        impact: "Built robust, well-documented APIs following RESTful conventions.",
+        impact: "Well-documented APIs following RESTful conventions.",
       },
     ],
   },
@@ -170,7 +168,7 @@ export const projects: ProjectItem[] = [
     title: "EduFlow - WIS",
     shortTitle: "EduFlow",
     description:
-      "Production-ready AI-powered LMS with AI voice assistant, contextual Q&A, OCR fallback, and Google TTS. Adaptive assessments from PDF/PPT with real-time tutoring.",
+      "AI-powered LMS with voice assistant, contextual Q&A, OCR fallback, and adaptive assessments from PDF/PPT.",
     longDescription:
       "A production-ready AI-powered Learning Management System featuring an AI voice assistant with contextual Q&A, OCR fallback, and Google TTS. Includes intelligent tutoring with real-time feedback and adaptive MCQ generation from PDF/PPT documents.",
     technologies: ["React", "Node.js", "OpenAI", "Gemini", "Tesseract.js", "Google TTS", "Supabase"],
@@ -202,7 +200,7 @@ export const projects: ProjectItem[] = [
     title: "Draftly.AI - WIS",
     shortTitle: "Draftly",
     description:
-      "AI email automation with real-time voice-to-email dictation, Gemini-powered summarization, smart filtering with confidence scoring, and Google Calendar integration.",
+      "AI email automation with voice-to-email dictation, Gemini summarization, smart filtering, and Google Calendar integration.",
     longDescription:
       "An AI email automation platform featuring real-time voice-to-email dictation, intelligent email summarization powered by Gemini, Gmail-like filtering with classification and confidence scoring, and Google Calendar integration for scheduling.",
     technologies: ["Next.js", "Gemini API", "Google Calendar API", "Node.js", "TypeScript", "Tailwind"],
@@ -435,7 +433,7 @@ export const education = {
   grade: "Second Class Upper",
   focus: ["Software Engineering", "Machine Learning", "Data Analytics", "Systems Design", "AI & Education Technology"],
   description:
-    "Core foundation in systems design, algorithms, and software engineering — augmented by hands-on AI research and production shipping. Graduated with research publication at IEEE ICAC 2024.",
+    "Systems design, algorithms, and software engineering — with hands-on AI research and production shipping. IEEE ICAC 2024 publication.",
 } as const;
 
 export const publication = {

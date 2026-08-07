@@ -9,18 +9,21 @@ export function CertificationsPreviewSection() {
   const featured = certifications.filter((c) => c.featured).slice(0, 6);
 
   return (
-    <section id="certifications-preview" className="py-20 lg:py-28">
+    <section id="certifications-preview" className="py-24 lg:py-32">
       <div className="container-max section-padding">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
           <div>
-            <div className="label-mono text-[#6F7482] mb-3">Certifications & Continuous Learning</div>
-            <h2 className="heading-section text-[#F5F7FA] max-w-[520px]">Learning that compounds.</h2>
+            <div className="label-mono text-[#06B6D4] mb-4 flex items-center gap-2">
+              <span className="w-6 h-px bg-[#06B6D4]" />
+              Certifications & Continuous Learning
+            </div>
+            <h2 className="heading-section text-[#F8FAFC] max-w-[520px]">Learning that compounds.</h2>
           </div>
           <Link
             href="/certifications"
-            className="inline-flex items-center gap-2 text-[13px] font-medium text-[#A5A9B6] hover:text-[#F5F7FA] transition-colors"
+            className="group inline-flex items-center gap-2 text-[13px] font-medium text-[#94A3B8] hover:text-[#06B6D4] transition-colors"
           >
-            View all certifications <ArrowUpRight className="w-4 h-4" />
+            View all certifications <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
           </Link>
         </div>
 
@@ -28,23 +31,23 @@ export function CertificationsPreviewSection() {
           {featured.map((cert, i) => (
             <motion.div
               key={`${cert.name}-${i}`}
-              initial={{ y: 12 }}
-              whileInView={{ y: 0 }}
+              initial={{ y: 12, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.05 }}
-              className="group rounded-[16px] bg-[#101117] border border-[#1E202B] p-5 hover:border-[#2A2D3A] hover:bg-[#151720] transition-colors"
+              className="group rounded-[16px] bg-[#0F172A]/50 backdrop-blur-xl border border-white/[0.06] p-5 hover:border-[#06B6D4]/20 hover:bg-[#0F172A]/80 transition-all duration-300 hover:shadow-[0_8px_30px_-8px_rgba(6,182,212,0.1)]"
             >
               <div className="flex items-start justify-between gap-3">
-                <span className="px-2 py-1 rounded-full bg-[#151720] border border-[#1E202B] text-[10px] font-mono tracking-widest uppercase text-[#A5A9B6]">
+                <span className="px-2.5 py-1 rounded-full bg-white/[0.04] border border-white/[0.06] text-[10px] font-mono tracking-widest uppercase text-[#94A3B8]">
                   {cert.category}
                 </span>
-                <span className="text-[11px] font-mono text-[#6F7482]">{cert.date}</span>
+                <span className="text-[11px] font-mono text-[#64748B]">{cert.date}</span>
               </div>
-              <h3 className="text-[14px] font-semibold tracking-tight text-[#F5F7FA] mt-4 leading-tight">{cert.name}</h3>
-              <div className="text-[12px] text-[#6F7482] mt-1">{cert.issuer}</div>
+              <h3 className="text-[14px] font-semibold tracking-tight text-[#F8FAFC] mt-4 leading-tight">{cert.name}</h3>
+              <div className="text-[12px] text-[#64748B] mt-1">{cert.issuer}</div>
               <div className="flex flex-wrap gap-1.5 mt-3">
                 {cert.skills.slice(0, 3).map((s) => (
-                  <span key={s} className="px-2 py-1 rounded-full bg-[#08090D] border border-[#1E202B] text-[10px] text-[#A5A9B6]">
+                  <span key={s} className="px-2 py-1 rounded-full bg-white/[0.03] border border-white/[0.06] text-[10px] text-[#94A3B8]">
                     {s}
                   </span>
                 ))}
@@ -53,12 +56,12 @@ export function CertificationsPreviewSection() {
           ))}
         </div>
 
-        <div className="mt-8 flex justify-center">
+        <div className="mt-10 flex justify-center">
           <Link
             href="/certifications"
-            className="px-6 py-3 rounded-full bg-[#101117] border border-[#1E202B] text-[#F5F7FA] text-[14px] font-medium hover:bg-[#151720] transition-colors inline-flex items-center gap-2"
+            className="group px-7 py-3.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-[#F8FAFC] text-[14px] font-medium hover:bg-white/[0.08] hover:border-white/[0.12] transition-all inline-flex items-center gap-2 backdrop-blur-xl"
           >
-            View all certifications <ArrowUpRight className="w-4 h-4" />
+            View all certifications <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
           </Link>
         </div>
       </div>

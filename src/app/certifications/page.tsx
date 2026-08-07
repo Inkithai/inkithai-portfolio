@@ -16,24 +16,29 @@ export default function CertificationsPage() {
   return (
     <div className="pt-28 pb-20">
       <div className="container-max section-padding">
-        <div className="max-w-[800px] mb-10">
-          <Link href="/" className="inline-flex items-center gap-2 text-[13px] text-[#6F7482] hover:text-[#F5F7FA] mb-6">
+        <div className="max-w-[800px] mb-12">
+          <Link href="/" className="inline-flex items-center gap-2 text-[13px] text-[#64748B] hover:text-[#F8FAFC] mb-6 transition-colors">
             ← Back to home
           </Link>
-          <div className="label-mono text-[#6F7482] mb-3">CERTIFICATIONS • {certifications.length} Items • Continuous Learning</div>
-          <h1 className="heading-section text-[#F5F7FA]">Learning that compounds over time.</h1>
-          <p className="text-[15px] leading-relaxed text-[#A5A9B6] mt-4 max-w-[600px]">
+          <div className="label-mono text-[#06B6D4] mb-4 flex items-center gap-2">
+            <span className="w-6 h-px bg-[#06B6D4]" />
+            CERTIFICATIONS • {certifications.length} Items • Continuous Learning
+          </div>
+          <h1 className="heading-section text-[#F8FAFC]">Learning that compounds over time.</h1>
+          <p className="text-[15px] leading-relaxed text-[#94A3B8] mt-4 max-w-[600px]">
             Curated collection of certifications, research publication, and learning milestones that reflect production work and continuous development. Filter by category.
           </p>
         </div>
 
-        <div className="flex flex-wrap gap-2 mb-10 p-1 rounded-full bg-[#101117] border border-[#1E202B] w-fit">
+        <div className="flex flex-wrap gap-1.5 mb-12 p-1.5 rounded-full bg-white/[0.03] border border-white/[0.06] w-fit backdrop-blur-xl">
           {categories.map((cat) => (
             <button
               key={cat}
               onClick={() => setActive(cat)}
-              className={`px-4 py-2 rounded-full text-[13px] font-medium transition-all ${
-                active === cat ? "bg-[#F5F7FA] text-[#08090D]" : "text-[#A5A9B6] hover:text-[#F5F7FA] hover:bg-[#151720]"
+              className={`px-4 py-2 rounded-full text-[13px] font-medium transition-all duration-200 ${
+                active === cat
+                  ? "bg-gradient-to-r from-[#3B82F6] to-[#06B6D4] text-white shadow-lg shadow-[#3B82F6]/20"
+                  : "text-[#94A3B8] hover:text-[#F8FAFC] hover:bg-white/[0.06]"
               }`}
             >
               {cat}
@@ -47,28 +52,28 @@ export default function CertificationsPage() {
               <motion.div
                 key={`${cert.name}-${i}`}
                 layout
-                initial={{ scale: 0.98, y: 10 }}
-                animate={{ scale: 1, y: 0 }}
-                exit={{ scale: 0.98, y: 10 }}
+                initial={{ scale: 0.98, y: 10, opacity: 0 }}
+                animate={{ scale: 1, y: 0, opacity: 1 }}
+                exit={{ scale: 0.98, y: 10, opacity: 0 }}
                 transition={{ delay: i * 0.03, duration: 0.3 }}
-                className="group rounded-[16px] bg-[#101117] border border-[#1E202B] p-5 hover:border-[#2A2D3A] hover:bg-[#151720] transition-colors"
+                className="group rounded-[16px] bg-[#0F172A]/50 backdrop-blur-xl border border-white/[0.06] p-5 hover:border-[#06B6D4]/20 hover:bg-[#0F172A]/80 transition-all duration-300 hover:shadow-[0_8px_30px_-8px_rgba(6,182,212,0.1)]"
               >
                 <div className="flex items-start justify-between gap-3">
-                  <span className="px-2.5 py-1 rounded-full bg-[#151720] border border-[#1E202B] text-[10px] font-mono tracking-widest uppercase text-[#A5A9B6]">
+                  <span className="px-2.5 py-1 rounded-full bg-white/[0.04] border border-white/[0.06] text-[10px] font-mono tracking-widest uppercase text-[#94A3B8]">
                     {cert.category}
                   </span>
-                  <span className="text-[11px] font-mono text-[#6F7482]">{cert.date}</span>
+                  <span className="text-[11px] font-mono text-[#64748B]">{cert.date}</span>
                 </div>
 
-                <h3 className="text-[14px] font-semibold tracking-tight text-[#F5F7FA] mt-4 leading-tight group-hover:text-white transition-colors">
+                <h3 className="text-[14px] font-semibold tracking-tight text-[#F8FAFC] mt-4 leading-tight group-hover:text-white transition-colors">
                   {cert.name}
                 </h3>
-                <div className="text-[12px] text-[#6F7482] mt-1">{cert.issuer}</div>
-                {cert.description && <div className="text-[12px] text-[#A5A9B6] mt-2 leading-relaxed">{cert.description}</div>}
+                <div className="text-[12px] text-[#64748B] mt-1">{cert.issuer}</div>
+                {cert.description && <div className="text-[12px] text-[#94A3B8] mt-2 leading-relaxed">{cert.description}</div>}
 
                 <div className="flex flex-wrap gap-1.5 mt-4">
                   {cert.skills.map((s) => (
-                    <span key={s} className="px-2 py-1 rounded-full bg-[#08090D] border border-[#1E202B] text-[10px] text-[#A5A9B6]">
+                    <span key={s} className="px-2 py-1 rounded-full bg-white/[0.03] border border-white/[0.06] text-[10px] text-[#94A3B8]">
                       {s}
                     </span>
                   ))}
@@ -79,7 +84,7 @@ export default function CertificationsPage() {
                     href={cert.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-4 inline-flex items-center gap-1.5 text-[12px] font-medium text-[#A5A9B6] hover:text-[#F5F7FA] transition-colors"
+                    className="mt-4 inline-flex items-center gap-1.5 text-[12px] font-medium text-[#94A3B8] hover:text-[#06B6D4] transition-colors"
                   >
                     View credential <ExternalLink className="w-3 h-3" />
                   </a>
@@ -91,20 +96,20 @@ export default function CertificationsPage() {
 
         {filtered.length === 0 && (
           <div className="py-20 text-center">
-            <div className="text-[14px] text-[#6F7482]">No certifications in this category.</div>
+            <div className="text-[14px] text-[#64748B]">No certifications in this category.</div>
           </div>
         )}
 
-        <div className="mt-16 rounded-[20px] bg-[#101117] border border-[#1E202B] p-6 md:p-8">
-          <h3 className="text-[14px] font-semibold text-[#F5F7FA]">Continuous Development Approach</h3>
-          <p className="text-[13px] leading-relaxed text-[#A5A9B6] mt-2 max-w-[700px]">
+        <div className="mt-16 rounded-[20px] bg-[#0F172A]/50 backdrop-blur-xl border border-white/[0.06] p-6 md:p-8">
+          <h3 className="text-[14px] font-semibold text-[#F8FAFC]">Continuous Development Approach</h3>
+          <p className="text-[13px] leading-relaxed text-[#94A3B8] mt-2 max-w-[700px]">
             This collection represents verified learning through production shipping, research publication (IEEE ICAC 2024), entrepreneurship award (SPARK 101), and platform-based learning. Each item maps to real project work — not just course completion. For recruiters: check project case studies on /work to see applied skills.
           </p>
           <div className="mt-4 flex flex-wrap gap-2">
-            <Link href="/work" className="px-4 py-2 rounded-full bg-[#F5F7FA] text-[#08090D] text-[12px] font-semibold">
+            <Link href="/work" className="px-5 py-2.5 rounded-full bg-gradient-to-r from-[#3B82F6] to-[#06B6D4] text-white text-[12px] font-semibold shadow-lg shadow-[#3B82F6]/20">
               View projects →
             </Link>
-            <Link href="/#experience" className="px-4 py-2 rounded-full bg-[#151720] border border-[#1E202B] text-[#A5A9B6] text-[12px] font-medium">
+            <Link href="/#experience" className="px-5 py-2.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-[#94A3B8] text-[12px] font-medium hover:bg-white/[0.08] transition-all">
               Experience
             </Link>
           </div>

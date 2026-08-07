@@ -20,12 +20,12 @@ export function ScrollProgressIndicator() {
   return (
     <div className="fixed top-0 left-0 right-0 h-[2px] z-50 pointer-events-none">
       <motion.div
-        className="h-full bg-gradient-to-r from-violet-600 via-indigo-500 to-cyan-500 origin-left shadow-[0_0_10px_rgba(139,92,246,0.6)]"
+        className="h-full bg-gradient-to-r from-[#3B82F6] via-[#06B6D4] to-[#14B8A6] origin-left shadow-[0_0_10px_rgba(59,130,246,0.6)]"
         style={{ scaleX: progress / 100 }}
         transition={{ type: "tween", duration: 0.15, ease: "easeOut" }}
         aria-hidden="true"
       />
-      <div className="absolute inset-0 bg-gradient-to-r from-violet-600/20 via-indigo-500/20 to-cyan-500/20 blur-[4px]" style={{ transform: `scaleX(${progress / 100})`, transformOrigin: "left" }} />
+      <div className="absolute inset-0 bg-gradient-to-r from-[#3B82F6]/20 via-[#06B6D4]/20 to-[#14B8A6]/20 blur-[4px]" style={{ transform: `scaleX(${progress / 100})`, transformOrigin: "left" }} />
     </div>
   );
 }
