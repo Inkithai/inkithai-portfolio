@@ -21,7 +21,7 @@ export function AcademicFoundationSection() {
                 <span className="block text-gradient-warm">compounds.</span>
               </h2>
               <p className="text-[14px] leading-relaxed text-[#94A3B8] mt-4">
-                Formal foundation in systems design, algorithms, and software engineering — blended with production shipping and research.
+                Systems design, algorithms, and software engineering — plus production shipping and IEEE research.
               </p>
             </div>
 

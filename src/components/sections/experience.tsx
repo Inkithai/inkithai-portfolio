@@ -19,7 +19,7 @@ export function ExperienceSection() {
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
             <h2 className="heading-section text-[#F8FAFC] max-w-[480px]">Where I&apos;ve made impact</h2>
             <p className="text-[14px] text-[#94A3B8] max-w-[360px] leading-relaxed">
-              Two years shipping AI platforms, automation tools, and full-stack systems in agile, high-velocity teams. Click to expand.
+              AI platforms, automation tools, and full-stack systems. Click to expand.
             </p>
           </div>
         </div>

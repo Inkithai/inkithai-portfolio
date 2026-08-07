@@ -38,7 +38,7 @@ export function FinalCTASection() {
                 <span className="block text-gradient-blue">something great.</span>
               </h2>
               <p className="text-[15px] leading-relaxed text-[#94A3B8] mt-5 max-w-[480px]">
-                I&apos;m available for freelance projects and full-time Software Engineering roles — especially where AI meets product. Whether you need a product built or a team strengthened, drop a message and I&apos;ll get back within hours.
+                Available for freelance and full-time roles — especially where AI meets product. Drop a message and I&apos;ll reply within hours.
               </p>
 
               <div className="mt-8 flex flex-wrap gap-3">
@@ -81,12 +81,11 @@ export function FinalCTASection() {
 
                 <div className="mt-5 space-y-3">
                   <div className="rounded-[16px] bg-gradient-to-br from-[#3B82F6] to-[#06B6D4] p-4 text-[13px] leading-relaxed text-white shadow-lg">
-                    <MessageCircle className="w-4 h-4 mb-2 opacity-70" />
-                    Hey! I&apos;m interested in your AI work — especially EduFlow & Drafty.AI. Are you open to a quick chat this week?
-                    <div className="text-[11px] text-white/60 mt-1">Typical recruiter • 9:41 AM</div>
+                    Hey! Love your AI work — especially EduFlow. Free for a quick chat?
+                    <div className="text-[11px] text-white/60 mt-1">Recruiter • 9:41 AM</div>
                   </div>
                   <div className="rounded-[16px] bg-white/[0.04] border border-white/[0.08] p-4 text-[13px] leading-relaxed text-[#94A3B8] ml-6">
-                    Absolutely — I&apos;d love to connect! Available for calls and can share architecture details & demos.
+                    Absolutely! Happy to share demos and architecture details.
                     <div className="text-[11px] text-[#64748B] mt-1">You • just now</div>
                   </div>
                 </div>

@@ -19,7 +19,7 @@ export function EngineeringExpertiseSection() {
             </h2>
           </div>
           <p className="text-[14px] leading-relaxed text-[#94A3B8] max-w-[420px]">
-            A deliberately narrow toolkit that lets me ship from prototype to production without friction. Organized by actually-used stacks.
+            A focused toolkit for shipping from prototype to production. Organized by actually-used stacks.
           </p>
         </div>
 

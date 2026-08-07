@@ -25,7 +25,7 @@ export function SelectedWorkSection() {
             </h2>
           </div>
           <p className="text-[14px] leading-relaxed text-[#94A3B8] max-w-[380px]">
-            Featured case studies from WIS — real production systems with voice AI, document pipelines, and intelligent automation. Full portfolio lives on /work.
+            Production AI systems — voice assistants, document pipelines, and intelligent automation built at WIS.
           </p>
         </div>
 
