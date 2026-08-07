@@ -29,19 +29,19 @@ export function EntrepreneurshipSection() {
               initial={{ y: 16, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               viewport={{ once: true }}
-              className="rounded-[24px] overflow-hidden bg-[#0F172A]/50 backdrop-blur-xl border border-white/[0.06] hover:border-[#10B981]/20 transition-all duration-300"
+              className="rounded-[24px] overflow-hidden bg-[#0F172A]/50 backdrop-blur-xl border border-white/[0.06] hover:border-[#D4AF37]/20 transition-all duration-300"
             >
               <div className="p-7">
                 <div className="flex items-start justify-between gap-4">
                   <div className="flex items-center gap-3">
-                    <div className="w-11 h-11 rounded-[14px] bg-gradient-to-br from-[#10B981] to-[#34D399] flex items-center justify-center shadow-lg shadow-[#10B981]/20">
+                    <div className="w-11 h-11 rounded-[14px] bg-gradient-to-br from-[#D4AF37] to-[#E8C547] flex items-center justify-center shadow-lg shadow-[#D4AF37]/20">
                       <Sparkles className="w-5 h-5 text-white" />
                     </div>
                     <div>
-                      <div className="text-[11px] font-mono tracking-widest uppercase text-[#6EE7B7]">Recognition • 2024</div>
+                      <div className="text-[11px] font-mono tracking-widest uppercase text-[#F0D77B]">Recognition • 2024</div>
                     </div>
                   </div>
-                  <span className="px-3 py-1 rounded-full bg-[#10B981]/10 border border-[#10B981]/20 text-[#6EE7B7] text-[10px] font-bold">TOP 101</span>
+                  <span className="px-3 py-1 rounded-full bg-[#D4AF37]/10 border border-[#D4AF37]/20 text-[#F0D77B] text-[10px] font-bold">TOP 101</span>
                 </div>
 
                 <h3 className="text-[24px] font-bold tracking-tight text-[#F8FAFC] mt-5">{spark.title}</h3>
@@ -69,7 +69,7 @@ export function EntrepreneurshipSection() {
                         <p className="text-[12px] leading-relaxed text-[#64748B]">
                           Recognized at Taj Samudra, Colombo on September 5, 2024. Currently working towards ideation for a new startup.
                         </p>
-                        <a href={spark.link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-[12px] font-medium text-[#6EE7B7] hover:text-white transition-colors">
+                        <a href={spark.link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-[12px] font-medium text-[#F0D77B] hover:text-white transition-colors">
                           View organization <ExternalLink className="w-3 h-3" />
                         </a>
                       </div>
@@ -79,7 +79,7 @@ export function EntrepreneurshipSection() {
 
                 <button
                   onClick={() => setExpanded(expanded === "spark" ? null : "spark")}
-                  className="mt-5 flex items-center gap-2 text-[12px] font-medium text-[#64748B] hover:text-[#6EE7B7] transition-colors"
+                  className="mt-5 flex items-center gap-2 text-[12px] font-medium text-[#64748B] hover:text-[#F0D77B] transition-colors"
                 >
                   <ChevronDown className={`w-4 h-4 transition-transform ${expanded === "spark" ? "rotate-180" : ""}`} />
                   {expanded === "spark" ? "Show less" : "Read more"}

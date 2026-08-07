@@ -24,8 +24,8 @@ export default function WorkPage() {
           <Link href="/" className="inline-flex items-center gap-2 text-[13px] text-[#64748B] hover:text-[#F8FAFC] mb-6 transition-colors">
             ← Back to home
           </Link>
-          <div className="label-mono text-[#10B981] mb-4 flex items-center gap-2">
-            <span className="w-6 h-px bg-[#10B981]" />
+          <div className="label-mono text-[#D4AF37] mb-4 flex items-center gap-2">
+            <span className="w-6 h-px bg-[#D4AF37]" />
             WORK • {projects.length} Projects
           </div>
           <h1 className="heading-section text-[#F8FAFC]">Complete portfolio of products I&apos;ve shipped.</h1>
@@ -42,7 +42,7 @@ export default function WorkPage() {
               onClick={() => setActiveCategory(cat)}
               className={`px-4 py-2 rounded-full text-[13px] font-medium transition-all duration-200 ${
                 activeCategory === cat
-                  ? "bg-gradient-to-r from-[#10B981] to-[#34D399] text-white shadow-lg shadow-[#10B981]/20"
+                  ? "bg-gradient-to-r from-[#D4AF37] to-[#E8C547] text-white shadow-lg shadow-[#D4AF37]/20"
                   : "text-[#94A3B8] hover:text-[#F8FAFC] hover:bg-white/[0.06]"
               }`}
             >
@@ -69,7 +69,7 @@ export default function WorkPage() {
                     initial={{ y: 12, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: i * 0.05 }}
-                    className="rounded-[20px] bg-[#0F172A]/50 backdrop-blur-xl border border-white/[0.06] overflow-hidden hover:border-[#10B981]/20 transition-all duration-300 hover:shadow-[0_8px_30px_-8px_rgba(16,185,129,0.1)] group"
+                    className="rounded-[20px] bg-[#0F172A]/50 backdrop-blur-xl border border-white/[0.06] overflow-hidden hover:border-[#D4AF37]/20 transition-all duration-300 hover:shadow-[0_8px_30px_-8px_rgba(212,175,55,0.1)] group"
                   >
                     <div className="relative h-48 overflow-hidden">
                       <div className={`absolute inset-0 bg-gradient-to-br ${project.imageGradient} opacity-80`} />
@@ -78,7 +78,7 @@ export default function WorkPage() {
                         <div className="flex items-center gap-1.5">
                           <span className="w-2 h-2 rounded-full bg-red-500" />
                           <span className="w-2 h-2 rounded-full bg-yellow-500" />
-                          <span className="w-2 h-2 rounded-full bg-green-500" />
+                          <span className="w-2 h-2 rounded-full bg-[#D4AF37]" />
                           <span className="ml-2 text-[10px] font-mono text-white/30">{project.shortTitle.toLowerCase()}.app</span>
                         </div>
                         <div className="mt-4 space-y-2">
@@ -91,7 +91,7 @@ export default function WorkPage() {
                           </div>
                         </div>
                       </div>
-                      <span className="absolute top-4 left-4 px-2.5 py-1 rounded-full bg-gradient-to-r from-[#10B981] to-[#34D399] text-white text-[10px] font-bold shadow-lg">FEATURED</span>
+                      <span className="absolute top-4 left-4 px-2.5 py-1 rounded-full bg-gradient-to-r from-[#D4AF37] to-[#E8C547] text-white text-[10px] font-bold shadow-lg">FEATURED</span>
                     </div>
                     <div className="p-6">
                       <div className="flex items-start justify-between gap-3">
@@ -115,7 +115,7 @@ export default function WorkPage() {
                         onClick={() => setExpanded(isExpanded ? null : i)}
                         className="mt-5 flex items-center gap-2 text-[13px] font-medium text-[#94A3B8] hover:text-[#F8FAFC] transition-colors"
                       >
-                        <span className={`w-7 h-7 rounded-full border flex items-center justify-center transition-all ${isExpanded ? "bg-gradient-to-r from-[#10B981] to-[#34D399] text-white border-transparent rotate-180" : "bg-white/[0.04] border-white/[0.08]"}`}>
+                        <span className={`w-7 h-7 rounded-full border flex items-center justify-center transition-all ${isExpanded ? "bg-gradient-to-r from-[#D4AF37] to-[#E8C547] text-white border-transparent rotate-180" : "bg-white/[0.04] border-white/[0.08]"}`}>
                           <ChevronDown className="w-4 h-4" />
                         </span>
                         {isExpanded ? "Hide details" : "View build journey"}
@@ -136,11 +136,11 @@ export default function WorkPage() {
                                 { label: "Learnings", items: project.learnings },
                               ].map((sec) => (
                                 <div key={sec.label}>
-                                  <div className="text-[11px] font-mono tracking-widest uppercase text-[#10B981]">{sec.label}</div>
+                                  <div className="text-[11px] font-mono tracking-widest uppercase text-[#D4AF37]">{sec.label}</div>
                                   <ul className="mt-2 space-y-1.5">
                                     {sec.items.map((it, idx) => (
                                       <li key={idx} className="text-[12px] leading-relaxed text-[#94A3B8] flex gap-2">
-                                        <span className="text-[#10B981]/40">—</span> {it}
+                                        <span className="text-[#D4AF37]/40">—</span> {it}
                                       </li>
                                     ))}
                                   </ul>
@@ -173,7 +173,7 @@ export default function WorkPage() {
                   initial={{ y: 10, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ delay: i * 0.04 }}
-                  className="rounded-[16px] bg-[#0F172A]/50 backdrop-blur-xl border border-white/[0.06] p-5 hover:border-[#10B981]/20 transition-all duration-300 hover:shadow-[0_8px_30px_-8px_rgba(16,185,129,0.1)]"
+                  className="rounded-[16px] bg-[#0F172A]/50 backdrop-blur-xl border border-white/[0.06] p-5 hover:border-[#D4AF37]/20 transition-all duration-300 hover:shadow-[0_8px_30px_-8px_rgba(212,175,55,0.1)]"
                 >
                   <div className={`h-1 -mx-5 -mt-5 mb-5 rounded-t-[16px] bg-gradient-to-r ${project.imageGradient}`} />
                   <h3 className="text-[14px] font-semibold text-[#F8FAFC]">{project.title}</h3>
