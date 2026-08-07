@@ -10,8 +10,8 @@ export function EngineeringExpertiseSection() {
       <div className="container-max section-padding relative">
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-14">
           <div>
-            <div className="label-mono text-[#06B6D4] mb-4 flex items-center gap-2">
-              <span className="w-6 h-px bg-[#06B6D4]" />
+            <div className="label-mono text-[#34D399] mb-4 flex items-center gap-2">
+              <span className="w-6 h-px bg-[#34D399]" />
               Engineering Expertise
             </div>
             <h2 className="heading-section text-[#F8FAFC]">
@@ -31,7 +31,7 @@ export function EngineeringExpertiseSection() {
               whileInView={{ y: 0, opacity: 1 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.06, duration: 0.5 }}
-              className={`group rounded-[20px] bg-[#0F172A]/50 backdrop-blur-xl border border-white/[0.06] p-6 hover:border-[#3B82F6]/20 hover:bg-[#0F172A]/80 transition-all duration-300 hover:shadow-[0_8px_30px_-8px_rgba(59,130,246,0.1)] ${
+              className={`group rounded-[20px] bg-[#0F172A]/50 backdrop-blur-xl border border-white/[0.06] p-6 hover:border-[#10B981]/20 hover:bg-[#0F172A]/80 transition-all duration-300 hover:shadow-[0_8px_30px_-8px_rgba(16,185,129,0.1)] ${
                 cat.id === "frontend" || cat.id === "ai" ? "md:col-span-7" : "md:col-span-5"
               } ${cat.id === "databases" ? "md:col-span-4" : ""} ${cat.id === "cloud" ? "md:col-span-4" : ""} ${
                 cat.id === "backend" ? "md:col-span-4" : ""
@@ -50,7 +50,7 @@ export function EngineeringExpertiseSection() {
                 {cat.skills.map((skill) => (
                   <span
                     key={skill}
-                    className="px-3 py-1.5 rounded-full bg-white/[0.03] border border-white/[0.06] text-[13px] text-[#94A3B8] hover:text-[#F8FAFC] hover:border-[#3B82F6]/30 hover:bg-[#3B82F6]/5 transition-all duration-200"
+                    className="px-3 py-1.5 rounded-full bg-white/[0.03] border border-white/[0.06] text-[13px] text-[#94A3B8] hover:text-[#F8FAFC] hover:border-[#10B981]/30 hover:bg-[#10B981]/5 transition-all duration-200"
                   >
                     {skill}
                   </span>

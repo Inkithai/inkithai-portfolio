@@ -13,15 +13,15 @@ export function CertificationsPreviewSection() {
       <div className="container-max section-padding">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
           <div>
-            <div className="label-mono text-[#06B6D4] mb-4 flex items-center gap-2">
-              <span className="w-6 h-px bg-[#06B6D4]" />
+            <div className="label-mono text-[#34D399] mb-4 flex items-center gap-2">
+              <span className="w-6 h-px bg-[#34D399]" />
               Certifications & Continuous Learning
             </div>
             <h2 className="heading-section text-[#F8FAFC] max-w-[520px]">Learning that compounds.</h2>
           </div>
           <Link
             href="/certifications"
-            className="group inline-flex items-center gap-2 text-[13px] font-medium text-[#94A3B8] hover:text-[#06B6D4] transition-colors"
+            className="group inline-flex items-center gap-2 text-[13px] font-medium text-[#94A3B8] hover:text-[#34D399] transition-colors"
           >
             View all certifications <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
           </Link>
@@ -35,7 +35,7 @@ export function CertificationsPreviewSection() {
               whileInView={{ y: 0, opacity: 1 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.05 }}
-              className="group rounded-[16px] bg-[#0F172A]/50 backdrop-blur-xl border border-white/[0.06] p-5 hover:border-[#06B6D4]/20 hover:bg-[#0F172A]/80 transition-all duration-300 hover:shadow-[0_8px_30px_-8px_rgba(6,182,212,0.1)]"
+              className="group rounded-[16px] bg-[#0F172A]/50 backdrop-blur-xl border border-white/[0.06] p-5 hover:border-[#34D399]/20 hover:bg-[#0F172A]/80 transition-all duration-300 hover:shadow-[0_8px_30px_-8px_rgba(52,211,153,0.1)]"
             >
               <div className="flex items-start justify-between gap-3">
                 <span className="px-2.5 py-1 rounded-full bg-white/[0.04] border border-white/[0.06] text-[10px] font-mono tracking-widest uppercase text-[#94A3B8]">

@@ -12,8 +12,8 @@ export function ExperienceSection() {
     <section id="experience" className="py-24 lg:py-32">
       <div className="container-max section-padding">
         <div className="mb-14">
-          <div className="label-mono text-[#14B8A6] mb-4 flex items-center gap-2">
-            <span className="w-6 h-px bg-[#14B8A6]" />
+          <div className="label-mono text-[#6EE7B7] mb-4 flex items-center gap-2">
+            <span className="w-6 h-px bg-[#6EE7B7]" />
             Experience & Impact
           </div>
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
@@ -26,7 +26,7 @@ export function ExperienceSection() {
 
         <div className="relative">
           {/* Timeline line - desktop */}
-          <div className="hidden lg:block absolute left-[180px] top-2 bottom-2 w-px bg-gradient-to-b from-[#3B82F6]/30 via-[#1E293B] to-transparent" />
+          <div className="hidden lg:block absolute left-[180px] top-2 bottom-2 w-px bg-gradient-to-b from-[#10B981]/30 via-[#1E293B] to-transparent" />
 
           <div className="space-y-5">
             {experience.map((exp, idx) => {
@@ -43,7 +43,7 @@ export function ExperienceSection() {
                   {/* Left meta desktop */}
                   <div className="hidden lg:block pt-6">
                     <div className="sticky top-28 space-y-2">
-                      <div className="inline-flex px-3 py-1.5 rounded-full bg-gradient-to-r from-[#3B82F6] to-[#06B6D4] text-white text-[12px] font-bold tracking-wide shadow-lg shadow-[#3B82F6]/20">
+                      <div className="inline-flex px-3 py-1.5 rounded-full bg-gradient-to-r from-[#10B981] to-[#34D399] text-white text-[12px] font-bold tracking-wide shadow-lg shadow-[#10B981]/20">
                         {exp.company}
                       </div>
                       <div className="text-[12px] font-mono text-[#64748B] flex items-center gap-1.5">
@@ -54,7 +54,7 @@ export function ExperienceSection() {
                       </div>
                       <div className={`inline-flex px-2.5 py-1 rounded-full text-[10px] font-bold tracking-widest border ${
                         exp.type === "Internship"
-                          ? "bg-[#38BDF8]/10 text-[#38BDF8] border-[#38BDF8]/20"
+                          ? "bg-[#6EE7B7]/10 text-[#6EE7B7] border-[#6EE7B7]/20"
                           : "bg-[#10B981]/10 text-[#10B981] border-[#10B981]/20"
                       }`}>
                         {exp.type.toUpperCase()}
@@ -63,13 +63,13 @@ export function ExperienceSection() {
                   </div>
 
                   {/* dot */}
-                  <div className="hidden lg:block absolute left-[175px] top-8 w-2.5 h-2.5 rounded-full bg-[#030712] border-2 border-[#3B82F6]/40 z-10" />
+                  <div className="hidden lg:block absolute left-[175px] top-8 w-2.5 h-2.5 rounded-full bg-[#030712] border-2 border-[#10B981]/40 z-10" />
 
                   {/* Card */}
                   <div
                     className={`rounded-[20px] border overflow-hidden transition-all duration-300 backdrop-blur-xl ${
                       isExpanded
-                        ? "bg-[#0F172A]/70 border-[#3B82F6]/20 shadow-[0_8px_30px_-8px_rgba(59,130,246,0.1)]"
+                        ? "bg-[#0F172A]/70 border-[#10B981]/20 shadow-[0_8px_30px_-8px_rgba(16,185,129,0.1)]"
                         : "bg-[#0F172A]/40 border-white/[0.06] hover:border-white/[0.1]"
                     }`}
                   >
@@ -80,8 +80,8 @@ export function ExperienceSection() {
                       <div className="min-w-0 flex-1">
                         {/* mobile meta */}
                         <div className="flex items-center gap-2 mb-3 lg:hidden flex-wrap">
-                          <span className="px-2.5 py-1 rounded-full bg-gradient-to-r from-[#3B82F6] to-[#06B6D4] text-white text-[11px] font-bold">{exp.company}</span>
-                          <span className={`px-2 py-1 rounded-full text-[10px] font-bold border ${exp.type === "Internship" ? "bg-[#38BDF8]/10 text-[#38BDF8] border-[#38BDF8]/20" : "bg-[#10B981]/10 text-[#10B981] border-[#10B981]/20"}`}>{exp.type}</span>
+                          <span className="px-2.5 py-1 rounded-full bg-gradient-to-r from-[#10B981] to-[#34D399] text-white text-[11px] font-bold">{exp.company}</span>
+                          <span className={`px-2 py-1 rounded-full text-[10px] font-bold border ${exp.type === "Internship" ? "bg-[#6EE7B7]/10 text-[#6EE7B7] border-[#6EE7B7]/20" : "bg-[#10B981]/10 text-[#10B981] border-[#10B981]/20"}`}>{exp.type}</span>
                           <span className="ml-auto text-[11px] font-mono text-[#64748B]">{exp.period}</span>
                         </div>
                         <div className="flex items-center gap-2">
@@ -95,7 +95,7 @@ export function ExperienceSection() {
                           <span>{exp.achievements.length} key contributions</span>
                         </div>
                       </div>
-                      <div className={`shrink-0 w-9 h-9 rounded-full border flex items-center justify-center transition-all ${isExpanded ? "bg-gradient-to-r from-[#3B82F6] to-[#06B6D4] text-white border-transparent rotate-180 shadow-lg shadow-[#3B82F6]/20" : "bg-white/[0.04] text-[#94A3B8] border-white/[0.08]"}`}>
+                      <div className={`shrink-0 w-9 h-9 rounded-full border flex items-center justify-center transition-all ${isExpanded ? "bg-gradient-to-r from-[#10B981] to-[#34D399] text-white border-transparent rotate-180 shadow-lg shadow-[#10B981]/20" : "bg-white/[0.04] text-[#94A3B8] border-white/[0.08]"}`}>
                         <ChevronDown className="w-4 h-4" />
                       </div>
                     </button>
@@ -111,8 +111,8 @@ export function ExperienceSection() {
                         >
                           <div className="px-5 md:px-6 pb-6 pt-2 border-t border-white/[0.06] space-y-6">
                             {exp.achievements.map((ach, j) => (
-                              <div key={j} className="relative pl-4 border-l border-[#1E293B] hover:border-[#3B82F6]/40 transition-colors">
-                                <div className="absolute -left-[5px] top-1.5 w-2 h-2 rounded-full bg-[#3B82F6]/40" />
+                              <div key={j} className="relative pl-4 border-l border-[#1E293B] hover:border-[#10B981]/40 transition-colors">
+                                <div className="absolute -left-[5px] top-1.5 w-2 h-2 rounded-full bg-[#10B981]/40" />
                                 <h4 className="text-[14px] font-semibold text-[#F8FAFC]">{ach.title}</h4>
                                 <p className="text-[13px] leading-relaxed text-[#94A3B8] mt-1.5">{ach.description}</p>
                                 <div className="mt-3 px-4 py-2.5 rounded-[12px] bg-[#10B981]/[0.05] border border-[#10B981]/10">

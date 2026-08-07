@@ -8,11 +8,11 @@
   --color-text-primary: #F8FAFC;
   --color-text-secondary: #94A3B8;
   --color-text-muted: #64748B;
-  --color-accent: #3B82F6;
-  --color-accent-secondary: #06B6D4;
-  --color-accent-muted: #2563EB;
+  --color-accent: #10B981;
+  --color-accent-secondary: #34D399;
+  --color-accent-muted: #059669;
   --color-success: #10B981;
-  --color-info: #38BDF8;
+  --color-info: #6EE7B7;
   --color-warning: #F59E0B;
   --color-hot: #F43F5E;
 
@@ -46,7 +46,7 @@ body {
 
 /* Selection */
 ::selection {
-  background-color: #3B82F6;
+  background-color: #10B981;
   color: white;
 }
 
@@ -141,7 +141,7 @@ body {
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
-  background-image: linear-gradient(135deg, #3B82F6 0%, #06B6D4 50%, #14B8A6 100%);
+  background-image: linear-gradient(135deg, #10B981 0%, #34D399 50%, #6EE7B7 100%);
 }
 .text-gradient-warm {
   background-clip: text;
@@ -153,7 +153,7 @@ body {
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
-  background-image: linear-gradient(135deg, #F8FAFC 0%, #3B82F6 40%, #06B6D4 70%, #14B8A6 100%);
+  background-image: linear-gradient(135deg, #F8FAFC 0%, #10B981 40%, #34D399 70%, #6EE7B7 100%);
 }
 .text-gradient-subtle {
   background-clip: text;
@@ -164,15 +164,15 @@ body {
 
 /* ---------- Borders & Glow ---------- */
 .border-subtle { border-color: #1E293B; }
-.border-accent { border-color: rgba(59, 130, 246, 0.3); }
+.border-accent { border-color: rgba(16, 185, 129, 0.3); }
 
 .glow-blue {
-  box-shadow: 0 0 40px -8px rgba(59, 130, 246, 0.4),
-              0 0 80px -20px rgba(6, 182, 212, 0.2);
+  box-shadow: 0 0 40px -8px rgba(16, 185, 129, 0.4),
+              0 0 80px -20px rgba(52, 211, 153, 0.2);
 }
 .glow-cyan {
-  box-shadow: 0 0 40px -8px rgba(6, 182, 212, 0.35),
-              0 0 80px -20px rgba(20, 184, 166, 0.15);
+  box-shadow: 0 0 40px -8px rgba(52, 211, 153, 0.35),
+              0 0 80px -20px rgba(110, 231, 183, 0.15);
 }
 .glow-warm {
   box-shadow: 0 0 40px -8px rgba(245, 158, 11, 0.35);
@@ -191,7 +191,7 @@ body {
   inset: 0;
   border-radius: inherit;
   padding: 1px;
-  background: linear-gradient(135deg, #3B82F6, #06B6D4, #14B8A6);
+  background: linear-gradient(135deg, #10B981, #34D399, #6EE7B7);
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
@@ -210,6 +210,25 @@ body {
   50% { transform: translate(-20px, 20px) scale(0.95); }
   75% { transform: translate(40px, 30px) scale(1.05); }
 }
+
+/* Blueprint-style grid texture that fades toward the edges */
+.bg-grid-fade {
+  background-image:
+    linear-gradient(to right, rgba(148, 163, 184, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(148, 163, 184, 0.05) 1px, transparent 1px);
+  background-size: 52px 52px;
+  -webkit-mask-image: radial-gradient(ellipse 75% 65% at 50% 30%, black 25%, transparent 72%);
+  mask-image: radial-gradient(ellipse 75% 65% at 50% 30%, black 25%, transparent 72%);
+}
+
+/* Slow drifting aurora glow for hero/footer backdrops */
+@keyframes auroraDrift {
+  0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.9; }
+  33% { transform: translate(40px, -28px) scale(1.08); opacity: 1; }
+  66% { transform: translate(-32px, 18px) scale(0.94); opacity: 0.7; }
+}
+.animate-aurora { animation: auroraDrift 16s ease-in-out infinite; }
+.animate-aurora-slow { animation: auroraDrift 24s ease-in-out infinite reverse; }
 @keyframes float {
   0%, 100% { transform: translateY(0px); }
   50% { transform: translateY(-12px); }
@@ -285,7 +304,7 @@ body {
   border-radius: inherit;
   opacity: 0;
   transition: opacity 0.4s ease;
-  background: radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(59, 130, 246, 0.06), transparent 40%);
+  background: radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(16, 185, 129, 0.06), transparent 40%);
 }
 .spotlight-card:hover::after {
   opacity: 1;
@@ -293,14 +312,14 @@ body {
 
 /* Button styles */
 .btn-primary {
-  background: linear-gradient(135deg, #3B82F6, #06B6D4);
+  background: linear-gradient(135deg, #10B981, #34D399);
   color: white;
   font-weight: 600;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px -3px rgba(59, 130, 246, 0.4);
+  box-shadow: 0 4px 15px -3px rgba(16, 185, 129, 0.4);
 }
 .btn-primary:hover {
-  box-shadow: 0 8px 25px -5px rgba(59, 130, 246, 0.5);
+  box-shadow: 0 8px 25px -5px rgba(16, 185, 129, 0.5);
   transform: translateY(-1px);
 }
 
@@ -326,7 +345,7 @@ body {
 
 /* Focus */
 *:focus-visible {
-  outline: 2px solid #3B82F6;
+  outline: 2px solid #10B981;
   outline-offset: 2px;
   border-radius: 4px;
 }
