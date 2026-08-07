@@ -37,7 +37,7 @@ export function AcademicFoundationSection() {
                     <div className="w-12 h-12 rounded-[14px] bg-gradient-to-br from-[#F59E0B] to-[#EF4444] flex items-center justify-center shadow-lg shadow-[#F59E0B]/20">
                       <GraduationCap className="w-6 h-6 text-white" />
                     </div>
-                    <span className="px-3 py-1 rounded-full bg-[#10B981]/10 border border-[#10B981]/20 text-[#10B981] text-[11px] font-bold tracking-widest">GRADUATED 2025</span>
+                    <span className="px-3 py-1 rounded-full bg-[#D4AF37]/10 border border-[#D4AF37]/20 text-[#D4AF37] text-[11px] font-bold tracking-widest">GRADUATED 2025</span>
                   </div>
 
                   <div className="mt-6">

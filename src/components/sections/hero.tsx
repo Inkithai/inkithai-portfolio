@@ -30,8 +30,8 @@ export function HeroSection() {
       {/* Ambient backdrop */}
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
         <div className="absolute inset-0 bg-grid-fade" />
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gradient-to-b from-[#10B981]/15 via-[#34D399]/5 to-transparent rounded-full blur-[100px] animate-aurora" />
-        <div className="absolute -bottom-40 -right-40 w-[500px] h-[500px] bg-[#6EE7B7]/8 rounded-full blur-[120px] animate-aurora-slow" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gradient-to-b from-[#D4AF37]/15 via-[#E8C547]/5 to-transparent rounded-full blur-[100px] animate-aurora" />
+        <div className="absolute -bottom-40 -right-40 w-[500px] h-[500px] bg-[#F0D77B]/8 rounded-full blur-[120px] animate-aurora-slow" />
         <ParticleField className="absolute inset-0 opacity-80" />
         <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-b from-transparent to-[#030712]" />
       </div>
@@ -48,7 +48,7 @@ export function HeroSection() {
               className="lg:hidden mb-8 flex justify-start"
             >
               <div className="relative">
-                <div className="absolute -inset-3 bg-gradient-to-br from-[#10B981]/30 via-[#34D399]/20 to-[#6EE7B7]/20 rounded-[24px] blur-xl opacity-70" />
+                  <div className="absolute -inset-3 bg-gradient-to-br from-[#D4AF37]/30 via-[#E8C547]/20 to-[#F0D77B]/20 rounded-[24px] blur-xl opacity-70" />
                 <div className="relative w-[132px] h-[168px] rounded-[20px] overflow-hidden border border-white/[0.10] bg-black shadow-2xl">
                   <Image
                     src="/images/inkithai.jpg"
@@ -60,7 +60,7 @@ export function HeroSection() {
                   />
                   <div className="absolute inset-0 ring-1 ring-inset ring-white/[0.08] rounded-[20px]" />
                 </div>
-                <div className="absolute -bottom-2 -right-2 bg-gradient-to-r from-[#10B981] to-[#34D399] text-white px-3 py-1 rounded-full text-[10px] font-bold shadow-lg">
+                <div className="absolute -bottom-2 -right-2 bg-gradient-to-r from-[#D4AF37] to-[#E8C547] text-white px-3 py-1 rounded-full text-[10px] font-bold shadow-lg">
                   ✨ SLIIT
                 </div>
               </div>
@@ -74,8 +74,8 @@ export function HeroSection() {
               className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/[0.04] border border-white/[0.08] backdrop-blur-xl mb-8"
             >
               <span className="relative flex h-2.5 w-2.5">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#10B981] opacity-75" />
-                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#10B981]" />
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#D4AF37] opacity-75" />
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#D4AF37]" />
               </span>
               <span className="text-[11.5px] font-mono tracking-wider uppercase text-[#94A3B8]">
                 {personal.status.label}
@@ -124,8 +124,8 @@ export function HeroSection() {
                   href="/work"
                   className="group relative inline-flex items-center gap-2 px-7 py-3.5 rounded-full text-[14px] font-semibold text-white overflow-hidden"
                 >
-                  <div className="absolute inset-0 bg-gradient-to-r from-[#10B981] via-[#34D399] to-[#6EE7B7]" />
-                  <div className="absolute inset-0 bg-gradient-to-r from-[#10B981] via-[#34D399] to-[#6EE7B7] opacity-0 group-hover:opacity-100 blur-xl transition-opacity" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-[#D4AF37] via-[#E8C547] to-[#F0D77B]" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-[#D4AF37] via-[#E8C547] to-[#F0D77B] opacity-0 group-hover:opacity-100 blur-xl transition-opacity" />
                   <span className="relative flex items-center gap-2">
                     View my work
                     <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
@@ -214,7 +214,7 @@ export function HeroSection() {
                 className="relative hidden lg:block"
               >
                 {/* Glow behind portrait */}
-                <div className="absolute -inset-5 bg-gradient-to-br from-[#10B981]/20 via-[#34D399]/10 to-[#6EE7B7]/15 rounded-[32px] blur-[32px] opacity-70" />
+                <div className="absolute -inset-5 bg-gradient-to-br from-[#D4AF37]/20 via-[#E8C547]/10 to-[#F0D77B]/15 rounded-[32px] blur-[32px] opacity-70" />
                 
                 {/* Portrait container */}
                 <div className="relative rounded-[24px] overflow-hidden border border-white/[0.08] bg-black shadow-2xl shadow-[#000]/50 aspect-[4/5]">
@@ -240,8 +240,8 @@ export function HeroSection() {
                         <div className="text-white font-semibold text-[15px] tracking-tight">Inkithai Meiyalagan</div>
                         <div className="text-[#94A3B8] text-[12px] mt-0.5 font-medium">Full Stack & AI Engineer</div>
                       </div>
-                      <div className="flex items-center gap-1.5 text-[11px] font-mono text-[#10B981] bg-[#10B981]/10 border border-[#10B981]/20 px-2.5 py-1 rounded-full">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#10B981] animate-pulse" />
+                      <div className="flex items-center gap-1.5 text-[11px] font-mono text-[#D4AF37] bg-[#D4AF37]/10 border border-[#D4AF37]/20 px-2.5 py-1 rounded-full">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#D4AF37] animate-pulse" />
                         Available
                       </div>
                     </div>
@@ -257,12 +257,12 @@ export function HeroSection() {
                     initial={{ y: 0, rotate: 2 }}
                     animate={{ y: [0, -8, 0], rotate: [2, -1, 2] }}
                     transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-                    className="absolute -top-3 -right-3 bg-gradient-to-r from-[#10B981] to-[#34D399] text-white px-4 py-2 rounded-full text-[11px] font-bold shadow-xl shadow-[#10B981]/30 will-change-transform"
+                    className="absolute -top-3 -right-3 bg-gradient-to-r from-[#D4AF37] to-[#E8C547] text-white px-4 py-2 rounded-full text-[11px] font-bold shadow-xl shadow-[#D4AF37]/30 will-change-transform"
                   >
                     ✨ AI Engineer • SLIIT
                   </motion.div>
                 ) : (
-                  <div className="absolute -top-3 -right-3 bg-gradient-to-r from-[#10B981] to-[#34D399] text-white px-4 py-2 rounded-full text-[11px] font-bold shadow-xl">
+                  <div className="absolute -top-3 -right-3 bg-gradient-to-r from-[#D4AF37] to-[#E8C547] text-white px-4 py-2 rounded-full text-[11px] font-bold shadow-xl">
                     ✨ AI Engineer • SLIIT
                   </div>
                 )}
@@ -281,7 +281,7 @@ export function HeroSection() {
                 className="relative"
               >
                 {/* Glow behind card */}
-                <div className="absolute -inset-6 bg-gradient-to-br from-[#10B981]/10 via-[#34D399]/5 to-[#6EE7B7]/10 rounded-[32px] blur-3xl opacity-40 hidden lg:block" />
+                <div className="absolute -inset-6 bg-gradient-to-br from-[#D4AF37]/10 via-[#E8C547]/5 to-[#F0D77B]/10 rounded-[32px] blur-3xl opacity-40 hidden lg:block" />
 
                 <div className="relative rounded-[20px] overflow-hidden border border-white/[0.08] bg-[#0B1120]/80 backdrop-blur-xl shadow-2xl shadow-[#000]/40">
                   {/* Window header */}
@@ -292,8 +292,8 @@ export function HeroSection() {
                       <span className="w-3 h-3 rounded-full bg-[#28CA42]" />
                     </div>
                     <span className="text-[11px] font-mono text-[#64748B]">engineer.ts — ~/portfolio</span>
-                    <span className="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-[#10B981]/10 text-[#10B981] border border-[#10B981]/20 flex items-center gap-1.5">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#10B981] animate-pulse" />
+                    <span className="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-[#D4AF37]/10 text-[#D4AF37] border border-[#D4AF37]/20 flex items-center gap-1.5">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#D4AF37] animate-pulse" />
                       LIVE
                     </span>
                   </div>
@@ -303,17 +303,17 @@ export function HeroSection() {
                     <div className="text-[#64748B]">// Full-stack & AI engineer profile</div>
                     <div className="mt-3">
                       <span className="text-[#C084FC]">const</span>{" "}
-                      <span className="text-[#6EE7B7]">engineer</span>{" "}
+                      <span className="text-[#F0D77B]">engineer</span>{" "}
                       <span className="text-[#64748B]">=</span>{" "}
                       <span className="text-[#94A3B8]">{"{"}</span>
                     </div>
                     <div className="pl-4">
-                      <span className="text-[#34D399]">role</span>:{" "}
+                      <span className="text-[#E8C547]">role</span>:{" "}
                       <span className="text-[#FBBF24]">&quot;Full Stack & AI&quot;</span>
                       <span className="text-[#64748B]">,</span>
                     </div>
                     <div className="pl-4">
-                      <span className="text-[#34D399]">stack</span>:{" "}
+                      <span className="text-[#E8C547]">stack</span>:{" "}
                       <span className="text-[#94A3B8]">[</span>
                       <span className="text-[#FBBF24]">&quot;Next.js&quot;</span>
                       <span className="text-[#64748B]">,</span>{" "}
@@ -324,24 +324,24 @@ export function HeroSection() {
                       <span className="text-[#64748B]">,</span>
                     </div>
                     <div className="pl-4">
-                      <span className="text-[#34D399]">focus</span>:{" "}
+                      <span className="text-[#E8C547]">focus</span>:{" "}
                       <span className="text-[#FBBF24]">&quot;AI products that ship&quot;</span>
                       <span className="text-[#64748B]">,</span>
                     </div>
                     <div className="pl-4 flex items-center gap-2">
-                      <span className="text-[#34D399]">shipping</span>:{" "}
+                      <span className="text-[#E8C547]">shipping</span>:{" "}
                       <span className="text-[#C084FC]">true</span>
                       <span className="text-[#64748B]">,</span>
-                      <span className="w-2 h-5 bg-[#10B981] inline-block animate-pulse ml-1 rounded-sm" />
+                      <span className="w-2 h-5 bg-[#D4AF37] inline-block animate-pulse ml-1 rounded-sm" />
                     </div>
                     <div className="text-[#94A3B8]">{"}"}</div>
 
                     {/* Mini bento badges */}
                     <div className="mt-5 grid grid-cols-3 gap-2.5">
                       {[
-                        { k: "AI Native", v: "RAG · LLMs", from: "#10B981", to: "#059669" },
-                        { k: "Full Stack", v: "Next · Node", from: "#34D399", to: "#059669" },
-                        { k: "Product", v: "UX · Ship", from: "#6EE7B7", to: "#047857" },
+                        { k: "AI Native", v: "RAG · LLMs", from: "#D4AF37", to: "#B8860B" },
+                        { k: "Full Stack", v: "Next · Node", from: "#E8C547", to: "#B8860B" },
+                        { k: "Product", v: "UX · Ship", from: "#F0D77B", to: "#8B6914" },
                       ].map((b) => (
                         <div
                           key={b.k}
@@ -361,8 +361,8 @@ export function HeroSection() {
                   <div className="px-5 py-3 border-t border-white/[0.06] bg-white/[0.02] flex items-center justify-between text-[11px] font-mono">
                     <span className="text-[#64748B] flex items-center gap-2">
                       <span className="relative flex h-2 w-2">
-                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#10B981] opacity-75" />
-                        <span className="relative inline-flex rounded-full h-2 w-2 bg-[#10B981]" />
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#D4AF37] opacity-75" />
+                        <span className="relative inline-flex rounded-full h-2 w-2 bg-[#D4AF37]" />
                       </span>
                       Available for work
                     </span>

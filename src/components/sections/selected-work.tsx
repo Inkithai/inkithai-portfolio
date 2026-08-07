@@ -15,8 +15,8 @@ export function SelectedWorkSection() {
       <div className="container-max section-padding">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
           <div>
-            <div className="label-mono text-[#10B981] mb-4 flex items-center gap-2">
-              <span className="w-6 h-px bg-[#10B981]" />
+            <div className="label-mono text-[#D4AF37] mb-4 flex items-center gap-2">
+              <span className="w-6 h-px bg-[#D4AF37]" />
               Selected Work
             </div>
             <h2 className="heading-section text-[#F8FAFC] max-w-[600px]">
@@ -37,7 +37,7 @@ export function SelectedWorkSection() {
               whileInView={{ y: 0, opacity: 1 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ delay: i * 0.1, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-              className="group relative rounded-[24px] overflow-hidden bg-[#0F172A]/60 border border-white/[0.06] hover:border-[#10B981]/20 backdrop-blur-xl transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_20px_60px_-15px_rgba(16,185,129,0.15)]"
+              className="group relative rounded-[24px] overflow-hidden bg-[#0F172A]/60 border border-white/[0.06] hover:border-[#D4AF37]/20 backdrop-blur-xl transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_20px_60px_-15px_rgba(16,185,129,0.15)]"
             >
               {/* Media */}
               <div className="relative h-[280px] overflow-hidden">
@@ -69,7 +69,7 @@ export function SelectedWorkSection() {
                   </div>
                 </div>
 
-                <div className="absolute top-5 left-5 px-3 py-1.5 rounded-full bg-gradient-to-r from-[#10B981] to-[#34D399] text-white text-[11px] font-bold tracking-wide shadow-lg">FEATURED</div>
+                <div className="absolute top-5 left-5 px-3 py-1.5 rounded-full bg-gradient-to-r from-[#D4AF37] to-[#E8C547] text-white text-[11px] font-bold tracking-wide shadow-lg">FEATURED</div>
               </div>
 
               {/* Content */}
@@ -80,7 +80,7 @@ export function SelectedWorkSection() {
                     <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-white/[0.04] border border-white/[0.08] flex items-center justify-center text-[#94A3B8] hover:text-[#F8FAFC] hover:border-white/[0.15] transition-all">
                       <GithubIcon className="w-4 h-4" />
                     </a>
-                    <Link href="/work" className="w-9 h-9 rounded-full bg-gradient-to-r from-[#10B981] to-[#34D399] flex items-center justify-center text-white shadow-lg shadow-[#10B981]/20">
+                    <Link href="/work" className="w-9 h-9 rounded-full bg-gradient-to-r from-[#D4AF37] to-[#E8C547] flex items-center justify-center text-white shadow-lg shadow-[#D4AF37]/20">
                       <ArrowUpRight className="w-4 h-4" />
                     </Link>
                   </div>
@@ -88,7 +88,7 @@ export function SelectedWorkSection() {
                 <p className="text-[14px] leading-relaxed text-[#94A3B8] mt-3">{project.description}</p>
 
                 {project.outcome && (
-                  <div className="mt-4 px-4 py-2.5 rounded-[12px] bg-[#10B981]/[0.06] border border-[#10B981]/10 text-[12px] text-[#6EE7B7]">
+                  <div className="mt-4 px-4 py-2.5 rounded-[12px] bg-[#D4AF37]/[0.06] border border-[#D4AF37]/10 text-[12px] text-[#F0D77B]">
                     <span className="text-[#64748B] font-mono text-[11px] uppercase tracking-widest mr-2">Outcome</span>
                     {project.outcome}
                   </div>

@@ -20,13 +20,13 @@ export function FinalCTASection() {
       <div className="container-max section-padding">
         <div className="relative rounded-[28px] overflow-hidden bg-[#0F172A]/60 backdrop-blur-xl border border-white/[0.08]">
           {/* Animated gradient background */}
-          <div className="absolute inset-0 bg-gradient-to-br from-[#10B981]/10 via-[#34D399]/5 to-[#6EE7B7]/[0.06] pointer-events-none" />
-          <div className="absolute -top-20 -right-20 w-96 h-96 bg-[#10B981]/15 rounded-full blur-[100px] pointer-events-none" />
-          <div className="absolute -bottom-20 -left-20 w-80 h-80 bg-[#34D399]/10 rounded-full blur-[80px] pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-br from-[#D4AF37]/10 via-[#E8C547]/5 to-[#F0D77B]/[0.06] pointer-events-none" />
+          <div className="absolute -top-20 -right-20 w-96 h-96 bg-[#D4AF37]/15 rounded-full blur-[100px] pointer-events-none" />
+          <div className="absolute -bottom-20 -left-20 w-80 h-80 bg-[#E8C547]/10 rounded-full blur-[80px] pointer-events-none" />
 
           <div className="relative p-8 md:p-12 lg:p-14 grid lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-7">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-[#10B981] to-[#34D399] text-white text-[11px] font-bold tracking-wide shadow-lg shadow-[#10B981]/20">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-[#D4AF37] to-[#E8C547] text-white text-[11px] font-bold tracking-wide shadow-lg shadow-[#D4AF37]/20">
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75" />
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-white" />
@@ -46,8 +46,8 @@ export function FinalCTASection() {
                   href={`mailto:${personal.email}`}
                   className="group relative inline-flex items-center gap-2 px-7 py-3.5 rounded-full text-[14px] font-semibold text-white overflow-hidden"
                 >
-                  <div className="absolute inset-0 bg-gradient-to-r from-[#10B981] via-[#34D399] to-[#6EE7B7]" />
-                  <div className="absolute inset-0 bg-gradient-to-r from-[#10B981] via-[#34D399] to-[#6EE7B7] opacity-0 group-hover:opacity-100 blur-xl transition-opacity" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-[#D4AF37] via-[#E8C547] to-[#F0D77B]" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-[#D4AF37] via-[#E8C547] to-[#F0D77B] opacity-0 group-hover:opacity-100 blur-xl transition-opacity" />
                   <span className="relative flex items-center gap-2">
                     <Mail className="w-4 h-4" /> Email me directly <ArrowUpRight className="w-4 h-4" />
                   </span>
@@ -70,17 +70,17 @@ export function FinalCTASection() {
             <div className="lg:col-span-5">
               <div className="rounded-[20px] bg-[#0B1120]/80 border border-white/[0.06] p-5 backdrop-blur-xl">
                 <div className="flex items-center gap-3">
-                  <div className="w-11 h-11 rounded-full bg-gradient-to-br from-[#10B981] to-[#34D399] text-white flex items-center justify-center font-bold text-[14px] shadow-lg shadow-[#10B981]/20">IM</div>
+                  <div className="w-11 h-11 rounded-full bg-gradient-to-br from-[#D4AF37] to-[#E8C547] text-white flex items-center justify-center font-bold text-[14px] shadow-lg shadow-[#D4AF37]/20">IM</div>
                   <div>
                     <div className="text-[13px] font-semibold text-[#F8FAFC] flex items-center gap-2">
-                      Inkithai Meiyalagan <span className="relative flex h-2 w-2"><span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#10B981] opacity-75" /><span className="relative inline-flex rounded-full h-2 w-2 bg-[#10B981]" /></span>
+                      Inkithai Meiyalagan <span className="relative flex h-2 w-2"><span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#D4AF37] opacity-75" /><span className="relative inline-flex rounded-full h-2 w-2 bg-[#D4AF37]" /></span>
                     </div>
                     <div className="text-[11px] text-[#64748B]">Replies usually within 2 hours</div>
                   </div>
                 </div>
 
                 <div className="mt-5 space-y-3">
-                  <div className="rounded-[16px] bg-gradient-to-br from-[#10B981] to-[#34D399] p-4 text-[13px] leading-relaxed text-white shadow-lg">
+                  <div className="rounded-[16px] bg-gradient-to-br from-[#D4AF37] to-[#E8C547] p-4 text-[13px] leading-relaxed text-white shadow-lg">
                     Hey! Love your AI work — especially EduFlow. Free for a quick chat?
                     <div className="text-[11px] text-white/60 mt-1">Recruiter • 9:41 AM</div>
                   </div>
@@ -94,7 +94,7 @@ export function FinalCTASection() {
                   <a href={personal.socials.linkedin} target="_blank" rel="noopener noreferrer" className="flex-1 py-3 rounded-full bg-[#0A66C2] text-white text-[13px] font-semibold text-center hover:bg-[#0958a8] transition-colors shadow-lg shadow-[#0A66C2]/20">
                     LinkedIn
                   </a>
-                  <a href={personal.socials.github} target="_blank" rel="noopener noreferrer" className="flex-1 py-3 rounded-full bg-gradient-to-r from-[#10B981] to-[#34D399] text-white text-[13px] font-semibold text-center hover:shadow-lg hover:shadow-[#10B981]/20 transition-all">
+                  <a href={personal.socials.github} target="_blank" rel="noopener noreferrer" className="flex-1 py-3 rounded-full bg-gradient-to-r from-[#D4AF37] to-[#E8C547] text-white text-[13px] font-semibold text-center hover:shadow-lg hover:shadow-[#D4AF37]/20 transition-all">
                     GitHub
                   </a>
                 </div>

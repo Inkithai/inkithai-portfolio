@@ -74,7 +74,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="bg-[#030712] text-[#F8FAFC] antialiased selection:bg-[#10B981] selection:text-white font-sans">
+      <body className="bg-[#030712] text-[#F8FAFC] antialiased selection:bg-[#D4AF37] selection:text-white font-sans">
         {/* Animated mesh gradient background */}
         <div className="fixed inset-0 -z-10 pointer-events-none overflow-hidden">
           <div className="absolute inset-0 bg-[#030712]" />
@@ -83,21 +83,21 @@ export default function RootLayout({
           <div
             className="absolute top-[-20%] left-[-10%] w-[700px] h-[700px] rounded-full opacity-[0.12] blur-[120px]"
             style={{
-              background: 'radial-gradient(circle, #10B981, transparent 70%)',
+              background: 'radial-gradient(circle, #D4AF37, transparent 70%)',
               animation: 'meshMove 25s ease-in-out infinite',
             }}
           />
           <div
             className="absolute top-[10%] right-[-15%] w-[600px] h-[600px] rounded-full opacity-[0.1] blur-[120px]"
             style={{
-              background: 'radial-gradient(circle, #34D399, transparent 70%)',
+              background: 'radial-gradient(circle, #E8C547, transparent 70%)',
               animation: 'meshMove 30s ease-in-out infinite reverse',
             }}
           />
           <div
             className="absolute bottom-[-10%] left-[30%] w-[500px] h-[500px] rounded-full opacity-[0.08] blur-[100px]"
             style={{
-              background: 'radial-gradient(circle, #6EE7B7, transparent 70%)',
+              background: 'radial-gradient(circle, #F0D77B, transparent 70%)',
               animation: 'meshMove 22s ease-in-out infinite 5s',
             }}
           />
