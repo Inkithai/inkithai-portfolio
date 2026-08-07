@@ -1,21 +1,27 @@
 import { HeroSection } from "@/components/sections/hero";
-import { AboutSection } from "@/components/sections/about";
+import { SelectedWorkSection } from "@/components/sections/selected-work";
+import { EngineeringExpertiseSection } from "@/components/sections/engineering-expertise";
 import { ExperienceSection } from "@/components/sections/experience";
-import { ProjectsSection } from "@/components/sections/projects";
-import { SkillsSection } from "@/components/sections/skills";
-import { EducationSection } from "@/components/sections/education";
-import { ContactSection } from "@/components/sections/contact";
+import { AcademicFoundationSection } from "@/components/sections/academic-foundation";
+import { ResearchSection } from "@/components/sections/research";
+import { EntrepreneurshipSection } from "@/components/sections/entrepreneurship";
+import { CertificationsPreviewSection } from "@/components/sections/certifications-preview";
+import { AboutSection } from "@/components/sections/about";
+import { FinalCTASection } from "@/components/sections/final-cta";
 
 export default function Home() {
   return (
     <>
       <HeroSection />
-      <AboutSection />
+      <SelectedWorkSection />
+      <EngineeringExpertiseSection />
       <ExperienceSection />
-      <ProjectsSection />
-      <SkillsSection />
-      <EducationSection />
-      <ContactSection />
+      <AcademicFoundationSection />
+      <ResearchSection />
+      <EntrepreneurshipSection />
+      <CertificationsPreviewSection />
+      <AboutSection />
+      <FinalCTASection />
     </>
   );
 }
