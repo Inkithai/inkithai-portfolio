@@ -15,8 +15,8 @@ export function AboutSection() {
       <div className="absolute inset-0 bg-gradient-to-b from-[#0F172A]/30 via-transparent to-[#0F172A]/30 pointer-events-none" />
       <div className="container-max section-padding relative">
         <div className="max-w-[1100px]">
-          <div className="label-mono text-[#3B82F6] mb-4 flex items-center gap-2">
-            <span className="w-6 h-px bg-[#3B82F6]" />
+          <div className="label-mono text-[#10B981] mb-4 flex items-center gap-2">
+            <span className="w-6 h-px bg-[#10B981]" />
             About
           </div>
           <div className="grid lg:grid-cols-12 gap-10">
@@ -38,7 +38,7 @@ export function AboutSection() {
                     whileInView={{ y: 0, opacity: 1 }}
                     viewport={{ once: true }}
                     transition={{ delay: i * 0.08 }}
-                    className="rounded-[14px] bg-[#0F172A]/50 backdrop-blur-xl border border-white/[0.06] p-4 hover:border-[#3B82F6]/20 transition-colors"
+                    className="rounded-[14px] bg-[#0F172A]/50 backdrop-blur-xl border border-white/[0.06] p-4 hover:border-[#10B981]/20 transition-colors"
                   >
                     <div className="text-[13px] leading-relaxed text-[#94A3B8]">{item}</div>
                   </motion.div>
@@ -48,11 +48,11 @@ export function AboutSection() {
 
             <div className="lg:col-span-5 space-y-4">
               <div className="rounded-[20px] bg-[#0F172A]/50 backdrop-blur-xl border border-white/[0.06] p-6">
-                <div className="text-[11px] font-mono tracking-widest uppercase text-[#3B82F6]">What I Bring</div>
+                <div className="text-[11px] font-mono tracking-widest uppercase text-[#10B981]">What I Bring</div>
                 <div className="mt-4 space-y-3">
                   {about.highlights.slice(0, 4).map((h, i) => (
                     <div key={i} className="flex gap-3">
-                      <span className="shrink-0 w-6 h-6 rounded-full bg-gradient-to-br from-[#3B82F6]/20 to-[#06B6D4]/20 border border-[#3B82F6]/20 flex items-center justify-center text-[9px] font-mono text-[#38BDF8]">
+                      <span className="shrink-0 w-6 h-6 rounded-full bg-gradient-to-br from-[#10B981]/20 to-[#34D399]/20 border border-[#10B981]/20 flex items-center justify-center text-[9px] font-mono text-[#6EE7B7]">
                         0{i + 1}
                       </span>
                       <span className="text-[13px] leading-snug text-[#94A3B8]">{h.text}</span>

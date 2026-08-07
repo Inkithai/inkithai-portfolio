@@ -70,7 +70,7 @@ export function Navbar() {
                 <div
                   className="absolute inset-[-1px] rounded-full animate-gradient opacity-30"
                   style={{
-                    background: "linear-gradient(135deg, #3B82F6, #06B6D4, #14B8A6, #3B82F6)",
+                    background: "linear-gradient(135deg, #10B981, #34D399, #6EE7B7, #10B981)",
                     backgroundSize: "200% 200%",
                     mask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
                     WebkitMask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
@@ -85,10 +85,10 @@ export function Navbar() {
             {/* Logo */}
             <Link href="/" className="flex items-center gap-2.5 group relative z-10 pl-3 pr-2">
               <div className="relative">
-                <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#3B82F6] via-[#06B6D4] to-[#14B8A6] flex items-center justify-center text-white font-bold text-[14px] shadow-lg shadow-[#3B82F6]/20 group-hover:shadow-[#3B82F6]/40 transition-shadow">
+                <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#10B981] via-[#34D399] to-[#6EE7B7] flex items-center justify-center text-white font-bold text-[14px] shadow-lg shadow-[#10B981]/20 group-hover:shadow-[#10B981]/40 transition-shadow">
                   I
                 </div>
-                <div className="absolute -inset-1 rounded-xl bg-gradient-to-br from-[#3B82F6] to-[#06B6D4] opacity-0 group-hover:opacity-20 blur-sm transition-opacity" />
+                <div className="absolute -inset-1 rounded-xl bg-gradient-to-br from-[#10B981] to-[#34D399] opacity-0 group-hover:opacity-20 blur-sm transition-opacity" />
               </div>
               <span className="font-bold tracking-tight text-[14px] text-[#F8FAFC] hidden sm:inline">
                 {personal.shortName}
@@ -101,7 +101,7 @@ export function Navbar() {
                 const isActive = pathname === item.href;
                 const baseClass = "px-4 py-2 rounded-full text-[13.5px] font-medium transition-all duration-300";
                 const activeClass = isActive
-                  ? "text-white bg-gradient-to-r from-[#3B82F6]/20 to-[#06B6D4]/20 border border-[#3B82F6]/30 shadow-[0_0_15px_-3px_rgba(59,130,246,0.3)]"
+                  ? "text-white bg-gradient-to-r from-[#10B981]/20 to-[#34D399]/20 border border-[#10B981]/30 shadow-[0_0_15px_-3px_rgba(16,185,129,0.3)]"
                   : "text-[#94A3B8] hover:text-[#F8FAFC] hover:bg-white/[0.04]";
 
                 return item.type === "page" ? (
@@ -140,8 +140,8 @@ export function Navbar() {
                 onClick={(e) => handleAnchorClick(e, "/#contact")}
                 className="relative group px-5 py-2.5 rounded-full text-[13.5px] font-semibold text-white overflow-hidden"
               >
-                <div className="absolute inset-0 bg-gradient-to-r from-[#3B82F6] via-[#06B6D4] to-[#14B8A6] transition-all duration-300 group-hover:scale-105" />
-                <div className="absolute inset-0 bg-gradient-to-r from-[#3B82F6] via-[#06B6D4] to-[#14B8A6] opacity-0 group-hover:opacity-100 blur-lg transition-opacity" />
+                <div className="absolute inset-0 bg-gradient-to-r from-[#10B981] via-[#34D399] to-[#6EE7B7] transition-all duration-300 group-hover:scale-105" />
+                <div className="absolute inset-0 bg-gradient-to-r from-[#10B981] via-[#34D399] to-[#6EE7B7] opacity-0 group-hover:opacity-100 blur-lg transition-opacity" />
                 <span className="relative flex items-center gap-1.5">
                   Contact
                   <Sparkles className="w-3.5 h-3.5" />
@@ -172,8 +172,8 @@ export function Navbar() {
             className="fixed inset-0 z-40 bg-[#030712]/95 backdrop-blur-3xl md:hidden flex flex-col"
           >
             {/* Animated bg orbs */}
-            <div className="absolute top-20 left-10 w-64 h-64 bg-[#3B82F6]/10 rounded-full blur-[80px] pointer-events-none" />
-            <div className="absolute bottom-20 right-10 w-64 h-64 bg-[#06B6D4]/10 rounded-full blur-[80px] pointer-events-none" />
+            <div className="absolute top-20 left-10 w-64 h-64 bg-[#10B981]/10 rounded-full blur-[80px] pointer-events-none" />
+            <div className="absolute bottom-20 right-10 w-64 h-64 bg-[#34D399]/10 rounded-full blur-[80px] pointer-events-none" />
 
             <div className="flex-1 flex flex-col justify-center px-8 gap-1 pt-24 relative">
               <motion.div
@@ -198,7 +198,7 @@ export function Navbar() {
                 >
                   Home
                 </motion.span>
-                <span className="text-[#64748B] group-hover:text-[#3B82F6] transition-colors">→</span>
+                <span className="text-[#64748B] group-hover:text-[#10B981] transition-colors">→</span>
               </Link>
 
               {navItems.map((item, i) => (
@@ -217,7 +217,7 @@ export function Navbar() {
                       <span className="text-3xl font-bold tracking-tight text-[#F8FAFC]">
                         {item.label}
                       </span>
-                      <span className="text-[#64748B] group-hover:text-[#06B6D4] transition-colors">→</span>
+                      <span className="text-[#64748B] group-hover:text-[#34D399] transition-colors">→</span>
                     </Link>
                   ) : (
                     <a
@@ -228,7 +228,7 @@ export function Navbar() {
                       <span className="text-3xl font-bold tracking-tight text-[#F8FAFC]">
                         {item.label}
                       </span>
-                      <span className="text-[#64748B] group-hover:text-[#06B6D4] transition-colors">→</span>
+                      <span className="text-[#64748B] group-hover:text-[#34D399] transition-colors">→</span>
                     </a>
                   )}
                 </motion.div>
@@ -250,7 +250,7 @@ export function Navbar() {
                 <a
                   href="/#contact"
                   onClick={(e) => handleAnchorClick(e, "/#contact")}
-                  className="w-full py-4 rounded-full bg-gradient-to-r from-[#3B82F6] via-[#06B6D4] to-[#14B8A6] text-white text-center text-[15px] font-semibold shadow-lg shadow-[#3B82F6]/20"
+                  className="w-full py-4 rounded-full bg-gradient-to-r from-[#10B981] via-[#34D399] to-[#6EE7B7] text-white text-center text-[15px] font-semibold shadow-lg shadow-[#10B981]/20"
                 >
                   Get in touch ✨
                 </a>

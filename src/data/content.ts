@@ -19,6 +19,7 @@ export const personal = {
   socials: {
     github: "https://github.com/Inkithai",
     linkedin: "https://www.linkedin.com/in/inkithai/",
+    medium: "https://medium.com/@inkithai",
     twitter: "https://twitter.com/Inkithai",
   },
   status: {

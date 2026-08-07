@@ -2,7 +2,8 @@
 
 import { motion } from "framer-motion";
 import { ArrowUpRight, Mail, Zap, Terminal } from "lucide-react";
-import { GithubIcon, LinkedinIcon } from "@/components/ui/icons";
+import { GithubIcon, LinkedinIcon, MediumIcon } from "@/components/ui/icons";
+import { ParticleField } from "@/components/ui/particle-field";
 import { personal } from "@/data/content";
 import Link from "next/link";
 import { useState, useEffect } from "react";
@@ -25,9 +26,14 @@ export function HeroSection() {
 
   return (
     <section id="hero" className="relative min-h-[92vh] flex items-center pt-28 pb-16 overflow-hidden">
-      {/* Hero-specific glow orbs */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gradient-to-b from-[#3B82F6]/15 via-[#06B6D4]/5 to-transparent rounded-full blur-[100px] pointer-events-none" />
-      <div className="absolute -bottom-40 -right-40 w-[500px] h-[500px] bg-[#14B8A6]/8 rounded-full blur-[120px] pointer-events-none" />
+      {/* Ambient backdrop: blueprint grid + drifting aurora + interactive constellation */}
+      <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+        <div className="absolute inset-0 bg-grid-fade" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gradient-to-b from-[#10B981]/15 via-[#34D399]/5 to-transparent rounded-full blur-[100px] animate-aurora" />
+        <div className="absolute -bottom-40 -right-40 w-[500px] h-[500px] bg-[#6EE7B7]/8 rounded-full blur-[120px] animate-aurora-slow" />
+        <ParticleField className="absolute inset-0 opacity-80" />
+        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-b from-transparent to-[#030712]" />
+      </div>
 
       <div className="container-max section-padding w-full relative z-10">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-10 items-start">
@@ -91,8 +97,8 @@ export function HeroSection() {
                   href="/work"
                   className="group relative inline-flex items-center gap-2 px-7 py-3.5 rounded-full text-[14px] font-semibold text-white overflow-hidden"
                 >
-                  <div className="absolute inset-0 bg-gradient-to-r from-[#3B82F6] via-[#06B6D4] to-[#14B8A6]" />
-                  <div className="absolute inset-0 bg-gradient-to-r from-[#3B82F6] via-[#06B6D4] to-[#14B8A6] opacity-0 group-hover:opacity-100 blur-xl transition-opacity" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-[#10B981] via-[#34D399] to-[#6EE7B7]" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-[#10B981] via-[#34D399] to-[#6EE7B7] opacity-0 group-hover:opacity-100 blur-xl transition-opacity" />
                   <span className="relative flex items-center gap-2">
                     View my work
                     <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
@@ -131,6 +137,14 @@ export function HeroSection() {
                   className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-white/[0.03] border border-white/[0.06] text-[#94A3B8] hover:text-[#F8FAFC] hover:border-white/[0.12] hover:bg-white/[0.06] text-[13px] transition-all"
                 >
                   <LinkedinIcon className="w-4 h-4" /> LinkedIn
+                </a>
+                <a
+                  href={personal.socials.medium}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-white/[0.03] border border-white/[0.06] text-[#94A3B8] hover:text-[#F8FAFC] hover:border-white/[0.12] hover:bg-white/[0.06] text-[13px] transition-all"
+                >
+                  <MediumIcon className="w-4 h-4" /> Medium
                 </a>
                 <button
                   onClick={copyEmail}
@@ -171,7 +185,7 @@ export function HeroSection() {
               className="relative"
             >
               {/* Glow behind card */}
-              <div className="absolute -inset-6 bg-gradient-to-br from-[#3B82F6]/20 via-[#06B6D4]/10 to-[#14B8A6]/15 rounded-[32px] blur-3xl opacity-60" />
+              <div className="absolute -inset-6 bg-gradient-to-br from-[#10B981]/20 via-[#34D399]/10 to-[#6EE7B7]/15 rounded-[32px] blur-3xl opacity-60" />
 
               <div className="relative rounded-[20px] overflow-hidden border border-white/[0.08] bg-[#0B1120]/80 backdrop-blur-xl shadow-2xl shadow-[#000]/40">
                 {/* Window header */}
@@ -193,7 +207,7 @@ export function HeroSection() {
                   <div className="text-[#64748B]">// Full-stack & AI engineer profile</div>
                   <div className="mt-3">
                     <span className="text-[#C084FC]">const</span>{" "}
-                    <span className="text-[#38BDF8]">engineer</span>{" "}
+                    <span className="text-[#6EE7B7]">engineer</span>{" "}
                     <span className="text-[#64748B]">=</span>{" "}
                     <span className="text-[#94A3B8]">{"{"}</span>
                   </div>
@@ -222,16 +236,16 @@ export function HeroSection() {
                     <span className="text-[#34D399]">shipping</span>:{" "}
                     <span className="text-[#C084FC]">true</span>
                     <span className="text-[#64748B]">,</span>
-                    <span className="w-2 h-5 bg-[#3B82F6] inline-block animate-pulse ml-1 rounded-sm" />
+                    <span className="w-2 h-5 bg-[#10B981] inline-block animate-pulse ml-1 rounded-sm" />
                   </div>
                   <div className="text-[#94A3B8]">{"}"}</div>
 
                   {/* Mini bento badges */}
                   <div className="mt-5 grid grid-cols-3 gap-2.5">
                     {[
-                      { k: "AI Native", v: "RAG · LLMs", from: "#3B82F6", to: "#2563EB" },
-                      { k: "Full Stack", v: "Next · Node", from: "#06B6D4", to: "#0891B2" },
-                      { k: "Product", v: "UX · Ship", from: "#14B8A6", to: "#0D9488" },
+                      { k: "AI Native", v: "RAG · LLMs", from: "#10B981", to: "#059669" },
+                      { k: "Full Stack", v: "Next · Node", from: "#34D399", to: "#059669" },
+                      { k: "Product", v: "UX · Ship", from: "#6EE7B7", to: "#047857" },
                     ].map((b) => (
                       <div
                         key={b.k}
@@ -266,13 +280,13 @@ export function HeroSection() {
                   initial={{ y: 0, rotate: 2 }}
                   animate={{ y: [0, -8, 0], rotate: [2, -1, 2] }}
                   transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-                  className="absolute -top-3 -right-2 md:-right-4 bg-gradient-to-r from-[#3B82F6] to-[#06B6D4] text-white px-4 py-2 rounded-full text-[11px] font-bold shadow-xl shadow-[#3B82F6]/30 will-change-transform"
+                  className="absolute -top-3 -right-2 md:-right-4 bg-gradient-to-r from-[#10B981] to-[#34D399] text-white px-4 py-2 rounded-full text-[11px] font-bold shadow-xl shadow-[#10B981]/30 will-change-transform"
                 >
                   ✨ AI Engineer • SLIIT
                 </motion.div>
               )}
               {!mounted && (
-                <div className="absolute -top-3 -right-2 md:-right-4 bg-gradient-to-r from-[#3B82F6] to-[#06B6D4] text-white px-4 py-2 rounded-full text-[11px] font-bold shadow-xl">
+                <div className="absolute -top-3 -right-2 md:-right-4 bg-gradient-to-r from-[#10B981] to-[#34D399] text-white px-4 py-2 rounded-full text-[11px] font-bold shadow-xl">
                   ✨ AI Engineer • SLIIT
                 </div>
               )}
