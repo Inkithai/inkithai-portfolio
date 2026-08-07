@@ -6,6 +6,7 @@ import { GithubIcon, LinkedinIcon, MediumIcon } from "@/components/ui/icons";
 import { ParticleField } from "@/components/ui/particle-field";
 import { personal } from "@/data/content";
 import Link from "next/link";
+import Image from "next/image";
 import { useState, useEffect } from "react";
 
 export function HeroSection() {
@@ -26,7 +27,7 @@ export function HeroSection() {
 
   return (
     <section id="hero" className="relative min-h-[92vh] flex items-center pt-28 pb-16 overflow-hidden">
-      {/* Ambient backdrop: blueprint grid + drifting aurora + interactive constellation */}
+      {/* Ambient backdrop */}
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
         <div className="absolute inset-0 bg-grid-fade" />
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gradient-to-b from-[#10B981]/15 via-[#34D399]/5 to-transparent rounded-full blur-[100px] animate-aurora" />
@@ -39,6 +40,32 @@ export function HeroSection() {
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-10 items-start">
           {/* Content */}
           <div className="lg:col-span-7">
+            {/* Mobile Portrait - visible only on mobile/tablet */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="lg:hidden mb-8 flex justify-start"
+            >
+              <div className="relative">
+                <div className="absolute -inset-3 bg-gradient-to-br from-[#10B981]/30 via-[#34D399]/20 to-[#6EE7B7]/20 rounded-[24px] blur-xl opacity-70" />
+                <div className="relative w-[132px] h-[168px] rounded-[20px] overflow-hidden border border-white/[0.10] bg-black shadow-2xl">
+                  <Image
+                    src="/images/inkithai.jpg"
+                    alt="Inkithai Meiyalagan"
+                    width={264}
+                    height={336}
+                    className="w-full h-full object-cover object-top"
+                    priority
+                  />
+                  <div className="absolute inset-0 ring-1 ring-inset ring-white/[0.08] rounded-[20px]" />
+                </div>
+                <div className="absolute -bottom-2 -right-2 bg-gradient-to-r from-[#10B981] to-[#34D399] text-white px-3 py-1 rounded-full text-[10px] font-bold shadow-lg">
+                  ✨ SLIIT
+                </div>
+              </div>
+            </motion.div>
+
             {/* Status badge */}
             <motion.div
               initial={{ opacity: 0, y: 12 }}
@@ -176,121 +203,174 @@ export function HeroSection() {
             </motion.div>
           </div>
 
-          {/* Code visual card */}
+          {/* Right column: Portrait + Code visual */}
           <div className="lg:col-span-5 lg:pl-4">
-            <motion.div
-              initial={{ opacity: 0, y: 20, rotateY: -5 }}
-              animate={{ opacity: 1, y: 0, rotateY: 0 }}
-              transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-              className="relative"
-            >
-              {/* Glow behind card */}
-              <div className="absolute -inset-6 bg-gradient-to-br from-[#10B981]/20 via-[#34D399]/10 to-[#6EE7B7]/15 rounded-[32px] blur-3xl opacity-60" />
-
-              <div className="relative rounded-[20px] overflow-hidden border border-white/[0.08] bg-[#0B1120]/80 backdrop-blur-xl shadow-2xl shadow-[#000]/40">
-                {/* Window header */}
-                <div className="flex items-center justify-between px-5 py-3.5 border-b border-white/[0.06] bg-white/[0.02]">
-                  <div className="flex items-center gap-1.5">
-                    <span className="w-3 h-3 rounded-full bg-[#FF5F57]" />
-                    <span className="w-3 h-3 rounded-full bg-[#FFBD2E]" />
-                    <span className="w-3 h-3 rounded-full bg-[#28CA42]" />
-                  </div>
-                  <span className="text-[11px] font-mono text-[#64748B]">engineer.ts — ~/portfolio</span>
-                  <span className="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-[#10B981]/10 text-[#10B981] border border-[#10B981]/20 flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#10B981] animate-pulse" />
-                    LIVE
-                  </span>
-                </div>
-
-                {/* Code content */}
-                <div className="p-5 font-mono text-[12.5px] leading-[1.9]">
-                  <div className="text-[#64748B]">// Full-stack & AI engineer profile</div>
-                  <div className="mt-3">
-                    <span className="text-[#C084FC]">const</span>{" "}
-                    <span className="text-[#6EE7B7]">engineer</span>{" "}
-                    <span className="text-[#64748B]">=</span>{" "}
-                    <span className="text-[#94A3B8]">{"{"}</span>
-                  </div>
-                  <div className="pl-4">
-                    <span className="text-[#34D399]">role</span>:{" "}
-                    <span className="text-[#FBBF24]">&quot;Full Stack & AI&quot;</span>
-                    <span className="text-[#64748B]">,</span>
-                  </div>
-                  <div className="pl-4">
-                    <span className="text-[#34D399]">stack</span>:{" "}
-                    <span className="text-[#94A3B8]">[</span>
-                    <span className="text-[#FBBF24]">&quot;Next.js&quot;</span>
-                    <span className="text-[#64748B]">,</span>{" "}
-                    <span className="text-[#FBBF24]">&quot;Node&quot;</span>
-                    <span className="text-[#64748B]">,</span>{" "}
-                    <span className="text-[#FBBF24]">&quot;OpenAI&quot;</span>
-                    <span className="text-[#94A3B8]">]</span>
-                    <span className="text-[#64748B]">,</span>
-                  </div>
-                  <div className="pl-4">
-                    <span className="text-[#34D399]">focus</span>:{" "}
-                    <span className="text-[#FBBF24]">&quot;AI products that ship&quot;</span>
-                    <span className="text-[#64748B]">,</span>
-                  </div>
-                  <div className="pl-4 flex items-center gap-2">
-                    <span className="text-[#34D399]">shipping</span>:{" "}
-                    <span className="text-[#C084FC]">true</span>
-                    <span className="text-[#64748B]">,</span>
-                    <span className="w-2 h-5 bg-[#10B981] inline-block animate-pulse ml-1 rounded-sm" />
-                  </div>
-                  <div className="text-[#94A3B8]">{"}"}</div>
-
-                  {/* Mini bento badges */}
-                  <div className="mt-5 grid grid-cols-3 gap-2.5">
-                    {[
-                      { k: "AI Native", v: "RAG · LLMs", from: "#10B981", to: "#059669" },
-                      { k: "Full Stack", v: "Next · Node", from: "#34D399", to: "#059669" },
-                      { k: "Product", v: "UX · Ship", from: "#6EE7B7", to: "#047857" },
-                    ].map((b) => (
-                      <div
-                        key={b.k}
-                        className="rounded-[14px] p-[1px]"
-                        style={{ background: `linear-gradient(135deg, ${b.from}, ${b.to})` }}
-                      >
-                        <div className="rounded-[13px] bg-[#0B1120]/90 p-3 text-center">
-                          <div className="text-[12px] font-bold text-[#F8FAFC]">{b.k}</div>
-                          <div className="text-[10px] text-[#64748B] mt-0.5">{b.v}</div>
-                        </div>
+            <div className="flex flex-col gap-6 max-w-[400px] mx-auto lg:mx-0 lg:ml-auto">
+              {/* Portrait Card - Inkithai's Image with black background */}
+              <motion.div
+                initial={{ opacity: 0, y: 24, rotateY: -6 }}
+                animate={{ opacity: 1, y: 0, rotateY: 0 }}
+                transition={{ duration: 0.9, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
+                className="relative hidden lg:block"
+              >
+                {/* Glow behind portrait */}
+                <div className="absolute -inset-5 bg-gradient-to-br from-[#10B981]/20 via-[#34D399]/10 to-[#6EE7B7]/15 rounded-[32px] blur-[32px] opacity-70" />
+                
+                {/* Portrait container */}
+                <div className="relative rounded-[24px] overflow-hidden border border-white/[0.08] bg-black shadow-2xl shadow-[#000]/50 aspect-[4/5]">
+                  {/* Subtle top highlight */}
+                  <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent z-10" />
+                  
+                  <Image
+                    src="/images/inkithai.jpg"
+                    alt="Inkithai Meiyalagan - Full Stack & AI Engineer"
+                    width={800}
+                    height={1000}
+                    className="w-full h-full object-cover object-top"
+                    priority
+                  />
+                  
+                  {/* Inner ring */}
+                  <div className="absolute inset-0 rounded-[24px] ring-1 ring-inset ring-white/[0.08] pointer-events-none" />
+                  
+                  {/* Bottom gradient with info */}
+                  <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black via-black/70 to-transparent pt-20 pb-5 px-5">
+                    <div className="flex items-end justify-between">
+                      <div>
+                        <div className="text-white font-semibold text-[15px] tracking-tight">Inkithai Meiyalagan</div>
+                        <div className="text-[#94A3B8] text-[12px] mt-0.5 font-medium">Full Stack & AI Engineer</div>
                       </div>
-                    ))}
+                      <div className="flex items-center gap-1.5 text-[11px] font-mono text-[#10B981] bg-[#10B981]/10 border border-[#10B981]/20 px-2.5 py-1 rounded-full">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#10B981] animate-pulse" />
+                        Available
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Subtle vignette for passport studio feel */}
+                  <div className="absolute inset-0 bg-radial-fade pointer-events-none opacity-40" />
+                </div>
+
+                {/* Floating badge */}
+                {mounted ? (
+                  <motion.div
+                    initial={{ y: 0, rotate: 2 }}
+                    animate={{ y: [0, -8, 0], rotate: [2, -1, 2] }}
+                    transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+                    className="absolute -top-3 -right-3 bg-gradient-to-r from-[#10B981] to-[#34D399] text-white px-4 py-2 rounded-full text-[11px] font-bold shadow-xl shadow-[#10B981]/30 will-change-transform"
+                  >
+                    ✨ AI Engineer • SLIIT
+                  </motion.div>
+                ) : (
+                  <div className="absolute -top-3 -right-3 bg-gradient-to-r from-[#10B981] to-[#34D399] text-white px-4 py-2 rounded-full text-[11px] font-bold shadow-xl">
+                    ✨ AI Engineer • SLIIT
+                  </div>
+                )}
+
+                {/* Decorative dots */}
+                <div className="absolute -bottom-4 -left-4 w-20 h-20 opacity-20 pointer-events-none">
+                  <div className="w-full h-full bg-dot-pattern" />
+                </div>
+              </motion.div>
+
+              {/* Code visual card */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.45, ease: [0.16, 1, 0.3, 1] }}
+                className="relative"
+              >
+                {/* Glow behind card */}
+                <div className="absolute -inset-6 bg-gradient-to-br from-[#10B981]/10 via-[#34D399]/5 to-[#6EE7B7]/10 rounded-[32px] blur-3xl opacity-40 hidden lg:block" />
+
+                <div className="relative rounded-[20px] overflow-hidden border border-white/[0.08] bg-[#0B1120]/80 backdrop-blur-xl shadow-2xl shadow-[#000]/40">
+                  {/* Window header */}
+                  <div className="flex items-center justify-between px-5 py-3.5 border-b border-white/[0.06] bg-white/[0.02]">
+                    <div className="flex items-center gap-1.5">
+                      <span className="w-3 h-3 rounded-full bg-[#FF5F57]" />
+                      <span className="w-3 h-3 rounded-full bg-[#FFBD2E]" />
+                      <span className="w-3 h-3 rounded-full bg-[#28CA42]" />
+                    </div>
+                    <span className="text-[11px] font-mono text-[#64748B]">engineer.ts — ~/portfolio</span>
+                    <span className="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-[#10B981]/10 text-[#10B981] border border-[#10B981]/20 flex items-center gap-1.5">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#10B981] animate-pulse" />
+                      LIVE
+                    </span>
+                  </div>
+
+                  {/* Code content */}
+                  <div className="p-5 font-mono text-[12.5px] leading-[1.9]">
+                    <div className="text-[#64748B]">// Full-stack & AI engineer profile</div>
+                    <div className="mt-3">
+                      <span className="text-[#C084FC]">const</span>{" "}
+                      <span className="text-[#6EE7B7]">engineer</span>{" "}
+                      <span className="text-[#64748B]">=</span>{" "}
+                      <span className="text-[#94A3B8]">{"{"}</span>
+                    </div>
+                    <div className="pl-4">
+                      <span className="text-[#34D399]">role</span>:{" "}
+                      <span className="text-[#FBBF24]">&quot;Full Stack & AI&quot;</span>
+                      <span className="text-[#64748B]">,</span>
+                    </div>
+                    <div className="pl-4">
+                      <span className="text-[#34D399]">stack</span>:{" "}
+                      <span className="text-[#94A3B8]">[</span>
+                      <span className="text-[#FBBF24]">&quot;Next.js&quot;</span>
+                      <span className="text-[#64748B]">,</span>{" "}
+                      <span className="text-[#FBBF24]">&quot;Node&quot;</span>
+                      <span className="text-[#64748B]">,</span>{" "}
+                      <span className="text-[#FBBF24]">&quot;OpenAI&quot;</span>
+                      <span className="text-[#94A3B8]">]</span>
+                      <span className="text-[#64748B]">,</span>
+                    </div>
+                    <div className="pl-4">
+                      <span className="text-[#34D399]">focus</span>:{" "}
+                      <span className="text-[#FBBF24]">&quot;AI products that ship&quot;</span>
+                      <span className="text-[#64748B]">,</span>
+                    </div>
+                    <div className="pl-4 flex items-center gap-2">
+                      <span className="text-[#34D399]">shipping</span>:{" "}
+                      <span className="text-[#C084FC]">true</span>
+                      <span className="text-[#64748B]">,</span>
+                      <span className="w-2 h-5 bg-[#10B981] inline-block animate-pulse ml-1 rounded-sm" />
+                    </div>
+                    <div className="text-[#94A3B8]">{"}"}</div>
+
+                    {/* Mini bento badges */}
+                    <div className="mt-5 grid grid-cols-3 gap-2.5">
+                      {[
+                        { k: "AI Native", v: "RAG · LLMs", from: "#10B981", to: "#059669" },
+                        { k: "Full Stack", v: "Next · Node", from: "#34D399", to: "#059669" },
+                        { k: "Product", v: "UX · Ship", from: "#6EE7B7", to: "#047857" },
+                      ].map((b) => (
+                        <div
+                          key={b.k}
+                          className="rounded-[14px] p-[1px]"
+                          style={{ background: `linear-gradient(135deg, ${b.from}, ${b.to})` }}
+                        >
+                          <div className="rounded-[13px] bg-[#0B1120]/90 p-3 text-center">
+                            <div className="text-[12px] font-bold text-[#F8FAFC]">{b.k}</div>
+                            <div className="text-[10px] text-[#64748B] mt-0.5">{b.v}</div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Footer */}
+                  <div className="px-5 py-3 border-t border-white/[0.06] bg-white/[0.02] flex items-center justify-between text-[11px] font-mono">
+                    <span className="text-[#64748B] flex items-center gap-2">
+                      <span className="relative flex h-2 w-2">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#10B981] opacity-75" />
+                        <span className="relative inline-flex rounded-full h-2 w-2 bg-[#10B981]" />
+                      </span>
+                      Available for work
+                    </span>
+                    <span className="text-[#94A3B8]">Colombo → Remote</span>
                   </div>
                 </div>
-
-                {/* Footer */}
-                <div className="px-5 py-3 border-t border-white/[0.06] bg-white/[0.02] flex items-center justify-between text-[11px] font-mono">
-                  <span className="text-[#64748B] flex items-center gap-2">
-                    <span className="relative flex h-2 w-2">
-                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#10B981] opacity-75" />
-                      <span className="relative inline-flex rounded-full h-2 w-2 bg-[#10B981]" />
-                    </span>
-                    Available for work
-                  </span>
-                  <span className="text-[#94A3B8]">Colombo → Remote</span>
-                </div>
-              </div>
-
-              {/* Floating badge */}
-              {mounted && (
-                <motion.div
-                  initial={{ y: 0, rotate: 2 }}
-                  animate={{ y: [0, -8, 0], rotate: [2, -1, 2] }}
-                  transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-                  className="absolute -top-3 -right-2 md:-right-4 bg-gradient-to-r from-[#10B981] to-[#34D399] text-white px-4 py-2 rounded-full text-[11px] font-bold shadow-xl shadow-[#10B981]/30 will-change-transform"
-                >
-                  ✨ AI Engineer • SLIIT
-                </motion.div>
-              )}
-              {!mounted && (
-                <div className="absolute -top-3 -right-2 md:-right-4 bg-gradient-to-r from-[#10B981] to-[#34D399] text-white px-4 py-2 rounded-full text-[11px] font-bold shadow-xl">
-                  ✨ AI Engineer • SLIIT
-                </div>
-              )}
-            </motion.div>
+              </motion.div>
+            </div>
           </div>
         </div>
       </div>
