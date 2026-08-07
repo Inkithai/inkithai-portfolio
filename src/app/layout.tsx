@@ -65,7 +65,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap"
           rel="stylesheet"
         />
         <script
@@ -73,27 +73,59 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="bg-[#08090D] text-[#F5F7FA] antialiased selection:bg-[#8B5CF6] selection:text-white font-sans">
-        {/* Subtle ambient background */}
-        <div className="fixed inset-0 -z-10 pointer-events-none">
-          <div className="absolute inset-0 bg-[#08090D]" />
-          <div className="absolute inset-0 opacity-40"
+      <body className="bg-[#030712] text-[#F8FAFC] antialiased selection:bg-[#3B82F6] selection:text-white font-sans">
+        {/* Animated mesh gradient background */}
+        <div className="fixed inset-0 -z-10 pointer-events-none overflow-hidden">
+          <div className="absolute inset-0 bg-[#030712]" />
+
+          {/* Floating gradient orbs */}
+          <div
+            className="absolute top-[-20%] left-[-10%] w-[700px] h-[700px] rounded-full opacity-[0.12] blur-[120px]"
             style={{
-              background: `radial-gradient(800px circle at 20% -10%, rgba(139,92,246,0.15), transparent 60%),
-                           radial-gradient(600px circle at 80% 0%, rgba(96,165,250,0.08), transparent 60%),
-                           radial-gradient(600px circle at 50% 120%, rgba(139,92,246,0.06), transparent 60%)`
+              background: 'radial-gradient(circle, #3B82F6, transparent 70%)',
+              animation: 'meshMove 25s ease-in-out infinite',
             }}
           />
-          <div className="absolute inset-0 opacity-[0.02]"
+          <div
+            className="absolute top-[10%] right-[-15%] w-[600px] h-[600px] rounded-full opacity-[0.1] blur-[120px]"
             style={{
-              backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
-                               linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
-              backgroundSize: "48px 48px"
+              background: 'radial-gradient(circle, #06B6D4, transparent 70%)',
+              animation: 'meshMove 30s ease-in-out infinite reverse',
+            }}
+          />
+          <div
+            className="absolute bottom-[-10%] left-[30%] w-[500px] h-[500px] rounded-full opacity-[0.08] blur-[100px]"
+            style={{
+              background: 'radial-gradient(circle, #14B8A6, transparent 70%)',
+              animation: 'meshMove 22s ease-in-out infinite 5s',
+            }}
+          />
+          <div
+            className="absolute top-[50%] right-[10%] w-[400px] h-[400px] rounded-full opacity-[0.06] blur-[80px]"
+            style={{
+              background: 'radial-gradient(circle, #F59E0B, transparent 70%)',
+              animation: 'meshMove 28s ease-in-out infinite 10s',
+            }}
+          />
+
+          {/* Subtle grid overlay */}
+          <div className="absolute inset-0 opacity-[0.025]"
+            style={{
+              backgroundImage: `linear-gradient(rgba(148, 163, 184, 0.15) 1px, transparent 1px),
+                               linear-gradient(90deg, rgba(148, 163, 184, 0.15) 1px, transparent 1px)`,
+              backgroundSize: "60px 60px"
+            }}
+          />
+
+          {/* Noise texture */}
+          <div className="absolute inset-0 opacity-[0.015]"
+            style={{
+              backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`,
             }}
           />
         </div>
         <Navbar />
-        <main className="min-h-screen">{children}</main>
+        <main className="min-h-screen relative z-0">{children}</main>
         <Footer />
       </body>
     </html>
