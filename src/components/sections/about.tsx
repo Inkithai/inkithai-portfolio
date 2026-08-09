@@ -4,71 +4,99 @@ import { motion } from "framer-motion";
 import { about, personal } from "@/data/content";
 
 export function AboutSection() {
-  // Trimmed summary - 2 concise paragraphs
   const summary = [
     "Software Engineer building production AI products across the full stack — from AI-powered learning platforms and email automation to document processing pipelines. Core stack: React, Next.js, Node.js, Python, OpenAI, Gemini.",
     "Available for freelance and full-time roles where AI meets product. Open to building from scratch or strengthening existing teams.",
   ];
 
   return (
-    <section id="about" className="py-24 lg:py-32 relative">
-      <div className="absolute inset-0 bg-gradient-to-b from-[#0F172A]/30 via-transparent to-[#0F172A]/30 pointer-events-none" />
-      <div className="container-max section-padding relative">
-        <div className="max-w-[1100px]">
-          <div className="label-mono text-[#D4AF37] mb-4 flex items-center gap-2">
-            <span className="w-6 h-px bg-[#D4AF37]" />
-            About
-          </div>
-          <div className="grid lg:grid-cols-12 gap-10">
-            <div className="lg:col-span-7">
-              <h2 className="heading-section text-[#F8FAFC]">Engineer who ships AI that people actually use.</h2>
-              <div className="mt-6 space-y-4 text-[14px] leading-relaxed text-[#94A3B8]">
-                {summary.map((p, i) => (
-                  <p key={i} className={i === 0 ? "text-[#CBD5E1]" : ""}>
-                    {p}
-                  </p>
-                ))}
-              </div>
+    <section id="about" className="section-y">
+      <div className="container-max section-padding">
+        <div className="grid lg:grid-cols-12 gap-10">
+          {/* Left — main */}
+          <div className="lg:col-span-7">
+            <div className="label-eyebrow mb-5 flex items-center">
+              <span className="eyebrow-bar" />
+              <span>About</span>
+            </div>
+            <h2 className="heading-section">
+              Engineer who <span className="text-accent">ships AI</span> that people actually use.
+            </h2>
 
-              <div className="mt-8 grid sm:grid-cols-2 gap-3">
+            <div className="mt-6 space-y-4 max-w-[600px]">
+              {summary.map((p, i) => (
+                <p
+                  key={i}
+                  className={`text-[15px] leading-[1.75] ${i === 0 ? "text-primary" : "text-secondary"}`}
+                >
+                  {p}
+                </p>
+              ))}
+            </div>
+
+            {/* Mindset — compact two-column */}
+            <div className="mt-10">
+              <div className="label-eyebrow mb-5 flex items-center">
+                <span className="eyebrow-bar" />
+                <span>Engineering Mindset</span>
+              </div>
+              <div className="grid sm:grid-cols-2 gap-3">
                 {about.mindset.map((item, i) => (
                   <motion.div
                     key={item}
-                    initial={{ y: 10, opacity: 0 }}
+                    initial={{ y: 8, opacity: 0 }}
                     whileInView={{ y: 0, opacity: 1 }}
                     viewport={{ once: true }}
-                    transition={{ delay: i * 0.08 }}
-                    className="rounded-[14px] bg-[#0F172A]/50 backdrop-blur-xl border border-white/[0.06] p-4 hover:border-[#D4AF37]/20 transition-colors"
+                    transition={{ delay: i * 0.05 }}
+                    className="card p-4 hover:!translate-y-0"
                   >
-                    <div className="text-[13px] leading-relaxed text-[#94A3B8]">{item}</div>
+                    <div className="flex items-start gap-3">
+                      <span className="w-1 h-1 rounded-full bg-accent mt-2 shrink-0" />
+                      <span className="text-[13.5px] leading-relaxed text-secondary">
+                        {item}
+                      </span>
+                    </div>
                   </motion.div>
                 ))}
               </div>
             </div>
+          </div>
 
-            <div className="lg:col-span-5 space-y-4">
-              <div className="rounded-[20px] bg-[#0F172A]/50 backdrop-blur-xl border border-white/[0.06] p-6">
-                <div className="text-[11px] font-mono tracking-widest uppercase text-[#D4AF37]">What I Bring</div>
-                <div className="mt-4 space-y-3">
-                  {about.highlights.slice(0, 4).map((h, i) => (
-                    <div key={i} className="flex gap-3">
-                      <span className="shrink-0 w-6 h-6 rounded-full bg-gradient-to-br from-[#D4AF37]/20 to-[#E8C547]/20 border border-[#D4AF37]/20 flex items-center justify-center text-[9px] font-mono text-[#F0D77B]">
-                        0{i + 1}
-                      </span>
-                      <span className="text-[13px] leading-snug text-[#94A3B8]">{h.text}</span>
-                    </div>
-                  ))}
+          {/* Right — sidebar */}
+          <div className="lg:col-span-5 space-y-4">
+            {/* What I bring */}
+            <div className="card p-6">
+              <div className="label-eyebrow mb-5 flex items-center">
+                <span className="eyebrow-bar" />
+                <span>What I Bring</span>
+              </div>
+              <div className="space-y-4">
+                {about.highlights.slice(0, 4).map((h, i) => (
+                  <div key={i} className="flex gap-3">
+                    <span className="shrink-0 body-mono normal-case tracking-normal text-[10.5px] text-muted mt-0.5">
+                      0{i + 1}
+                    </span>
+                    <span className="text-[13.5px] leading-relaxed text-secondary">
+                      {h.text}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Location / availability — quiet, single row */}
+            <div className="card p-5 flex items-center justify-between">
+              <div>
+                <div className="text-[14px] font-semibold text-primary">
+                  Based in {personal.location}
+                </div>
+                <div className="text-[12px] text-muted mt-0.5">
+                  Open to remote worldwide
                 </div>
               </div>
-
-              <div className="rounded-[20px] bg-[#0F172A]/50 backdrop-blur-xl border border-[#D4AF37]/20 p-5 flex items-center justify-between">
-                <div className="text-[12px]">
-                  <div className="font-semibold text-[#F8FAFC]">Based in {personal.location}</div>
-                  <div className="text-[#64748B] mt-0.5">Open to remote worldwide</div>
-                </div>
-                <span className="px-3 py-1.5 rounded-full bg-[#D4AF37]/10 border border-[#D4AF37]/20 text-[#D4AF37] text-[11px] font-bold flex items-center gap-1.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#D4AF37] animate-pulse" /> OPEN
-                </span>
+              <div className="flex items-center gap-1.5 body-mono normal-case tracking-normal text-[10.5px]">
+                <span className="w-1.5 h-1.5 rounded-full bg-success animate-pulse-soft" />
+                <span className="text-success font-medium">Available</span>
               </div>
             </div>
           </div>
