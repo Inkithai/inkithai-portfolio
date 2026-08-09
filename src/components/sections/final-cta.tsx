@@ -1,28 +1,23 @@
 "use client";
 
 import { personal } from "@/data/content";
-import { Mail, ArrowUpRight } from "lucide-react";
-import { useState } from "react";
+import { Mail } from "lucide-react";
+import { TiltCard } from "@/components/amicro/tilt-card";
+import { GlareShine } from "@/components/amicro/glare-shine";
+import { MagneticButton } from "@/components/amicro/magnetic-button";
+import { CopyButton } from "@/components/amicro/copy-button";
+import { AnimatedArrow } from "@/components/amicro/icon-morph";
+import { WordReveal } from "@/components/amicro/text-reveal";
 
 export function FinalCTASection() {
-  const [copied, setCopied] = useState(false);
-
-  const copyEmail = async () => {
-    try {
-      await navigator.clipboard.writeText(personal.email);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    } catch {}
-  };
-
   return (
     <section id="contact" className="section-y">
       <div className="container-max section-padding">
         <div className="relative rounded-[24px] overflow-hidden card !border-border-strong">
-          {/* Very subtle blue halo */}
+          {/* Subtle blue background halo */}
           <div
             className="absolute -top-32 -right-32 w-[440px] h-[440px] rounded-full opacity-[0.18] blur-[120px] pointer-events-none"
-            style={{ background: 'radial-gradient(circle, #4F8CFF, transparent 70%)' }}
+            style={{ background: "radial-gradient(circle, #4F8CFF, transparent 70%)" }}
             aria-hidden="true"
           />
 
@@ -37,28 +32,35 @@ export function FinalCTASection() {
 
               <h2 className="heading-section">
                 Let&apos;s build{" "}
-                <span className="text-accent">something great.</span>
+                <WordReveal
+                  text="something great."
+                  className="text-accent text-gradient-blue"
+                  delay={0.1}
+                />
               </h2>
               <p className="body-large mt-5 max-w-[480px]">
                 Available for freelance and full-time roles — especially where AI meets
                 product. Drop a message and I&apos;ll reply within hours.
               </p>
 
-              <div className="mt-8 flex flex-wrap gap-3">
-                <a
-                  href={`mailto:${personal.email}`}
-                  className="btn-primary"
-                >
-                  <Mail className="w-4 h-4" />
-                  Email me directly
-                  <ArrowUpRight className="w-4 h-4" />
-                </a>
-                <button
-                  onClick={copyEmail}
-                  className="btn-ghost"
-                >
-                  {copied ? "Copied ✓" : "Copy email"}
-                </button>
+              <div className="mt-8 flex flex-wrap gap-3 items-center">
+                <MagneticButton strength={0.25}>
+                  <a
+                    href={`mailto:${personal.email}`}
+                    className="btn-primary shadow-[0_0_25px_rgba(79,140,255,0.35)]"
+                  >
+                    <Mail className="w-4 h-4" />
+                    Email me directly
+                    <AnimatedArrow type="up-right" className="w-4 h-4" />
+                  </a>
+                </MagneticButton>
+
+                <CopyButton
+                  textToCopy={personal.email}
+                  variant="pill"
+                  label="Copy email"
+                  copiedLabel="Email copied ✓"
+                />
               </div>
 
               <div className="mt-6 flex flex-wrap items-center gap-3 body-mono normal-case tracking-normal">
@@ -70,9 +72,10 @@ export function FinalCTASection() {
               </div>
             </div>
 
-            {/* Right — quick connect card */}
+            {/* Right — quick connect card with TiltCard & Spotlight */}
             <div className="lg:col-span-5">
-              <div className="card !bg-bg !border-border-subtle p-5">
+              <TiltCard tiltIntensity={8} showSpotlight className="card !bg-bg !border-border-subtle p-5 overflow-hidden group">
+                <GlareShine />
                 <div className="flex items-center gap-3 mb-5">
                   <div className="w-11 h-11 rounded-full bg-bg-elevated border border-border-subtle text-primary flex items-center justify-center font-semibold text-[14px]">
                     IM
@@ -103,7 +106,7 @@ export function FinalCTASection() {
                   </div>
                 </div>
 
-                <div className="mt-5 flex gap-2">
+                <div className="mt-5 flex gap-2 z-20 relative">
                   <a
                     href={personal.socials.linkedin}
                     target="_blank"
@@ -121,7 +124,7 @@ export function FinalCTASection() {
                     GitHub
                   </a>
                 </div>
-              </div>
+              </TiltCard>
             </div>
           </div>
         </div>

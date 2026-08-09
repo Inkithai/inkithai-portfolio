@@ -3,6 +3,9 @@
 import { motion } from "framer-motion";
 import { education } from "@/data/content";
 import { GraduationCap, Calendar, MapPin } from "lucide-react";
+import { TiltCard } from "@/components/amicro/tilt-card";
+import { GlareShine } from "@/components/amicro/glare-shine";
+import { WordReveal } from "@/components/amicro/text-reveal";
 
 export function AcademicFoundationSection() {
   return (
@@ -16,7 +19,12 @@ export function AcademicFoundationSection() {
               <span>Academic Foundation</span>
             </div>
             <h2 className="heading-section">
-              Learning that <span className="text-accent">compounds over time.</span>
+              Learning that{" "}
+              <WordReveal
+                text="compounds over time."
+                className="text-accent text-gradient-blue"
+                delay={0.1}
+              />
             </h2>
             <p className="body-default mt-5 max-w-[420px]">
               Systems design, algorithms, and software engineering — paired with production
@@ -32,18 +40,19 @@ export function AcademicFoundationSection() {
             </div>
           </div>
 
-          {/* Right — degree card */}
+          {/* Right — degree card with Tilt & Glare */}
           <motion.div
             initial={{ y: 12, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             viewport={{ once: true }}
             className="lg:col-span-7"
           >
-            <div className="card p-7 md:p-8">
+            <TiltCard tiltIntensity={6} showSpotlight className="card p-7 md:p-8 overflow-hidden group">
+              <GlareShine />
               <div className="flex items-start justify-between gap-4 mb-6">
                 <div className="flex items-center gap-3">
-                  <div className="w-11 h-11 rounded-[12px] bg-bg-elevated border border-border-subtle flex items-center justify-center">
-                    <GraduationCap className="w-5 h-5 text-accent" />
+                  <div className="w-11 h-11 rounded-[12px] bg-bg-elevated border border-border-subtle flex items-center justify-center text-accent">
+                    <GraduationCap className="w-5 h-5" />
                   </div>
                   <div>
                     <div className="body-mono normal-case tracking-normal text-[10.5px] uppercase text-muted">
@@ -59,7 +68,7 @@ export function AcademicFoundationSection() {
                 </span>
               </div>
 
-              <h3 className="text-[20px] md:text-[22px] font-semibold tracking-tight text-primary leading-tight">
+              <h3 className="text-[20px] md:text-[22px] font-semibold tracking-tight text-primary leading-tight group-hover:text-accent transition-colors">
                 {education.degree}
               </h3>
               <p className="text-[14px] text-secondary mt-2 leading-relaxed">
@@ -69,13 +78,13 @@ export function AcademicFoundationSection() {
               <div className="mt-7 pt-6 border-t border-border-subtle grid sm:grid-cols-3 gap-5">
                 <div>
                   <div className="body-mono normal-case tracking-normal text-[10.5px] uppercase text-muted flex items-center gap-1.5 mb-1.5">
-                    <Calendar className="w-3 h-3" /> Period
+                    <Calendar className="w-3 h-3 text-accent" /> Period
                   </div>
                   <div className="text-[13.5px] text-primary font-medium">{education.period}</div>
                 </div>
                 <div>
                   <div className="body-mono normal-case tracking-normal text-[10.5px] uppercase text-muted flex items-center gap-1.5 mb-1.5">
-                    <MapPin className="w-3 h-3" /> Location
+                    <MapPin className="w-3 h-3 text-accent" /> Location
                   </div>
                   <div className="text-[13.5px] text-primary font-medium">{education.location}</div>
                 </div>
@@ -86,7 +95,7 @@ export function AcademicFoundationSection() {
                   <div className="text-[13.5px] text-primary font-medium">{education.grade}</div>
                 </div>
               </div>
-            </div>
+            </TiltCard>
           </motion.div>
         </div>
       </div>

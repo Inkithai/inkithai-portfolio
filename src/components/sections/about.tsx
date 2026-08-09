@@ -2,6 +2,9 @@
 
 import { motion } from "framer-motion";
 import { about, personal } from "@/data/content";
+import { TiltCard } from "@/components/amicro/tilt-card";
+import { GlareShine } from "@/components/amicro/glare-shine";
+import { WordReveal } from "@/components/amicro/text-reveal";
 
 export function AboutSection() {
   const summary = [
@@ -20,7 +23,13 @@ export function AboutSection() {
               <span>About</span>
             </div>
             <h2 className="heading-section">
-              Engineer who <span className="text-accent">ships AI</span> that people actually use.
+              Engineer who{" "}
+              <WordReveal
+                text="ships AI"
+                className="text-accent text-gradient-blue"
+                delay={0.1}
+              />{" "}
+              that people actually use.
             </h2>
 
             <div className="mt-6 space-y-4 max-w-[600px]">
@@ -34,7 +43,7 @@ export function AboutSection() {
               ))}
             </div>
 
-            {/* Mindset — compact two-column */}
+            {/* Mindset */}
             <div className="mt-10">
               <div className="label-eyebrow mb-5 flex items-center">
                 <span className="eyebrow-bar" />
@@ -48,14 +57,15 @@ export function AboutSection() {
                     whileInView={{ y: 0, opacity: 1 }}
                     viewport={{ once: true }}
                     transition={{ delay: i * 0.05 }}
-                    className="card p-4 hover:!translate-y-0"
                   >
-                    <div className="flex items-start gap-3">
-                      <span className="w-1 h-1 rounded-full bg-accent mt-2 shrink-0" />
-                      <span className="text-[13.5px] leading-relaxed text-secondary">
-                        {item}
-                      </span>
-                    </div>
+                    <TiltCard tiltIntensity={4} showSpotlight className="card p-4 h-full">
+                      <div className="flex items-start gap-3">
+                        <span className="w-1.5 h-1.5 rounded-full bg-accent mt-2 shrink-0" />
+                        <span className="text-[13.5px] leading-relaxed text-secondary">
+                          {item}
+                        </span>
+                      </div>
+                    </TiltCard>
                   </motion.div>
                 ))}
               </div>
@@ -65,7 +75,8 @@ export function AboutSection() {
           {/* Right — sidebar */}
           <div className="lg:col-span-5 space-y-4">
             {/* What I bring */}
-            <div className="card p-6">
+            <TiltCard tiltIntensity={6} showSpotlight className="card p-6 overflow-hidden group">
+              <GlareShine />
               <div className="label-eyebrow mb-5 flex items-center">
                 <span className="eyebrow-bar" />
                 <span>What I Bring</span>
@@ -73,7 +84,7 @@ export function AboutSection() {
               <div className="space-y-4">
                 {about.highlights.slice(0, 4).map((h, i) => (
                   <div key={i} className="flex gap-3">
-                    <span className="shrink-0 body-mono normal-case tracking-normal text-[10.5px] text-muted mt-0.5">
+                    <span className="shrink-0 body-mono normal-case tracking-normal text-[10.5px] text-accent mt-0.5 font-semibold">
                       0{i + 1}
                     </span>
                     <span className="text-[13.5px] leading-relaxed text-secondary">
@@ -82,10 +93,10 @@ export function AboutSection() {
                   </div>
                 ))}
               </div>
-            </div>
+            </TiltCard>
 
-            {/* Location / availability — quiet, single row */}
-            <div className="card p-5 flex items-center justify-between">
+            {/* Location / availability */}
+            <TiltCard tiltIntensity={4} showSpotlight className="card p-5 flex items-center justify-between">
               <div>
                 <div className="text-[14px] font-semibold text-primary">
                   Based in {personal.location}
@@ -98,7 +109,7 @@ export function AboutSection() {
                 <span className="w-1.5 h-1.5 rounded-full bg-success animate-pulse-soft" />
                 <span className="text-success font-medium">Available</span>
               </div>
-            </div>
+            </TiltCard>
           </div>
         </div>
       </div>
