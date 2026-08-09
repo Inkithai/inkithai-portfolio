@@ -11,7 +11,8 @@ export const personal = {
   headlineRole: "FULL-STACK SOFTWARE ENGINEER",
   heroTagline: "I build software people actually use.",
   heroDescription:
-    "Full-stack engineer building AI-powered products, scalable backends, and modern frontends. React, Next.js, Node.js, Python, and LLMs — from prototype to production.",
+    "Full-stack engineer focused on AI-powered products, scalable systems, and practical software experiences. I take ideas from prototype to production — and users come first at every step.",
+  heroStack: "React · TypeScript · Node.js · Python · AI",
   email: "inkithai@gmail.com",
   phone: "+94 75 037 0177",
   location: "Colombo, Sri Lanka",
