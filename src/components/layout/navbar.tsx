@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Sparkles } from "lucide-react";
+import { Menu, X, ArrowUpRight } from "lucide-react";
 import { personal } from "@/data/content";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -52,57 +52,36 @@ export function Navbar() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          scrolled ? "py-3" : "py-5"
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          scrolled ? "py-2.5" : "py-4"
         }`}
       >
         <div className="container-max section-padding">
           <nav
-            className={`relative flex items-center justify-between rounded-full transition-all duration-500 ${
+            className={`flex items-center justify-between rounded-full transition-all duration-300 ${
               scrolled
-                ? "px-2 py-2 bg-[#0F172A]/70 backdrop-blur-2xl border border-white/[0.06] shadow-[0_8px_32px_-8px_rgba(0,0,0,0.4)]"
+                ? "px-2 py-2 glass-strong shadow-[0_8px_32px_-12px_rgba(0,0,0,0.5)]"
                 : "px-1 py-1 bg-transparent border border-transparent"
             }`}
           >
-            {/* Animated gradient border when scrolled */}
-            {scrolled && (
-              <div className="absolute inset-0 rounded-full overflow-hidden pointer-events-none">
-                <div
-                  className="absolute inset-[-1px] rounded-full animate-gradient opacity-30"
-                  style={{
-                    background: "linear-gradient(135deg, #D4AF37, #E8C547, #F0D77B, #D4AF37)",
-                    backgroundSize: "200% 200%",
-                    mask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
-                    WebkitMask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
-                    WebkitMaskComposite: "xor",
-                    maskComposite: "exclude",
-                    padding: "1px",
-                  }}
-                />
-              </div>
-            )}
-
             {/* Logo */}
             <Link href="/" className="flex items-center gap-2.5 group relative z-10 pl-3 pr-2">
-              <div className="relative">
-                <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#D4AF37] via-[#E8C547] to-[#F0D77B] flex items-center justify-center text-white font-bold text-[14px] shadow-lg shadow-[#D4AF37]/20 group-hover:shadow-[#D4AF37]/40 transition-shadow">
-                  I
-                </div>
-                <div className="absolute -inset-1 rounded-xl bg-gradient-to-br from-[#D4AF37] to-[#E8C547] opacity-0 group-hover:opacity-20 blur-sm transition-opacity" />
+              <div className="w-8 h-8 rounded-[10px] bg-bg-elevated border border-border-subtle flex items-center justify-center text-primary font-semibold text-[13px] transition-colors group-hover:border-accent/40">
+                I
               </div>
-              <span className="font-bold tracking-tight text-[14px] text-[#F8FAFC] hidden sm:inline">
+              <span className="font-semibold tracking-tight text-[13.5px] text-primary hidden sm:inline">
                 {personal.shortName}
               </span>
             </Link>
 
-            {/* Desktop nav - centered pills */}
-            <div className="hidden md:flex items-center gap-0.5 relative z-10">
+            {/* Desktop nav */}
+            <div className="hidden md:flex items-center gap-1 relative z-10">
               {navItems.map((item) => {
                 const isActive = pathname === item.href;
-                const baseClass = "px-4 py-2 rounded-full text-[13.5px] font-medium transition-all duration-300";
+                const baseClass = "px-3.5 py-1.5 rounded-full text-[13.5px] font-medium transition-all duration-200";
                 const activeClass = isActive
-                  ? "text-white bg-gradient-to-r from-[#D4AF37]/20 to-[#E8C547]/20 border border-[#D4AF37]/30 shadow-[0_0_15px_-3px_rgba(212,175,55,0.3)]"
-                  : "text-[#94A3B8] hover:text-[#F8FAFC] hover:bg-white/[0.04]";
+                  ? "text-accent"
+                  : "text-secondary hover:text-primary";
 
                 return item.type === "page" ? (
                   <Link
@@ -131,134 +110,108 @@ export function Navbar() {
                 href={personal.resumeUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-4 py-2 rounded-full text-[13px] font-medium text-[#94A3B8] hover:text-[#F8FAFC] border border-transparent hover:border-white/[0.08] hover:bg-white/[0.04] transition-all"
+                className="px-3.5 py-1.5 rounded-full text-[13px] font-medium text-secondary hover:text-primary transition-colors"
               >
                 Resume
               </a>
-              <a
+              <Link
                 href="/#contact"
                 onClick={(e) => handleAnchorClick(e, "/#contact")}
-                className="relative group px-5 py-2.5 rounded-full text-[13.5px] font-semibold text-white overflow-hidden"
+                className="btn-primary text-[13.5px] !py-2 !px-4"
               >
-                <div className="absolute inset-0 bg-gradient-to-r from-[#D4AF37] via-[#E8C547] to-[#F0D77B] transition-all duration-300 group-hover:scale-105" />
-                <div className="absolute inset-0 bg-gradient-to-r from-[#D4AF37] via-[#E8C547] to-[#F0D77B] opacity-0 group-hover:opacity-100 blur-lg transition-opacity" />
-                <span className="relative flex items-center gap-1.5">
-                  Contact
-                  <Sparkles className="w-3.5 h-3.5" />
-                </span>
-              </a>
+                Let&apos;s talk
+                <ArrowUpRight className="w-3.5 h-3.5" />
+              </Link>
             </div>
 
             {/* Mobile button */}
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
-              className="md:hidden w-10 h-10 rounded-full bg-white/[0.06] border border-white/[0.08] backdrop-blur-xl flex items-center justify-center text-[#94A3B8] hover:text-white transition-colors relative z-10"
+              className="md:hidden w-9 h-9 rounded-full bg-bg-elevated border border-border-subtle flex items-center justify-center text-secondary hover:text-primary transition-colors relative z-10"
               aria-label="Toggle menu"
             >
-              {mobileOpen ? <X className="w-4.5 h-4.5" /> : <Menu className="w-4.5 h-4.5" />}
+              {mobileOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
             </button>
           </nav>
         </div>
       </header>
 
-      {/* Mobile overlay - Full screen animated */}
+      {/* Mobile overlay */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-40 bg-[#030712]/95 backdrop-blur-3xl md:hidden flex flex-col"
+            transition={{ duration: 0.25 }}
+            className="fixed inset-0 z-40 bg-bg/95 backdrop-blur-3xl md:hidden flex flex-col"
           >
-            {/* Animated bg orbs */}
-            <div className="absolute top-20 left-10 w-64 h-64 bg-[#D4AF37]/10 rounded-full blur-[80px] pointer-events-none" />
-            <div className="absolute bottom-20 right-10 w-64 h-64 bg-[#E8C547]/10 rounded-full blur-[80px] pointer-events-none" />
+            <div className="absolute top-20 left-10 w-72 h-72 rounded-full opacity-[0.12] blur-[100px] pointer-events-none"
+                 style={{ background: 'radial-gradient(circle, #4F8CFF, transparent 70%)' }} />
 
             <div className="flex-1 flex flex-col justify-center px-8 gap-1 pt-24 relative">
-              <motion.div
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1 }}
-                className="mb-6"
-              >
-                <div className="label-mono text-[#64748B]">Navigation</div>
-              </motion.div>
+              <div className="label-eyebrow mb-6">Navigation</div>
 
               <Link
                 href="/"
                 onClick={() => setMobileOpen(false)}
-                className="group py-5 border-b border-white/[0.06] flex items-center justify-between"
+                className="group py-4 border-b border-border-subtle flex items-center justify-between"
               >
-                <motion.span
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.15 }}
-                  className="text-3xl font-bold tracking-tight text-[#F8FAFC] group-hover:text-gradient-blue transition-all"
-                >
+                <span className="text-[1.75rem] font-semibold tracking-tight text-primary">
                   Home
-                </motion.span>
-                      <span className="text-[#64748B] group-hover:text-[#D4AF37] transition-colors">→</span>
+                </span>
+                <span className="text-muted group-hover:text-accent transition-colors">→</span>
               </Link>
 
-              {navItems.map((item, i) => (
-                <motion.div
-                  key={item.label}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.2 + i * 0.06 }}
-                >
+              {navItems.map((item) => (
+                <div key={item.label}>
                   {item.type === "page" ? (
                     <Link
                       href={item.href}
                       onClick={() => setMobileOpen(false)}
-                      className="group py-5 border-b border-white/[0.06] flex items-center justify-between"
+                      className="group py-4 border-b border-border-subtle flex items-center justify-between"
                     >
-                      <span className="text-3xl font-bold tracking-tight text-[#F8FAFC]">
+                      <span className="text-[1.75rem] font-semibold tracking-tight text-primary">
                         {item.label}
                       </span>
-                      <span className="text-[#64748B] group-hover:text-[#E8C547] transition-colors">→</span>
+                      <span className="text-muted group-hover:text-accent transition-colors">→</span>
                     </Link>
                   ) : (
                     <a
                       href={item.href}
                       onClick={(e) => handleAnchorClick(e, item.href)}
-                      className="group py-5 border-b border-white/[0.06] flex items-center justify-between"
+                      className="group py-4 border-b border-border-subtle flex items-center justify-between"
                     >
-                      <span className="text-3xl font-bold tracking-tight text-[#F8FAFC]">
+                      <span className="text-[1.75rem] font-semibold tracking-tight text-primary">
                         {item.label}
                       </span>
-                      <span className="text-[#64748B] group-hover:text-[#E8C547] transition-colors">→</span>
+                      <span className="text-muted group-hover:text-accent transition-colors">→</span>
                     </a>
                   )}
-                </motion.div>
+                </div>
               ))}
 
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5 }}
-                className="pt-10 flex flex-col gap-3"
-              >
+              <div className="pt-8 flex flex-col gap-3">
                 <a
                   href={personal.resumeUrl}
                   target="_blank"
-                  className="w-full py-4 rounded-full border border-white/[0.08] bg-white/[0.03] backdrop-blur-xl text-center text-[15px] font-medium text-[#F8FAFC]"
+                  rel="noopener noreferrer"
+                  className="btn-ghost w-full justify-center"
                 >
                   Download Resume
                 </a>
-                <a
+                <Link
                   href="/#contact"
                   onClick={(e) => handleAnchorClick(e, "/#contact")}
-                  className="w-full py-4 rounded-full bg-gradient-to-r from-[#D4AF37] via-[#E8C547] to-[#F0D77B] text-white text-center text-[15px] font-semibold shadow-lg shadow-[#D4AF37]/20"
+                  className="btn-primary w-full justify-center"
                 >
-                  Get in touch ✨
-                </a>
-              </motion.div>
+                  Let&apos;s talk <ArrowUpRight className="w-4 h-4" />
+                </Link>
+              </div>
             </div>
 
-            <div className="p-8 text-[11px] font-mono text-[#64748B] tracking-widest uppercase">
-              © {new Date().getFullYear()} {personal.name} • Colombo, LK
+            <div className="p-8 body-mono">
+              © {new Date().getFullYear()} {personal.name} · Colombo, LK
             </div>
           </motion.div>
         )}

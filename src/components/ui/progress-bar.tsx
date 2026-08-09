@@ -18,14 +18,15 @@ export function ScrollProgressIndicator() {
   }, []);
 
   return (
-    <div className="fixed top-0 left-0 right-0 h-[2px] z-50 pointer-events-none">
+    <div
+      className="fixed top-0 left-0 right-0 h-[2px] z-50 pointer-events-none bg-bg-elevated"
+      aria-hidden="true"
+    >
       <motion.div
-        className="h-full bg-gradient-to-r from-[#D4AF37] via-[#E8C547] to-[#F0D77B] origin-left shadow-[0_0_10px_rgba(16,185,129,0.6)]"
+        className="h-full bg-accent origin-left"
         style={{ scaleX: progress / 100 }}
         transition={{ type: "tween", duration: 0.15, ease: "easeOut" }}
-        aria-hidden="true"
       />
-      <div className="absolute inset-0 bg-gradient-to-r from-[#D4AF37]/20 via-[#E8C547]/20 to-[#F0D77B]/20 blur-[4px]" style={{ transform: `scaleX(${progress / 100})`, transformOrigin: "left" }} />
     </div>
   );
 }

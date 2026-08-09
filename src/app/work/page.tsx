@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { projects, type ProjectCategory } from "@/data/content";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, ArrowLeft } from "lucide-react";
 import { GithubIcon } from "@/components/ui/icons";
 import Link from "next/link";
 
@@ -18,32 +18,36 @@ export default function WorkPage() {
   const rest = filtered.filter((p) => !p.featured);
 
   return (
-    <div className="pt-28 pb-20">
+    <div className="pt-32 pb-24">
       <div className="container-max section-padding">
-        <div className="max-w-[800px] mb-12">
-          <Link href="/" className="inline-flex items-center gap-2 text-[13px] text-[#64748B] hover:text-[#F8FAFC] mb-6 transition-colors">
-            ← Back to home
+        <div className="max-w-[760px] mb-14">
+          <Link href="/" className="inline-flex items-center gap-2 text-[13.5px] text-secondary hover:text-primary mb-7 transition-colors">
+            <ArrowLeft className="w-4 h-4" />
+            Back to home
           </Link>
-          <div className="label-mono text-[#D4AF37] mb-4 flex items-center gap-2">
-            <span className="w-6 h-px bg-[#D4AF37]" />
-            WORK • {projects.length} Projects
+          <div className="label-eyebrow mb-5 flex items-center">
+            <span className="eyebrow-bar" />
+            <span>Work · {projects.length} Projects</span>
           </div>
-          <h1 className="heading-section text-[#F8FAFC]">Complete portfolio of products I&apos;ve shipped.</h1>
-          <p className="text-[15px] leading-relaxed text-[#94A3B8] mt-4 max-w-[600px]">
-            From AI LMS to email automation, RAG study assistants, and multilingual chatbots. Every project includes challenges, decisions, and learnings — not just screenshots.
+          <h1 className="heading-section max-w-[640px]">
+            Complete portfolio of <span className="text-accent">products I&apos;ve shipped.</span>
+          </h1>
+          <p className="body-large mt-5 max-w-[600px]">
+            From AI LMS to email automation, RAG study assistants, and multilingual chatbots.
+            Every project includes challenges, decisions, and learnings — not just screenshots.
           </p>
         </div>
 
-        {/* Filters */}
-        <div className="flex flex-wrap gap-1.5 mb-12 p-1.5 rounded-full bg-white/[0.03] border border-white/[0.06] w-fit backdrop-blur-xl">
+        {/* Filters — quiet, single-color active */}
+        <div className="flex flex-wrap gap-1.5 mb-14 p-1.5 rounded-full bg-bg-surface border border-border-subtle w-fit">
           {categories.map((cat) => (
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
               className={`px-4 py-2 rounded-full text-[13px] font-medium transition-all duration-200 ${
                 activeCategory === cat
-                  ? "bg-gradient-to-r from-[#D4AF37] to-[#E8C547] text-white shadow-lg shadow-[#D4AF37]/20"
-                  : "text-[#94A3B8] hover:text-[#F8FAFC] hover:bg-white/[0.06]"
+                  ? "bg-accent text-bg"
+                  : "text-secondary hover:text-primary hover:bg-bg-elevated"
               }`}
             >
               {cat}
@@ -54,69 +58,92 @@ export default function WorkPage() {
         {/* Featured */}
         {featured.length > 0 && (
           <div className="mb-16">
-            <div className="flex items-center gap-3 mb-6">
-              <h2 className="text-[14px] font-semibold tracking-tight text-[#F8FAFC]">Featured</h2>
-              <span className="px-2.5 py-0.5 rounded-full bg-white/[0.04] border border-white/[0.06] text-[11px] font-mono text-[#94A3B8]">{featured.length}</span>
-              <div className="h-px flex-1 bg-white/[0.06]" />
+            <div className="flex items-center gap-3 mb-7">
+              <h2 className="text-[15px] font-semibold text-primary">Featured</h2>
+              <span className="badge">{featured.length}</span>
+              <div className="h-px flex-1 bg-border-subtle" />
             </div>
             <div className="grid lg:grid-cols-2 gap-6">
               {featured.map((project, i) => {
                 const isExpanded = expanded === i;
                 return (
-                  <motion.div
+                  <motion.article
                     key={project.title}
                     layout
-                    initial={{ y: 12, opacity: 0 }}
+                    initial={{ y: 10, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: i * 0.05 }}
-                    className="rounded-[20px] bg-[#0F172A]/50 backdrop-blur-xl border border-white/[0.06] overflow-hidden hover:border-[#D4AF37]/20 transition-all duration-300 hover:shadow-[0_8px_30px_-8px_rgba(212,175,55,0.1)] group"
+                    className="card card-interactive overflow-hidden"
                   >
-                    <div className="relative h-48 overflow-hidden">
-                      <div className={`absolute inset-0 bg-gradient-to-br ${project.imageGradient} opacity-80`} />
-                      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.06)_1px,transparent_1px)] bg-[size:24px_24px] opacity-20" />
-                      <div className="absolute inset-4 rounded-[14px] bg-[#0B1120]/80 backdrop-blur border border-white/10 p-3 flex flex-col">
-                        <div className="flex items-center gap-1.5">
-                          <span className="w-2 h-2 rounded-full bg-red-500" />
-                          <span className="w-2 h-2 rounded-full bg-yellow-500" />
-                          <span className="w-2 h-2 rounded-full bg-[#D4AF37]" />
-                          <span className="ml-2 text-[10px] font-mono text-white/30">{project.shortTitle.toLowerCase()}.app</span>
+                    <div className="relative h-52 overflow-hidden border-b border-border-subtle">
+                      <div className="absolute inset-0 bg-bg-elevated" />
+                      <div className="absolute inset-0 bg-grid opacity-50" />
+
+                      <div className="absolute top-5 left-5 flex items-center gap-2 z-10">
+                        <span className="w-6 h-px bg-accent" />
+                        <span className="body-mono uppercase tracking-[0.15em]">Featured</span>
+                      </div>
+
+                      <div className="absolute inset-5 top-14 rounded-[12px] bg-bg border border-border-subtle overflow-hidden flex flex-col">
+                        <div className="flex items-center gap-1.5 px-4 py-2.5 border-b border-border-subtle">
+                          <span className="w-2 h-2 rounded-full bg-[#FF5F57]/70" />
+                          <span className="w-2 h-2 rounded-full bg-[#FFBD2E]/70" />
+                          <span className="w-2 h-2 rounded-full bg-[#28CA42]/70" />
+                          <span className="ml-3 body-mono normal-case tracking-normal text-[10.5px]">
+                            {project.shortTitle.toLowerCase()}.app
+                          </span>
                         </div>
-                        <div className="mt-4 space-y-2">
-                          <div className="h-2 w-2/3 bg-white/20 rounded-full" />
-                          <div className="h-2 w-1/2 bg-white/10 rounded-full" />
-                          <div className="grid grid-cols-3 gap-2 pt-2">
-                            <div className="h-10 rounded-lg bg-white/10" />
-                            <div className="h-10 rounded-lg bg-white/5" />
-                            <div className="h-10 rounded-lg bg-white/5" />
+                        <div className="flex-1 p-3 flex flex-col gap-2">
+                          <div className="h-2 w-2/3 rounded-full bg-border-strong" />
+                          <div className="h-2 w-1/2 rounded-full bg-border-subtle" />
+                          <div className="grid grid-cols-3 gap-2 pt-1">
+                            <div className="h-9 rounded-[6px] bg-bg-elevated" />
+                            <div className="h-9 rounded-[6px] bg-bg-elevated/50" />
+                            <div className="h-9 rounded-[6px] bg-bg-elevated/50" />
                           </div>
                         </div>
                       </div>
-                      <span className="absolute top-4 left-4 px-2.5 py-1 rounded-full bg-gradient-to-r from-[#D4AF37] to-[#E8C547] text-white text-[10px] font-bold shadow-lg">FEATURED</span>
                     </div>
-                    <div className="p-6">
+
+                    <div className="p-6 md:p-7">
                       <div className="flex items-start justify-between gap-3">
-                        <h3 className="text-[16px] font-semibold text-[#F8FAFC]">{project.title}</h3>
-                        <div className="flex gap-1.5 shrink-0">
-                          <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full bg-white/[0.04] border border-white/[0.08] flex items-center justify-center text-[#94A3B8] hover:text-[#F8FAFC] hover:border-white/[0.15] transition-all">
-                            <GithubIcon className="w-4 h-4" />
-                          </a>
+                        <div>
+                          <h3 className="text-[18px] font-semibold text-primary">{project.shortTitle}</h3>
+                          <div className="body-mono normal-case tracking-normal text-[11px] text-muted mt-1">
+                            {project.title}
+                          </div>
                         </div>
+                        <a
+                          href={project.githubUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="w-9 h-9 rounded-full border border-border-subtle flex items-center justify-center text-secondary hover:text-primary hover:border-border-strong transition-all"
+                          aria-label="View on GitHub"
+                        >
+                          <GithubIcon className="w-4 h-4" />
+                        </a>
                       </div>
-                      <p className="text-[13px] leading-relaxed text-[#94A3B8] mt-2">{project.description}</p>
+
+                      <p className="body-default mt-3">{project.description}</p>
+
                       <div className="flex flex-wrap gap-1.5 mt-4">
                         {project.technologies.slice(0, 4).map((t) => (
-                          <span key={t} className="px-2.5 py-1 rounded-full bg-white/[0.03] border border-white/[0.06] text-[11px] text-[#94A3B8]">
-                            {t}
-                          </span>
+                          <span key={t} className="badge">{t}</span>
                         ))}
                       </div>
 
                       <button
                         onClick={() => setExpanded(isExpanded ? null : i)}
-                        className="mt-5 flex items-center gap-2 text-[13px] font-medium text-[#94A3B8] hover:text-[#F8FAFC] transition-colors"
+                        className="btn-link mt-5"
                       >
-                        <span className={`w-7 h-7 rounded-full border flex items-center justify-center transition-all ${isExpanded ? "bg-gradient-to-r from-[#D4AF37] to-[#E8C547] text-white border-transparent rotate-180" : "bg-white/[0.04] border-white/[0.08]"}`}>
-                          <ChevronDown className="w-4 h-4" />
+                        <span
+                          className={`w-7 h-7 rounded-full border flex items-center justify-center transition-all ${
+                            isExpanded
+                              ? "bg-accent border-accent text-bg"
+                              : "border-border-subtle"
+                          }`}
+                        >
+                          <ChevronDown className={`w-3.5 h-3.5 transition-transform ${isExpanded ? "rotate-180" : ""}`} />
                         </span>
                         {isExpanded ? "Hide details" : "View build journey"}
                       </button>
@@ -129,18 +156,22 @@ export default function WorkPage() {
                             exit={{ opacity: 0, height: 0 }}
                             className="overflow-hidden"
                           >
-                            <div className="pt-5 mt-5 border-t border-white/[0.06] space-y-5">
+                            <div className="pt-5 mt-5 border-t border-border-subtle space-y-5">
                               {[
                                 { label: "Challenges", items: project.challenges },
                                 { label: "Decisions", items: project.decisions },
                                 { label: "Learnings", items: project.learnings },
                               ].map((sec) => (
                                 <div key={sec.label}>
-                                  <div className="text-[11px] font-mono tracking-widest uppercase text-[#D4AF37]">{sec.label}</div>
-                                  <ul className="mt-2 space-y-1.5">
+                                  <div className="label-eyebrow flex items-center mb-2.5">
+                                    <span className="eyebrow-bar" />
+                                    <span>{sec.label}</span>
+                                  </div>
+                                  <ul className="space-y-2">
                                     {sec.items.map((it, idx) => (
-                                      <li key={idx} className="text-[12px] leading-relaxed text-[#94A3B8] flex gap-2">
-                                        <span className="text-[#D4AF37]/40">—</span> {it}
+                                      <li key={idx} className="text-[13px] leading-relaxed text-secondary flex gap-2.5">
+                                        <span className="text-muted shrink-0 mt-1.5 w-1 h-1 rounded-full bg-accent" />
+                                        {it}
                                       </li>
                                     ))}
                                   </ul>
@@ -151,38 +182,47 @@ export default function WorkPage() {
                         )}
                       </AnimatePresence>
                     </div>
-                  </motion.div>
+                  </motion.article>
                 );
               })}
             </div>
           </div>
         )}
 
-        {/* Rest */}
+        {/* Rest — compact list */}
         {rest.length > 0 && (
           <div>
-            <div className="flex items-center gap-3 mb-6">
-              <h2 className="text-[14px] font-semibold tracking-tight text-[#F8FAFC]">More builds</h2>
-              <span className="px-2.5 py-0.5 rounded-full bg-white/[0.04] border border-white/[0.06] text-[11px] font-mono text-[#94A3B8]">{rest.length}</span>
-              <div className="h-px flex-1 bg-white/[0.06]" />
+            <div className="flex items-center gap-3 mb-7">
+              <h2 className="text-[15px] font-semibold text-primary">More builds</h2>
+              <span className="badge">{rest.length}</span>
+              <div className="h-px flex-1 bg-border-subtle" />
             </div>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="card divide-y divide-border-subtle">
               {rest.map((project, i) => (
                 <motion.div
                   key={project.title}
-                  initial={{ y: 10, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
                   transition={{ delay: i * 0.04 }}
-                  className="rounded-[16px] bg-[#0F172A]/50 backdrop-blur-xl border border-white/[0.06] p-5 hover:border-[#D4AF37]/20 transition-all duration-300 hover:shadow-[0_8px_30px_-8px_rgba(212,175,55,0.1)]"
+                  className="p-5 sm:p-6 flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6 hover:bg-bg-elevated/40 transition-colors"
                 >
-                  <div className={`h-1 -mx-5 -mt-5 mb-5 rounded-t-[16px] bg-gradient-to-r ${project.imageGradient}`} />
-                  <h3 className="text-[14px] font-semibold text-[#F8FAFC]">{project.title}</h3>
-                  <p className="text-[12px] leading-relaxed text-[#94A3B8] mt-2 line-clamp-3">{project.description}</p>
-                  <div className="flex flex-wrap gap-1.5 mt-4">
+                  <div className="flex items-center gap-3 sm:w-[200px] shrink-0">
+                    <span className="text-[12px] font-mono text-muted tabular-nums">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <span className="badge">{project.categories[0]}</span>
+                  </div>
+
+                  <div className="flex-1 min-w-0">
+                    <h3 className="text-[15px] font-medium text-primary">{project.title}</h3>
+                    <p className="text-[13px] text-secondary mt-1 line-clamp-2">
+                      {project.description}
+                    </p>
+                  </div>
+
+                  <div className="flex flex-wrap gap-1.5 max-w-[280px]">
                     {project.technologies.slice(0, 3).map((t) => (
-                      <span key={t} className="px-2 py-1 rounded-full bg-white/[0.03] border border-white/[0.06] text-[10px] text-[#94A3B8]">
-                        {t}
-                      </span>
+                      <span key={t} className="badge !text-[10.5px]">{t}</span>
                     ))}
                   </div>
                 </motion.div>
@@ -192,8 +232,8 @@ export default function WorkPage() {
         )}
 
         {filtered.length === 0 && (
-          <div className="py-20 text-center">
-            <div className="text-[14px] text-[#64748B]">No projects in this category. Try another filter.</div>
+          <div className="py-24 text-center">
+            <div className="body-default">No projects in this category. Try another filter.</div>
           </div>
         )}
       </div>
