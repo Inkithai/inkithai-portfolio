@@ -1,91 +1,169 @@
 "use client";
 
-import { ArrowUp } from "lucide-react";
+import { Mail, MapPin, ArrowUp, ArrowUpRight } from "lucide-react";
 import { GithubIcon, LinkedinIcon, MediumIcon } from "@/components/ui/icons";
 import { personal } from "@/data/content";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+
+const navLinks = [
+  { label: "Home", href: "/", type: "page" },
+  { label: "Work", href: "/work", type: "page" },
+  { label: "Experience", href: "/#experience", type: "anchor" },
+  { label: "Certifications", href: "/certifications", type: "page" },
+  { label: "About", href: "/#about", type: "anchor" },
+];
 
 const socialLinks = [
-  { label: "GitHub", href: personal.socials.github, Icon: GithubIcon },
-  { label: "LinkedIn", href: personal.socials.linkedin, Icon: LinkedinIcon },
-  { label: "Medium", href: personal.socials.medium, Icon: MediumIcon },
+  { label: "GitHub", handle: "@Inkithai", href: personal.socials.github, Icon: GithubIcon },
+  { label: "LinkedIn", handle: "in/inkithai", href: personal.socials.linkedin, Icon: LinkedinIcon },
+  { label: "Medium", handle: "@inkithai", href: personal.socials.medium, Icon: MediumIcon },
 ];
 
 export function Footer() {
+  const pathname = usePathname();
+
+  const handleAnchorClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (!href.startsWith("/#")) return;
+    if (pathname !== "/") return;
+    e.preventDefault();
+    document.getElementById(href.replace("/#", ""))?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
-    <footer className="border-t border-border-subtle bg-bg">
-      <div className="container-max section-padding">
-        <div className="py-12 md:py-14 grid gap-10 md:grid-cols-2 md:items-start">
+    <footer className="relative border-t border-border-subtle bg-bg overflow-hidden">
+      {/* Subtle blue glow rising from bottom */}
+      <div className="pointer-events-none" aria-hidden="true">
+        <div
+          className="absolute -bottom-56 left-1/2 -translate-x-1/2 w-[760px] h-[380px] rounded-full opacity-[0.10] blur-[120px]"
+          style={{ background: 'radial-gradient(circle, #4F8CFF, transparent 70%)' }}
+        />
+      </div>
+
+      <div className="container-max section-padding relative">
+        <div className="grid gap-12 md:grid-cols-12 py-16 lg:py-20">
           {/* Brand */}
-          <div>
-            <Link href="/" className="inline-flex items-center gap-3 group">
-              <div className="w-9 h-9 rounded-[10px] bg-bg-elevated border border-border-subtle flex items-center justify-center font-semibold text-[13px] text-primary">
-                IM
+          <div className="md:col-span-5 space-y-6">
+            <Link href="/" className="group flex items-center gap-3 w-fit">
+              <div className="w-10 h-10 rounded-[10px] bg-bg-elevated border border-border-subtle flex items-center justify-center font-semibold text-[14px] text-primary transition-colors group-hover:border-accent/40">
+                I
               </div>
               <div>
-                <div className="text-[15px] font-semibold tracking-tight text-primary">
-                  {personal.name}
-                </div>
-                <div className="text-[13px] text-muted mt-0.5">
-                  Software Engineer · AI · Full Stack
-                </div>
+                <div className="text-[15px] font-semibold tracking-tight text-primary">{personal.name}</div>
+                <div className="text-[12.5px] text-muted mt-0.5">{personal.title}</div>
               </div>
             </Link>
-            <p className="text-[14px] leading-[1.7] text-secondary max-w-[380px] mt-5">
-              {personal.heroTagline} React · TypeScript · Node.js · Python · AI.
+
+            <p className="text-[14px] leading-[1.7] text-secondary max-w-[360px]">
+              {personal.heroDescription}
             </p>
+
+            <div className="flex flex-wrap items-center gap-2.5 pt-1">
+              <span className="inline-flex items-center gap-2 px-3.5 py-2 rounded-full bg-bg-elevated border border-border-subtle text-[12px] font-medium text-secondary">
+                <span className="w-1.5 h-1.5 rounded-full bg-success animate-pulse-soft" />
+                Open to work
+              </span>
+              <span className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-bg-elevated border border-border-subtle text-[12px] text-secondary">
+                <MapPin className="w-3 h-3" /> {personal.location}
+              </span>
+            </div>
+          </div>
+
+          {/* Navigate */}
+          <div className="md:col-span-3">
+            <div className="label-eyebrow mb-5 flex items-center">
+              <span className="eyebrow-bar" />
+              <span>Navigate</span>
+            </div>
+            <ul className="space-y-3.5">
+              {navLinks.map((item) => (
+                <li key={item.label}>
+                  {item.type === "page" ? (
+                    <Link
+                      href={item.href}
+                      className="group inline-flex items-center gap-2 text-[14px] text-secondary hover:text-primary transition-colors"
+                    >
+                      {item.label}
+                      <ArrowUpRight className="w-3 h-3 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+                    </Link>
+                  ) : (
+                    <a
+                      href={item.href}
+                      onClick={(e) => handleAnchorClick(e, item.href)}
+                      className="group inline-flex items-center gap-2 text-[14px] text-secondary hover:text-primary transition-colors"
+                    >
+                      {item.label}
+                      <ArrowUpRight className="w-3 h-3 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+                    </a>
+                  )}
+                </li>
+              ))}
+            </ul>
           </div>
 
           {/* Connect */}
-          <div className="md:justify-self-end">
-            <div className="flex flex-wrap items-center gap-2 md:justify-end">
-              {socialLinks.map(({ label, href, Icon }) => (
+          <div className="md:col-span-4">
+            <div className="label-eyebrow mb-5 flex items-center">
+              <span className="eyebrow-bar" />
+              <span>Connect</span>
+            </div>
+
+            <div className="space-y-1.5">
+              {socialLinks.map(({ label, handle, href, Icon }) => (
                 <a
                   key={label}
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full border border-border-subtle text-[13.5px] text-secondary hover:text-primary hover:border-border-strong transition-colors"
+                  className="group flex items-center gap-3 rounded-[10px] px-3 py-2.5 -mx-3 border border-transparent hover:border-border-subtle hover:bg-bg-elevated/40 transition-all"
                 >
-                  <Icon className="w-4 h-4" aria-hidden="true" />
-                  {label}
+                  <span className="w-8 h-8 shrink-0 rounded-[8px] bg-bg-elevated border border-border-subtle flex items-center justify-center text-secondary group-hover:text-primary transition-colors">
+                    <Icon className="w-4 h-4" />
+                  </span>
+                  <span className="flex-1 min-w-0">
+                    <span className="block text-[13.5px] font-medium text-primary">{label}</span>
+                    <span className="block text-[11.5px] text-muted truncate">{handle}</span>
+                  </span>
+                  <ArrowUpRight className="w-3.5 h-3.5 text-muted opacity-0 -translate-x-1 translate-y-1 group-hover:opacity-100 group-hover:translate-x-0 group-hover:translate-y-0 transition-all" />
                 </a>
               ))}
+            </div>
+
+            <div className="mt-5 flex flex-wrap gap-2.5">
               <a
                 href={`mailto:${personal.email}`}
-                className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full border border-border-subtle text-[13.5px] text-secondary hover:text-primary hover:border-border-strong transition-colors"
+                className="inline-flex items-center gap-2 px-3.5 py-2.5 rounded-full bg-bg-elevated border border-border-subtle text-[12.5px] text-secondary hover:text-primary hover:border-border-strong transition-all"
               >
-                Email
+                <Mail className="w-3.5 h-3.5" /> {personal.email}
               </a>
-            </div>
-            <div className="mt-4 md:text-right">
               <a
                 href={personal.resumeUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[13.5px] text-secondary hover:text-primary transition-colors underline-offset-4 hover:underline"
+                className="btn-primary !text-[12.5px] !py-2.5"
               >
-                Download resume
+                Resume
+                <ArrowUpRight className="w-3.5 h-3.5" />
               </a>
             </div>
           </div>
         </div>
 
         {/* Bottom bar */}
-        <div className="py-6 border-t border-border-subtle flex flex-col sm:flex-row items-center justify-between gap-4">
-          <span className="text-[13px] text-muted text-center sm:text-left">
+        <div className="py-7 border-t border-border-subtle flex flex-col sm:flex-row items-center justify-between gap-4">
+          <span className="text-[12.5px] text-muted text-center sm:text-left">
             © {new Date().getFullYear()} {personal.name}. Built with Next.js &amp; Tailwind CSS.
           </span>
-          <div className="flex items-center gap-4">
-            <span className="text-[12px] text-muted">Colombo · Remote worldwide</span>
-            <button
-              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-              aria-label="Back to top"
-              className="w-10 h-10 rounded-full border border-border-subtle flex items-center justify-center text-secondary hover:text-primary hover:border-border-strong transition-colors"
-            >
-              <ArrowUp className="w-4 h-4" aria-hidden="true" />
-            </button>
-          </div>
+          <span className="body-mono normal-case tracking-[0.15em]">
+            Colombo · Remote Worldwide
+          </span>
+          <button
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            aria-label="Back to top"
+            className="group w-9 h-9 rounded-full border border-border-subtle bg-bg-elevated hover:bg-bg-surface hover:border-border-strong flex items-center justify-center text-secondary hover:text-primary transition-all"
+          >
+            <ArrowUp className="w-4 h-4 group-hover:-translate-y-0.5 transition-transform" />
+          </button>
         </div>
       </div>
     </footer>

@@ -15,38 +15,38 @@ export default function CertificationsPage() {
   return (
     <div className="pt-32 pb-24">
       <div className="container-max section-padding">
-        <div className="max-w-[760px] mb-12">
+        <div className="max-w-[760px] mb-14">
           <Link
             href="/"
-            className="inline-flex items-center gap-2 text-[14px] text-secondary hover:text-primary mb-7 transition-colors group min-h-[44px]"
+            className="inline-flex items-center gap-2 text-[13.5px] text-secondary hover:text-primary mb-7 transition-colors group"
           >
-            <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" aria-hidden="true" />
+            <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
             Back to home
           </Link>
           <div className="label-eyebrow mb-5 flex items-center">
-            <span className="eyebrow-bar" aria-hidden="true" />
+            <span className="eyebrow-bar" />
             <span>Certifications · {certifications.length} Items</span>
           </div>
           <h1 className="heading-section max-w-[600px]">
-            Learning that compounds over time.
+            Learning that{" "}
+            <span className="text-accent text-gradient-blue">compounds over time.</span>
           </h1>
           <p className="body-large mt-5 max-w-[600px]">
-            Certifications, research, and learning milestones — mapped to real
-            production work, not just course completion.
+            Curated collection of certifications, research publication, and learning
+            milestones that reflect production work and continuous development.
           </p>
         </div>
 
         {/* Category filter */}
         <div className="mb-12">
-          <div className="flex flex-wrap gap-1.5 p-1.5 rounded-full bg-bg-surface border border-border-subtle w-fit max-w-full">
+          <div className="flex flex-wrap gap-1.5 p-1.5 rounded-full bg-bg-surface border border-border-subtle w-fit">
             {categories.map((cat) => {
               const isActive = active === cat;
               return (
                 <button
                   key={cat}
                   onClick={() => setActive(cat)}
-                  aria-pressed={isActive}
-                  className={`px-4 py-2 rounded-full text-[13.5px] font-medium transition-colors duration-200 cursor-pointer ${
+                  className={`px-4 py-2 rounded-full text-[13px] font-medium transition-colors duration-200 cursor-pointer ${
                     isActive ? "bg-accent text-bg font-semibold" : "text-secondary hover:text-primary"
                   }`}
                 >
@@ -59,37 +59,50 @@ export default function CertificationsPage() {
 
         {/* Certifications list */}
         <div className="card divide-y divide-border-subtle overflow-hidden">
-          {filtered.map((cert) => (
+          {filtered.map((cert, i) => (
             <div
-              key={`${cert.name}`}
-              className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-8 px-6 py-5"
+              key={`${cert.name}-${i}`}
+              className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6 p-5 sm:p-6 hover:bg-bg-elevated/60 transition-colors group cursor-default"
             >
-              <div className="sm:w-[130px] shrink-0">
+              <div className="flex items-center gap-3 sm:w-[180px] shrink-0">
+                <span className="text-[12px] font-mono text-muted tabular-nums">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
                 <span className="badge">{cert.category}</span>
               </div>
 
               <div className="flex-1 min-w-0">
-                <h2 className="text-[16px] font-medium text-primary leading-snug">
+                <h3 className="text-[15px] font-medium text-primary leading-tight group-hover:text-accent transition-colors">
                   {cert.name}
-                </h2>
-                <div className="text-[13.5px] text-muted mt-1">{cert.issuer}</div>
+                </h3>
+                <div className="text-[12.5px] text-muted mt-1">{cert.issuer}</div>
                 {cert.description && (
-                  <div className="text-[14px] text-secondary mt-1.5">
+                  <div className="text-[13px] text-secondary mt-1.5 line-clamp-1">
                     {cert.description}
                   </div>
                 )}
               </div>
 
-              <div className="flex items-center gap-4 shrink-0">
-                <div className="body-mono">{cert.date}</div>
+              <div className="hidden md:flex flex-wrap gap-1.5 max-w-[260px]">
+                {cert.skills.slice(0, 3).map((s) => (
+                  <span key={s} className="badge !text-[10.5px]">
+                    {s}
+                  </span>
+                ))}
+              </div>
+
+              <div className="flex items-center gap-3 shrink-0 sm:flex-col sm:items-end sm:gap-1.5">
+                <div className="body-mono normal-case tracking-normal text-[11.5px] text-muted">
+                  {cert.date}
+                </div>
                 {cert.url && (
                   <a
                     href={cert.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="btn-link !min-h-0 !text-[13.5px]"
+                    className="btn-link !text-[12px] z-20"
                   >
-                    View <ExternalLink className="w-3.5 h-3.5" aria-hidden="true" />
+                    View <ExternalLink className="w-3 h-3" />
                   </a>
                 )}
               </div>
@@ -99,21 +112,25 @@ export default function CertificationsPage() {
 
         {filtered.length === 0 && (
           <div className="py-24 text-center">
-            <p className="body-default">No certifications in this category.</p>
+            <div className="body-default">No certifications in this category.</div>
           </div>
         )}
 
-        <div className="mt-16 max-w-[720px]">
-          <h2 className="label-eyebrow mb-4">Continuous development approach</h2>
-          <p className="body-default">
+        <div className="mt-16 card p-7 md:p-8 overflow-hidden group">
+          <div className="label-eyebrow mb-4 flex items-center">
+            <span className="eyebrow-bar" />
+            <span>Continuous Development Approach</span>
+          </div>
+          <p className="body-default max-w-[720px]">
             This collection represents verified learning through production shipping,
-            a peer-reviewed research publication (IEEE ICAC 2024), an entrepreneurship
-            award (SPARK 101), and platform-based learning. Each item maps to real
-            project work.
+            research publication (IEEE ICAC 2024), entrepreneurship award (SPARK 101),
+            and platform-based learning. Each item maps to real project work — not just
+            course completion.
           </p>
-          <div className="mt-6 flex flex-wrap gap-3">
+          <div className="mt-6 flex flex-wrap gap-3 z-20 relative">
             <Link href="/work" className="btn-primary">
               View projects
+              <ExternalLink className="w-3.5 h-3.5" />
             </Link>
             <Link href="/#experience" className="btn-ghost">
               Experience
