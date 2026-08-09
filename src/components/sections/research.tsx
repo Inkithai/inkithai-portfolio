@@ -3,7 +3,11 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { publication } from "@/data/content";
-import { ExternalLink, FileText, ChevronDown } from "lucide-react";
+import { FileText, ChevronDown } from "lucide-react";
+import { TiltCard } from "@/components/amicro/tilt-card";
+import { GlareShine } from "@/components/amicro/glare-shine";
+import { MagneticButton } from "@/components/amicro/magnetic-button";
+import { AnimatedArrow } from "@/components/amicro/icon-morph";
 
 export function ResearchSection() {
   const [showDetails, setShowDetails] = useState(false);
@@ -26,23 +30,24 @@ export function ResearchSection() {
               Published in IEEE Xplore.
             </p>
             <div className="mt-6 body-mono normal-case tracking-normal text-[11.5px]">
-              <div className="mb-1">{publication.conference}</div>
+              <div className="mb-1 text-primary">{publication.conference}</div>
               <div className="text-muted">{publication.year}</div>
             </div>
           </div>
 
-          {/* Right — editorial publication card */}
+          {/* Right — editorial publication card with Tilt Card & Glare */}
           <motion.div
             initial={{ y: 12, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             viewport={{ once: true }}
             className="lg:col-span-8"
           >
-            <div className="card p-7 md:p-8 group">
+            <TiltCard tiltIntensity={6} showSpotlight className="card p-7 md:p-8 group overflow-hidden">
+              <GlareShine />
               <div className="flex items-start justify-between gap-4 mb-5">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-[10px] bg-bg-elevated border border-border-subtle flex items-center justify-center">
-                    <FileText className="w-4.5 h-4.5 text-accent" />
+                  <div className="w-10 h-10 rounded-[10px] bg-bg-elevated border border-border-subtle flex items-center justify-center text-accent">
+                    <FileText className="w-4.5 h-4.5" />
                   </div>
                   <div>
                     <div className="body-mono normal-case tracking-normal text-[10.5px] uppercase text-muted">
@@ -58,7 +63,7 @@ export function ResearchSection() {
                 </span>
               </div>
 
-              <h3 className="text-[18px] md:text-[20px] font-semibold tracking-tight leading-snug text-primary">
+              <h3 className="text-[18px] md:text-[20px] font-semibold tracking-tight leading-snug text-primary group-hover:text-accent transition-colors">
                 {publication.title}
               </h3>
 
@@ -82,7 +87,7 @@ export function ResearchSection() {
                       <div className="body-mono normal-case tracking-normal text-[11px] text-muted">
                         DOI: {publication.doi}
                       </div>
-                      <div className="flex flex-wrap gap-1.5">
+                      <div className="flex flex-wrap gap-1.5 z-20 relative">
                         {publication.technologies.map((tech) => (
                           <span key={tech} className="badge">
                             {tech}
@@ -94,27 +99,34 @@ export function ResearchSection() {
                 )}
               </AnimatePresence>
 
-              <div className="mt-6 flex flex-wrap items-center gap-4">
-                <a
-                  href={publication.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-primary"
-                >
-                  Read on IEEE Xplore
-                  <ExternalLink className="w-4 h-4" />
-                </a>
+              <div className="mt-6 flex flex-wrap items-center gap-4 z-20 relative">
+                <MagneticButton strength={0.2}>
+                  <a
+                    href={publication.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-primary"
+                  >
+                    Read on IEEE Xplore
+                    <AnimatedArrow type="external" className="w-4 h-4" />
+                  </a>
+                </MagneticButton>
+
                 <button
                   onClick={() => setShowDetails(!showDetails)}
-                  className="btn-link"
+                  className="btn-link cursor-pointer"
                 >
-                  <ChevronDown
-                    className={`w-4 h-4 transition-transform ${showDetails ? "rotate-180" : ""}`}
-                  />
+                  <motion.span
+                    animate={{ rotate: showDetails ? 180 : 0 }}
+                    transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                    className="inline-block"
+                  >
+                    <ChevronDown className="w-4 h-4" />
+                  </motion.span>
                   {showDetails ? "Less details" : "More details"}
                 </button>
               </div>
-            </div>
+            </TiltCard>
           </motion.div>
         </div>
       </div>
