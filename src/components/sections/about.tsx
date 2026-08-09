@@ -1,10 +1,4 @@
-"use client";
-
-import { motion } from "framer-motion";
 import { about, personal } from "@/data/content";
-import { TiltCard } from "@/components/amicro/tilt-card";
-import { GlareShine } from "@/components/amicro/glare-shine";
-import { WordReveal } from "@/components/amicro/text-reveal";
 
 export function AboutSection() {
   const summary = [
@@ -24,11 +18,7 @@ export function AboutSection() {
             </div>
             <h2 className="heading-section">
               Engineer who{" "}
-              <WordReveal
-                text="ships AI"
-                className="text-accent text-gradient-blue"
-                delay={0.1}
-              />{" "}
+              <span className="text-accent text-gradient-blue">ships AI</span>{" "}
               that people actually use.
             </h2>
 
@@ -50,23 +40,15 @@ export function AboutSection() {
                 <span>Engineering Mindset</span>
               </div>
               <div className="grid sm:grid-cols-2 gap-3">
-                {about.mindset.map((item, i) => (
-                  <motion.div
-                    key={item}
-                    initial={{ y: 8, opacity: 0 }}
-                    whileInView={{ y: 0, opacity: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: i * 0.05 }}
-                  >
-                    <TiltCard tiltIntensity={4} showSpotlight className="card p-4 h-full">
-                      <div className="flex items-start gap-3">
-                        <span className="w-1.5 h-1.5 rounded-full bg-accent mt-2 shrink-0" />
-                        <span className="text-[13.5px] leading-relaxed text-secondary">
-                          {item}
-                        </span>
-                      </div>
-                    </TiltCard>
-                  </motion.div>
+                {about.mindset.map((item) => (
+                  <div key={item} className="card p-4 h-full">
+                    <div className="flex items-start gap-3">
+                      <span className="w-1.5 h-1.5 rounded-full bg-accent mt-2 shrink-0" />
+                      <span className="text-[13.5px] leading-relaxed text-secondary">
+                        {item}
+                      </span>
+                    </div>
+                  </div>
                 ))}
               </div>
             </div>
@@ -75,8 +57,7 @@ export function AboutSection() {
           {/* Right — sidebar */}
           <div className="lg:col-span-5 space-y-4">
             {/* What I bring */}
-            <TiltCard tiltIntensity={6} showSpotlight className="card p-6 overflow-hidden group">
-              <GlareShine />
+            <div className="card p-6 overflow-hidden group">
               <div className="label-eyebrow mb-5 flex items-center">
                 <span className="eyebrow-bar" />
                 <span>What I Bring</span>
@@ -93,10 +74,10 @@ export function AboutSection() {
                   </div>
                 ))}
               </div>
-            </TiltCard>
+            </div>
 
             {/* Location / availability */}
-            <TiltCard tiltIntensity={4} showSpotlight className="card p-5 flex items-center justify-between">
+            <div className="card p-5 flex items-center justify-between">
               <div>
                 <div className="text-[14px] font-semibold text-primary">
                   Based in {personal.location}
@@ -109,7 +90,7 @@ export function AboutSection() {
                 <span className="w-1.5 h-1.5 rounded-full bg-success animate-pulse-soft" />
                 <span className="text-success font-medium">Available</span>
               </div>
-            </TiltCard>
+            </div>
           </div>
         </div>
       </div>

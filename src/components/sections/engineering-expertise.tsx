@@ -1,10 +1,4 @@
-"use client";
-
-import { motion } from "framer-motion";
 import { engineeringExpertise } from "@/data/content";
-import { TiltCard } from "@/components/amicro/tilt-card";
-import { GlareShine } from "@/components/amicro/glare-shine";
-import { WordReveal } from "@/components/amicro/text-reveal";
 
 export function EngineeringExpertiseSection() {
   return (
@@ -18,11 +12,7 @@ export function EngineeringExpertiseSection() {
             </div>
             <h2 className="heading-section max-w-[520px]">
               Built for speed, scale{" "}
-              <WordReveal
-                text="& intelligence."
-                className="text-accent text-gradient-blue"
-                delay={0.1}
-              />
+              <span className="text-accent text-gradient-blue">&amp; intelligence.</span>
             </h2>
           </div>
           <div className="lg:col-span-5 lg:pt-12">
@@ -33,9 +23,9 @@ export function EngineeringExpertiseSection() {
           </div>
         </div>
 
-        {/* Bento grid with Tilt Card & Spotlight */}
+        {/* Bento grid */}
         <div className="grid md:grid-cols-12 gap-4">
-          {engineeringExpertise.map((cat, i) => {
+          {engineeringExpertise.map((cat) => {
             const layout =
               cat.id === "frontend" || cat.id === "ai"
                 ? "md:col-span-7"
@@ -44,16 +34,8 @@ export function EngineeringExpertiseSection() {
                 : "md:col-span-4";
 
             return (
-              <motion.div
-                key={cat.id}
-                initial={{ y: 12, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.05, duration: 0.5 }}
-                className={layout}
-              >
-                <TiltCard tiltIntensity={6} showSpotlight className="card card-interactive p-6 md:p-7 h-full group">
-                  <GlareShine />
+              <div key={cat.id} className={layout}>
+                <div className="card card-interactive p-6 md:p-7 h-full group">
                   <div className="flex items-start justify-between gap-4 mb-5">
                     <div>
                       <div className="flex items-center gap-2 mb-2">
@@ -71,18 +53,16 @@ export function EngineeringExpertiseSection() {
 
                   <div className="flex flex-wrap gap-1.5 z-20 relative">
                     {cat.skills.map((skill) => (
-                      <motion.span
+                      <span
                         key={skill}
-                        whileHover={{ scale: 1.05, y: -2 }}
-                        transition={{ type: "spring", stiffness: 400, damping: 15 }}
                         className="badge hover:text-primary hover:border-accent/50 hover:bg-accent/10 transition-colors cursor-default"
                       >
                         {skill}
-                      </motion.span>
+                      </span>
                     ))}
                   </div>
-                </TiltCard>
-              </motion.div>
+                </div>
+              </div>
             );
           })}
         </div>
