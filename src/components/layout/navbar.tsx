@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Menu, X, ArrowUpRight } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { personal } from "@/data/content";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -19,7 +19,7 @@ export function Navbar() {
   const pathname = usePathname();
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 16);
+    const onScroll = () => setScrolled(window.scrollY > 8);
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
     return () => window.removeEventListener("scroll", onScroll);
@@ -49,39 +49,39 @@ export function Navbar() {
   };
 
   const desktopLinkClass =
-    "relative px-3.5 py-1.5 rounded-full text-[13.5px] font-medium transition-colors duration-200 block";
+    "px-3.5 py-2 rounded-full text-[14px] font-medium transition-colors duration-200";
 
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled ? "py-2.5" : "py-4"
+        className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${
+          scrolled
+            ? "bg-bg/90 backdrop-blur-md border-b border-border-subtle"
+            : "bg-transparent border-b border-transparent"
         }`}
       >
         <div className="container-max section-padding">
-          <nav
-            className={`flex items-center justify-between rounded-full transition-all duration-300 ${
-              scrolled
-                ? "px-2 py-2 glass-strong shadow-[0_8px_32px_-12px_rgba(0,0,0,0.5)]"
-                : "px-1 py-1 bg-transparent border border-transparent"
-            }`}
-          >
+          <nav className="flex items-center justify-between h-[72px]" aria-label="Main navigation">
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-2.5 group relative z-10 pl-3 pr-2">
-              <div className="w-8 h-8 rounded-[10px] bg-bg-elevated border border-border-subtle flex items-center justify-center text-primary font-semibold text-[13px] transition-colors group-hover:border-accent/60 group-hover:shadow-[0_0_15px_rgba(79,140,255,0.3)]">
-                I
+            <Link
+              href="/"
+              className="flex items-center gap-2.5 min-h-[44px]"
+              aria-label={`${personal.name} — home`}
+            >
+              <div className="w-8 h-8 rounded-[10px] bg-bg-elevated border border-border-subtle flex items-center justify-center text-primary font-semibold text-[13px]">
+                IM
               </div>
-              <span className="font-semibold tracking-tight text-[13.5px] text-primary hidden sm:inline">
-                {personal.shortName}
+              <span className="font-semibold tracking-tight text-[15px] text-primary">
+                {personal.firstName}
               </span>
             </Link>
 
             {/* Desktop nav */}
-            <div className="hidden md:flex items-center gap-1 relative z-10">
+            <div className="hidden md:flex items-center gap-1">
               {navItems.map((item) => {
                 const isActive = pathname === item.href;
                 const activeClass = isActive
-                  ? "text-accent font-semibold"
+                  ? "text-primary font-semibold"
                   : "text-secondary hover:text-primary";
 
                 return item.type === "page" ? (
@@ -102,32 +102,32 @@ export function Navbar() {
             </div>
 
             {/* Desktop CTA */}
-            <div className="hidden md:flex items-center gap-2 relative z-10">
+            <div className="hidden md:flex items-center gap-3">
               <a
                 href={personal.resumeUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-3.5 py-1.5 rounded-full text-[13px] font-medium text-secondary hover:text-primary transition-colors"
+                className="px-3.5 py-2 text-[14px] font-medium text-secondary hover:text-primary transition-colors"
               >
                 Resume
               </a>
               <Link
                 href="/#contact"
                 onClick={(e) => handleAnchorClick(e, "/#contact")}
-                className="btn-primary text-[13.5px] !py-2 !px-4 shadow-[0_0_20px_rgba(79,140,255,0.25)] hover:shadow-[0_0_25px_rgba(79,140,255,0.5)] transition-shadow"
+                className="btn-primary !min-h-0 !py-2.5 !px-5"
               >
                 Let&apos;s talk
-                <ArrowUpRight className="w-3.5 h-3.5" />
               </Link>
             </div>
 
-            {/* Mobile button */}
+            {/* Mobile toggle — 44px target */}
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
-              className="md:hidden w-9 h-9 rounded-full bg-bg-elevated border border-border-subtle flex items-center justify-center text-secondary hover:text-primary transition-colors relative z-10"
-              aria-label="Toggle menu"
+              className="md:hidden w-11 h-11 rounded-[10px] border border-border-subtle flex items-center justify-center text-secondary hover:text-primary transition-colors"
+              aria-label={mobileOpen ? "Close menu" : "Open menu"}
+              aria-expanded={mobileOpen}
             >
-              {mobileOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
+              {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
           </nav>
         </div>
@@ -135,61 +135,44 @@ export function Navbar() {
 
       {/* Mobile overlay */}
       {mobileOpen && (
-        <div className="fixed inset-0 z-40 bg-bg/95 backdrop-blur-3xl md:hidden flex flex-col">
-          <div
-            className="absolute top-20 left-10 w-72 h-72 rounded-full opacity-[0.12] blur-[100px] pointer-events-none"
-            style={{ background: "radial-gradient(circle, #4F8CFF, transparent 70%)" }}
-          />
-
-          <div className="flex-1 flex flex-col justify-center px-8 gap-1 pt-24 relative">
+        <div className="fixed inset-0 z-40 bg-bg md:hidden flex flex-col">
+          <div className="flex-1 flex flex-col justify-center px-6 gap-1 pt-24">
             <div className="label-eyebrow mb-6">Navigation</div>
 
-            <div>
-              <Link
-                href="/"
-                onClick={() => setMobileOpen(false)}
-                className="group py-4 border-b border-border-subtle flex items-center justify-between"
-              >
-                <span className="text-[1.75rem] font-semibold tracking-tight text-primary">
-                  Home
-                </span>
-                <span className="text-muted group-hover:text-accent group-hover:translate-x-1 transition-all">
-                  →
-                </span>
-              </Link>
-            </div>
+            <Link
+              href="/"
+              onClick={() => setMobileOpen(false)}
+              className="group py-4 border-b border-border-subtle flex items-center justify-between min-h-[56px]"
+            >
+              <span className="text-[1.5rem] font-semibold tracking-tight text-primary">Home</span>
+              <span className="text-muted" aria-hidden="true">→</span>
+            </Link>
 
             {navItems.map((item) =>
               item.type === "page" ? (
-                <div key={item.label}>
-                  <Link
-                    href={item.href}
-                    onClick={() => setMobileOpen(false)}
-                    className="group py-4 border-b border-border-subtle flex items-center justify-between"
-                  >
-                    <span className="text-[1.75rem] font-semibold tracking-tight text-primary">
-                      {item.label}
-                    </span>
-                    <span className="text-muted group-hover:text-accent group-hover:translate-x-1 transition-all">
-                      →
-                    </span>
-                  </Link>
-                </div>
+                <Link
+                  key={item.label}
+                  href={item.href}
+                  onClick={() => setMobileOpen(false)}
+                  className="group py-4 border-b border-border-subtle flex items-center justify-between min-h-[56px]"
+                >
+                  <span className="text-[1.5rem] font-semibold tracking-tight text-primary">
+                    {item.label}
+                  </span>
+                  <span className="text-muted" aria-hidden="true">→</span>
+                </Link>
               ) : (
-                <div key={item.label}>
-                  <a
-                    href={item.href}
-                    onClick={(e) => handleAnchorClick(e, item.href)}
-                    className="group py-4 border-b border-border-subtle flex items-center justify-between"
-                  >
-                    <span className="text-[1.75rem] font-semibold tracking-tight text-primary">
-                      {item.label}
-                    </span>
-                    <span className="text-muted group-hover:text-accent group-hover:translate-x-1 transition-all">
-                      →
-                    </span>
-                  </a>
-                </div>
+                <a
+                  key={item.label}
+                  href={item.href}
+                  onClick={(e) => handleAnchorClick(e, item.href)}
+                  className="group py-4 border-b border-border-subtle flex items-center justify-between min-h-[56px]"
+                >
+                  <span className="text-[1.5rem] font-semibold tracking-tight text-primary">
+                    {item.label}
+                  </span>
+                  <span className="text-muted" aria-hidden="true">→</span>
+                </a>
               )
             )}
 
@@ -207,12 +190,12 @@ export function Navbar() {
                 onClick={(e) => handleAnchorClick(e, "/#contact")}
                 className="btn-primary w-full justify-center"
               >
-                Let&apos;s talk <ArrowUpRight className="w-4 h-4" />
+                Let&apos;s talk
               </Link>
             </div>
           </div>
 
-          <div className="p-8 body-mono">
+          <div className="p-6 text-[12px] text-muted">
             © {new Date().getFullYear()} {personal.name} · Colombo, LK
           </div>
         </div>

@@ -1,120 +1,119 @@
 @import "tailwindcss";
 
 /* ========================================================================
-   DESIGN SYSTEM — Deep Navy + Electric Blue
+   DESIGN SYSTEM — Direction A: Refined Midnight Blue
    ========================================================================
-   90% Neutral dark · 8% Electric blue · 2% Violet secondary
+   Minimal-professional system for a senior engineering portfolio.
+   Rules:
+   · Blue = interaction + important emphasis only (never decoration)
+   · Borders do more work than shadows
+   · 4px spacing base scale · 4 radius levels · 3 button variants
+   · No meaningful UI text below 12px
    ======================================================================== */
 
 @theme {
   /* Surfaces */
-  --color-bg: #070B14;
-  --color-bg-surface: #0D1422;
-  --color-bg-elevated: #121B2B;
-  --color-border-subtle: #1C2940;
-  --color-border-strong: #263754;
+  --color-bg: #070a0f;
+  --color-bg-surface: #0d121a;
+  --color-bg-elevated: #111925;
+  --color-border-subtle: #202a39;
+  --color-border-strong: #2e3b50;
 
   /* Text */
-  --color-text-primary: #F4F7FB;
-  --color-text-secondary: #A7B2C5;
-  --color-text-muted: #667085;
+  --color-text-primary: #f4f7fb;
+  --color-text-secondary: #a8b1c2;
+  --color-text-muted: #77829a;
+  --color-muted: #77829a;
 
-  /* Accent */
-  --color-accent: #4F8CFF;
-  --color-accent-hover: #6A9EFF;
-  --color-accent-secondary: #7C5CFF;
+  /* Accent — reserved for actions & key emphasis */
+  --color-accent: #5b8cff;
+  --color-accent-hover: #7aa3ff;
 
   /* Status */
-  --color-success: #36D399;
-  --color-warning: #F5B84B;
-  --color-error: #FF647C;
+  --color-success: #45d483;
+  --color-warning: #f5b84b;
+  --color-error: #ff6262;
 
-  /* Typography */
-  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", "Inter", "Helvetica Neue", Arial, sans-serif;
-  --font-mono: ui-monospace, "JetBrains Mono", "SF Mono", Menlo, Monaco, Consolas, monospace;
+  /* Typography — one UI face + mono for code/labels only */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, "SF Mono", Menlo, Monaco, Consolas, monospace;
 
-  --radius-sm: 10px;
-  --radius-md: 14px;
-  --radius-lg: 18px;
-  --radius-xl: 22px;
-  --radius-2xl: 28px;
+  /* Radius — 4 levels + pill, never mixed randomly */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
   --radius-full: 9999px;
 }
 
 /* ---------- Base ---------- */
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 5.5rem;
+  scroll-padding-top: 6rem;
   color-scheme: dark;
 }
 
 body {
-  background: #070B14;
-  color: #F4F7FB;
+  background: #070a0f;
+  color: #f4f7fb;
   font-family: var(--font-sans);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-feature-settings: "ss01", "ss02", "cv01", "cv02", "cv11";
   letter-spacing: -0.011em;
 }
 
-/* Selection */
 ::selection {
-  background-color: rgba(79, 140, 255, 0.25);
-  color: #F4F7FB;
+  background-color: rgba(91, 140, 255, 0.28);
+  color: #f4f7fb;
 }
 
-/* Scrollbar */
 ::-webkit-scrollbar { width: 8px; height: 8px; }
-::-webkit-scrollbar-track { background: #070B14; }
-::-webkit-scrollbar-thumb { background: #1C2940; border-radius: 999px; }
-::-webkit-scrollbar-thumb:hover { background: #263754; }
+::-webkit-scrollbar-track { background: #070a0f; }
+::-webkit-scrollbar-thumb { background: #202a39; border-radius: 999px; }
+::-webkit-scrollbar-thumb:hover { background: #2e3b50; }
 
 /* ========================================================================
-   TYPOGRAPHY
+   TYPOGRAPHY — deliberate scale, generous support sizes
    ======================================================================== */
 
-.text-primary { color: #F4F7FB; }
-.text-secondary { color: #A7B2C5; }
-.text-muted { color: #667085; }
+.text-primary { color: #f4f7fb; }
+.text-secondary { color: #a8b1c2; }
+.text-muted { color: #77829a; }
 
-/* H1 — Hero */
+/* Display/H1 — hero */
 .heading-hero {
-  font-family: var(--font-sans);
   font-weight: 700;
-  letter-spacing: -0.04em;
-  line-height: 1.0;
-  font-size: clamp(2.5rem, 6.5vw, 5rem);
-  color: #F4F7FB;
+  letter-spacing: -0.035em;
+  line-height: 1.05;
+  font-size: clamp(2.625rem, 5.5vw, 4rem);
+  color: #f4f7fb;
 }
 
-/* H2 — Section */
+/* H2 — section */
 .heading-section {
-  font-family: var(--font-sans);
-  font-weight: 650;
+  font-weight: 700;
   letter-spacing: -0.025em;
-  line-height: 1.1;
-  font-size: clamp(1.75rem, 3.4vw, 2.5rem);
-  color: #F4F7FB;
+  line-height: 1.15;
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  color: #f4f7fb;
 }
 
-/* H3 — Sub */
+/* H3 — card/sub */
 .heading-sub {
-  font-family: var(--font-sans);
   font-weight: 600;
-  letter-spacing: -0.018em;
-  line-height: 1.25;
-  color: #F4F7FB;
+  letter-spacing: -0.015em;
+  line-height: 1.2;
+  color: #f4f7fb;
 }
 
-/* Section eyebrow label — quiet, neutral */
+/* Section eyebrow — quiet, neutral, ≥12px */
 .label-eyebrow {
   font-family: var(--font-mono);
-  font-size: 0.72rem;
-  letter-spacing: 0.16em;
+  font-size: 12px;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: #667085;
+  color: #77829a;
   font-weight: 500;
 }
 
@@ -122,33 +121,47 @@ body {
   display: inline-block;
   width: 18px;
   height: 1px;
-  background: #4F8CFF;
+  background: #77829a;
   vertical-align: middle;
   margin-right: 10px;
 }
 
-/* Body */
+/* Body — 16px default, never tiny */
 .body-default {
-  font-size: 0.95rem;
-  line-height: 1.65;
-  color: #A7B2C5;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #a8b1c2;
 }
 
 .body-large {
-  font-size: 1.05rem;
-  line-height: 1.7;
-  color: #A7B2C5;
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: #a8b1c2;
 }
 
+.body-small {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: #a8b1c2;
+}
+
+/* Mono metadata — reserved for code, URLs, versions, dates. Min 12px. */
 .body-mono {
   font-family: var(--font-mono);
-  font-size: 0.75rem;
-  letter-spacing: 0.04em;
-  color: #667085;
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  color: #77829a;
+}
+
+/* Compressed skill line — "React · TypeScript · Node.js" */
+.tech-line {
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: #77829a;
 }
 
 /* ========================================================================
-   LAYOUT HELPERS
+   LAYOUT HELPERS — strict 4px-based rhythm
    ======================================================================== */
 
 .container-max {
@@ -164,298 +177,219 @@ body {
 @media (min-width: 640px) {
   .section-padding { padding-left: 1.5rem; padding-right: 1.5rem; }
 }
-@media (min-width: 1024px) {
-  .section-padding { padding-left: 2rem; padding-right: 2rem; }
-}
 @media (min-width: 1280px) {
   .section-padding { padding-left: 2.5rem; padding-right: 2.5rem; }
 }
 
+/* Major sections breathe: 96px mobile / 128px desktop */
 .section-y {
-  padding-top: 5.5rem;
-  padding-bottom: 5.5rem;
+  padding-top: 6rem;
+  padding-bottom: 6rem;
 }
 @media (min-width: 1024px) {
   .section-y {
-    padding-top: 7rem;
-    padding-bottom: 7rem;
+    padding-top: 8rem;
+    padding-bottom: 8rem;
   }
 }
 
 /* ========================================================================
-   SURFACES — single unified card system
+   SURFACES — container, not miniature application
    ======================================================================== */
 
 .surface {
-  background: #0D1422;
-  border: 1px solid #1C2940;
+  background: #0d121a;
+  border: 1px solid #202a39;
 }
 
 .surface-elevated {
-  background: #121B2B;
-  border: 1px solid #263754;
+  background: #111925;
+  border: 1px solid #2e3b50;
 }
 
-.surface-hover {
-  transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
-}
-.surface-hover:hover {
-  border-color: #263754;
-  background: #101A2B;
-  transform: translateY(-2px);
-}
-
-/* Card system — primary */
+/* Card system — border + surface + spacing, nothing else */
 .card {
-  background: #0D1422;
-  border: 1px solid #1C2940;
-  border-radius: 18px;
-  transition: border-color 0.3s ease, background 0.3s ease, transform 0.3s ease;
+  background: #0d121a;
+  border: 1px solid #202a39;
+  border-radius: 14px;
+  transition: border-color 0.25s ease, background 0.25s ease;
 }
 .card:hover {
-  border-color: #263754;
-  background: #101A2B;
+  border-color: #2e3b50;
 }
 .card-interactive {
   cursor: pointer;
-  transition: border-color 0.3s ease, background 0.3s ease, transform 0.3s ease;
 }
 .card-interactive:hover {
-  border-color: #304667;
-  background: #101A2B;
-  transform: translateY(-2px);
-}
-
-/* Glass for floating chrome */
-.glass {
-  background: rgba(13, 20, 34, 0.72);
-  backdrop-filter: blur(20px) saturate(1.4);
-  -webkit-backdrop-filter: blur(20px) saturate(1.4);
-  border: 1px solid rgba(28, 41, 64, 0.9);
-}
-
-.glass-strong {
-  background: rgba(7, 11, 20, 0.85);
-  backdrop-filter: blur(28px) saturate(1.6);
-  -webkit-backdrop-filter: blur(28px) saturate(1.6);
-  border: 1px solid rgba(28, 41, 64, 1);
+  background: #111925;
 }
 
 /* ========================================================================
-   ACCENT — applied SPARINGLY
+   ACCENT — interaction & emphasis only
    ======================================================================== */
 
-/* Accent text emphasis (one place per section max) */
 .text-accent {
-  color: #4F8CFF;
+  color: #5b8cff;
 }
 
-.text-accent-soft {
-  color: #6A9EFF;
+.text-accent-hover {
+  transition: color 0.2s ease;
 }
-
-.text-accent-secondary {
-  color: #7C5CFF;
-}
-
-/* Subtle gradient for hero */
-.text-gradient-blue {
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-  background-image: linear-gradient(135deg, #4F8CFF 0%, #7C5CFF 100%);
-}
-
-.text-gradient-subtle {
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-  background-image: linear-gradient(120deg, #F4F7FB 0%, #A7B2C5 100%);
-}
-
-/* Soft accent halo — only on primary CTAs and important elements */
-.accent-halo {
-  box-shadow: 0 0 0 1px rgba(79, 140, 255, 0.25),
-              0 8px 24px -10px rgba(79, 140, 255, 0.35);
+.text-accent-hover:hover {
+  color: #7aa3ff;
 }
 
 /* ========================================================================
-   BUTTONS
+   BUTTONS — exactly three levels
    ======================================================================== */
 
-/* Primary CTA — only place that gets a solid color */
+/* Primary — the only filled button */
 .btn-primary {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  padding: 0.7rem 1.25rem;
-  background: #4F8CFF;
-  color: #070B14;
-  font-size: 0.875rem;
+  padding: 0.75rem 1.5rem;
+  min-height: 44px;
+  background: #5b8cff;
+  color: #070a0f;
+  font-size: 0.9375rem;
   font-weight: 600;
   border-radius: 9999px;
-  border: 1px solid #4F8CFF;
-  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  border: 1px solid #5b8cff;
+  transition: background 0.2s ease, border-color 0.2s ease;
   cursor: pointer;
   white-space: nowrap;
 }
 .btn-primary:hover {
-  background: #6A9EFF;
-  border-color: #6A9EFF;
-  transform: translateY(-1px);
-  box-shadow: 0 8px 20px -8px rgba(79, 140, 255, 0.5);
+  background: #7aa3ff;
+  border-color: #7aa3ff;
 }
 
-/* Ghost / secondary */
+/* Secondary — outlined */
 .btn-ghost {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  padding: 0.7rem 1.25rem;
+  padding: 0.75rem 1.5rem;
+  min-height: 44px;
   background: transparent;
-  color: #F4F7FB;
-  font-size: 0.875rem;
+  color: #f4f7fb;
+  font-size: 0.9375rem;
   font-weight: 500;
   border-radius: 9999px;
-  border: 1px solid #1C2940;
-  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+  border: 1px solid #202a39;
+  transition: background 0.2s ease, border-color 0.2s ease;
   cursor: pointer;
   white-space: nowrap;
 }
 .btn-ghost:hover {
-  background: #0D1422;
-  border-color: #263754;
-  transform: translateY(-1px);
+  background: #0d121a;
+  border-color: #2e3b50;
 }
 
-/* Link button — quiet, no background */
+/* Tertiary — text link */
 .btn-link {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  color: #A7B2C5;
-  font-size: 0.875rem;
+  color: #a8b1c2;
+  font-size: 0.9375rem;
   font-weight: 500;
   padding: 0.5rem 0;
+  min-height: 44px;
   transition: color 0.2s ease;
   cursor: pointer;
   background: transparent;
   border: none;
 }
 .btn-link:hover {
-  color: #4F8CFF;
+  color: #7aa3ff;
 }
 
 /* ========================================================================
-   BADGES — neutral, restrained
+   BADGES — quiet, 12px minimum
    ======================================================================== */
 
 .badge {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  padding: 0.3rem 0.65rem;
-  background: rgba(28, 41, 64, 0.5);
-  border: 1px solid #1C2940;
-  color: #A7B2C5;
-  font-size: 0.72rem;
+  padding: 0.25rem 0.7rem;
+  background: transparent;
+  border: 1px solid #202a39;
+  color: #a8b1c2;
+  font-size: 12px;
   font-weight: 500;
   border-radius: 9999px;
-  font-family: var(--font-mono);
-  letter-spacing: 0.02em;
-}
-
-.badge-accent {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  padding: 0.3rem 0.65rem;
-  background: rgba(79, 140, 255, 0.08);
-  border: 1px solid rgba(79, 140, 255, 0.25);
-  color: #6A9EFF;
-  font-size: 0.72rem;
-  font-weight: 500;
-  border-radius: 9999px;
-  font-family: var(--font-mono);
-  letter-spacing: 0.02em;
+  letter-spacing: 0.01em;
 }
 
 .badge-dot {
   display: inline-block;
-  width: 6px;
-  height: 6px;
+  width: 7px;
+  height: 7px;
   border-radius: 9999px;
-  background: #4F8CFF;
-  box-shadow: 0 0 8px rgba(79, 140, 255, 0.6);
+  background: #5b8cff;
 }
 
-.badge-dot-success { background: #36D399; box-shadow: 0 0 8px rgba(54, 211, 153, 0.6); }
+.badge-dot-success { background: #45d483; }
 
 /* ========================================================================
-   DIVIDERS / HAIRLINES
+   DIVIDERS
    ======================================================================== */
 
 .hairline {
   height: 1px;
-  background: linear-gradient(90deg, transparent, #1C2940 50%, transparent);
-}
-
-.hairline-vertical {
-  width: 1px;
-  background: linear-gradient(180deg, transparent, #1C2940 50%, transparent);
+  background: linear-gradient(90deg, transparent, #202a39 50%, transparent);
 }
 
 /* ========================================================================
-   ANIMATIONS
+   TIMELINE — experience rail
    ======================================================================== */
 
-@keyframes auroraDrift {
-  0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.55; }
-  50% { transform: translate(30px, -20px) scale(1.05); opacity: 0.75; }
+.timeline-rail {
+  position: absolute;
+  left: 5px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: #202a39;
 }
-.animate-aurora { animation: auroraDrift 18s ease-in-out infinite; }
-.animate-aurora-slow { animation: auroraDrift 26s ease-in-out infinite reverse; }
+.timeline-rail-start { top: 7px; }
+.timeline-rail-end { bottom: auto; height: 8px; }
 
-@keyframes meshMove {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  50% { transform: translate(20px, -30px) scale(1.04); }
+.timeline-dot {
+  position: relative;
+  z-index: 1;
+  width: 11px;
+  height: 11px;
+  border-radius: 9999px;
+  background: #070a0f;
+  border: 2px solid #77829a;
+}
+.timeline-dot-active {
+  border-color: #5b8cff;
 }
 
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
-}
-.animate-float { animation: float 5s ease-in-out infinite; }
-
-@keyframes pulseSoft {
-  0%, 100% { opacity: 0.6; }
-  50% { opacity: 1; }
-}
-.animate-pulse-soft { animation: pulseSoft 2.5s ease-in-out infinite; }
+/* ========================================================================
+   ANIMATIONS — restrained: reveals + hovers only
+   ======================================================================== */
 
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(12px); }
   to { opacity: 1; transform: translateY(0); }
 }
-.animate-fadeUp { animation: fadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
-
-/* Blueprint grid — used sparingly */
-.bg-grid {
-  background-image:
-    linear-gradient(to right, rgba(167, 178, 197, 0.04) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(167, 178, 197, 0.04) 1px, transparent 1px);
-  background-size: 56px 56px;
-}
+.animate-fadeUp { animation: fadeUp 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
 
 /* ========================================================================
-   FOCUS — accessibility
+   FOCUS — accessibility (WCAG)
    ======================================================================== */
 
 *:focus-visible {
-  outline: 2px solid #4F8CFF;
-  outline-offset: 2px;
+  outline: 2px solid #5b8cff;
+  outline-offset: 3px;
   border-radius: 4px;
 }
 
@@ -465,6 +399,7 @@ body {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+  html { scroll-behavior: auto; }
 }
 
 /* Utilities */

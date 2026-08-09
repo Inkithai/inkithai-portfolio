@@ -1,54 +1,75 @@
 # Inkithai Meiyalagan — Portfolio Website
 
-A modern, production-ready portfolio website built with Next.js 16, TypeScript, Tailwind CSS v4, and Framer Motion. Designed to showcase engineering skills, projects, and professional experience for Software Engineering opportunities.
+A production-ready portfolio for a Full Stack & AI Engineer, built with Next.js 16, TypeScript, and Tailwind CSS v4. Designed around one principle: **the engineer — not the interface — is the product.** Optimized for scanning first, exploration second.
 
 ## 🚀 Tech Stack
 
-- **Framework:** Next.js 16 (App Router)
+- **Framework:** Next.js 16 (App Router, Turbopack)
 - **Language:** TypeScript
-- **Styling:** Tailwind CSS v4
-- **Animations:** Framer Motion
-- **Icons:** Lucide React + Custom SVG icons
+- **Styling:** Tailwind CSS v4 (CSS-first design tokens)
+- **Typography:** Inter + JetBrains Mono (self-hosted variable fonts, zero external requests)
+- **Icons:** Lucide React + custom SVG brand icons
 - **Deployment:** Vercel-ready
+
+## 🎨 Design System
+
+Direction: **Minimal Professional** — refined midnight blue, dark engineering aesthetic, restrained accent use.
+
+| Token | Value | Role |
+| --- | --- | --- |
+| `--color-bg` | `#070A0F` | Background |
+| `--color-bg-surface` | `#0D121A` | Card surface |
+| `--color-bg-elevated` | `#111925` | Elevated surface |
+| `--color-accent` | `#5B8CFF` | Interaction + emphasis only |
+| `--color-text-secondary` | `#A8B1C2` | Supporting text |
+| `--color-text-muted` | `#77829A` | Muted text (≥ 4.5:1 contrast) |
+| `--color-border-subtle` | `#202A39` | Borders do more work than shadows |
+
+System rules (enforced in `src/app/globals.css`):
+
+- 4px-based spacing scale · section rhythm of 96/128px
+- Four radius levels (6 / 10 / 14 / 20) + pill
+- Exactly three button variants: primary (filled), ghost (outlined), link (text)
+- Cards are containers: 1px border + surface + spacing — no nested dashboards
+- No meaningful UI text below 12px
+- Blue reserved for actions and key emphasis, never decoration
+- Visible focus states, 44px touch targets, `prefers-reduced-motion` support
 
 ## 📁 Project Structure
 
 ```
 portfolio/
-├── public/                          # Static assets
-│   ├── robots.txt
-│   └── favicon.svg
+├── public/                          # Static assets (resume PDF, portrait, favicon)
 ├── src/
-│   ├── app/                         # Next.js App Router
-│   │   ├── globals.css             # Global styles
-│   │   ├── layout.tsx              # Root layout with SEO
-│   │   ├── page.tsx                # Home page
-│   │   └── sitemap.ts              # SEO sitemap
+│   ├── app/
+│   │   ├── globals.css              # Design system: tokens, type scale, components
+│   │   ├── layout.tsx               # Root layout, fonts, SEO metadata, JSON-LD
+│   │   ├── page.tsx                 # Home: hero → work → experience → skills → recognition → about → contact
+│   │   ├── work/page.tsx            # All projects with category filters + build journeys
+│   │   ├── certifications/page.tsx  # Full certifications list with filters
+│   │   └── sitemap.ts               # SEO sitemap
 │   ├── components/
 │   │   ├── layout/
-│   │   │   ├── navbar.tsx          # Sticky navigation with active section
-│   │   │   └── footer.tsx          # Footer with social links
+│   │   │   ├── navbar.tsx           # 72px minimal nav with primary CTA + mobile menu
+│   │   │   └── footer.tsx           # Minimal brand + socials footer
 │   │   ├── sections/
-│   │   │   ├── hero.tsx            # Hero section with CTAs
-│   │   │   ├── about.tsx           # About section with highlights
-│   │   │   ├── experience.tsx      # Professional timeline
-│   │   │   ├── projects.tsx        # Project cards with expandable details
-│   │   │   ├── skills.tsx          # Tabbed skills grid
-│   │   │   ├── education.tsx       # Education and publications
-│   │   │   └── contact.tsx         # Contact information
+│   │   │   ├── hero.tsx             # Identity → value → CTA with editorial portrait
+│   │   │   ├── selected-work.tsx    # Featured project centerpiece + secondary work
+│   │   │   ├── experience.tsx       # Vertical timeline (roles + education)
+│   │   │   ├── engineering-expertise.tsx  # Capability taxonomy
+│   │   │   ├── recognition.tsx      # Research, awards, seed funding, certifications
+│   │   │   ├── about.tsx            # Short editorial bio + engineering philosophy
+│   │   │   └── final-cta.tsx        # Contact CTA
 │   │   └── ui/
-│   │       ├── icons.tsx           # Custom SVG icons (LinkedIn, GitHub)
-│   │       └── progress-bar.tsx    # Scroll progress indicator
+│   │       ├── icons.tsx            # GitHub / LinkedIn / Medium SVG icons
+│   │       └── copy-button.tsx      # Copy-to-clipboard with feedback
 │   ├── data/
-│   │   └── content.ts              # 📝 Single source of truth for all content
-│   ├── hooks/
-│   │   └── use-scroll.ts           # Scroll position, active section, theme hooks
+│   │   └── content.ts               # 📝 Single source of truth for all content
 │   └── lib/
-│       └── utils.ts                # Utility functions (cn, etc.)
+│       └── utils.ts                 # cn() utility
 ├── tailwind.config.ts
 ├── next.config.ts
-├── package.json
-└── README.md
+└── package.json
 ```
 
 ## 🛠 Setup & Development
@@ -56,12 +77,11 @@ portfolio/
 ### Prerequisites
 
 - Node.js 18+
-- npm or yarn
+- npm
 
 ### Installation
 
 ```bash
-cd portfolio
 npm install
 ```
 
@@ -84,13 +104,13 @@ npm run start
 
 All portfolio content is centralized in `src/data/content.ts`. Edit this single file to update:
 
-- **Personal info:** Name, title, email, social links, resume URL
-- **About section:** Summary text and highlights
-- **Experience:** Job roles, achievements, technologies
-- **Projects:** Descriptions, challenges, decisions, learnings
-- **Skills:** Categorized technology lists
-- **Education:** Degree, institution, period
-- **Contact:** Email, social profiles, phone
+- **Personal info:** name, title, email, social links, resume URL
+- **Hero:** role label, description, stack line
+- **Projects:** descriptions, outcomes, challenges, decisions, learnings
+- **Experience:** roles, periods, summaries, achievements (max 3 shown per role)
+- **Skills:** capability categories and technology lists
+- **Education:** degree, institution, period, grade
+- **Recognition:** publication, entrepreneurship stories, certifications
 
 ### Example: Adding a New Project
 
@@ -98,60 +118,50 @@ All portfolio content is centralized in `src/data/content.ts`. Edit this single 
 // In src/data/content.ts → projects array
 {
   title: "My New Project",
-  description: "A brief description of the project.",
+  shortTitle: "NewProject",
+  description: "A brief one-line description.",
+  longDescription: "Longer description for the work page.",
   technologies: ["React", "Node.js", "PostgreSQL"],
+  categories: ["Full Stack"],
   githubUrl: "https://github.com/Inkithai/project-name",
-  liveUrl: "https://project-name.vercel.app", // or null if not available
-  challenges: ["Challenge 1", "Challenge 2"],
-  decisions: ["Decision 1", "Decision 2"],
-  learnings: ["Learning 1", "Learning 2"],
-  featured: true, // true shows in main grid, false shows in "Other Projects"
+  liveUrl: null,
+  featured: true,               // shows in the featured grid on /work
+  isSelectedWork: true,         // eligible for the home page
+  outcome: "The measurable result of the project.",
+  challenges: ["..."],
+  decisions: ["..."],
+  learnings: ["..."],
+  imageGradient: "from-blue-600 via-cyan-600 to-teal-600",
 }
 ```
 
 ### Adding a Resume
 
-Place your PDF resume as `public/Inkithai_Meiyalagan_CV.pdf` (or update `resumeUrl` in `content.ts`).
+Place your PDF resume in `public/` and update `resumeUrl` in `content.ts`.
 
 ## 🌐 Deploy to Vercel
 
-1. Push your code to GitHub
-2. Go to [Vercel](https://vercel.com)
-3. Import your repository
-4. Deploy (no additional configuration needed)
+1. Push to GitHub
+2. Import the repository at [vercel.com](https://vercel.com)
+3. Deploy (no extra configuration needed)
 
-Or use the Vercel CLI:
-
-```bash
-npx vercel
-```
+Or via CLI: `npx vercel`
 
 ## ✅ Features
 
-- **Dark mode first** with light mode toggle
-- **Responsive design** — mobile, tablet, and desktop
-- **Sticky navigation** with active section highlighting
-- **Smooth scrolling** between sections
-- **Scroll progress indicator** at the top
-- **Keyboard shortcuts** — press `/` to scroll to top
-- **Accessible** — ARIA labels, semantic HTML, keyboard navigation
-- **SEO optimized** — Metadata, Open Graph, Twitter Cards, robots.txt, sitemap.xml, JSON-LD structured data
+- **Dark, minimal-professional design** tuned for recruiter scanning
+- **Featured-first project hierarchy** with progressive disclosure (build journeys)
+- **Vertical experience timeline** with education folded in
+- **Capability-based skills taxonomy** instead of a technology inventory
+- **Editorial recognition section** — IEEE publication, seed funding, awards
+- **Self-hosted variable fonts** — no external font requests
+- **Accessible** — semantic headings, ARIA labels, focus states, 44px targets, WCAG AA contrast, reduced-motion support
+- **SEO optimized** — metadata, Open Graph, Twitter cards, robots.txt, sitemap.xml, JSON-LD
 - **Copy email to clipboard** with visual feedback
-- **Expandable project details** for challenges, decisions, and learnings
-- **Tabbed skills** for organized browsing
-- **Collapsible experience timeline**
-
-## 📊 SEO & Performance
-
-- Metadata and structured data (JSON-LD)
-- Open Graph and Twitter Card support
-- robots.txt and sitemap.xml
-- Semantic HTML with ARIA labels
-- Optimized for Lighthouse scores: Performance 95+, Accessibility 95+, Best Practices 95+, SEO 100
 
 ## 🎨 Design Philosophy
 
-Minimal, polished, and professional — inspired by portfolios from engineers at Vercel, Stripe, Linear, and Anthropic. Clean typography, subtle animations, and consistent spacing throughout.
+Remove elements rather than add them. Technical credibility comes from the projects and experience themselves — not from decorative terminal UI, badge walls, or dashboard-style cards. The result: a portfolio that says *"here is an engineer who builds valuable software"* instead of *"look what my UI can display."*
 
 ## 📄 License
 
