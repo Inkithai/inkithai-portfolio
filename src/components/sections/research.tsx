@@ -1,13 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import { publication } from "@/data/content";
-import { FileText, ChevronDown } from "lucide-react";
-import { TiltCard } from "@/components/amicro/tilt-card";
-import { GlareShine } from "@/components/amicro/glare-shine";
-import { MagneticButton } from "@/components/amicro/magnetic-button";
-import { AnimatedArrow } from "@/components/amicro/icon-morph";
+import { FileText, ChevronDown, ExternalLink } from "lucide-react";
 
 export function ResearchSection() {
   const [showDetails, setShowDetails] = useState(false);
@@ -35,15 +30,9 @@ export function ResearchSection() {
             </div>
           </div>
 
-          {/* Right — editorial publication card with Tilt Card & Glare */}
-          <motion.div
-            initial={{ y: 12, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            viewport={{ once: true }}
-            className="lg:col-span-8"
-          >
-            <TiltCard tiltIntensity={6} showSpotlight className="card p-7 md:p-8 group overflow-hidden">
-              <GlareShine />
+          {/* Right — editorial publication card */}
+          <div className="lg:col-span-8">
+            <div className="card p-7 md:p-8 group overflow-hidden">
               <div className="flex items-start justify-between gap-4 mb-5">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-[10px] bg-bg-elevated border border-border-subtle flex items-center justify-center text-accent">
@@ -71,63 +60,47 @@ export function ResearchSection() {
                 {publication.description}
               </p>
 
-              <AnimatePresence>
-                {showDetails && (
-                  <motion.div
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: "auto", opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.3 }}
-                    className="overflow-hidden"
-                  >
-                    <div className="mt-5 pt-5 border-t border-border-subtle space-y-4">
-                      <p className="text-[13px] leading-relaxed text-secondary">
-                        {publication.detailedSummary}
-                      </p>
-                      <div className="body-mono normal-case tracking-normal text-[11px] text-muted">
-                        DOI: {publication.doi}
-                      </div>
-                      <div className="flex flex-wrap gap-1.5 z-20 relative">
-                        {publication.technologies.map((tech) => (
-                          <span key={tech} className="badge">
-                            {tech}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
+              {showDetails && (
+                <div className="mt-5 pt-5 border-t border-border-subtle space-y-4">
+                  <p className="text-[13px] leading-relaxed text-secondary">
+                    {publication.detailedSummary}
+                  </p>
+                  <div className="body-mono normal-case tracking-normal text-[11px] text-muted">
+                    DOI: {publication.doi}
+                  </div>
+                  <div className="flex flex-wrap gap-1.5 z-20 relative">
+                    {publication.technologies.map((tech) => (
+                      <span key={tech} className="badge">
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
 
               <div className="mt-6 flex flex-wrap items-center gap-4 z-20 relative">
-                <MagneticButton strength={0.2}>
-                  <a
-                    href={publication.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn-primary"
-                  >
-                    Read on IEEE Xplore
-                    <AnimatedArrow type="external" className="w-4 h-4" />
-                  </a>
-                </MagneticButton>
+                <a
+                  href={publication.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-primary"
+                >
+                  Read on IEEE Xplore
+                  <ExternalLink className="w-4 h-4" />
+                </a>
 
                 <button
                   onClick={() => setShowDetails(!showDetails)}
-                  className="btn-link cursor-pointer"
+                  className="btn-link cursor-pointer inline-flex items-center gap-1.5"
                 >
-                  <motion.span
-                    animate={{ rotate: showDetails ? 180 : 0 }}
-                    transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                    className="inline-block"
-                  >
+                  <span className={`inline-block ${showDetails ? "rotate-180" : ""}`}>
                     <ChevronDown className="w-4 h-4" />
-                  </motion.span>
+                  </span>
                   {showDetails ? "Less details" : "More details"}
                 </button>
               </div>
-            </TiltCard>
-          </motion.div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

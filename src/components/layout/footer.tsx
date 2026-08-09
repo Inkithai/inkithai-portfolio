@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { Mail, MapPin, ArrowUp, ArrowUpRight } from "lucide-react";
 import { GithubIcon, LinkedinIcon, MediumIcon } from "@/components/ui/icons";
 import { personal } from "@/data/content";
@@ -20,12 +19,6 @@ const socialLinks = [
   { label: "LinkedIn", handle: "in/inkithai", href: personal.socials.linkedin, Icon: LinkedinIcon },
   { label: "Medium", handle: "@inkithai", href: personal.socials.medium, Icon: MediumIcon },
 ];
-
-const reveal = {
-  initial: { opacity: 0, y: 12 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true, margin: "-60px" },
-} as const;
 
 export function Footer() {
   const pathname = usePathname();
@@ -50,7 +43,7 @@ export function Footer() {
       <div className="container-max section-padding relative">
         <div className="grid gap-12 md:grid-cols-12 py-16 lg:py-20">
           {/* Brand */}
-          <motion.div {...reveal} transition={{ duration: 0.5 }} className="md:col-span-5 space-y-6">
+          <div className="md:col-span-5 space-y-6">
             <Link href="/" className="group flex items-center gap-3 w-fit">
               <div className="w-10 h-10 rounded-[10px] bg-bg-elevated border border-border-subtle flex items-center justify-center font-semibold text-[14px] text-primary transition-colors group-hover:border-accent/40">
                 I
@@ -74,10 +67,10 @@ export function Footer() {
                 <MapPin className="w-3 h-3" /> {personal.location}
               </span>
             </div>
-          </motion.div>
+          </div>
 
           {/* Navigate */}
-          <motion.div {...reveal} transition={{ duration: 0.5, delay: 0.05 }} className="md:col-span-3">
+          <div className="md:col-span-3">
             <div className="label-eyebrow mb-5 flex items-center">
               <span className="eyebrow-bar" />
               <span>Navigate</span>
@@ -106,10 +99,10 @@ export function Footer() {
                 </li>
               ))}
             </ul>
-          </motion.div>
+          </div>
 
           {/* Connect */}
-          <motion.div {...reveal} transition={{ duration: 0.5, delay: 0.1 }} className="md:col-span-4">
+          <div className="md:col-span-4">
             <div className="label-eyebrow mb-5 flex items-center">
               <span className="eyebrow-bar" />
               <span>Connect</span>
@@ -153,13 +146,13 @@ export function Footer() {
                 <ArrowUpRight className="w-3.5 h-3.5" />
               </a>
             </div>
-          </motion.div>
+          </div>
         </div>
 
         {/* Bottom bar */}
         <div className="py-7 border-t border-border-subtle flex flex-col sm:flex-row items-center justify-between gap-4">
           <span className="text-[12.5px] text-muted text-center sm:text-left">
-            © {new Date().getFullYear()} {personal.name}. Built with Next.js, Tailwind &amp; Framer Motion.
+            © {new Date().getFullYear()} {personal.name}. Built with Next.js &amp; Tailwind CSS.
           </span>
           <span className="body-mono normal-case tracking-[0.15em]">
             Colombo · Remote Worldwide

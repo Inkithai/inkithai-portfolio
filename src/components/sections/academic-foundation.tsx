@@ -1,11 +1,5 @@
-"use client";
-
-import { motion } from "framer-motion";
 import { education } from "@/data/content";
 import { GraduationCap, Calendar, MapPin } from "lucide-react";
-import { TiltCard } from "@/components/amicro/tilt-card";
-import { GlareShine } from "@/components/amicro/glare-shine";
-import { WordReveal } from "@/components/amicro/text-reveal";
 
 export function AcademicFoundationSection() {
   return (
@@ -20,11 +14,7 @@ export function AcademicFoundationSection() {
             </div>
             <h2 className="heading-section">
               Learning that{" "}
-              <WordReveal
-                text="compounds over time."
-                className="text-accent text-gradient-blue"
-                delay={0.1}
-              />
+              <span className="text-accent text-gradient-blue">compounds over time.</span>
             </h2>
             <p className="body-default mt-5 max-w-[420px]">
               Systems design, algorithms, and software engineering — paired with production
@@ -40,15 +30,9 @@ export function AcademicFoundationSection() {
             </div>
           </div>
 
-          {/* Right — degree card with Tilt & Glare */}
-          <motion.div
-            initial={{ y: 12, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            viewport={{ once: true }}
-            className="lg:col-span-7"
-          >
-            <TiltCard tiltIntensity={6} showSpotlight className="card p-7 md:p-8 overflow-hidden group">
-              <GlareShine />
+          {/* Right — degree card */}
+          <div className="lg:col-span-7">
+            <div className="card p-7 md:p-8 overflow-hidden group">
               <div className="flex items-start justify-between gap-4 mb-6">
                 <div className="flex items-center gap-3">
                   <div className="w-11 h-11 rounded-[12px] bg-bg-elevated border border-border-subtle flex items-center justify-center text-accent">
@@ -95,8 +79,8 @@ export function AcademicFoundationSection() {
                   <div className="text-[13.5px] text-primary font-medium">{education.grade}</div>
                 </div>
               </div>
-            </TiltCard>
-          </motion.div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

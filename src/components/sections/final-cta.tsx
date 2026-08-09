@@ -1,13 +1,8 @@
 "use client";
 
 import { personal } from "@/data/content";
-import { Mail } from "lucide-react";
-import { TiltCard } from "@/components/amicro/tilt-card";
-import { GlareShine } from "@/components/amicro/glare-shine";
-import { MagneticButton } from "@/components/amicro/magnetic-button";
-import { CopyButton } from "@/components/amicro/copy-button";
-import { AnimatedArrow } from "@/components/amicro/icon-morph";
-import { WordReveal } from "@/components/amicro/text-reveal";
+import { Mail, ArrowUpRight } from "lucide-react";
+import { CopyButton } from "@/components/ui/copy-button";
 
 export function FinalCTASection() {
   return (
@@ -32,11 +27,7 @@ export function FinalCTASection() {
 
               <h2 className="heading-section">
                 Let&apos;s build{" "}
-                <WordReveal
-                  text="something great."
-                  className="text-accent text-gradient-blue"
-                  delay={0.1}
-                />
+                <span className="text-accent text-gradient-blue">something great.</span>
               </h2>
               <p className="body-large mt-5 max-w-[480px]">
                 Available for freelance and full-time roles — especially where AI meets
@@ -44,16 +35,14 @@ export function FinalCTASection() {
               </p>
 
               <div className="mt-8 flex flex-wrap gap-3 items-center">
-                <MagneticButton strength={0.25}>
-                  <a
-                    href={`mailto:${personal.email}`}
-                    className="btn-primary shadow-[0_0_25px_rgba(79,140,255,0.35)]"
-                  >
-                    <Mail className="w-4 h-4" />
-                    Email me directly
-                    <AnimatedArrow type="up-right" className="w-4 h-4" />
-                  </a>
-                </MagneticButton>
+                <a
+                  href={`mailto:${personal.email}`}
+                  className="btn-primary shadow-[0_0_25px_rgba(79,140,255,0.35)]"
+                >
+                  <Mail className="w-4 h-4" />
+                  Email me directly
+                  <ArrowUpRight className="w-4 h-4" />
+                </a>
 
                 <CopyButton
                   textToCopy={personal.email}
@@ -72,10 +61,9 @@ export function FinalCTASection() {
               </div>
             </div>
 
-            {/* Right — quick connect card with TiltCard & Spotlight */}
+            {/* Right — quick connect card */}
             <div className="lg:col-span-5">
-              <TiltCard tiltIntensity={8} showSpotlight className="card !bg-bg !border-border-subtle p-5 overflow-hidden group">
-                <GlareShine />
+              <div className="card !bg-bg !border-border-subtle p-5 overflow-hidden group">
                 <div className="flex items-center gap-3 mb-5">
                   <div className="w-11 h-11 rounded-full bg-bg-elevated border border-border-subtle text-primary flex items-center justify-center font-semibold text-[14px]">
                     IM
@@ -124,7 +112,7 @@ export function FinalCTASection() {
                     GitHub
                   </a>
                 </div>
-              </TiltCard>
+              </div>
             </div>
           </div>
         </div>
