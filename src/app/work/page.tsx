@@ -110,7 +110,7 @@ export default function WorkPage() {
               {workProjects.map((project) => {
                 const globalIdx = projects.indexOf(project);
                 const isExpanded = expanded === globalIdx;
-                const coverImage = (project as any).thumbnail || (project as any).screenshots?.[0];
+                const coverImage = project.thumbnail || project.screenshots?.[0];
                 const hasScreenshots = !!coverImage;
                 return (
                   <article key={project.title} className="card card-interactive overflow-hidden h-full group border-accent/20">
@@ -125,7 +125,22 @@ export default function WorkPage() {
                       <div className="absolute top-5 right-5 z-10 flex items-center gap-1.5">
                         <span className="body-mono text-[10.5px] text-success border border-success/20 rounded-full px-2 py-0.5">FCA Ready</span>
                       </div>
-                      <div className="absolute inset-5 top-14 rounded-[12px] bg-bg border border-border-subtle overflow-hidden flex flex-col group-hover:scale-[1.02] transition-transform duration-500">
+                      {hasScreenshots ? (
+                        <>
+                          {/* eslint-disable-next-line @next/next/no-img-element */}
+                          <img
+                            src={coverImage}
+                            alt={`${project.shortTitle} screenshot`}
+                            className="absolute inset-0 z-[1] h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.02]"
+                          />
+                          <div className="absolute inset-0 z-[2] bg-gradient-to-t from-black/55 via-black/5 to-black/15" />
+                          <span className="badge absolute bottom-3 right-3 z-10 !border-white/20 bg-black/60 !py-0.5 !text-[10px] text-white backdrop-blur flex items-center gap-1">
+                            <ImageIcon className="h-3 w-3" />
+                            Real screenshot
+                          </span>
+                        </>
+                      ) : (
+                        <div className="absolute inset-5 top-14 rounded-[12px] bg-bg border border-border-subtle overflow-hidden flex flex-col group-hover:scale-[1.02] transition-transform duration-500">
                         <div className="flex items-center gap-1.5 px-4 py-2.5 border-b border-border-subtle">
                           <span className="w-2 h-2 rounded-full bg-[#FF5F57]/70" />
                           <span className="w-2 h-2 rounded-full bg-[#FFBD2E]/70" />
@@ -144,7 +159,8 @@ export default function WorkPage() {
                             <div className="h-9 rounded-[6px] bg-bg-elevated/50" />
                           </div>
                         </div>
-                      </div>
+                        </div>
+                      )}
                     </div>
                     <div className="p-6 md:p-7">
                       <div className="flex items-start justify-between gap-3">
@@ -196,17 +212,9 @@ export default function WorkPage() {
                               </ul>
                             </div>
                           ))}
-                          {(project as any).screenshots && (project as any).screenshots.length > 0 && (
+                          {project.screenshots && project.screenshots.length > 0 && (
                             <div className="grid grid-cols-2 gap-3">
-                              {(project as any).screenshots.map((src: string, idx: number) => (
-                                // eslint-disable-next-line @next/next/no-img-element
-                                <img key={idx} src={src} alt={`${project.shortTitle} ${idx+1}`} className="w-full h-36 object-cover object-top rounded-[10px] border border-border-subtle hover:opacity-90 transition-opacity" />
-                              ))}
-                            </div>
-                          )}
-                                                    {(project as any).screenshots && (project as any).screenshots.length > 0 && (
-                            <div className="grid grid-cols-2 gap-3">
-                              {(project as any).screenshots.map((src: string, idx: number) => (
+                              {project.screenshots.map((src: string, idx: number) => (
                                 // eslint-disable-next-line @next/next/no-img-element
                                 <img key={idx} src={src} alt={`${project.shortTitle} ${idx+1}`} className="w-full h-36 object-cover object-top rounded-[10px] border border-border-subtle hover:opacity-90 transition-opacity" />
                               ))}
@@ -245,7 +253,7 @@ export default function WorkPage() {
                 const globalIdx = projects.indexOf(project);
                 const isExpanded = expanded === globalIdx;
                 const isVercel = project.liveUrl?.includes("vercel.app");
-                const coverImage = (project as any).thumbnail || (project as any).screenshots?.[0];
+                const coverImage = project.thumbnail || project.screenshots?.[0];
                 const hasScreenshots = !!coverImage;
                 const isGhPages = project.liveUrl?.includes("github.io");
                 return (
@@ -262,7 +270,22 @@ export default function WorkPage() {
                         <span className="w-1.5 h-1.5 rounded-full bg-success animate-pulse" />
                         <span className="body-mono text-[10.5px] text-success">Deployed</span>
                       </div>
-                      <div className="absolute inset-5 top-14 rounded-[12px] bg-bg border border-border-subtle overflow-hidden flex flex-col group-hover:scale-[1.02] transition-transform duration-500">
+                      {hasScreenshots ? (
+                        <>
+                          {/* eslint-disable-next-line @next/next/no-img-element */}
+                          <img
+                            src={coverImage}
+                            alt={`${project.shortTitle} screenshot`}
+                            className="absolute inset-0 z-[1] h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.02]"
+                          />
+                          <div className="absolute inset-0 z-[2] bg-gradient-to-t from-black/55 via-black/5 to-black/15" />
+                          <span className="badge absolute bottom-3 right-3 z-10 !border-white/20 bg-black/60 !py-0.5 !text-[10px] text-white backdrop-blur flex items-center gap-1">
+                            <ImageIcon className="h-3 w-3" />
+                            Real screenshot
+                          </span>
+                        </>
+                      ) : (
+                        <div className="absolute inset-5 top-14 rounded-[12px] bg-bg border border-border-subtle overflow-hidden flex flex-col group-hover:scale-[1.02] transition-transform duration-500">
                         <div className="flex items-center gap-1.5 px-4 py-2.5 border-b border-border-subtle">
                           <span className="w-2 h-2 rounded-full bg-[#FF5F57]/70" />
                           <span className="w-2 h-2 rounded-full bg-[#FFBD2E]/70" />
@@ -281,7 +304,8 @@ export default function WorkPage() {
                             <div className="h-9 rounded-[6px] bg-bg-elevated/50" />
                           </div>
                         </div>
-                      </div>
+                        </div>
+                      )}
                     </div>
                     <div className="p-6 md:p-7">
                       <div className="flex items-start justify-between gap-3">
@@ -349,9 +373,9 @@ export default function WorkPage() {
                               </ul>
                             </div>
                           ))}
-                          {(project as any).screenshots && (project as any).screenshots.length > 0 && (
+                          {project.screenshots && project.screenshots.length > 0 && (
                             <div className="grid grid-cols-2 gap-3">
-                              {(project as any).screenshots.map((src: string, idx: number) => (
+                              {project.screenshots.map((src: string, idx: number) => (
                                 // eslint-disable-next-line @next/next/no-img-element
                                 <img key={idx} src={src} alt={`${project.shortTitle} ${idx+1}`} className="w-full h-36 object-cover object-top rounded-[10px] border border-border-subtle hover:opacity-90 transition-opacity" />
                               ))}
@@ -389,7 +413,7 @@ export default function WorkPage() {
                 const globalIdx = projects.indexOf(project);
                 const isExpanded = expanded === globalIdx;
                 const hasLiveDemo = !!project.liveUrl;
-                const coverImage = (project as any).thumbnail || (project as any).screenshots?.[0];
+                const coverImage = project.thumbnail || project.screenshots?.[0];
                 const hasScreenshots = !!coverImage;
                 return (
                   <article key={project.title} className="card card-interactive overflow-hidden h-full group">
@@ -403,7 +427,22 @@ export default function WorkPage() {
                         {project.title.includes("Oyster") && <span className="badge-accent !text-[10px] !py-0.5">S-Tier · SaaS · Multi-tenant</span>}
                         {hasLiveDemo && <span className="badge !text-[10px] !py-0.5 !border-success/30 text-success">Live Demo</span>}
                       </div>
-                      <div className="absolute inset-5 top-14 rounded-[12px] bg-bg border border-border-subtle overflow-hidden flex flex-col group-hover:scale-[1.02] transition-transform duration-500">
+                      {hasScreenshots ? (
+                        <>
+                          {/* eslint-disable-next-line @next/next/no-img-element */}
+                          <img
+                            src={coverImage}
+                            alt={`${project.shortTitle} screenshot`}
+                            className="absolute inset-0 z-[1] h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.02]"
+                          />
+                          <div className="absolute inset-0 z-[2] bg-gradient-to-t from-black/55 via-black/5 to-black/15" />
+                          <span className="badge absolute bottom-3 right-3 z-10 !border-white/20 bg-black/60 !py-0.5 !text-[10px] text-white backdrop-blur flex items-center gap-1">
+                            <ImageIcon className="h-3 w-3" />
+                            Real screenshot
+                          </span>
+                        </>
+                      ) : (
+                        <div className="absolute inset-5 top-14 rounded-[12px] bg-bg border border-border-subtle overflow-hidden flex flex-col group-hover:scale-[1.02] transition-transform duration-500">
                         <div className="flex items-center gap-1.5 px-4 py-2.5 border-b border-border-subtle">
                           <span className="w-2 h-2 rounded-full bg-[#FF5F57]/70" />
                           <span className="w-2 h-2 rounded-full bg-[#FFBD2E]/70" />
@@ -420,7 +459,8 @@ export default function WorkPage() {
                             <div className="h-9 rounded-[6px] bg-bg-elevated/50" />
                           </div>
                         </div>
-                      </div>
+                        </div>
+                      )}
                     </div>
                     <div className="p-6 md:p-7">
                       <div className="flex items-start justify-between gap-3">
@@ -482,17 +522,9 @@ export default function WorkPage() {
                               </ul>
                             </div>
                           ))}
-                          {(project as any).screenshots && (project as any).screenshots.length > 0 && (
+                          {project.screenshots && project.screenshots.length > 0 && (
                             <div className="grid grid-cols-2 gap-3">
-                              {(project as any).screenshots.map((src: string, idx: number) => (
-                                // eslint-disable-next-line @next/next/no-img-element
-                                <img key={idx} src={src} alt={`${project.shortTitle} ${idx+1}`} className="w-full h-36 object-cover object-top rounded-[10px] border border-border-subtle hover:opacity-90 transition-opacity" />
-                              ))}
-                            </div>
-                          )}
-                                                    {(project as any).screenshots && (project as any).screenshots.length > 0 && (
-                            <div className="grid grid-cols-2 gap-3">
-                              {(project as any).screenshots.map((src: string, idx: number) => (
+                              {project.screenshots.map((src: string, idx: number) => (
                                 // eslint-disable-next-line @next/next/no-img-element
                                 <img key={idx} src={src} alt={`${project.shortTitle} ${idx+1}`} className="w-full h-36 object-cover object-top rounded-[10px] border border-border-subtle hover:opacity-90 transition-opacity" />
                               ))}
@@ -520,52 +552,83 @@ export default function WorkPage() {
             <div className="flex items-center gap-3 mb-7">
               <h2 className="text-[15px] font-semibold text-primary flex items-center gap-2">
                 <GithubIcon className="w-4 h-4" />
-                4. More builds — B/C Tier hobby & supporting (GitHub code, some with live demos)
+                4. More builds — B/C Tier hobby & supporting
               </h2>
               <span className="badge">{rest.length}</span>
               <div className="h-px flex-1 bg-border-subtle" />
             </div>
-            <div className="card divide-y divide-border-subtle overflow-hidden">
-              {rest.map((project, i) => (
-                <div key={project.title} className="p-5 sm:p-6 flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6 hover:bg-bg-elevated/60 transition-colors group cursor-default">
-                  <div className="flex items-center gap-3 sm:w-[260px] shrink-0">
-                    <span className="text-[12px] font-mono text-muted tabular-nums">{String(i + 1).padStart(2, "0")}</span>
-                    <span className="badge">{project.categories[0]}</span>
-                    {project.liveUrl && <span className="badge !border-success/30 text-success !text-[10px]">Live</span>}
-                    {project.isWorkProject && <span className="badge-accent !text-[10px]">Work</span>}
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <h3 className="text-[15px] font-medium text-primary group-hover:text-accent transition-colors flex items-center gap-2">
-                      {project.title}
-                      {project.liveUrl ? <ExternalLink className="w-3.5 h-3.5 text-success" /> : null}
-                    </h3>
-                    <p className="text-[13px] text-secondary mt-1 line-clamp-2">{project.description}</p>
-                    {project.liveUrl && (
-                      <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="text-[11px] text-success hover:text-accent mt-1 inline-flex items-center gap-1">
-                        <Rocket className="w-3 h-3" />
-                        {project.liveUrl}
-                      </a>
-                    )}
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <div className="flex flex-wrap gap-1.5 max-w-[200px]">
-                      {project.technologies.slice(0, 3).map((t) => (
-                        <span key={t} className="badge !text-[10.5px]">{t}</span>
-                      ))}
-                    </div>
-                    <div className="flex items-center gap-1">
-                      {project.liveUrl && (
-                        <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full bg-success/10 border border-success/20 flex items-center justify-center text-success hover:text-bg hover:bg-success transition-all shrink-0" title="Live demo">
-                          <Rocket className="w-3.5 h-3.5" />
-                        </a>
+            <div className="grid gap-6 md:grid-cols-2">
+              {rest.map((project, i) => {
+                const coverImage = project.thumbnail || project.screenshots?.[0];
+                return (
+                  <article key={project.title} className="card card-interactive group overflow-hidden h-full">
+                    <div className="relative h-52 overflow-hidden border-b border-border-subtle bg-bg-elevated">
+                      {coverImage ? (
+                        <>
+                          {/* eslint-disable-next-line @next/next/no-img-element */}
+                          <img
+                            src={coverImage}
+                            alt={`${project.shortTitle} screenshot`}
+                            className="absolute inset-0 z-[1] h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.02]"
+                          />
+                          <div className="absolute inset-0 z-[2] bg-gradient-to-t from-black/60 via-black/5 to-black/20" />
+                          <span className="badge absolute bottom-3 right-3 z-10 !border-white/20 bg-black/60 !py-0.5 !text-[10px] text-white backdrop-blur flex items-center gap-1">
+                            <ImageIcon className="h-3 w-3" />
+                            Real screenshot
+                          </span>
+                        </>
+                      ) : (
+                        <>
+                          <div className={`absolute inset-0 bg-gradient-to-br ${project.imageGradient}`} />
+                          <div className="absolute inset-0 bg-grid opacity-40" />
+                          <div className="absolute inset-5 top-14 rounded-[12px] border border-white/10 bg-black/20 p-5 backdrop-blur-sm">
+                            <Code2 className="h-6 w-6 text-white/70" />
+                            <div className="mt-4 h-2.5 w-2/3 rounded-full bg-white/25" />
+                            <div className="mt-2 h-2.5 w-1/2 rounded-full bg-white/15" />
+                          </div>
+                        </>
                       )}
-                      <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full border border-border-subtle flex items-center justify-center text-secondary hover:text-primary transition-all shrink-0" title="GitHub">
-                        <GithubIcon className="w-3.5 h-3.5" />
-                      </a>
+                      <div className="absolute left-4 top-4 z-10 flex items-center gap-2">
+                        <span className="badge border-white/20 bg-black/60 text-white backdrop-blur">
+                          {String(i + 1).padStart(2, "0")} · {project.categories[0]}
+                        </span>
+                        {project.liveUrl && <span className="badge !border-success/30 bg-black/60 text-success backdrop-blur">Live</span>}
+                      </div>
                     </div>
-                  </div>
-                </div>
-              ))}
+                    <div className="p-6">
+                      <div className="flex items-start justify-between gap-3">
+                        <div className="min-w-0">
+                          <h3 className="text-[17px] font-semibold text-primary transition-colors group-hover:text-accent">
+                            {project.title}
+                          </h3>
+                          <p className="mt-2 line-clamp-3 text-[13px] leading-relaxed text-secondary">{project.description}</p>
+                        </div>
+                        <div className="flex shrink-0 items-center gap-1.5">
+                          {project.liveUrl && (
+                            <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-success/10 border border-success/20 flex items-center justify-center text-success hover:text-bg hover:bg-success transition-all" aria-label={`Open ${project.shortTitle} live demo`}>
+                              <Rocket className="w-4 h-4" />
+                            </a>
+                          )}
+                          <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full border border-border-subtle flex items-center justify-center text-secondary hover:text-primary hover:border-border-strong transition-all" aria-label={`Open ${project.shortTitle} on GitHub`}>
+                            <GithubIcon className="w-4 h-4" />
+                          </a>
+                        </div>
+                      </div>
+                      <div className="mt-4 flex flex-wrap gap-1.5">
+                        {project.technologies.slice(0, 4).map((technology) => (
+                          <span key={technology} className="badge">{technology}</span>
+                        ))}
+                        {project.screenshots?.length ? (
+                          <span className="badge !border-accent/20 text-accent">
+                            <ImageIcon className="h-3 w-3" />
+                            {project.screenshots.length} screenshot{project.screenshots.length > 1 ? "s" : ""}
+                          </span>
+                        ) : null}
+                      </div>
+                    </div>
+                  </article>
+                );
+              })}
             </div>
           </div>
         )}
