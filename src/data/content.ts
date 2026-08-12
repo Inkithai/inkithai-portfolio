@@ -54,137 +54,139 @@ Currently available for freelance projects and seeking Software Engineering oppo
 
 export const experience = [
   {
-    company: "Mortgage AI Toolkit",
-    role: "Full Stack & AI Engineer",
-    period: "Dec 2024 – Jun 2025",
-    type: "Work Project · company.so",
-    location: "Remote · UK Market",
-    duration: "7 mos",
-    summary:
-      "Built production AI products for mortgage professionals — email automation with FCA compliance and CPD training with compliance reporting. No public code — work projects shipped at company.so.",
-    achievements: [
-      {
-        title: "Draftlee — AI Email Assistant (company.so)",
-        description:
-          "AI-powered email assistant that reads incoming emails, drafts replies in user's writing style, automates replies/forwarding/summaries/reminders. Voice email drafting, newsletter creation, meeting reminders, FCA compliance. Workflow: Email detected → response generated in your style → intelligent automation → send with confidence.",
-        technologies: [
-          "Next.js",
-          "Gemini API",
-          "OpenAI",
-          "Voice-to-Email",
-          "Gmail API",
-          "Google Calendar API",
-          "FCA Compliance",
-          "Newsletter Engine",
-        ],
-        impact:
-          "Production product at https://www.mortgageaitoolkit.com/products/draftlee — learns writing style, auto-reply/forward with attachments, voice assistant, email summaries, meeting reminders. Built with FCA compliance in mind. Work project — no public repo.",
-      },
-      {
-        title: "EduFlow — AI Training & CPD Tracking (company.so)",
-        description:
-          "AI-powered training with CPD tracking for mortgage teams. Mortgage-specific courses, automatic CPD hour logging, audit-ready compliance reporting, certification management, team progress tracking.",
-        technologies: [
-          "React",
-          "Node.js",
-          "OpenAI",
-          "Gemini",
-          "Tesseract.js",
-          "Google TTS",
-          "CPD Engine",
-          "FCA Reporting",
-        ],
-        impact:
-          "Production product at https://www.mortgageaitoolkit.com/products/eduflow — assign training, team completes courses, compliance reporting for audits/FCA. Work project — no public repo.",
-      },
-    ],
-  },
-  {
-    company: "WIS",
+    company: "WIS Sri Lanka",
     role: "Associate Software Engineer",
     period: "Jul 2025 – Nov 2025",
     type: "Full-time",
     location: "Sri Lanka",
     duration: "5 mos",
-    summary: "Led AI-powered LMS and email automation platforms serving production users.",
+    summary:
+      "Developed and deployed production-ready AI products under WIS Sri Lanka, including EduFlow (AI LMS) and Drafty.AI (AI Email Automation).",
     achievements: [
       {
-        title: "EduFlow — AI-Powered LMS",
+        title: "EduFlow — AI-Powered Learning Management System",
         description:
-          "Production LMS with AI voice assistant, contextual Q&A, OCR fallback, and Google TTS. Adaptive assessments from PDF/PPT with real-time tutoring.",
-        technologies: ["React", "Node.js", "OpenAI", "Gemini", "Tesseract.js", "Google TTS"],
+          "Developed and deployed a production-ready LMS with AI-powered learning and assessment capabilities, intelligent tutoring, voice assistant with OCR fallback, and multi-LLM document extraction pipelines.",
+        bullets: [
+          "Developed and deployed a **production-ready LMS** with AI-powered learning and assessment capabilities.",
+          "Built an **AI voice assistant** supporting contextual question answering, OCR fallback, and Google Text-to-Speech.",
+          "Developed AI-based **assessment and adaptive MCQ generation** using PDF/PPT document extraction.",
+          "Implemented an **intelligent tutoring system** with real-time learner feedback.",
+          "Built document-processing pipelines for **PDF, PowerPoint, OCR, text extraction, and AI reasoning**.",
+          "Integrated multiple LLM providers including **OpenAI, Gemini, and OpenRouter**, with provider fallback logic.",
+        ],
+        technologies: [
+          "React",
+          "Node.js",
+          "OpenAI",
+          "Gemini",
+          "OpenRouter",
+          "Tesseract.js",
+          "Google TTS",
+          "PDF/PPT Extraction",
+        ],
         impact:
-          "Multi-LLM pipeline (OpenAI, Gemini, OpenRouter) with fallback logic; document processing for PDF, PPT, and OCR.",
+          "Deployed a production LMS featuring multi-LLM pipelines with provider fallback logic, adaptive assessments, and real-time AI tutoring.",
       },
       {
-        title: "Drafty.AI — Email Automation",
+        title: "Drafty.AI — AI Email Automation Platform",
         description:
-          "Real-time voice-to-email dictation with Gemini-powered summarization. Smart filtering with classification and confidence scoring.",
-        technologies: ["Next.js", "Gemini API", "Google Calendar API", "Node.js"],
+          "Built a real-time voice-to-email dictation module, integrated Gemini for email summarization and content generation, developed email classification with confidence scoring, and integrated Google Calendar API.",
+        bullets: [
+          "Built a real-time **voice-to-email dictation** module.",
+          "Integrated **Gemini** for email summarization and AI-powered content generation.",
+          "Developed an email filtering and classification system using **classification labels and confidence scoring**.",
+          "Integrated **Google Calendar API** for scheduling and meeting automation.",
+        ],
+        technologies: [
+          "Next.js",
+          "Gemini API",
+          "Google Calendar API",
+          "Voice Dictation",
+          "Node.js",
+          "TypeScript",
+        ],
         impact:
-          "Intelligent email automation with Google Calendar scheduling and meeting management.",
+          "Delivered intelligent email automation with voice dictation, smart classification, and Google Calendar scheduling automation.",
       },
     ],
   },
   {
     company: "XYGen.ai",
-    role: "Associate Software Engineer",
-    period: "Jan 2025 – Jun 2025",
+    role: "Junior Software Engineer",
+    period: "Jul 2024 – Jun 2025",
     type: "Full-time",
-    location: "Sri Lanka (UK Shift)",
-    duration: "6 mos",
-    summary: "Full-stack feature development and AI document processing pipelines for legal tech.",
+    location: "Sri Lanka",
+    duration: "1 yr",
+    summary:
+      "Full-stack software engineering using Next.js, React, TypeScript, Node.js, and Express, AI document processing pipelines, microservices, and Laravel admin dashboards.",
     achievements: [
       {
-        title: "Legal Docs Summarization Platform",
+        title: "Full-Stack Engineering & AI Tooling",
         description:
-          "AI-driven internal tools with LLM-based summarization and validation for legal documents.",
-        technologies: ["Next.js", "Node.js", "TypeScript", "OpenAI APIs"],
-        impact: "Automated summarization and validation workflows for legal document processing.",
-      },
-      {
-        title: "Full-Stack Feature Development",
-        description:
-          "Full-stack features using Next.js, Node.js, TypeScript. Reusable backend modules and API utilities.",
-        technologies: ["React", "Tailwind CSS", "ShadCN", "REST APIs"],
-        impact: "Improved UI workflows and client-side rendering performance.",
-      },
-      {
-        title: "UI Component & Dashboard Development",
-        description:
-          "Reusable UI components with React/Next.js. Laravel admin dashboard with CRUD, RBAC, and API integrations.",
-        technologies: ["React", "Next.js", "Laravel", "PHP", "MySQL", "RBAC"],
-        impact: "Faster development velocity through reusable components and comprehensive admin interfaces.",
-      },
-      {
-        title: "Agile Engineering & API Optimization",
-        description:
-          "Agile sprints with structured code reviews and CI/CD. Third-party API integrations and query optimization.",
-        technologies: ["CI/CD", "Code Reviews", "Agile", "REST APIs"],
-        impact: "Enhanced system performance through optimized database queries and quality engineering practices.",
+          "Engineered full-stack features, internal AI document summarization tools, microservices, reusable UI components, and administrative dashboards.",
+        bullets: [
+          "Developed full-stack applications using **Next.js, React, TypeScript, Node.js, and Express**.",
+          "Built internal **AI-driven tools** using LLM-based automation, summarization, and validation pipelines for a Legal Documents Summarization platform.",
+          "Designed reusable **backend modules, API utilities, and service abstractions** to improve development productivity and maintainability.",
+          "Developed reusable UI components and optimized client-side interactions using **React, Tailwind CSS, and ShadCN**.",
+          "Integrated third-party APIs and optimized database queries to improve application performance and server response times.",
+          "Contributed to internal **microservices and RESTful backend services** using Node.js and Express.",
+          "Built a **Laravel-based administration dashboard** with CRUD modules, role-based access control (RBAC), and API integrations.",
+          "Participated in **Agile development, code reviews, CI/CD workflows, and production deployments**.",
+        ],
+        technologies: [
+          "Next.js",
+          "React",
+          "TypeScript",
+          "Node.js",
+          "Express",
+          "OpenAI APIs",
+          "Tailwind CSS",
+          "ShadCN",
+          "Laravel",
+          "PHP",
+          "MySQL",
+          "RBAC",
+          "REST APIs",
+          "CI/CD",
+        ],
+        impact:
+          "Improved development productivity, query response times, and delivered automated legal document processing and administrative tools.",
       },
     ],
   },
   {
-    company: "XYGen.ai",
+    company: "WIS Sri Lanka",
     role: "Intern Software Engineer",
     period: "Jan 2024 – Jun 2024",
     type: "Internship",
     location: "Sri Lanka",
     duration: "6 mos",
-    summary: "Foundational engineering experience across React, Angular, and Node.js ecosystems.",
+    summary:
+      "Frontend component development, RESTful API design, enterprise dashboard development, and production feature contributions.",
     achievements: [
       {
-        title: "Frontend Development",
-        description: "React.js components and Angular dashboard development.",
-        technologies: ["React.js", "Angular", "TypeScript"],
-        impact: "Component-driven architecture with modern frontend frameworks.",
-      },
-      {
-        title: "Backend API Development",
-        description: "API routes and utilities with Node.js and REST patterns.",
-        technologies: ["Node.js", "REST APIs", "Express.js"],
-        impact: "Well-documented APIs following RESTful conventions.",
+        title: "Frontend, Backend & Dashboard Engineering",
+        description:
+          "Contributed to production application features across React, Angular, and Node.js ecosystems.",
+        bullets: [
+          "Developed reusable frontend components using **React.js**.",
+          "Implemented API routes and backend utility functions using **Node.js** and RESTful design patterns.",
+          "Contributed to enterprise dashboard development using **Angular**.",
+          "Worked within existing codebases and development workflows while contributing to production application features.",
+        ],
+        technologies: [
+          "React.js",
+          "Angular",
+          "Node.js",
+          "Express.js",
+          "REST APIs",
+          "TypeScript",
+          "Git",
+        ],
+        impact:
+          "Shipped frontend component systems and RESTful backend utilities within enterprise agile workflows.",
       },
     ],
   },
@@ -242,7 +244,7 @@ export const projects: ProjectItem[] = [
     featured: true,
     isSelectedWork: true,
     isWorkProject: true,
-    company: "Mortgage AI Toolkit (company.so)",
+    company: "WIS Sri Lanka (Mortgage AI Toolkit)",
     workType: "company.so",
     outcome:
       "Shipped production email automation used by mortgage brokers — voice dictation, AI summaries, auto-forwarding, FCA-compliant drafts, newsletter creation",
@@ -288,7 +290,7 @@ export const projects: ProjectItem[] = [
     featured: true,
     isSelectedWork: true,
     isWorkProject: true,
-    company: "Mortgage AI Toolkit (company.so)",
+    company: "WIS Sri Lanka (Mortgage AI Toolkit)",
     workType: "company.so",
     outcome: "Shipped production CPD tracking with FCA-ready reporting — mortgage-specific training content, team progress, certification renewal",
     challenges: [
