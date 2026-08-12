@@ -264,7 +264,7 @@ export const projects: ProjectItem[] = [
       "Writing-style learning needs careful analysis of past emails + progressive improvement",
       "Email automation ROI is highest when it handles summaries, reminders, newsletters, not just replies",
     ],
-    imageGradient: "from-blue-600 via-indigo-600 to-violet-600",
+    imageGradient: "from-slate-800 via-slate-700 to-blue-900",
   },
   {
     title: "EduFlow — AI Training & CPD Tracking (Mortgage AI Toolkit)",
@@ -309,7 +309,7 @@ export const projects: ProjectItem[] = [
       "Training platforms require balancing AI content generation with curated domain accuracy",
       "CPD tracking automatic logging significantly reduces admin burden for mortgage firms",
     ],
-    imageGradient: "from-violet-600 via-indigo-600 to-blue-600",
+    imageGradient: "from-slate-800 via-blue-950 to-slate-900",
   },
 
   // === S-TIER PORTFOLIO — Strongest engineering ===
@@ -360,7 +360,7 @@ export const projects: ProjectItem[] = [
       "Dual-store SQLite+Mongo caused real class of bugs hid others only one backend exercised — single source of truth Mongo removed 1360 lines and enforced via test_storage_architecture no sqlite3 import no .db file",
       "Hallucination mitigation requires multiple layers: multi-engine cross-check → uncorroborated flag → self-consistency twice → fact validator → confidence cap 60% → graceful degradation templates → click-to-verify citations → human correction audit trail",
     ],
-    imageGradient: "from-fuchsia-600 via-purple-600 to-indigo-600",
+    imageGradient: "from-zinc-800 via-slate-800 to-blue-950",
   },
   {
     title: "Oyster360 — Multi-tenant Mushroom Farm SaaS",
@@ -410,7 +410,7 @@ export const projects: ProjectItem[] = [
       "Production SaaS billing needs server-controlled price IDs preventing client substitution + webhook signature verification + idempotent sync + lifecycle states cancellation-at-period-end + GDPR export/deletion + retention + SaaS analytics — not just checkout",
       "AI layer should work without external key via RuleBased fallback — abstract provider pattern OpenAI/Gemini/RuleBased provides resilience cost optimization, RAG restricted to user-owned docs prevents cross-tenant leakage",
     ],
-    imageGradient: "from-emerald-600 via-teal-600 to-cyan-600",
+    imageGradient: "from-slate-900 via-slate-800 to-blue-900",
   },
 
   // === A-TIER ===
@@ -460,7 +460,7 @@ export const projects: ProjectItem[] = [
       "LLM provider abstraction via OpenAI SDK base_url switch allows env-only provider switch no code change — Groq vs Gemini vs generic Cerebras OpenRouter OpenAI custom retry ladder strict json_schema→json_object→plain text works across providers",
       "Vector store abstraction Chroma vs Supabase chunks deterministic IDs overwrite not duplicate re-indexing safe jobs thread-safe per-file progress queued→reading→extracting→saving→ready fixes _source.file original filename not temp sanitized path lab_trends deterministic pure Python direction crossing approaching threshold SVG sparkline reference band robust parsing 70-99 mg/dL",
     ],
-    imageGradient: "from-blue-600 via-cyan-600 to-teal-600",
+    imageGradient: "from-slate-800 via-blue-900 to-slate-900",
   },
   {
     title: "BookWise — Multi-tenant Accounting SaaS",
@@ -507,7 +507,7 @@ export const projects: ProjectItem[] = [
       "Multi-tenant row-level shared DB global scope host_id TenantManager resolves/stores active tenant Super-admins impersonate X-Host-Id header ResolveTenant middleware auth.verified OwnerTrait created_by updated_by — hard-require outside console ensures isolation",
       "Modular monolith Laravel nwidart/modules 14 modules repository service pattern allows CRM clients→customers/vendors invoices→AR repurposing but unrelated modules left intact indicates tech debt for later cleanup LKR localization Asia/Colombo DD/MM/YYYY en_LK multi-currency beyond LKR roadmap",
     ],
-    imageGradient: "from-amber-600 via-orange-600 to-red-600",
+    imageGradient: "from-zinc-800 via-slate-700 to-slate-900",
   },
   {
     title: "RouteIQ — Transit Telemetry SaaS",
@@ -555,7 +555,7 @@ export const projects: ProjectItem[] = [
       "Seat booking at scale requires 32-seat grid real-time lock per date availability checking + 256-bit Stripe checkout card intent + PWA offline ticket vault ServiceWorker sw.js IndexedDB instant verification without cellular + conflict handling race condition",
       "SaaS fleet partitioning X-Tenant-Slug header Organization model + fleet metrics avg delay fuel 4.2 km/L peak hour histogram + modular DDD ai auth analytics booking bus payment route middleware auth TenantGuard RateLimiter ErrorHandler Mongoose ODM Helmet RateLimit Zod MongoDB Atlas Local PWA Multi-Stage Docker Docker Compose Service Workers IndexedDB GitHub Actions — production containerized",
     ],
-    imageGradient: "from-blue-600 via-sky-600 to-cyan-600",
+    imageGradient: "from-slate-800 via-blue-950 to-blue-900",
   },
 
   // === B-TIER + C-TIER — Supporting / More builds ===
@@ -588,7 +588,7 @@ export const projects: ProjectItem[] = [
       "Cloud storage integration needs proper file handling security considerations S3 signed URLs temporary secure links IAM-based no hardcoded credentials .env ignored template placeholders",
       "Django ORM provides powerful tools complex database operations custom User AbstractUser Company soft delete Contact unique_together ActivityLog audit automatic via mixin",
     ],
-    imageGradient: "from-emerald-600 via-teal-600 to-cyan-600",
+    imageGradient: "from-slate-900 via-slate-800 to-blue-900",
   },
   {
     title: "Liya — Kapruka MCP Shopping Assistant",
@@ -629,7 +629,7 @@ export const projects: ProjectItem[] = [
       "Conversational shopping needs cart FloatingCart MobileCartBar ProductCard Shelf ReliabilityBar ChatPanel TypingIndicator",
       "E-commerce prototype benefits from how-it-works visual steps step-1-conversation to step-6-checkout",
     ],
-    imageGradient: "from-rose-500 via-pink-600 to-violet-600",
+    imageGradient: "from-zinc-900 via-slate-800 to-blue-950",
   },
   {
     title: "ConvertLab — Privacy File Converter",
@@ -660,7 +660,7 @@ export const projects: ProjectItem[] = [
       "Universal conversion tool needs clear categories documents images developer hero-format-picker conversion-picker tool-directory",
       "Landing page UI audit UX audit improves conversion tool discovery apple-icon favicon icon hero-format-picker",
     ],
-    imageGradient: "from-slate-600 via-zinc-600 to-stone-600",
+    imageGradient: "from-zinc-900 via-slate-800 to-zinc-900",
   },
   {
     title: "StudyPal — RAG Study Assistant",
@@ -691,7 +691,7 @@ export const projects: ProjectItem[] = [
       "Embedding quality directly impacts retrieval accuracy and response relevance",
       "AI-powered education tools need robust fallback mechanisms for edge cases",
     ],
-    imageGradient: "from-fuchsia-600 via-purple-600 to-indigo-600",
+    imageGradient: "from-zinc-800 via-slate-800 to-blue-950",
   },
   {
     title: "Sri Lankan SMART-GPT",
@@ -722,7 +722,7 @@ export const projects: ProjectItem[] = [
       "Low-latency inference is critical for conversational AI user experience",
       "Full-stack JavaScript enables rapid development and deployment cycles",
     ],
-    imageGradient: "from-orange-500 via-pink-600 to-violet-600",
+    imageGradient: "from-slate-900 via-zinc-800 to-slate-900",
   },
   {
     title: "DigiBeat — Browser Clock Collection",
@@ -753,7 +753,7 @@ export const projects: ProjectItem[] = [
       "PWA manifest sw.js sw.ts service worker offline installable fullscreen any device no signup no ads",
       "Hobby projects benefit from docs ai-features architecture design-patterns monetization saas-roadmap user-flow future planning",
     ],
-    imageGradient: "from-zinc-600 via-slate-600 to-gray-600",
+    imageGradient: "from-zinc-900 via-slate-800 to-zinc-900",
   },
   {
     title: "VoucherRush — HTML5 Game",
@@ -785,7 +785,7 @@ export const projects: ProjectItem[] = [
       "Web Audio API synthesizer dynamic sound effects zero-latency asset-free looping chiptune BGM oscillators masterVolumeNode gain ramp setTargetAtTime mute not suspend freeze burst iOS Safari resume fail Retina DPI devicePixelRatio scaling crisp vector visuals",
       "Production-grade game needs QA audit 6 bugs: audio freeze burst, 0x0 NaN scratch fallback setTimeout reflow, roundRect compatibility polyfill, confetti clipping parent modal, flash-on-reset coupon leak transition none snap, jarring state transition freeze backdrop — commercial conversion funnel Claim Reward scratch card 50% cleared confetti explosion",
     ],
-    imageGradient: "from-violet-600 via-purple-600 to-indigo-600",
+    imageGradient: "from-slate-900 via-blue-950 to-slate-900",
   },
   {
     title: "EduFlow - WIS (AI LMS)",
@@ -817,7 +817,7 @@ export const projects: ProjectItem[] = [
       "Multi-model integration provides better reliability than single-provider dependency",
       "Document processing pipelines need robust OCR and format handling",
     ],
-    imageGradient: "from-violet-600 via-indigo-600 to-blue-600",
+    imageGradient: "from-slate-800 via-blue-950 to-slate-900",
   },
   {
     title: "Draftly.AI - WIS (Email Automation)",
@@ -848,7 +848,7 @@ export const projects: ProjectItem[] = [
       "Email classification benefits from confidence thresholds to avoid false positives",
       "Calendar API integration requires careful handling of time zones and permissions",
     ],
-    imageGradient: "from-blue-600 via-cyan-600 to-teal-600",
+    imageGradient: "from-slate-800 via-blue-900 to-slate-900",
   },
   {
     title: "Legal Docs Summarization (XYGen.ai)",
@@ -879,7 +879,7 @@ export const projects: ProjectItem[] = [
       "AI validation pipelines are essential for production-grade summarization",
       "Modular architecture enables rapid adaptation to new document formats",
     ],
-    imageGradient: "from-amber-600 via-orange-600 to-red-600",
+    imageGradient: "from-zinc-800 via-slate-700 to-slate-900",
   },
 ];
 

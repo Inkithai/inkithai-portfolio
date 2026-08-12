@@ -12,7 +12,7 @@ export function FinalCTASection() {
           {/* Subtle blue background halo */}
           <div
             className="absolute -top-32 -right-32 w-[440px] h-[440px] rounded-full opacity-[0.18] blur-[120px] pointer-events-none"
-            style={{ background: "radial-gradient(circle, #4F8CFF, transparent 70%)" }}
+            style={{ background: "radial-gradient(circle, #3B82F6, transparent 70%)" }}
             aria-hidden="true"
           />
 
@@ -37,7 +37,7 @@ export function FinalCTASection() {
               <div className="mt-8 flex flex-wrap gap-3 items-center">
                 <a
                   href={`mailto:${personal.email}`}
-                  className="btn-primary shadow-[0_0_25px_rgba(79,140,255,0.35)]"
+                  className="btn-primary shadow-[0_0_25px_rgba(59,130,246,0.35)]"
                 >
                   <Mail className="w-4 h-4" />
                   Email me directly

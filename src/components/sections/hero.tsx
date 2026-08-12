@@ -40,7 +40,7 @@ export function HeroSection() {
 
             {/* Primary CTAs */}
             <div className="flex flex-wrap items-center gap-3 mt-9">
-              <Link href="/work" className="btn-primary shadow-[0_0_25px_rgba(79,140,255,0.3)]">
+              <Link href="/work" className="btn-primary shadow-[0_0_25px_rgba(59,130,246,0.3)]">
                 View my work
                 <ArrowUpRight className="w-4 h-4" />
               </Link>

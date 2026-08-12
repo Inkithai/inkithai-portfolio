@@ -68,7 +68,7 @@ export function Navbar() {
           >
             {/* Logo */}
             <Link href="/" className="flex items-center gap-2.5 group relative z-10 pl-3 pr-2">
-              <div className="w-8 h-8 rounded-[10px] bg-bg-elevated border border-border-subtle flex items-center justify-center text-primary font-semibold text-[13px] transition-colors group-hover:border-accent/60 group-hover:shadow-[0_0_15px_rgba(79,140,255,0.3)]">
+              <div className="w-8 h-8 rounded-[10px] bg-bg-elevated border border-border-subtle flex items-center justify-center text-primary font-semibold text-[13px] transition-colors group-hover:border-accent/60 group-hover:shadow-[0_0_15px_rgba(59,130,246,0.3)]">
                 I
               </div>
               <span className="font-semibold tracking-tight text-[13.5px] text-primary hidden sm:inline">
@@ -114,7 +114,7 @@ export function Navbar() {
               <Link
                 href="/#contact"
                 onClick={(e) => handleAnchorClick(e, "/#contact")}
-                className="btn-primary text-[13.5px] !py-2 !px-4 shadow-[0_0_20px_rgba(79,140,255,0.25)] hover:shadow-[0_0_25px_rgba(79,140,255,0.5)] transition-shadow"
+                className="btn-primary text-[13.5px] !py-2 !px-4 shadow-[0_0_20px_rgba(59,130,246,0.25)] hover:shadow-[0_0_25px_rgba(59,130,246,0.5)] transition-shadow"
               >
                 Let&apos;s talk
                 <ArrowUpRight className="w-3.5 h-3.5" />
@@ -138,7 +138,7 @@ export function Navbar() {
         <div className="fixed inset-0 z-40 bg-bg/95 backdrop-blur-3xl md:hidden flex flex-col">
           <div
             className="absolute top-20 left-10 w-72 h-72 rounded-full opacity-[0.12] blur-[100px] pointer-events-none"
-            style={{ background: "radial-gradient(circle, #4F8CFF, transparent 70%)" }}
+            style={{ background: "radial-gradient(circle, #3B82F6, transparent 70%)" }}
           />
 
           <div className="flex-1 flex flex-col justify-center px-8 gap-1 pt-24 relative">

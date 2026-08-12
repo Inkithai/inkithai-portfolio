@@ -1,33 +1,33 @@
 @import "tailwindcss";
 
-/* ========================================================================
-   DESIGN SYSTEM — Deep Navy + Electric Blue
-   ========================================================================
-   90% Neutral dark · 8% Electric blue · 2% Violet secondary
-   ======================================================================== */
+/* ============================================================================
+   DESIGN SYSTEM — Charcoal + Electric Blue
+   ============================================================================
+   80% charcoal / neutral · 15% white/gray typography · 5% electric blue
+   ============================================================================ */
 
 @theme {
   /* Surfaces */
-  --color-bg: #070B14;
-  --color-bg-surface: #0D1422;
-  --color-bg-elevated: #121B2B;
-  --color-border-subtle: #1C2940;
-  --color-border-strong: #263754;
+  --color-bg: #0B0D10;
+  --color-bg-surface: #12161C;
+  --color-bg-elevated: #181D24;
+  --color-border-subtle: #252B34;
+  --color-border-strong: #323A45;
 
   /* Text */
-  --color-text-primary: #F4F7FB;
-  --color-text-secondary: #A7B2C5;
-  --color-text-muted: #667085;
+  --color-text-primary: #F5F7FA;
+  --color-text-secondary: #8B949E;
+  --color-text-muted: #6B7380;
 
-  /* Accent */
-  --color-accent: #4F8CFF;
-  --color-accent-hover: #6A9EFF;
-  --color-accent-secondary: #7C5CFF;
+  /* Accent — electric blue only */
+  --color-accent: #3B82F6;
+  --color-accent-hover: #60A5FA;
+  --color-accent-secondary: #2563EB;
 
-  /* Status */
-  --color-success: #36D399;
-  --color-warning: #F5B84B;
-  --color-error: #FF647C;
+  /* Status — functional, not decorative */
+  --color-success: #22C55E;
+  --color-warning: #F59E0B;
+  --color-error: #EF4444;
 
   /* Typography */
   --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", "Inter", "Helvetica Neue", Arial, sans-serif;
@@ -49,8 +49,8 @@ html {
 }
 
 body {
-  background: #070B14;
-  color: #F4F7FB;
+  background: #0B0D10;
+  color: #F5F7FA;
   font-family: var(--font-sans);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
@@ -61,23 +61,23 @@ body {
 
 /* Selection */
 ::selection {
-  background-color: rgba(79, 140, 255, 0.25);
-  color: #F4F7FB;
+  background-color: rgba(59, 130, 246, 0.25);
+  color: #F5F7FA;
 }
 
 /* Scrollbar */
 ::-webkit-scrollbar { width: 8px; height: 8px; }
-::-webkit-scrollbar-track { background: #070B14; }
-::-webkit-scrollbar-thumb { background: #1C2940; border-radius: 999px; }
-::-webkit-scrollbar-thumb:hover { background: #263754; }
+::-webkit-scrollbar-track { background: #0B0D10; }
+::-webkit-scrollbar-thumb { background: #252B34; border-radius: 999px; }
+::-webkit-scrollbar-thumb:hover { background: #323A45; }
 
-/* ========================================================================
+/* ============================================================================
    TYPOGRAPHY
-   ======================================================================== */
+   ============================================================================ */
 
-.text-primary { color: #F4F7FB; }
-.text-secondary { color: #A7B2C5; }
-.text-muted { color: #667085; }
+.text-primary { color: #F5F7FA; }
+.text-secondary { color: #8B949E; }
+.text-muted { color: #6B7380; }
 
 /* H1 — Hero */
 .heading-hero {
@@ -86,7 +86,7 @@ body {
   letter-spacing: -0.04em;
   line-height: 1.0;
   font-size: clamp(2.5rem, 6.5vw, 5rem);
-  color: #F4F7FB;
+  color: #F5F7FA;
 }
 
 /* H2 — Section */
@@ -96,7 +96,7 @@ body {
   letter-spacing: -0.025em;
   line-height: 1.1;
   font-size: clamp(1.75rem, 3.4vw, 2.5rem);
-  color: #F4F7FB;
+  color: #F5F7FA;
 }
 
 /* H3 — Sub */
@@ -105,7 +105,7 @@ body {
   font-weight: 600;
   letter-spacing: -0.018em;
   line-height: 1.25;
-  color: #F4F7FB;
+  color: #F5F7FA;
 }
 
 /* Section eyebrow label — quiet, neutral */
@@ -114,7 +114,7 @@ body {
   font-size: 0.72rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: #667085;
+  color: #6B7380;
   font-weight: 500;
 }
 
@@ -122,7 +122,7 @@ body {
   display: inline-block;
   width: 18px;
   height: 1px;
-  background: #4F8CFF;
+  background: #3B82F6;
   vertical-align: middle;
   margin-right: 10px;
 }
@@ -131,25 +131,25 @@ body {
 .body-default {
   font-size: 0.95rem;
   line-height: 1.65;
-  color: #A7B2C5;
+  color: #8B949E;
 }
 
 .body-large {
   font-size: 1.05rem;
   line-height: 1.7;
-  color: #A7B2C5;
+  color: #8B949E;
 }
 
 .body-mono {
   font-family: var(--font-mono);
   font-size: 0.75rem;
   letter-spacing: 0.04em;
-  color: #667085;
+  color: #6B7380;
 }
 
-/* ========================================================================
+/* ============================================================================
    LAYOUT HELPERS
-   ======================================================================== */
+   ============================================================================ */
 
 .container-max {
   max-width: 1180px;
@@ -182,106 +182,106 @@ body {
   }
 }
 
-/* ========================================================================
+/* ============================================================================
    SURFACES — single unified card system
-   ======================================================================== */
+   ============================================================================ */
 
 .surface {
-  background: #0D1422;
-  border: 1px solid #1C2940;
+  background: #12161C;
+  border: 1px solid #252B34;
 }
 
 .surface-elevated {
-  background: #121B2B;
-  border: 1px solid #263754;
+  background: #181D24;
+  border: 1px solid #323A45;
 }
 
 .surface-hover {
   transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
 }
 .surface-hover:hover {
-  border-color: #263754;
-  background: #101A2B;
+  border-color: #323A45;
+  background: #151A21;
   transform: translateY(-2px);
 }
 
 /* Card system — primary */
 .card {
-  background: #0D1422;
-  border: 1px solid #1C2940;
+  background: #12161C;
+  border: 1px solid #252B34;
   border-radius: 18px;
   transition: border-color 0.3s ease, background 0.3s ease, transform 0.3s ease;
 }
 .card:hover {
-  border-color: #263754;
-  background: #101A2B;
+  border-color: #323A45;
+  background: #151A21;
 }
 .card-interactive {
   cursor: pointer;
   transition: border-color 0.3s ease, background 0.3s ease, transform 0.3s ease;
 }
 .card-interactive:hover {
-  border-color: #304667;
-  background: #101A2B;
+  border-color: #3B4554;
+  background: #151A21;
   transform: translateY(-2px);
 }
 
 /* Glass for floating chrome */
 .glass {
-  background: rgba(13, 20, 34, 0.72);
+  background: rgba(18, 22, 28, 0.72);
   backdrop-filter: blur(20px) saturate(1.4);
   -webkit-backdrop-filter: blur(20px) saturate(1.4);
-  border: 1px solid rgba(28, 41, 64, 0.9);
+  border: 1px solid rgba(37, 43, 52, 0.9);
 }
 
 .glass-strong {
-  background: rgba(7, 11, 20, 0.85);
+  background: rgba(11, 13, 16, 0.85);
   backdrop-filter: blur(28px) saturate(1.6);
   -webkit-backdrop-filter: blur(28px) saturate(1.6);
-  border: 1px solid rgba(28, 41, 64, 1);
+  border: 1px solid rgba(37, 43, 52, 1);
 }
 
-/* ========================================================================
+/* ============================================================================
    ACCENT — applied SPARINGLY
-   ======================================================================== */
+   ============================================================================ */
 
 /* Accent text emphasis (one place per section max) */
 .text-accent {
-  color: #4F8CFF;
+  color: #3B82F6;
 }
 
 .text-accent-soft {
-  color: #6A9EFF;
+  color: #60A5FA;
 }
 
 .text-accent-secondary {
-  color: #7C5CFF;
+  color: #60A5FA;
 }
 
-/* Subtle gradient for hero */
+/* Subtle gradient for hero — blue family only, no purple */
 .text-gradient-blue {
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
-  background-image: linear-gradient(135deg, #4F8CFF 0%, #7C5CFF 100%);
+  background-image: linear-gradient(135deg, #3B82F6 0%, #60A5FA 100%);
 }
 
 .text-gradient-subtle {
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
-  background-image: linear-gradient(120deg, #F4F7FB 0%, #A7B2C5 100%);
+  background-image: linear-gradient(120deg, #F5F7FA 0%, #8B949E 100%);
 }
 
 /* Soft accent halo — only on primary CTAs and important elements */
 .accent-halo {
-  box-shadow: 0 0 0 1px rgba(79, 140, 255, 0.25),
-              0 8px 24px -10px rgba(79, 140, 255, 0.35);
+  box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.25),
+              0 8px 24px -10px rgba(59, 130, 246, 0.35);
 }
 
-/* ========================================================================
+/* ============================================================================
    BUTTONS
-   ======================================================================== */
+   ============================================================================ */
 
 /* Primary CTA — only place that gets a solid color */
 .btn-primary {
@@ -290,21 +290,21 @@ body {
   justify-content: center;
   gap: 0.5rem;
   padding: 0.7rem 1.25rem;
-  background: #4F8CFF;
-  color: #070B14;
+  background: #3B82F6;
+  color: #F5F7FA;
   font-size: 0.875rem;
   font-weight: 600;
   border-radius: 9999px;
-  border: 1px solid #4F8CFF;
+  border: 1px solid #3B82F6;
   transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
   cursor: pointer;
   white-space: nowrap;
 }
 .btn-primary:hover {
-  background: #6A9EFF;
-  border-color: #6A9EFF;
+  background: #60A5FA;
+  border-color: #60A5FA;
   transform: translateY(-1px);
-  box-shadow: 0 8px 20px -8px rgba(79, 140, 255, 0.5);
+  box-shadow: 0 8px 20px -8px rgba(59, 130, 246, 0.5);
 }
 
 /* Ghost / secondary */
@@ -315,18 +315,18 @@ body {
   gap: 0.5rem;
   padding: 0.7rem 1.25rem;
   background: transparent;
-  color: #F4F7FB;
+  color: #F5F7FA;
   font-size: 0.875rem;
   font-weight: 500;
   border-radius: 9999px;
-  border: 1px solid #1C2940;
+  border: 1px solid #252B34;
   transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
   cursor: pointer;
   white-space: nowrap;
 }
 .btn-ghost:hover {
-  background: #0D1422;
-  border-color: #263754;
+  background: #12161C;
+  border-color: #323A45;
   transform: translateY(-1px);
 }
 
@@ -335,7 +335,7 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  color: #A7B2C5;
+  color: #8B949E;
   font-size: 0.875rem;
   font-weight: 500;
   padding: 0.5rem 0;
@@ -345,21 +345,21 @@ body {
   border: none;
 }
 .btn-link:hover {
-  color: #4F8CFF;
+  color: #3B82F6;
 }
 
-/* ========================================================================
+/* ============================================================================
    BADGES — neutral, restrained
-   ======================================================================== */
+   ============================================================================ */
 
 .badge {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
   padding: 0.3rem 0.65rem;
-  background: rgba(28, 41, 64, 0.5);
-  border: 1px solid #1C2940;
-  color: #A7B2C5;
+  background: rgba(37, 43, 52, 0.5);
+  border: 1px solid #252B34;
+  color: #8B949E;
   font-size: 0.72rem;
   font-weight: 500;
   border-radius: 9999px;
@@ -372,9 +372,9 @@ body {
   align-items: center;
   gap: 0.4rem;
   padding: 0.3rem 0.65rem;
-  background: rgba(79, 140, 255, 0.08);
-  border: 1px solid rgba(79, 140, 255, 0.25);
-  color: #6A9EFF;
+  background: rgba(59, 130, 246, 0.08);
+  border: 1px solid rgba(59, 130, 246, 0.25);
+  color: #60A5FA;
   font-size: 0.72rem;
   font-weight: 500;
   border-radius: 9999px;
@@ -387,29 +387,29 @@ body {
   width: 6px;
   height: 6px;
   border-radius: 9999px;
-  background: #4F8CFF;
-  box-shadow: 0 0 8px rgba(79, 140, 255, 0.6);
+  background: #3B82F6;
+  box-shadow: 0 0 8px rgba(59, 130, 246, 0.6);
 }
 
-.badge-dot-success { background: #36D399; box-shadow: 0 0 8px rgba(54, 211, 153, 0.6); }
+.badge-dot-success { background: #22C55E; box-shadow: 0 0 8px rgba(34, 197, 94, 0.6); }
 
-/* ========================================================================
+/* ============================================================================
    DIVIDERS / HAIRLINES
-   ======================================================================== */
+   ============================================================================ */
 
 .hairline {
   height: 1px;
-  background: linear-gradient(90deg, transparent, #1C2940 50%, transparent);
+  background: linear-gradient(90deg, transparent, #252B34 50%, transparent);
 }
 
 .hairline-vertical {
   width: 1px;
-  background: linear-gradient(180deg, transparent, #1C2940 50%, transparent);
+  background: linear-gradient(180deg, transparent, #252B34 50%, transparent);
 }
 
-/* ========================================================================
+/* ============================================================================
    ANIMATIONS
-   ======================================================================== */
+   ============================================================================ */
 
 @keyframes auroraDrift {
   0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.55; }
@@ -444,17 +444,17 @@ body {
 /* Blueprint grid — used sparingly */
 .bg-grid {
   background-image:
-    linear-gradient(to right, rgba(167, 178, 197, 0.04) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(167, 178, 197, 0.04) 1px, transparent 1px);
+    linear-gradient(to right, rgba(139, 148, 158, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(139, 148, 158, 0.04) 1px, transparent 1px);
   background-size: 56px 56px;
 }
 
-/* ========================================================================
+/* ============================================================================
    FOCUS — accessibility
-   ======================================================================== */
+   ============================================================================ */
 
 *:focus-visible {
-  outline: 2px solid #4F8CFF;
+  outline: 2px solid #3B82F6;
   outline-offset: 2px;
   border-radius: 4px;
 }
