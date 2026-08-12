@@ -4,6 +4,20 @@ import { useState } from "react";
 import { experience } from "@/data/content";
 import { MapPin, Plus, Minus } from "lucide-react";
 
+function renderFormattedText(text: string) {
+  const parts = text.split(/(\*\*.*?\*\*)/g);
+  return parts.map((part, i) => {
+    if (part.startsWith("**") && part.endsWith("**")) {
+      return (
+        <strong key={i} className="font-semibold text-primary">
+          {part.slice(2, -2)}
+        </strong>
+      );
+    }
+    return part;
+  });
+}
+
 export function ExperienceSection() {
   const [expanded, setExpanded] = useState<number | null>(0);
 
@@ -24,7 +38,7 @@ export function ExperienceSection() {
           <div className="lg:col-span-5 lg:pt-12">
             <p className="body-default max-w-[380px]">
               AI platforms, automation tools, and full-stack systems in production.
-              Click any role to expand the technical contribution.
+              Click any role to expand technical contributions.
             </p>
           </div>
         </div>
@@ -55,7 +69,7 @@ export function ExperienceSection() {
                       <div className="mt-3 flex items-center gap-1.5">
                         <span className="w-1.5 h-1.5 rounded-full bg-success animate-pulse-soft" />
                         <span className="body-mono normal-case tracking-normal text-[10.5px] text-success">
-                          Current
+                          Most Recent
                         </span>
                       </div>
                     )}
@@ -80,7 +94,7 @@ export function ExperienceSection() {
                         <MapPin className="w-3 h-3 text-accent" /> {exp.location}
                       </span>
                       <span>·</span>
-                      <span>{exp.achievements.length} contributions</span>
+                      <span>{exp.achievements.length} modules / projects</span>
                     </div>
                   </div>
 
@@ -100,10 +114,10 @@ export function ExperienceSection() {
                   <div className="px-6 md:px-8 pb-8 pt-2 border-t border-border-subtle">
                     <div className="grid md:grid-cols-[140px_1fr] gap-6 md:gap-10 mt-6">
                       <div className="hidden md:block body-mono normal-case tracking-normal text-[10.5px] uppercase text-muted">
-                        Highlights
+                        Key Contributions
                       </div>
                       <div className="space-y-7">
-                        {exp.achievements.map((ach, j) => (
+                        {exp.achievements.map((ach: any, j: number) => (
                           <div key={j}>
                             <div className="flex items-center gap-2 mb-2">
                               <span className="w-1.5 h-1.5 rounded-full bg-accent" />
@@ -111,17 +125,33 @@ export function ExperienceSection() {
                                 {ach.title}
                               </h4>
                             </div>
-                            <p className="text-[13.5px] leading-relaxed text-secondary ml-3.5">
-                              {ach.description}
-                            </p>
-                            <div className="mt-2.5 ml-3.5 px-3.5 py-2.5 rounded-[10px] border-l-2 border-accent/60 bg-accent/[0.03]">
-                              <span className="body-mono normal-case tracking-normal text-[10.5px] uppercase text-muted mr-2">
-                                Impact
-                              </span>
-                              <span className="text-[13px] text-secondary">{ach.impact}</span>
-                            </div>
+
+                            {ach.bullets && ach.bullets.length > 0 ? (
+                              <ul className="mt-2.5 ml-3.5 space-y-2 text-[13.5px] leading-relaxed text-secondary">
+                                {ach.bullets.map((bullet: string, bi: number) => (
+                                  <li key={bi} className="flex items-start gap-2.5">
+                                    <span className="text-accent mt-1 shrink-0 text-[10px]">▪</span>
+                                    <span>{renderFormattedText(bullet)}</span>
+                                  </li>
+                                ))}
+                              </ul>
+                            ) : (
+                              <p className="text-[13.5px] leading-relaxed text-secondary ml-3.5">
+                                {renderFormattedText(ach.description)}
+                              </p>
+                            )}
+
+                            {ach.impact && (
+                              <div className="mt-3 ml-3.5 px-3.5 py-2.5 rounded-[10px] border-l-2 border-accent/60 bg-accent/[0.03]">
+                                <span className="body-mono normal-case tracking-normal text-[10.5px] uppercase text-muted mr-2">
+                                  Impact
+                                </span>
+                                <span className="text-[13px] text-secondary">{ach.impact}</span>
+                              </div>
+                            )}
+
                             <div className="flex flex-wrap gap-1.5 mt-3 ml-3.5">
-                              {ach.technologies.map((t) => (
+                              {ach.technologies.map((t: string) => (
                                 <span key={t} className="badge">
                                   {t}
                                 </span>
