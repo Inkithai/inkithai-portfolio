@@ -23,14 +23,14 @@ export function SelectedWorkSection() {
           </div>
           <div className="lg:col-span-5 lg:pt-12">
             <p className="body-default max-w-[440px]">
-              Work projects from Mortgage AI Toolkit (company.so) — FCA-compliant email automation & CPD tracking — plus open-source SaaS with live demos from GitHub website field (Vercel / GitHub Pages) and code-only S/A Tier engineering. Real users, real impact.
+              Work projects from Mortgage AI Toolkit (WIS Sri Lanka) — FCA-compliant email automation & CPD tracking — plus open-source SaaS with live demos from GitHub website field (Vercel / GitHub Pages) and code-only S/A Tier engineering. Real users, real impact.
             </p>
           </div>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-6">
           {selected.map((project) => {
-            const isWork = project.isWorkProject || project.workType === "company.so";
+            const isWork = project.isWorkProject || project.workType === "wis-sri-lanka";
             const hasLive = !!project.liveUrl;
             const isVercel = project.liveUrl?.includes("vercel.app");
             const isGhPages = project.liveUrl?.includes("github.io");

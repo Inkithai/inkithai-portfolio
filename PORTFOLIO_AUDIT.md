@@ -667,7 +667,7 @@ Pin on GitHub: YGC, Oyster360, BookWise, medimind, RouteIQ, CRM (6 pins). Make o
 
 Based on this audit, recommended content.ts updates:
 
-- **Add Work Projects (Mortgage AI Toolkit - company.so previous):**
+- **Add Work Projects (Mortgage AI Toolkit - WIS Sri Lanka):**
   - Draftlee — AI Email Assistant — Reads incoming emails drafts replies in writing style automates replies forwarding summaries reminders voice email drafting newsletter creation Built with FCA compliance in mind Works inside existing inbox — Live: https://www.mortgageaitoolkit.com/products/draftlee — Tech: Next.js Gemini API Voice-to-Email Gmail API Google Calendar FCA compliance Newsletter — Work Project no public code
   - EduFlow — AI Training & CPD Tracking — Mortgage-specific training content Automatic CPD tracking Audit-ready compliance reporting Team progress tracking certification management — Live: https://www.mortgageaitoolkit.com/products/eduflow — Tech: React Node.js OpenAI Gemini Tesseract Google TTS CPD tracking FCA compliance — Work Project no public code
 
