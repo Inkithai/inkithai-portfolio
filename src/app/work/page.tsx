@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { projects, type ProjectCategory } from "@/data/content";
-import { ChevronDown, ArrowLeft, ExternalLink, Briefcase, Rocket, Code2 } from "lucide-react";
+import { ChevronDown, ArrowLeft, ExternalLink, Briefcase, Rocket, Code2, Image as ImageIcon } from "lucide-react";
 import { GithubIcon } from "@/components/ui/icons";
 import Link from "next/link";
 
@@ -110,6 +110,8 @@ export default function WorkPage() {
               {workProjects.map((project) => {
                 const globalIdx = projects.indexOf(project);
                 const isExpanded = expanded === globalIdx;
+                const coverImage = (project as any).thumbnail || (project as any).screenshots?.[0];
+                const hasScreenshots = !!coverImage;
                 return (
                   <article key={project.title} className="card card-interactive overflow-hidden h-full group border-accent/20">
                     <div className="relative h-52 overflow-hidden border-b border-border-subtle">
@@ -194,6 +196,22 @@ export default function WorkPage() {
                               </ul>
                             </div>
                           ))}
+                          {(project as any).screenshots && (project as any).screenshots.length > 0 && (
+                            <div className="grid grid-cols-2 gap-3">
+                              {(project as any).screenshots.map((src: string, idx: number) => (
+                                // eslint-disable-next-line @next/next/no-img-element
+                                <img key={idx} src={src} alt={`${project.shortTitle} ${idx+1}`} className="w-full h-36 object-cover object-top rounded-[10px] border border-border-subtle hover:opacity-90 transition-opacity" />
+                              ))}
+                            </div>
+                          )}
+                                                    {(project as any).screenshots && (project as any).screenshots.length > 0 && (
+                            <div className="grid grid-cols-2 gap-3">
+                              {(project as any).screenshots.map((src: string, idx: number) => (
+                                // eslint-disable-next-line @next/next/no-img-element
+                                <img key={idx} src={src} alt={`${project.shortTitle} ${idx+1}`} className="w-full h-36 object-cover object-top rounded-[10px] border border-border-subtle hover:opacity-90 transition-opacity" />
+                              ))}
+                            </div>
+                          )}
                           {project.outcome && (
                             <div className="px-3.5 py-2.5 rounded-[10px] border-l-2 border-accent/60 bg-accent/[0.03]">
                               <span className="body-mono normal-case tracking-normal text-[10.5px] uppercase text-muted mr-2">Outcome</span>
@@ -227,6 +245,8 @@ export default function WorkPage() {
                 const globalIdx = projects.indexOf(project);
                 const isExpanded = expanded === globalIdx;
                 const isVercel = project.liveUrl?.includes("vercel.app");
+                const coverImage = (project as any).thumbnail || (project as any).screenshots?.[0];
+                const hasScreenshots = !!coverImage;
                 const isGhPages = project.liveUrl?.includes("github.io");
                 return (
                   <article key={project.title} className="card card-interactive overflow-hidden h-full group border-success/20">
@@ -329,6 +349,14 @@ export default function WorkPage() {
                               </ul>
                             </div>
                           ))}
+                          {(project as any).screenshots && (project as any).screenshots.length > 0 && (
+                            <div className="grid grid-cols-2 gap-3">
+                              {(project as any).screenshots.map((src: string, idx: number) => (
+                                // eslint-disable-next-line @next/next/no-img-element
+                                <img key={idx} src={src} alt={`${project.shortTitle} ${idx+1}`} className="w-full h-36 object-cover object-top rounded-[10px] border border-border-subtle hover:opacity-90 transition-opacity" />
+                              ))}
+                            </div>
+                          )}
                           {project.outcome && (
                             <div className="px-3.5 py-2.5 rounded-[10px] border-l-2 border-success/60 bg-success/[0.05]">
                               <span className="body-mono normal-case tracking-normal text-[10.5px] uppercase text-muted mr-2">Outcome</span>
@@ -361,6 +389,8 @@ export default function WorkPage() {
                 const globalIdx = projects.indexOf(project);
                 const isExpanded = expanded === globalIdx;
                 const hasLiveDemo = !!project.liveUrl;
+                const coverImage = (project as any).thumbnail || (project as any).screenshots?.[0];
+                const hasScreenshots = !!coverImage;
                 return (
                   <article key={project.title} className="card card-interactive overflow-hidden h-full group">
                     <div className="relative h-52 overflow-hidden border-b border-border-subtle">
@@ -452,6 +482,22 @@ export default function WorkPage() {
                               </ul>
                             </div>
                           ))}
+                          {(project as any).screenshots && (project as any).screenshots.length > 0 && (
+                            <div className="grid grid-cols-2 gap-3">
+                              {(project as any).screenshots.map((src: string, idx: number) => (
+                                // eslint-disable-next-line @next/next/no-img-element
+                                <img key={idx} src={src} alt={`${project.shortTitle} ${idx+1}`} className="w-full h-36 object-cover object-top rounded-[10px] border border-border-subtle hover:opacity-90 transition-opacity" />
+                              ))}
+                            </div>
+                          )}
+                                                    {(project as any).screenshots && (project as any).screenshots.length > 0 && (
+                            <div className="grid grid-cols-2 gap-3">
+                              {(project as any).screenshots.map((src: string, idx: number) => (
+                                // eslint-disable-next-line @next/next/no-img-element
+                                <img key={idx} src={src} alt={`${project.shortTitle} ${idx+1}`} className="w-full h-36 object-cover object-top rounded-[10px] border border-border-subtle hover:opacity-90 transition-opacity" />
+                              ))}
+                            </div>
+                          )}
                           {project.outcome && (
                             <div className="px-3.5 py-2.5 rounded-[10px] border-l-2 border-accent/60 bg-accent/[0.03]">
                               <span className="body-mono normal-case tracking-normal text-[10.5px] uppercase text-muted mr-2">Outcome</span>

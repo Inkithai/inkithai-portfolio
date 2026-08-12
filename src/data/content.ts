@@ -211,6 +211,8 @@ export interface ProjectItem {
   isWorkProject?: boolean;
   company?: string;
   workType?: "open-source" | "work-project" | "company.so";
+  screenshots?: string[]; // e.g. ["/screenshots/your-project/1.webp", "/screenshots/your-project/2.png"] or external URLs like "https://res.cloudinary.com/..."
+  thumbnail?: string; // optional cover image e.g. "/screenshots/your-project/thumb.webp"
 }
 
 export const projects: ProjectItem[] = [
@@ -530,7 +532,7 @@ export const projects: ProjectItem[] = [
     ],
     categories: ["Full Stack", "Backend", "AI", "Frontend"],
     githubUrl: "https://github.com/Inkithai/RouteIQ",
-    liveUrl: "https://bus-tracking-mern.vercel.app",
+    liveUrl: null,
     featured: true,
     isSelectedWork: true,
     outcome:
