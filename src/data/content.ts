@@ -212,20 +212,20 @@ export interface ProjectItem {
   imageGradient: string;
   isWorkProject?: boolean;
   company?: string;
-  workType?: "open-source" | "work-project" | "company.so";
+  workType?: "open-source" | "work-project" | "wis-sri-lanka";
   screenshots?: string[]; // e.g. ["/screenshots/your-project/1.webp", "/screenshots/your-project/2.png"] or external URLs like "https://res.cloudinary.com/..."
   thumbnail?: string; // optional cover image e.g. "/screenshots/your-project/thumb.webp"
 }
 
 export const projects: ProjectItem[] = [
-  // === WORK PROJECTS — Mortgage AI Toolkit (company.so) — NO PUBLIC CODE ===
+  // === WORK PROJECTS — Mortgage AI Toolkit (WIS Sri Lanka) — NO PUBLIC CODE ===
   {
     title: "Draftlee — AI Email Assistant (Mortgage AI Toolkit)",
     shortTitle: "Draftlee",
     description:
-      "Work project at company.so — AI email assistant for mortgage industry. Reads incoming emails, drafts replies in your writing style, automates replies/forwarding/summaries/reminders. Voice email drafting, newsletter creation, FCA compliance, works inside existing inbox.",
+      "Work project at WIS Sri Lanka — AI email assistant for mortgage industry. Reads incoming emails, drafts replies in your writing style, automates replies/forwarding/summaries/reminders. Voice email drafting, newsletter creation, FCA compliance, works inside existing inbox.",
     longDescription:
-      "Draftlee is a production AI-powered email assistant built for mortgage professionals at Mortgage AI Toolkit (company.so). It understands incoming emails, drafts responses in your own writing style, and can automatically reply, forward messages, or attach relevant documents when required. Features: Newsletter Creation (professional newsletters quickly), Voice Assistant (voice commands to manage emails), AI Voice Email Drafting (speak → well-structured professional email in seconds), Email Summary (long emails summarized), Automatic Meeting Reminders (day in advance). Flow: Email detected → Response generated in your style → Intelligent automation (auto-reply/forward/enhance with attachments) → Send with confidence — review or allow auto-send when confidence high, FCA compliant. Built with FCA compliance in mind, learns your writing style, works inside existing inbox. See live product at https://www.mortgageaitoolkit.com/products/draftlee — work project, no public code shareable due to company IP.",
+      "Draftlee is a production AI-powered email assistant built for mortgage professionals at Mortgage AI Toolkit (WIS Sri Lanka). It understands incoming emails, drafts responses in your own writing style, and can automatically reply, forward messages, or attach relevant documents when required. Features: Newsletter Creation (professional newsletters quickly), Voice Assistant (voice commands to manage emails), AI Voice Email Drafting (speak → well-structured professional email in seconds), Email Summary (long emails summarized), Automatic Meeting Reminders (day in advance). Flow: Email detected → Response generated in your style → Intelligent automation (auto-reply/forward/enhance with attachments) → Send with confidence — review or allow auto-send when confidence high, FCA compliant. Built with FCA compliance in mind, learns your writing style, works inside existing inbox. See live product at https://www.mortgageaitoolkit.com/products/draftlee — work project, no public code shareable due to company IP.",
     technologies: [
       "Next.js",
       "Gemini API",
@@ -245,7 +245,7 @@ export const projects: ProjectItem[] = [
     isSelectedWork: true,
     isWorkProject: true,
     company: "WIS Sri Lanka (Mortgage AI Toolkit)",
-    workType: "company.so",
+    workType: "wis-sri-lanka",
     outcome:
       "Shipped production email automation used by mortgage brokers — voice dictation, AI summaries, auto-forwarding, FCA-compliant drafts, newsletter creation",
     challenges: [
@@ -270,9 +270,9 @@ export const projects: ProjectItem[] = [
     title: "EduFlow — AI Training & CPD Tracking (Mortgage AI Toolkit)",
     shortTitle: "EduFlow",
     description:
-      "Work project at company.so — AI-powered training with CPD tracking for mortgage teams. Mortgage-specific courses, automatic CPD logging, audit-ready compliance reporting, certification management.",
+      "Work project at WIS Sri Lanka — AI-powered training with CPD tracking for mortgage teams. Mortgage-specific courses, automatic CPD logging, audit-ready compliance reporting, certification management.",
     longDescription:
-      "EduFlow is an AI-powered training platform designed for mortgage professionals at Mortgage AI Toolkit (company.so). It provides mortgage-specific training content, automatic CPD tracking, and certification management so teams stay compliant and skilled. Flow: Assign training → Team completes courses (learning tracked, CPD hours logged automatically) → Compliance reporting (reports and certificates for audits and FCA). Powerful features: Mortgage-Specific Training (courses designed for brokers/advisors), CPD Tracking (automatic hour logging + compliance reporting), Certification Management (track completions/certificates/renewal deadlines), Team Progress (see who completed, who needs catch-up). Built FCA compliant — training records, CPD evidence, certification data stored and reported for regulatory audits. See live product at https://www.mortgageaitoolkit.com/products/eduflow — work project, no public code.",
+      "EduFlow is an AI-powered training platform designed for mortgage professionals at Mortgage AI Toolkit (WIS Sri Lanka). It provides mortgage-specific training content, automatic CPD tracking, and certification management so teams stay compliant and skilled. Flow: Assign training → Team completes courses (learning tracked, CPD hours logged automatically) → Compliance reporting (reports and certificates for audits and FCA). Powerful features: Mortgage-Specific Training (courses designed for brokers/advisors), CPD Tracking (automatic hour logging + compliance reporting), Certification Management (track completions/certificates/renewal deadlines), Team Progress (see who completed, who needs catch-up). Built FCA compliant — training records, CPD evidence, certification data stored and reported for regulatory audits. See live product at https://www.mortgageaitoolkit.com/products/eduflow — work project, no public code.",
     technologies: [
       "React",
       "Node.js",
@@ -291,7 +291,7 @@ export const projects: ProjectItem[] = [
     isSelectedWork: true,
     isWorkProject: true,
     company: "WIS Sri Lanka (Mortgage AI Toolkit)",
-    workType: "company.so",
+    workType: "wis-sri-lanka",
     outcome: "Shipped production CPD tracking with FCA-ready reporting — mortgage-specific training content, team progress, certification renewal",
     challenges: [
       "Designed mortgage-specific training content for brokers/advisors with compliance requirements",
