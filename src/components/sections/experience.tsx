@@ -50,7 +50,7 @@ export function ExperienceSection() {
               <div
                 key={`${exp.company}-${exp.role}-${idx}`}
                 className={`card overflow-hidden transition-all ${
-                  isExpanded ? "!border-border-strong shadow-[0_0_30px_rgba(79,140,255,0.08)]" : ""
+                  isExpanded ? "!border-border-strong shadow-[0_0_30px_rgba(59,130,246,0.08)]" : ""
                 }`}
               >
                 <button
@@ -102,7 +102,7 @@ export function ExperienceSection() {
                   <div
                     className={`shrink-0 w-9 h-9 rounded-full border flex items-center justify-center transition-all ${
                       isExpanded
-                        ? "bg-accent border-accent text-bg shadow-[0_0_15px_rgba(79,140,255,0.4)]"
+                        ? "bg-accent border-accent text-bg shadow-[0_0_15px_rgba(59,130,246,0.4)]"
                         : "border-border-subtle text-secondary"
                     }`}
                   >

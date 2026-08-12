@@ -36,7 +36,7 @@ export function Footer() {
       <div className="pointer-events-none" aria-hidden="true">
         <div
           className="absolute -bottom-56 left-1/2 -translate-x-1/2 w-[760px] h-[380px] rounded-full opacity-[0.10] blur-[120px]"
-          style={{ background: 'radial-gradient(circle, #4F8CFF, transparent 70%)' }}
+          style={{ background: 'radial-gradient(circle, #3B82F6, transparent 70%)' }}
         />
       </div>
 
