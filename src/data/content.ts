@@ -222,6 +222,8 @@ export const projects: ProjectItem[] = [
   {
     title: "Draftlee — AI Email Assistant (Mortgage AI Toolkit)",
     shortTitle: "Draftlee",
+    screenshots: ["/screenshots/Draftlee.png"],
+    thumbnail: "/screenshots/Draftlee.png",
     description:
       "Work project at WIS Sri Lanka — AI email assistant for mortgage industry. Reads incoming emails, drafts replies in your writing style, automates replies/forwarding/summaries/reminders. Voice email drafting, newsletter creation, FCA compliance, works inside existing inbox.",
     longDescription:
@@ -269,6 +271,8 @@ export const projects: ProjectItem[] = [
   {
     title: "EduFlow — AI Training & CPD Tracking (Mortgage AI Toolkit)",
     shortTitle: "EduFlow",
+    screenshots: ["/screenshots/EduFlow.png"],
+    thumbnail: "/screenshots/EduFlow.png",
     description:
       "Work project at WIS Sri Lanka — AI-powered training with CPD tracking for mortgage teams. Mortgage-specific courses, automatic CPD logging, audit-ready compliance reporting, certification management.",
     longDescription:
@@ -316,6 +320,8 @@ export const projects: ProjectItem[] = [
   {
     title: "YGC — Your Guided Care: Medical Report Intelligence",
     shortTitle: "YGC",
+    screenshots: ["/screenshots/YGC.png"],
+    thumbnail: "/screenshots/YGC.png",
     description:
       "S-Tier: Full-stack medical-report platform. Upload lab PDFs/prescriptions/scans → extract structured facts with page/line/snippet provenance → deterministic safety checks (drug-drug, allergy, dose renal bands, drug-lab, lab risk, trends, prompt-injection defence) → grounded Q&A citing page. 26k lines Python + 589 tests, single Mongo after SQLite removal.",
     longDescription:
@@ -365,6 +371,8 @@ export const projects: ProjectItem[] = [
   {
     title: "Oyster360 — Multi-tenant Mushroom Farm SaaS",
     shortTitle: "Oyster360",
+    screenshots: ["/screenshots/Oyster360.png"],
+    thumbnail: "/screenshots/Oyster360.png",
     description:
       "S-Tier: AI-powered multi-tenant farm management SaaS — cultivation operations, environmental records, inventory IN/OUT/ADJUSTMENT, purchasing, harvest grading, analytics, AI assistance, subscription billing, platform admin. Modular monolith FastAPI + Next.js 16, 27 models, 24 routers, 28 services, tenant middleware/enforcer, RBAC 4 roles, MFA TOTP, Stripe billing idempotent webhooks, Celery Redis, Docker multi-stage GH Actions.",
     longDescription:
@@ -417,6 +425,8 @@ export const projects: ProjectItem[] = [
   {
     title: "MediMind — Anonymous Medical Intelligence",
     shortTitle: "MediMind",
+    screenshots: ["/screenshots/medimind.png"],
+    thumbnail: "/screenshots/medimind.png",
     description:
       "A-Tier: Anonymous workspace medical doc intelligence — private session_id localStorage no signup, LLM provider abstraction Groq GPT-OSS 120B+Qwen 27B vision OR Gemini 3.6 Flash multimodal structured JSON, Supabase RLS service_role only, Cloudinary per user, lab trends deterministic engine, vector_store abstraction Chroma vs Supabase chunks, jobs thread-safe queued→reading→extracting→saving→ready, conversation query rewrite.",
     longDescription:
@@ -465,6 +475,8 @@ export const projects: ProjectItem[] = [
   {
     title: "BookWise — Multi-tenant Accounting SaaS",
     shortTitle: "BookWise",
+    screenshots: ["/screenshots/BookWise.png"],
+    thumbnail: "/screenshots/BookWise.png",
     description:
       "A-Tier: Comprehensive accounting SaaS for Sri Lankan SMBs — double-entry bookkeeping, Chart of Accounts, Journal Entries, live balances balanced postings guarantee, Trial Balance/P&L/Balance Sheet/Cash Flow computed on fly, Banking LKR deposits/withdrawals reconciliation, AP vendors bills, Expenses. Laravel 12 nwidart/modules 14 modules, row-level tenant scoping host_id global scope.",
     longDescription:
@@ -512,6 +524,8 @@ export const projects: ProjectItem[] = [
   {
     title: "RouteIQ — Transit Telemetry SaaS",
     shortTitle: "RouteIQ",
+    screenshots: ["/screenshots/RouteIQ.png"],
+    thumbnail: "/screenshots/RouteIQ.png",
     description:
       "A-Tier: Enterprise transit management real-time satellite tracking intelligent seat reservation. WebSocket Socket.IO zero-latency telemetry driver GPS broadcast lat/lng/km/h, CartoDB dark tiles, polyline corridors A1/E01/A3 distinct colors, 32-seat grid real-time lock per date, Stripe checkout, PWA offline vault IndexedDB sw.js, FCM proximity 2 stops, X-Tenant-Slug multi-tenant, Colombo 8 routes accurate GPS, trilingual en/si/ta LKR.",
     longDescription:
@@ -593,6 +607,8 @@ export const projects: ProjectItem[] = [
   {
     title: "Liya — Kapruka MCP Shopping Assistant",
     shortTitle: "Liya",
+    screenshots: ["/screenshots/Liya.png"],
+    thumbnail: "/screenshots/Liya.png",
     description:
       "Kapruka MCP — e-commerce conversational shopping assistant with MCP pattern. Next.js 15, orchestrator, personality, delivery, fallback-products, language detection (English සිංහල தமிழ்), cart FloatingCart/MobileCartBar, ProductCard Shelf ReliabilityBar, ChatPanel TypingIndicator, /api/mcp route, Zustand store.",
     longDescription:
@@ -634,6 +650,8 @@ export const projects: ProjectItem[] = [
   {
     title: "ConvertLab — Privacy File Converter",
     shortTitle: "ConvertLab",
+    screenshots: ["/screenshots/ConvertLab.png"],
+    thumbnail: "/screenshots/ConvertLab.png",
     description:
       "Universal file conversion — everything runs in your browser, nothing leaves device. Next.js 15, client-side converters data/documents/office, dependencies jspdf html2canvas mammoth papaparse js-yaml fast-xml-parser docx. Privacy-first no backend upload.",
     longDescription:
@@ -727,6 +745,8 @@ export const projects: ProjectItem[] = [
   {
     title: "DigiBeat — Browser Clock Collection",
     shortTitle: "DigiBeat",
+    screenshots: ["/screenshots/DigiBeat.png"],
+    thumbnail: "/screenshots/DigiBeat.png",
     description:
       "Stunning collection of browser-based clocks timers time tools — alarm/binary/flip/neon/pixel/world/pomodoro/stopwatch. Works fullscreen any device no signup no ads PWA manifest sw.js.",
     longDescription:
@@ -758,6 +778,8 @@ export const projects: ProjectItem[] = [
   {
     title: "VoucherRush — HTML5 Game",
     shortTitle: "VoucherRush",
+    screenshots: ["/screenshots/VoucherRush.png"],
+    thumbnail: "/screenshots/VoucherRush.png",
     description:
       "Production-grade HTML5 game vanilla JS no dependencies 60 FPS RAF, canvas physics collision particles, Web Audio synthesizer masterVolumeNode gain ramp fix audio freeze burst, roundRect polyfill, scratch card 0x0 NaN fallback 300x160 setTimeout 50ms, confetti overflow fix.",
     longDescription:
