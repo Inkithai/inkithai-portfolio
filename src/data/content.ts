@@ -659,7 +659,7 @@ export const projects: ProjectItem[] = [
     technologies: ["Next.js 15", "React 19", "TypeScript", "Tailwind", "jspdf", "mammoth", "papaparse", "docx", "html2canvas"],
     categories: ["Frontend", "Other"],
     githubUrl: "https://github.com/Inkithai/ConvertLab",
-    liveUrl: "https://convert-lab-qf7k-zeta.vercel.app/",
+    liveUrl: "https://convertlab-gamma.vercel.app/",
     featured: false,
     isSelectedWork: false,
     outcome: "Privacy file conversion — everything runs browser nothing leaves device — client-side converters data documents office",
