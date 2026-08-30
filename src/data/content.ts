@@ -1056,7 +1056,7 @@ export const entrepreneurshipStories = [
     ],
     highlights: ["Top 4 among 100+ applications", "Rs. 500,000 seed funding", "Digital product idea & prototype", "First funding pitch & stage speech", "Early-stage validation"],
     milestones: ["First-ever funding pitch", "First stage speech as entrepreneur", "Prototype validation", "Actively seeking further funding & partnerships"],
-    link: "https://web.facebook.com/share/p/1EfPGTiwso/",
+    link: "https://medium.com/@inkithai/from-idea-to-award-stage-my-thalir-seed-funding-journey-74f8849225ec",
     linkLabel: "See ceremony post",
   },
 ] as const;
