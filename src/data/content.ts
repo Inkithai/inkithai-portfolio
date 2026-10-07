@@ -61,55 +61,63 @@ export const experience = [
     location: "Sri Lanka",
     duration: "5 mos",
     summary:
-      "Developed and deployed production-ready AI products under WIS Sri Lanka, including EduFlow (AI LMS) and Drafty.AI (AI Email Automation).",
+      "Built EduFlow end to end and co-developed Draftlee in a two-person team at WIS Sri Lanka. EduFlow is being deployed for client testing during ongoing development.",
     achievements: [
-      {
-        title: "EduFlow — AI-Powered Learning Management System",
-        description:
-          "Developed and deployed a production-ready LMS with AI-powered learning and assessment capabilities, intelligent tutoring, voice assistant with OCR fallback, and multi-LLM document extraction pipelines.",
-        bullets: [
-          "Developed and deployed a **production-ready LMS** with AI-powered learning and assessment capabilities.",
-          "Built an **AI voice assistant** supporting contextual question answering, OCR fallback, and Google Text-to-Speech.",
-          "Developed AI-based **assessment and adaptive MCQ generation** using PDF/PPT document extraction.",
-          "Implemented an **intelligent tutoring system** with real-time learner feedback.",
-          "Built document-processing pipelines for **PDF, PowerPoint, OCR, text extraction, and AI reasoning**.",
-          "Integrated multiple LLM providers including **OpenAI, Gemini, and OpenRouter**, with provider fallback logic.",
-        ],
-        technologies: [
-          "React",
-          "Node.js",
-          "OpenAI",
-          "Gemini",
-          "OpenRouter",
-          "Tesseract.js",
-          "Google TTS",
-          "PDF/PPT Extraction",
-        ],
-        impact:
-          "Deployed a production LMS featuring multi-LLM pipelines with provider fallback logic, adaptive assessments, and real-time AI tutoring.",
-      },
-      {
-        title: "Drafty.AI — AI Email Automation Platform",
-        description:
-          "Built a real-time voice-to-email dictation module, integrated Gemini for email summarization and content generation, developed email classification with confidence scoring, and integrated Google Calendar API.",
-        bullets: [
-          "Built a real-time **voice-to-email dictation** module.",
-          "Integrated **Gemini** for email summarization and AI-powered content generation.",
-          "Developed an email filtering and classification system using **classification labels and confidence scoring**.",
-          "Integrated **Google Calendar API** for scheduling and meeting automation.",
-        ],
-        technologies: [
-          "Next.js",
-          "Gemini API",
-          "Google Calendar API",
-          "Voice Dictation",
-          "Node.js",
-          "TypeScript",
-        ],
-        impact:
-          "Delivered intelligent email automation with voice dictation, smart classification, and Google Calendar scheduling automation.",
-      },
+  {
+    "title": "EduFlow — AI-Powered Learning Platform",
+    "description": "Built the complete AI-powered LMS for mortgage advisors and paraplanners: secure course delivery, contextual voice Q&A, AI-generated assessments, intelligent tutoring, CPD tracking, and team analytics. Deploying for client testing during ongoing development.",
+    "bullets": [
+      "Extracted PDF and PowerPoint content with multiple fallbacks, including Tesseract.js OCR for image-based PDFs and pdf2pic/sharp image processing.",
+      "Built screen-aware voice Q&A using full-document and page/slide-specific context, transcription, fuzzy matching, and spoken responses.",
+      "Generated adaptive MCQs from document chunks, with quality controls and new question pools for retakes.",
+      "Synchronized PDF-page, video-time, and slide progress with CPD hours, certificates, dashboards, and manager notifications."
     ],
+    "technologies": [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Node.js / Express",
+      "MongoDB / Mongoose",
+      "Gemini",
+      "OpenAI",
+      "OpenRouter",
+      "Tesseract.js",
+      "Google Cloud TTS",
+      "Socket.io",
+      "Zustand",
+      "Tailwind CSS",
+      "PDF.js",
+      "natural / compromise",
+      "Docker / GCP"
+    ],
+    "impact": "Built the full LMS end to end; deploying for client testing while development continues."
+  },
+  {
+    "title": "Draftlee — AI Email Management Platform",
+    "description": "Co-developed an AI email management platform with one teammate. Personally researched and built voice dictation, inline email summaries, advanced Gmail-style filters, and full Google Calendar integration to client requirements.",
+    "bullets": [
+      "Researched and developed voice input for email dictation.",
+      "Built inline email summaries within the inbox workflow.",
+      "Implemented detailed Gmail-style email filters.",
+      "Developed the full Google Calendar integration to client requirements, including availability, event creation, invitations, time zones, and conflict detection."
+    ],
+    "technologies": [
+      "Next.js 14",
+      "TypeScript",
+      "React 18",
+      "Gemini 2.0 Flash",
+      "Google Calendar API",
+      "Gmail API",
+      "NextAuth.js",
+      "Prisma",
+      "Supabase / PostgreSQL",
+      "Tailwind CSS",
+      "Radix UI",
+      "React Window"
+    ],
+    "impact": "Delivered voice dictation, inline summaries, advanced email filters, and complete calendar integration within a two-person client project."
+  }
+],
   },
   {
     company: "XYGen.ai",
@@ -209,6 +217,9 @@ export interface ProjectItem {
   decisions: string[];
   learnings: string[];
   outcome?: string;
+  role?: string;
+  status?: string;
+  features?: string[];
   imageGradient: string;
   isWorkProject?: boolean;
   company?: string;
@@ -220,100 +231,138 @@ export interface ProjectItem {
 export const projects: ProjectItem[] = [
   // === WORK PROJECTS — Mortgage AI Toolkit (WIS Sri Lanka) — NO PUBLIC CODE ===
   {
-    title: "Draftlee — AI Email Assistant (Mortgage AI Toolkit)",
-    shortTitle: "Draftlee",
-    screenshots: ["/screenshots/Draftlee.png"],
-    thumbnail: "/screenshots/Draftlee.png",
-    description:
-      "Work project at WIS Sri Lanka — AI email assistant for mortgage industry. Reads incoming emails, drafts replies in your writing style, automates replies/forwarding/summaries/reminders. Voice email drafting, newsletter creation, FCA compliance, works inside existing inbox.",
-    longDescription:
-      "Draftlee is a production AI-powered email assistant built for mortgage professionals at Mortgage AI Toolkit (WIS Sri Lanka). It understands incoming emails, drafts responses in your own writing style, and can automatically reply, forward messages, or attach relevant documents when required. Features: Newsletter Creation (professional newsletters quickly), Voice Assistant (voice commands to manage emails), AI Voice Email Drafting (speak → well-structured professional email in seconds), Email Summary (long emails summarized), Automatic Meeting Reminders (day in advance). Flow: Email detected → Response generated in your style → Intelligent automation (auto-reply/forward/enhance with attachments) → Send with confidence — review or allow auto-send when confidence high, FCA compliant. Built with FCA compliance in mind, learns your writing style, works inside existing inbox. See live product at https://www.mortgageaitoolkit.com/products/draftlee — work project, no public code shareable due to company IP.",
-    technologies: [
-      "Next.js",
-      "Gemini API",
-      "OpenAI",
-      "Voice-to-Email",
-      "Gmail API",
-      "Google Calendar API",
-      "FCA Compliance",
-      "Newsletter Engine",
+    "categories": [
+      "Full Stack",
+      "AI"
+    ],
+    "githubUrl": "",
+    "featured": true,
+    "isSelectedWork": true,
+    "isWorkProject": true,
+    "company": "WIS Sri Lanka (Mortgage AI Toolkit)",
+    "workType": "wis-sri-lanka",
+    "title": "Draftlee — AI Email Management Platform",
+    "shortTitle": "Draftlee",
+    "screenshots": [
+      "/screenshots/Draftlee.png"
+    ],
+    "thumbnail": "/screenshots/Draftlee.png",
+    "liveUrl": "https://www.mortgageaitoolkit.com/products/draftlee",
+    "role": "Full-stack contributor · Two-person team",
+    "status": "Collaborative client project",
+    "description": "Co-developed an AI email management platform with one teammate. Personally researched and built voice dictation, inline email summaries, advanced Gmail-style filters, and full Google Calendar integration to client requirements.",
+    "longDescription": "Draftlee is an AI-powered email management platform using Google Gemini 2.0 Flash for contextual replies and classification. This was a two-person project: my scope covered research and development of voice input, inline summaries, detailed Gmail-style filtering, and end-to-end calendar integration. The broader platform combines knowledge-base retrieval, confidence-based automation, draft management, and meeting workflows; these are team capabilities rather than claims of sole ownership.",
+    "technologies": [
+      "Next.js 14",
       "TypeScript",
-      "Node.js",
+      "React 18",
+      "Gemini 2.0 Flash",
+      "Google Calendar API",
+      "Gmail API",
+      "NextAuth.js",
+      "Prisma",
+      "Supabase / PostgreSQL",
+      "Tailwind CSS",
+      "Radix UI",
+      "React Window"
     ],
-    categories: ["Full Stack", "AI", "Other"],
-    githubUrl: "https://www.mortgageaitoolkit.com/products/draftlee",
-    liveUrl: "https://www.mortgageaitoolkit.com/products/draftlee",
-    featured: true,
-    isSelectedWork: true,
-    isWorkProject: true,
-    company: "WIS Sri Lanka (Mortgage AI Toolkit)",
-    workType: "wis-sri-lanka",
-    outcome:
-      "Shipped production email automation used by mortgage brokers — voice dictation, AI summaries, auto-forwarding, FCA-compliant drafts, newsletter creation",
-    challenges: [
-      "Learned user's writing style from past emails — tone, formality, phrases — to generate authentic replies",
-      "Built FCA-compliant drafting with disclaimers, documentation, regulatory requirements for mortgage industry",
-      "Implemented voice-to-email dictation with low latency + newsletter creation + meeting reminders automation",
-      "Integrated with existing inbox — Gmail-like filtering with classification and confidence scoring",
+    "outcome": "Delivered voice dictation, inline summaries, advanced email filters, and complete calendar integration within a two-person client project.",
+    "challenges": [
+      "Researched and developed voice input for email dictation.",
+      "Built inline email summaries within the inbox workflow.",
+      "Implemented detailed Gmail-style email filters.",
+      "Developed the full Google Calendar integration to client requirements, including availability, event creation, invitations, time zones, and conflict detection."
     ],
-    decisions: [
-      "Chose multi-LLM approach with Gemini for summarization (multilingual) + writing-style adaptation",
-      "Implemented confidence scoring to allow auto-send when high confidence, review when low — FCA safe",
-      "Designed 4-step flow: Email detected → response generated → intelligent automation → send with confidence",
+    "decisions": [
+      "Worked within a Next.js App Router application with TypeScript and API routes.",
+      "Integrated Google Calendar with email workflows for meeting-aware scheduling.",
+      "Kept summaries inline and filtering familiar to support the existing email workflow."
     ],
-    learnings: [
-      "Work projects in regulated industries require compliance by design — FCA considerations shape AI decisions",
-      "Writing-style learning needs careful analysis of past emails + progressive improvement",
-      "Email automation ROI is highest when it handles summaries, reminders, newsletters, not just replies",
+    "learnings": [
+      "Calendar workflows require careful handling of time zones, availability, and scheduling conflicts.",
+      "Voice input, inline summaries, and precise filters complement AI-generated replies.",
+      "Clear feature ownership matters when delivering a shared application."
     ],
-    imageGradient: "from-slate-800 via-slate-700 to-blue-900",
+    "features": [
+      "AI replies: Gemini 2.0 Flash, professional/friendly/formal/casual tones, and custom user instructions.",
+      "Hybrid classification: knowledge-base matching, keyword/domain/regex rules, then AI fallback, with confidence scoring.",
+      "Confidence-based automation: at least 90% auto-send, 70–89% approval, below 70% manual review; system/security email detection helps prevent unsafe replies and loops.",
+      "Knowledge base: document uploads, chunking, keyword-based retrieval and relevance scoring, with source citations in replies.",
+      "Meeting automation: intent extraction, Google Calendar availability checks, booking, invitations, timezone conversion, and conflict detection.",
+      "Email workflows: drafts, forwarding, All/Drafts/Sent views, pagination, adaptive background polling, signatures, profiles, and settings.",
+      "Platform architecture: Google OAuth via NextAuth.js, Prisma with Supabase PostgreSQL, virtualized lists, usage monitoring, credits, audit logs, HTML sanitization, and rate limits with retry/backoff."
+    ],
+    "imageGradient": "from-slate-800 via-slate-700 to-blue-900"
   },
   {
-    title: "EduFlow — AI Training & CPD Tracking (Mortgage AI Toolkit)",
-    shortTitle: "EduFlow",
-    screenshots: ["/screenshots/EduFlow.png"],
-    thumbnail: "/screenshots/EduFlow.png",
-    description:
-      "Work project at WIS Sri Lanka — AI-powered training with CPD tracking for mortgage teams. Mortgage-specific courses, automatic CPD logging, audit-ready compliance reporting, certification management.",
-    longDescription:
-      "EduFlow is an AI-powered training platform designed for mortgage professionals at Mortgage AI Toolkit (WIS Sri Lanka). It provides mortgage-specific training content, automatic CPD tracking, and certification management so teams stay compliant and skilled. Flow: Assign training → Team completes courses (learning tracked, CPD hours logged automatically) → Compliance reporting (reports and certificates for audits and FCA). Powerful features: Mortgage-Specific Training (courses designed for brokers/advisors), CPD Tracking (automatic hour logging + compliance reporting), Certification Management (track completions/certificates/renewal deadlines), Team Progress (see who completed, who needs catch-up). Built FCA compliant — training records, CPD evidence, certification data stored and reported for regulatory audits. See live product at https://www.mortgageaitoolkit.com/products/eduflow — work project, no public code.",
-    technologies: [
+    "categories": [
+      "Full Stack",
+      "AI"
+    ],
+    "githubUrl": "",
+    "featured": true,
+    "isSelectedWork": true,
+    "isWorkProject": true,
+    "company": "WIS Sri Lanka (Mortgage AI Toolkit)",
+    "workType": "wis-sri-lanka",
+    "title": "EduFlow — AI-Powered Learning Platform",
+    "shortTitle": "EduFlow",
+    "screenshots": [
+      "/screenshots/EduFlow.png"
+    ],
+    "thumbnail": "/screenshots/EduFlow.png",
+    "liveUrl": "https://www.mortgageaitoolkit.com/products/eduflow",
+    "role": "Sole developer · End-to-end full-stack & AI",
+    "status": "In development · Deploying for client testing",
+    "description": "Built the complete AI-powered LMS for mortgage advisors and paraplanners: secure course delivery, contextual voice Q&A, AI-generated assessments, intelligent tutoring, CPD tracking, and team analytics. Deploying for client testing during ongoing development.",
+    "longDescription": "EduFlow supports personalized training for compliance, skill development, and career advancement. I developed the complete platform across the Next.js/React frontend, Node.js/Express APIs, MongoDB data layer, document-processing pipeline, and AI services. The application is still in development and is being deployed for client testing; it is not presented as an established production rollout.",
+    "technologies": [
+      "Next.js",
       "React",
-      "Node.js",
-      "OpenAI",
+      "TypeScript",
+      "Node.js / Express",
+      "MongoDB / Mongoose",
       "Gemini",
+      "OpenAI",
+      "OpenRouter",
       "Tesseract.js",
-      "Google TTS",
-      "CPD Engine",
-      "FCA Compliance",
-      "Supabase",
+      "Google Cloud TTS",
+      "Socket.io",
+      "Zustand",
+      "Tailwind CSS",
+      "PDF.js",
+      "natural / compromise",
+      "Docker / GCP"
     ],
-    categories: ["Full Stack", "AI", "Machine Learning"],
-    githubUrl: "https://www.mortgageaitoolkit.com/products/eduflow",
-    liveUrl: "https://www.mortgageaitoolkit.com/products/eduflow",
-    featured: true,
-    isSelectedWork: true,
-    isWorkProject: true,
-    company: "WIS Sri Lanka (Mortgage AI Toolkit)",
-    workType: "wis-sri-lanka",
-    outcome: "Shipped production CPD tracking with FCA-ready reporting — mortgage-specific training content, team progress, certification renewal",
-    challenges: [
-      "Designed mortgage-specific training content for brokers/advisors with compliance requirements",
-      "Implemented automatic CPD hour logging and audit-ready reporting for FCA",
-      "Built certification management tracking completions, certificates, renewal deadlines",
-      "Created team progress visibility — who completed, who needs catch-up",
+    "outcome": "Built the full LMS end to end; deploying for client testing while development continues.",
+    "challenges": [
+      "Extracted PDF and PowerPoint content with multiple fallbacks, including Tesseract.js OCR for image-based PDFs and pdf2pic/sharp image processing.",
+      "Built screen-aware voice Q&A using full-document and page/slide-specific context, transcription, fuzzy matching, and spoken responses.",
+      "Generated adaptive MCQs from document chunks, with quality controls and new question pools for retakes.",
+      "Synchronized PDF-page, video-time, and slide progress with CPD hours, certificates, dashboards, and manager notifications."
     ],
-    decisions: [
-      "Chose AI-powered training content generation + human-curated mortgage compliance curriculum",
-      "Implemented automatic CPD logging to reduce manual tracking overhead for teams",
-      "Built reporting module with certificates for audits and FCA requirements",
+    "decisions": [
+      "Used a multi-provider AI service supporting Gemini, OpenAI, and OpenRouter with provider detection and fallback.",
+      "Cached extracted content and document context, with queue management and metadata to support contextual responses.",
+      "Combined JWT authentication, role-based access, secure document streaming, and viewer download restrictions.",
+      "Used Socket.io for progress synchronization and notifications, with Zustand for frontend state and React Hook Form for forms."
     ],
-    learnings: [
-      "Compliance products need clear audit trails — reports and certificates must be audit-ready",
-      "Training platforms require balancing AI content generation with curated domain accuracy",
-      "CPD tracking automatic logging significantly reduces admin burden for mortgage firms",
+    "learnings": [
+      "Reliable document understanding needs format-aware extraction, OCR fallbacks, and cached context.",
+      "Assessment feedback is more useful when explanations identify the topic and reference learning context.",
+      "Client testing during development provides a feedback loop for learning and administration workflows."
     ],
-    imageGradient: "from-slate-800 via-blue-950 to-slate-900",
+    "features": [
+      "Course management: PDF, PowerPoint, and video content; progressive module unlocking; secure PDF/PPT viewing; content updates and notifications.",
+      "AI voice assistant: voice input, real-time transcription, screen-content context, full-document understanding, spelling/synonym matching, and Google Cloud Text-to-Speech playback.",
+      "AI assessments: Gemini-generated MCQs, adaptive difficulty, dynamic retake pools, answer review, score tracking, and performance analytics.",
+      "Intelligent tutoring: immediate feedback, expanded explanations for correct and incorrect answers, topic identification, and targeted learning support.",
+      "Progress and CPD: page/slide/video tracking, CPD hours, learner statistics, admin analytics, and completion certificates.",
+      "User management: student/admin/manager roles, professional role tracking, enrollment management, and team-progress notifications.",
+      "AI/NLP architecture: natural for tokenization and TF-IDF, compromise for text analysis, skill/topic extraction, document context caching, and provider fallbacks.",
+      "Deployment foundations: REST APIs, file upload/processing, secure streaming, error handling, Docker support, GCP deployment configuration, and monitoring services."
+    ],
+    "imageGradient": "from-slate-800 via-blue-950 to-slate-900"
   },
 
   // === S-TIER PORTFOLIO — Strongest engineering ===
@@ -808,69 +857,6 @@ export const projects: ProjectItem[] = [
       "Production-grade game needs QA audit 6 bugs: audio freeze burst, 0x0 NaN scratch fallback setTimeout reflow, roundRect compatibility polyfill, confetti clipping parent modal, flash-on-reset coupon leak transition none snap, jarring state transition freeze backdrop — commercial conversion funnel Claim Reward scratch card 50% cleared confetti explosion",
     ],
     imageGradient: "from-slate-900 via-blue-950 to-slate-900",
-  },
-  {
-    title: "EduFlow - WIS (AI LMS)",
-    shortTitle: "EduFlow WIS",
-    description:
-      "WIS work: AI-powered LMS with voice assistant, contextual Q&A, OCR fallback, Google TTS, adaptive assessments from PDF/PPT. Multi-LLM pipeline OpenAI Gemini OpenRouter fallback.",
-    longDescription:
-      "A production-ready AI-powered Learning Management System featuring an AI voice assistant with contextual Q&A, OCR fallback, and Google TTS. Includes intelligent tutoring with real-time feedback and adaptive MCQ generation from PDF/PPT documents. Work at WIS. Multi-LLM pipeline OpenAI Gemini OpenRouter fallback logic document processing for PDF PPT OCR. Voice assistant contextual Q&A OCR fallback Google TTS adaptive assessments.",
-    technologies: ["React", "Node.js", "OpenAI", "Gemini", "Tesseract.js", "Google TTS", "Supabase"],
-    categories: ["Full Stack", "AI", "Machine Learning"],
-    githubUrl: "https://github.com/Inkithai",
-    liveUrl: null,
-    featured: false,
-    isSelectedWork: false,
-    outcome: "Built multi-LLM pipeline with fallback logic; document processing for 1000+ pages at WIS",
-    challenges: [
-      "Built document processing pipelines for PDF/PPT extraction with OCR fallback at WIS",
-      "Implemented multi-LLM integration (OpenAI, Gemini, OpenRouter) with intelligent fallback logic",
-      "Designed contextual AI voice assistant for natural student interaction",
-      "Created adaptive assessment generation system using LLM reasoning",
-    ],
-    decisions: [
-      "Chose multi-provider LLM architecture for resilience and cost optimization",
-      "Implemented OCR fallback to handle non-text document formats",
-      "Used real-time streaming for voice assistant responsiveness",
-    ],
-    learnings: [
-      "Production AI systems require careful error handling and fallback strategies",
-      "Multi-model integration provides better reliability than single-provider dependency",
-      "Document processing pipelines need robust OCR and format handling",
-    ],
-    imageGradient: "from-slate-800 via-blue-950 to-slate-900",
-  },
-  {
-    title: "Draftly.AI - WIS (Email Automation)",
-    shortTitle: "Draftly WIS",
-    description:
-      "WIS work: AI email automation with voice-to-email dictation, Gemini summarization, smart filtering, confidence scoring, Google Calendar integration.",
-    longDescription:
-      "An AI email automation platform featuring real-time voice-to-email dictation, intelligent email summarization powered by Gemini, Gmail-like filtering with classification and confidence scoring, and Google Calendar integration for scheduling. Work at WIS. Real-time voice dictation low latency intelligent classification transparency Next.js server-side rendering API route co-location.",
-    technologies: ["Next.js", "Gemini API", "Google Calendar API", "Node.js", "TypeScript", "Tailwind"],
-    categories: ["Full Stack", "AI", "Frontend"],
-    githubUrl: "https://github.com/Inkithai",
-    liveUrl: null,
-    featured: false,
-    isSelectedWork: false,
-    outcome: "Real-time voice dictation <500ms latency; intelligent classification with transparency at WIS",
-    challenges: [
-      "Implemented real-time voice-to-email dictation with low latency at WIS",
-      "Built email classification system with confidence scoring",
-      "Integrated Google Calendar API for meeting automation",
-    ],
-    decisions: [
-      "Used Gemini for email summarization due to strong multilingual capabilities",
-      "Implemented confidence scoring to give users transparency in AI decisions",
-      "Chose Next.js for server-side rendering and API route co-location",
-    ],
-    learnings: [
-      "Voice-to-text pipelines need careful handling of audio quality and background noise",
-      "Email classification benefits from confidence thresholds to avoid false positives",
-      "Calendar API integration requires careful handling of time zones and permissions",
-    ],
-    imageGradient: "from-slate-800 via-blue-900 to-slate-900",
   },
   {
     title: "Legal Docs Summarization (XYGen.ai)",

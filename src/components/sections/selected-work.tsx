@@ -14,16 +14,16 @@ export function SelectedWorkSection() {
           <div className="lg:col-span-7">
             <div className="label-eyebrow mb-5 flex items-center">
               <span className="eyebrow-bar" />
-              <span>Selected Work · {selected.length} Projects · {selected.filter(p=>p.isWorkProject).length} Work Live · {selected.filter(p=>p.liveUrl && !p.isWorkProject).length} Live Demo · {selected.filter(p=>!p.liveUrl && !p.isWorkProject).length} Code</span>
+              <span>Selected Work · {selected.length} Projects · {selected.filter(p=>p.isWorkProject).length} Work · {selected.filter(p=>p.liveUrl && !p.isWorkProject).length} Live Demo · {selected.filter(p=>!p.liveUrl && !p.isWorkProject).length} Code</span>
             </div>
             <h2 className="heading-section max-w-[580px]">
               Products that show how I{" "}
-              <span className="text-accent text-gradient-blue">ship AI & SaaS to production.</span>
+              <span className="text-accent text-gradient-blue">build full-stack AI products.</span>
             </h2>
           </div>
           <div className="lg:col-span-5 lg:pt-12">
             <p className="body-default max-w-[440px]">
-              Work projects from Mortgage AI Toolkit (WIS Sri Lanka) — FCA-compliant email automation & CPD tracking — plus open-source SaaS with live demos from GitHub website field (Vercel / GitHub Pages) and code-only S/A Tier engineering. Real users, real impact.
+              EduFlow, developed end to end and being deployed for client testing, and Draftlee, a two-person project with my contributions in voice input, inline summaries, advanced filtering, and calendar integration — alongside my open-source work.
             </p>
           </div>
         </div>
@@ -92,12 +92,12 @@ export function SelectedWorkSection() {
                   <div className="absolute top-5 left-5 flex items-center gap-2 z-10">
                     <span className={`w-6 h-px ${isWork ? "bg-accent" : hasLive ? "bg-success" : "bg-accent"}`} />
                     <span className={`body-mono uppercase tracking-[0.15em] backdrop-blur px-2 py-0.5 rounded-full text-[10px] border ${isWork ? "bg-accent/10 text-accent border-accent/20" : hasLive ? "bg-success/10 text-success border-success/20" : "bg-bg/80 text-primary border-border-subtle"}`}>
-                      {isWork ? "Work Project · Live" : hasLive ? "Live Demo · Deployed" : "Featured · S/A Tier"}
+                      {isWork ? "Client Work" : hasLive ? "Live Demo · Deployed" : "Featured · S/A Tier"}
                     </span>
                     {isWork && (
                       <span className="badge-accent !text-[10px] !py-0.5 flex items-center gap-1 backdrop-blur">
                         <Briefcase className="w-3 h-3" />
-                        FCA
+                        AI
                       </span>
                     )}
                     {hasLive && !isWork && (
@@ -111,7 +111,7 @@ export function SelectedWorkSection() {
                   <div className="absolute top-5 right-5 z-10 flex items-center gap-1.5">
                     <span className={`w-1.5 h-1.5 rounded-full ${isWork ? "bg-accent" : hasLive ? "bg-success" : "bg-muted"} animate-pulse`} />
                     <span className={`body-mono text-[10px] backdrop-blur px-2 py-0.5 rounded-full border ${isWork ? "text-accent border-accent/20 bg-accent/10" : hasLive ? "text-success border-success/20 bg-success/10" : "text-muted"}`}>
-                      {isWork ? "Live" : hasLive ? "Deployed" : "Code"}
+                      {isWork ? "Client Project" : hasLive ? "Deployed" : "Code"}
                     </span>
                   </div>
                 </div>
@@ -131,7 +131,7 @@ export function SelectedWorkSection() {
                       </div>
                     </div>
                     <div className="flex items-center gap-2 shrink-0 z-20">
-                      {hasLive && (
+                      {hasLive && !isWork && (
                         <a href={project.liveUrl!} target="_blank" rel="noopener noreferrer" className={`w-9 h-9 rounded-full border flex items-center justify-center transition-all ${isWork ? "bg-accent/10 border-accent/20 text-accent hover:text-bg hover:bg-accent" : "bg-success/10 border-success/20 text-success hover:text-bg hover:bg-success"}`} aria-label="Live demo">
                           <Rocket className="w-4 h-4" />
                         </a>
@@ -142,7 +142,7 @@ export function SelectedWorkSection() {
                         </a>
                       )}
                       {isWork && (
-                        <a href={linkUrl} target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-accent/10 border border-accent/20 flex items-center justify-center text-accent hover:text-bg hover:bg-accent hover:border-accent transition-all" aria-label="Live product">
+                        <a href={linkUrl} target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-accent/10 border border-accent/20 flex items-center justify-center text-accent hover:text-bg hover:bg-accent hover:border-accent transition-all" aria-label="Product page">
                           <ExternalLink className="w-4 h-4" />
                         </a>
                       )}
@@ -152,13 +152,19 @@ export function SelectedWorkSection() {
                     </div>
                   </div>
 
+                  {project.role && (
+                    <div className="mt-4 space-y-1 text-[12px] leading-relaxed">
+                      <p className="text-accent font-medium">{project.role}</p>
+                      <p className="text-secondary">{project.status}</p>
+                    </div>
+                  )}
                   <p className="body-default mt-4 line-clamp-3">{project.description}</p>
 
                   {project.outcome && (
                     <div className="mt-5 px-4 py-3 rounded-[12px] border-l-2 border-accent bg-accent/[0.04] transition-colors group-hover:bg-accent/[0.08]">
                       <div className="body-mono uppercase tracking-[0.15em] text-muted mb-1.5 normal-case text-[10.5px] flex items-center gap-2">
                         <span>Outcome</span>
-                        {isWork && <span className="badge-accent !text-[9px]">Work Project · Live</span>}
+                        {isWork && <span className="badge-accent !text-[9px]">Client Work</span>}
                         {hasLive && !isWork && <span className="badge !text-[9px] !border-success/20 text-success">Live Demo</span>}
                         {hasScreenshots && <span className="badge !text-[9px]"><ImageIcon className="w-3 h-3" />Real Screenshot</span>}
                       </div>
@@ -174,7 +180,7 @@ export function SelectedWorkSection() {
                         {tech}
                       </span>
                     ))}
-                    {hasLive && <span className="badge !border-success/20 text-success !text-[10px]">Live: {isVercel ? "Vercel" : isGhPages ? "GH Pages" : "Deployed"}</span>}
+                    {hasLive && !isWork && <span className="badge !border-success/20 text-success !text-[10px]">Live: {isVercel ? "Vercel" : isGhPages ? "GH Pages" : "Deployed"}</span>}
                     {hasScreenshots && <span className="badge !text-[10px] !border-accent/20 text-accent">+{project.screenshots?.length} screenshots</span>}
                   </div>
 
