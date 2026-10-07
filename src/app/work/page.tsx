@@ -35,17 +35,17 @@ export default function WorkPage() {
           </div>
           <h1 className="heading-section max-w-[680px]">
             Complete portfolio of{" "}
-            <span className="text-accent text-gradient-blue">products I&apos;ve shipped.</span>
+            <span className="text-accent text-gradient-blue">products I&apos;ve built.</span>
           </h1>
           <p className="body-large mt-5 max-w-[680px]">
-            <span className="text-primary font-medium">2 Work Projects</span> from Mortgage AI Toolkit (WIS Sri Lanka) — Draftlee & EduFlow — FCA-compliant, live, no public code.
+            <span className="text-primary font-medium">2 Work Projects</span> from Mortgage AI Toolkit (WIS Sri Lanka) — Draftlee & EduFlow — a two-person collaboration and an independently developed LMS, with no public code.
             <span className="text-primary font-medium"> {liveDemos.length} Live Demos</span> with deployed URLs from GitHub website field — recruiter can click and test immediately.
             <span className="text-primary font-medium"> {projects.filter(p=>p.featured).length} Featured</span> S/A Tier engineering — multi-tenant, Stripe, RAG, deterministic safety, 589 tests. Every project includes challenges, decisions, learnings.
           </p>
           <div className="mt-6 flex flex-wrap gap-2">
             <span className="badge-accent !text-[11px] py-1.5 px-3.5 flex items-center gap-1.5">
               <Briefcase className="w-3.5 h-3.5" />
-              Work: Mortgage AI Toolkit · WIS Sri Lanka · Live FCA
+              Work: Mortgage AI Toolkit · WIS Sri Lanka
             </span>
             <span className="badge !text-[11px] py-1.5 px-3.5 flex items-center gap-1.5 border-success/30 text-success">
               <Rocket className="w-3.5 h-3.5" />
@@ -59,11 +59,11 @@ export default function WorkPage() {
           <div className="mt-4 flex flex-wrap gap-2">
             <a href="https://www.mortgageaitoolkit.com/products/draftlee" target="_blank" rel="noopener noreferrer" className="badge hover:border-accent/40 hover:text-accent transition-colors !text-[11px] py-1 px-3 flex items-center gap-1.5">
               <ExternalLink className="w-3.5 h-3.5" />
-              Draftlee Live (Work)
+              Draftlee · Product page
             </a>
             <a href="https://www.mortgageaitoolkit.com/products/eduflow" target="_blank" rel="noopener noreferrer" className="badge hover:border-accent/40 hover:text-accent transition-colors !text-[11px] py-1 px-3 flex items-center gap-1.5">
               <ExternalLink className="w-3.5 h-3.5" />
-              EduFlow Live (Work)
+              EduFlow · Product page
             </a>
             {liveDemos.slice(0,4).map(p=>(
               <a key={p.title} href={p.liveUrl!} target="_blank" rel="noopener noreferrer" className="badge hover:border-success/40 hover:text-success transition-colors !text-[11px] py-1 px-3 flex items-center gap-1.5">
@@ -100,11 +100,11 @@ export default function WorkPage() {
             <div className="flex items-center gap-3 mb-7">
               <h2 className="text-[15px] font-semibold text-primary flex items-center gap-2">
                 <Briefcase className="w-4 h-4 text-accent" />
-                1. Work Projects — Mortgage AI Toolkit (WIS Sri Lanka) — Live Production
+                1. Work Projects — Mortgage AI Toolkit (WIS Sri Lanka)
               </h2>
               <span className="badge-accent">{workProjects.length}</span>
               <div className="h-px flex-1 bg-border-subtle" />
-              <span className="body-mono text-[10.5px] text-muted hidden sm:block">No public code · FCA compliant · Live at mortgageaitoolkit.com</span>
+              <span className="body-mono text-[10.5px] text-muted hidden sm:block">Private client projects · Ownership and status below</span>
             </div>
             <div className="grid lg:grid-cols-2 gap-6">
               {workProjects.map((project) => {
@@ -120,10 +120,10 @@ export default function WorkPage() {
                       <div className="absolute top-5 left-5 flex items-center gap-2 z-10">
                         <span className="w-6 h-px bg-accent" />
                         <span className="body-mono uppercase tracking-[0.15em] text-accent">Work Project · WIS Sri Lanka</span>
-                        <span className="badge-accent !text-[10px] !py-0.5 flex items-center gap-1"><span className="w-1.5 h-1.5 rounded-full bg-success animate-pulse" />Live</span>
+                        <span className="badge-accent !text-[10px] !py-0.5 flex items-center gap-1"><span className="w-1.5 h-1.5 rounded-full bg-success animate-pulse" />Work Project</span>
                       </div>
                       <div className="absolute top-5 right-5 z-10 flex items-center gap-1.5">
-                        <span className="body-mono text-[10.5px] text-success border border-success/20 rounded-full px-2 py-0.5">FCA Ready</span>
+                        <span className="body-mono text-[10.5px] text-success border border-success/20 rounded-full px-2 py-0.5">Client Work</span>
                       </div>
                       {hasScreenshots ? (
                         <>
@@ -148,7 +148,7 @@ export default function WorkPage() {
                           <span className="ml-3 body-mono normal-case tracking-normal text-[10.5px]">
                             {project.shortTitle.toLowerCase().replace(/\s+/g, "")}.mortgageaitoolkit.com
                           </span>
-                          <span className="ml-auto badge-accent !text-[9px] !py-0">Live</span>
+                          <span className="ml-auto badge-accent !text-[9px] !py-0">Client Work</span>
                         </div>
                         <div className="flex-1 p-3 flex flex-col gap-2">
                           <div className="h-2 w-2/3 rounded-full bg-border-strong" />
@@ -174,9 +174,13 @@ export default function WorkPage() {
                             <span className="badge-accent !text-[10px] !py-0">WIS Sri Lanka · No Code</span>
                           </div>
                         </div>
-                        <a href={project.liveUrl || project.githubUrl} target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-accent text-bg flex items-center justify-center hover:bg-accent/90 transition-all z-20" aria-label="View live product">
+                        <a href={project.liveUrl || project.githubUrl} target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-accent text-bg flex items-center justify-center hover:bg-accent/90 transition-all z-20" aria-label="View product page">
                           <ExternalLink className="w-4 h-4" />
                         </a>
+                      </div>
+                      <div className="mt-3 space-y-1 text-[12px] leading-relaxed">
+                        <p className="text-accent font-medium">{project.role}</p>
+                        <p className="text-secondary">{project.status}</p>
                       </div>
                       <p className="body-default mt-3 line-clamp-3">{project.description}</p>
                       <div className="flex flex-wrap gap-1.5 mt-4 z-20 relative">
@@ -184,7 +188,7 @@ export default function WorkPage() {
                           <span key={t} className="badge">{t}</span>
                         ))}
                       </div>
-                      <button onClick={() => setExpanded(isExpanded ? null : globalIdx)} className="btn-link mt-5 cursor-pointer z-20 relative inline-flex items-center gap-2">
+                      <button aria-expanded={isExpanded} onClick={() => setExpanded(isExpanded ? null : globalIdx)} className="btn-link mt-5 cursor-pointer z-20 relative inline-flex items-center gap-2">
                         <span className={`w-7 h-7 rounded-full border flex items-center justify-center transition-all ${isExpanded ? "bg-accent border-accent text-bg" : "border-border-subtle text-secondary"}`}>
                           <ChevronDown className={`w-3.5 h-3.5 ${isExpanded ? "rotate-180" : ""}`} />
                         </span>
@@ -192,8 +196,11 @@ export default function WorkPage() {
                       </button>
                       {isExpanded && (
                         <div className="pt-5 mt-5 border-t border-border-subtle space-y-5">
+                          <p className="body-default">{project.longDescription}</p>
                           {[
-                            { label: "Challenges", items: project.challenges },
+                            { label: "My contributions", items: project.challenges },
+                            { label: "Platform capabilities", items: project.features ?? [] },
+                            { label: "Technology stack", items: project.technologies },
                             { label: "Decisions", items: project.decisions },
                             { label: "Learnings", items: project.learnings },
                           ].map((sec) => (
@@ -646,7 +653,7 @@ export default function WorkPage() {
                 <Briefcase className="w-4 h-4 text-accent" />
                 <span className="text-[13px] font-medium text-primary">Work Projects (WIS Sri Lanka)</span>
               </div>
-              <div className="text-[12px] text-secondary leading-relaxed">Production at Mortgage AI Toolkit — no public code, live at mortgageaitoolkit.com/products/* — FCA compliant email & CPD tracking.</div>
+              <div className="text-[12px] text-secondary leading-relaxed">Client projects at Mortgage AI Toolkit: EduFlow built end to end and deploying for testing; Draftlee developed in a two-person team. No public code.</div>
             </div>
             <div className="px-4 py-3 rounded-[12px] border border-success/20 bg-success/[0.03]">
               <div className="flex items-center gap-2 mb-1.5">
