@@ -39,7 +39,7 @@ export function SelectedWorkSection() {
             const hasScreenshots = !!coverImage;
             return (
               <article key={project.title} className={`card card-interactive group overflow-hidden h-full ${isWork ? "border-accent/20" : hasLive ? "border-success/20" : ""}`}>
-                {/* Visual — real screenshot if available else mock */}
+                {/* Visual — cover photo if available, else mock preview */}
                 <div className="relative h-[260px] overflow-hidden border-b border-border-subtle bg-bg-elevated">
                   {hasScreenshots ? (
                     <>
@@ -106,7 +106,6 @@ export function SelectedWorkSection() {
                         {isVercel ? "Vercel" : isGhPages ? "GH Pages" : "Live"}
                       </span>
                     )}
-                    {hasScreenshots && <span className="badge !text-[10px] !py-0.5 bg-black/60 text-white border-white/20 backdrop-blur"><ImageIcon className="w-3 h-3" />Real</span>}
                   </div>
                   <div className="absolute top-5 right-5 z-10 flex items-center gap-1.5">
                     <span className={`w-1.5 h-1.5 rounded-full ${isWork ? "bg-accent" : hasLive ? "bg-success" : "bg-muted"} animate-pulse`} />
@@ -166,7 +165,6 @@ export function SelectedWorkSection() {
                         <span>Outcome</span>
                         {isWork && <span className="badge-accent !text-[9px]">Client Work</span>}
                         {hasLive && !isWork && <span className="badge !text-[9px] !border-success/20 text-success">Live Demo</span>}
-                        {hasScreenshots && <span className="badge !text-[9px]"><ImageIcon className="w-3 h-3" />Real Screenshot</span>}
                       </div>
                       <div className="text-[13.5px] text-secondary leading-relaxed line-clamp-3">
                         {project.outcome}

@@ -134,10 +134,6 @@ export default function WorkPage() {
                             className="absolute inset-0 z-[1] h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.02]"
                           />
                           <div className="absolute inset-0 z-[2] bg-gradient-to-t from-black/55 via-black/5 to-black/15" />
-                          <span className="badge absolute bottom-3 right-3 z-10 !border-white/20 bg-black/60 !py-0.5 !text-[10px] text-white backdrop-blur flex items-center gap-1">
-                            <ImageIcon className="h-3 w-3" />
-                            Real screenshot
-                          </span>
                         </>
                       ) : (
                         <div className="absolute inset-5 top-14 rounded-[12px] bg-bg border border-border-subtle overflow-hidden flex flex-col group-hover:scale-[1.02] transition-transform duration-500">
@@ -286,10 +282,6 @@ export default function WorkPage() {
                             className="absolute inset-0 z-[1] h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.02]"
                           />
                           <div className="absolute inset-0 z-[2] bg-gradient-to-t from-black/55 via-black/5 to-black/15" />
-                          <span className="badge absolute bottom-3 right-3 z-10 !border-white/20 bg-black/60 !py-0.5 !text-[10px] text-white backdrop-blur flex items-center gap-1">
-                            <ImageIcon className="h-3 w-3" />
-                            Real screenshot
-                          </span>
                         </>
                       ) : (
                         <div className="absolute inset-5 top-14 rounded-[12px] bg-bg border border-border-subtle overflow-hidden flex flex-col group-hover:scale-[1.02] transition-transform duration-500">
@@ -443,10 +435,6 @@ export default function WorkPage() {
                             className="absolute inset-0 z-[1] h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.02]"
                           />
                           <div className="absolute inset-0 z-[2] bg-gradient-to-t from-black/55 via-black/5 to-black/15" />
-                          <span className="badge absolute bottom-3 right-3 z-10 !border-white/20 bg-black/60 !py-0.5 !text-[10px] text-white backdrop-blur flex items-center gap-1">
-                            <ImageIcon className="h-3 w-3" />
-                            Real screenshot
-                          </span>
                         </>
                       ) : (
                         <div className="absolute inset-5 top-14 rounded-[12px] bg-bg border border-border-subtle overflow-hidden flex flex-col group-hover:scale-[1.02] transition-transform duration-500">
@@ -579,10 +567,6 @@ export default function WorkPage() {
                             className="absolute inset-0 z-[1] h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.02]"
                           />
                           <div className="absolute inset-0 z-[2] bg-gradient-to-t from-black/60 via-black/5 to-black/20" />
-                          <span className="badge absolute bottom-3 right-3 z-10 !border-white/20 bg-black/60 !py-0.5 !text-[10px] text-white backdrop-blur flex items-center gap-1">
-                            <ImageIcon className="h-3 w-3" />
-                            Real screenshot
-                          </span>
                         </>
                       ) : (
                         <>
