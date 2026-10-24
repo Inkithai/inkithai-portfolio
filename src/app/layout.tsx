@@ -5,6 +5,7 @@ import { Footer } from "@/components/layout/footer";
 import { siteConfig } from "@/data/content";
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteConfig.url),
   title: {
     default: siteConfig.title,
     template: `%s | Inkithai`,
