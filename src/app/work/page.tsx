@@ -13,10 +13,11 @@ export default function WorkPage() {
   const [expanded, setExpanded] = useState<number | null>(null);
 
   const filtered = activeCategory === "All" ? projects : projects.filter((p) => p.categories.includes(activeCategory));
-  const workProjects = filtered.filter((p) => p.isWorkProject || p.workType === "wis-sri-lanka");
-  const liveDemos = filtered.filter((p) => p.liveUrl && !p.isWorkProject);
-  const featured = filtered.filter((p) => p.featured && !p.isWorkProject);
-  const rest = filtered.filter((p) => !p.featured);
+  const isWork = (p: (typeof projects)[number]) => p.isWorkProject || p.workType === "wis-sri-lanka";
+  const workProjects = filtered.filter(isWork);
+  const liveDemos = filtered.filter((p) => !isWork(p) && p.liveUrl);
+  const featured = filtered.filter((p) => !isWork(p) && !p.liveUrl && p.featured);
+  const rest = filtered.filter((p) => !isWork(p) && !p.liveUrl && !p.featured);
 
   return (
     <div className="pt-32 pb-24">
