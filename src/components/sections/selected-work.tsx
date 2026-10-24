@@ -23,7 +23,8 @@ export function SelectedWorkSection() {
           </div>
           <div className="lg:col-span-5 lg:pt-12">
             <p className="body-default max-w-[440px]">
-              EduFlow, developed end to end and being deployed for client testing, and Draftlee, a two-person project with my contributions in voice input, inline summaries, advanced filtering, and calendar integration — alongside my open-source work.
+              EduFlow, built end to end for client testing, and Draftlee, a two-person
+              project — alongside my open-source work.
             </p>
           </div>
         </div>

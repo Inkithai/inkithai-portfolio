@@ -3,7 +3,7 @@ import { about, personal } from "@/data/content";
 export function AboutSection() {
   const summary = [
     "Software Engineer building production AI products across the full stack — from AI-powered learning platforms and email automation to document processing pipelines. Core stack: React, Next.js, Node.js, Python, OpenAI, Gemini.",
-    "Available for freelance and full-time roles where AI meets product. Open to building from scratch or strengthening existing teams.",
+    "Available for freelance and full-time roles — building from scratch or strengthening existing teams.",
   ];
 
   return (
