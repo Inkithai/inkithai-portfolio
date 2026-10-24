@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { projects, type ProjectCategory } from "@/data/content";
-import { ChevronDown, ArrowLeft, ExternalLink, Briefcase, Rocket, Code2, Image as ImageIcon } from "lucide-react";
+import { ChevronDown, ArrowLeft, ExternalLink, Briefcase, Rocket, Code2 } from "lucide-react";
 import { GithubIcon } from "@/components/ui/icons";
 import Link from "next/link";
 
@@ -31,44 +31,30 @@ export default function WorkPage() {
           </Link>
           <div className="label-eyebrow mb-5 flex items-center">
             <span className="eyebrow-bar" />
-            <span>Work · {projects.length} Projects · {projects.filter(p=>p.isWorkProject).length} Work · {projects.filter(p=>p.liveUrl && !p.isWorkProject).length} Live Demos · {projects.filter(p=>!p.liveUrl && !p.isWorkProject).length} Code Only</span>
+            <span>Work</span>
           </div>
           <h1 className="heading-section max-w-[680px]">
             Complete portfolio of{" "}
             <span className="text-accent text-gradient-blue">products I&apos;ve built.</span>
           </h1>
           <p className="body-large mt-5 max-w-[680px]">
-            <span className="text-primary font-medium">2 Work Projects</span> from Mortgage AI Toolkit (WIS Sri Lanka) — Draftlee & EduFlow — a two-person collaboration and an independently developed LMS, with no public code.
-            <span className="text-primary font-medium"> {liveDemos.length} Live Demos</span> with deployed URLs from GitHub website field — recruiter can click and test immediately.
-            <span className="text-primary font-medium"> {projects.filter(p=>p.featured).length} Featured</span> S/A Tier engineering — multi-tenant, Stripe, RAG, deterministic safety, 589 tests. Every project includes challenges, decisions, learnings.
+            Client work for Mortgage AI Toolkit (WIS Sri Lanka), open-source builds with
+            public code, and live demos you can try. Each entry includes the challenges,
+            decisions, and learnings behind it.
           </p>
           <div className="mt-6 flex flex-wrap gap-2">
-            <span className="badge-accent !text-[11px] py-1.5 px-3.5 flex items-center gap-1.5">
-              <Briefcase className="w-3.5 h-3.5" />
-              Work: Mortgage AI Toolkit · WIS Sri Lanka
-            </span>
-            <span className="badge !text-[11px] py-1.5 px-3.5 flex items-center gap-1.5 border-success/30 text-success">
-              <Rocket className="w-3.5 h-3.5" />
-              {liveDemos.length} Live Demos — Vercel / GitHub Pages
-            </span>
-            <span className="badge !text-[11px] py-1.5 px-3.5 flex items-center gap-1.5">
-              <Code2 className="w-3.5 h-3.5" />
-              {featured.length} Featured S/A Tier
-            </span>
-          </div>
-          <div className="mt-4 flex flex-wrap gap-2">
             <a href="https://www.mortgageaitoolkit.com/products/draftlee" target="_blank" rel="noopener noreferrer" className="badge hover:border-accent/40 hover:text-accent transition-colors !text-[11px] py-1 px-3 flex items-center gap-1.5">
               <ExternalLink className="w-3.5 h-3.5" />
-              Draftlee · Product page
+              Draftlee
             </a>
             <a href="https://www.mortgageaitoolkit.com/products/eduflow" target="_blank" rel="noopener noreferrer" className="badge hover:border-accent/40 hover:text-accent transition-colors !text-[11px] py-1 px-3 flex items-center gap-1.5">
               <ExternalLink className="w-3.5 h-3.5" />
-              EduFlow · Product page
+              EduFlow
             </a>
             {liveDemos.slice(0,4).map(p=>(
               <a key={p.title} href={p.liveUrl!} target="_blank" rel="noopener noreferrer" className="badge hover:border-success/40 hover:text-success transition-colors !text-[11px] py-1 px-3 flex items-center gap-1.5">
                 <Rocket className="w-3.5 h-3.5" />
-                {p.shortTitle} Live
+                {p.shortTitle}
               </a>
             ))}
           </div>
@@ -100,11 +86,9 @@ export default function WorkPage() {
             <div className="flex items-center gap-3 mb-7">
               <h2 className="text-[15px] font-semibold text-primary flex items-center gap-2">
                 <Briefcase className="w-4 h-4 text-accent" />
-                1. Work Projects — Mortgage AI Toolkit (WIS Sri Lanka)
+                Work Projects
               </h2>
-              <span className="badge-accent">{workProjects.length}</span>
               <div className="h-px flex-1 bg-border-subtle" />
-              <span className="body-mono text-[10.5px] text-muted hidden sm:block">Private client projects · Ownership and status below</span>
             </div>
             <div className="grid lg:grid-cols-2 gap-6">
               {workProjects.map((project) => {
@@ -119,11 +103,7 @@ export default function WorkPage() {
                       <div className="absolute inset-0 bg-grid opacity-50" />
                       <div className="absolute top-5 left-5 flex items-center gap-2 z-10">
                         <span className="w-6 h-px bg-accent" />
-                        <span className="body-mono uppercase tracking-[0.15em] text-accent">Work Project · WIS Sri Lanka</span>
-                        <span className="badge-accent !text-[10px] !py-0.5 flex items-center gap-1"><span className="w-1.5 h-1.5 rounded-full bg-success animate-pulse" />Work Project</span>
-                      </div>
-                      <div className="absolute top-5 right-5 z-10 flex items-center gap-1.5">
-                        <span className="body-mono text-[10.5px] text-success border border-success/20 rounded-full px-2 py-0.5">Client Work</span>
+                        <span className="body-mono uppercase tracking-[0.15em] text-accent">Work Project</span>
                       </div>
                       {hasScreenshots ? (
                         <>
@@ -144,7 +124,6 @@ export default function WorkPage() {
                           <span className="ml-3 body-mono normal-case tracking-normal text-[10.5px]">
                             {project.shortTitle.toLowerCase().replace(/\s+/g, "")}.mortgageaitoolkit.com
                           </span>
-                          <span className="ml-auto badge-accent !text-[9px] !py-0">Client Work</span>
                         </div>
                         <div className="flex-1 p-3 flex flex-col gap-2">
                           <div className="h-2 w-2/3 rounded-full bg-border-strong" />
@@ -167,7 +146,7 @@ export default function WorkPage() {
                           </h3>
                           <div className="body-mono normal-case tracking-normal text-[11px] text-muted mt-1 flex items-center gap-2 flex-wrap">
                             <span>{project.title}</span>
-                            <span className="badge-accent !text-[10px] !py-0">WIS Sri Lanka · No Code</span>
+                            {project.company && <span className="badge !text-[10px] !py-0">{project.company}</span>}
                           </div>
                         </div>
                         <a href={project.liveUrl || project.githubUrl} target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-accent text-bg flex items-center justify-center hover:bg-accent/90 transition-all z-20" aria-label="View product page">
@@ -188,7 +167,7 @@ export default function WorkPage() {
                         <span className={`w-7 h-7 rounded-full border flex items-center justify-center transition-all ${isExpanded ? "bg-accent border-accent text-bg" : "border-border-subtle text-secondary"}`}>
                           <ChevronDown className={`w-3.5 h-3.5 ${isExpanded ? "rotate-180" : ""}`} />
                         </span>
-                        {isExpanded ? "Hide details" : "View build journey (Work Project)"}
+                        {isExpanded ? "Hide details" : "View details"}
                       </button>
                       {isExpanded && (
                         <div className="pt-5 mt-5 border-t border-border-subtle space-y-5">
@@ -245,20 +224,16 @@ export default function WorkPage() {
             <div className="flex items-center gap-3 mb-7">
               <h2 className="text-[15px] font-semibold text-primary flex items-center gap-2">
                 <Rocket className="w-4 h-4 text-success" />
-                2. Live Demos — Deployed (Vercel / GitHub Pages) — Recruiter can click & test now
+                Live Demos
               </h2>
-              <span className="badge !border-success/30 text-success">{liveDemos.length}</span>
               <div className="h-px flex-1 bg-border-subtle" />
-              <span className="body-mono text-[10.5px] text-muted hidden sm:block">From GitHub website field · Vercel · GitHub Pages</span>
             </div>
             <div className="grid lg:grid-cols-2 gap-6">
               {liveDemos.map((project) => {
                 const globalIdx = projects.indexOf(project);
                 const isExpanded = expanded === globalIdx;
-                const isVercel = project.liveUrl?.includes("vercel.app");
                 const coverImage = project.thumbnail || project.screenshots?.[0];
                 const hasScreenshots = !!coverImage;
-                const isGhPages = project.liveUrl?.includes("github.io");
                 return (
                   <article key={project.title} className="card card-interactive overflow-hidden h-full group border-success/20">
                     <div className="relative h-52 overflow-hidden border-b border-border-subtle">
@@ -267,11 +242,6 @@ export default function WorkPage() {
                       <div className="absolute top-5 left-5 flex items-center gap-2 z-10">
                         <span className="w-6 h-px bg-success" />
                         <span className="body-mono uppercase tracking-[0.15em] text-success">Live Demo</span>
-                        <span className="badge !text-[10px] !py-0.5 !border-success/30 text-success">{isVercel ? "Vercel" : isGhPages ? "GitHub Pages" : "Live"}</span>
-                      </div>
-                      <div className="absolute top-5 right-5 z-10 flex items-center gap-1.5">
-                        <span className="w-1.5 h-1.5 rounded-full bg-success animate-pulse" />
-                        <span className="body-mono text-[10.5px] text-success">Deployed</span>
                       </div>
                       {hasScreenshots ? (
                         <>
@@ -292,7 +262,6 @@ export default function WorkPage() {
                           <span className="ml-3 body-mono normal-case tracking-normal text-[10.5px] truncate max-w-[200px]">
                             {project.liveUrl?.replace("https://","").replace("http://","")}
                           </span>
-                          <span className="ml-auto badge !text-[9px] !py-0 border-success/20 text-success">Live</span>
                         </div>
                         <div className="flex-1 p-3 flex flex-col gap-2">
                           <div className="h-2 w-2/3 rounded-full bg-border-strong" />
@@ -332,24 +301,23 @@ export default function WorkPage() {
                         {project.technologies.slice(0, 4).map((t) => (
                           <span key={t} className="badge">{t}</span>
                         ))}
-                        <span className="badge !border-success/20 text-success !text-[10px]">Live: {project.liveUrl?.includes("vercel") ? "Vercel" : project.liveUrl?.includes("github.io") ? "GH Pages" : "Deployed"}</span>
                       </div>
                       <button onClick={() => setExpanded(isExpanded ? null : globalIdx)} className="btn-link mt-5 cursor-pointer z-20 relative inline-flex items-center gap-2">
                         <span className={`w-7 h-7 rounded-full border flex items-center justify-center transition-all ${isExpanded ? "bg-success border-success text-bg" : "border-border-subtle text-secondary"}`}>
                           <ChevronDown className={`w-3.5 h-3.5 ${isExpanded ? "rotate-180" : ""}`} />
                         </span>
-                        {isExpanded ? "Hide details" : "View build journey + live link"}
+                        {isExpanded ? "Hide details" : "View details"}
                       </button>
                       {isExpanded && (
                         <div className="pt-5 mt-5 border-t border-border-subtle space-y-5">
                           <div className="flex flex-wrap gap-2">
                             <a href={project.liveUrl!} target="_blank" rel="noopener noreferrer" className="badge-accent !text-[11px] py-1.5 px-3 flex items-center gap-1.5">
                               <Rocket className="w-3.5 h-3.5" />
-                              Open Live Demo: {project.liveUrl}
+                              Live demo
                             </a>
                             <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="badge !text-[11px] py-1.5 px-3 flex items-center gap-1.5">
                               <GithubIcon className="w-3.5 h-3.5" />
-                              GitHub Code
+                              GitHub
                             </a>
                           </div>
                           {[
@@ -396,15 +364,14 @@ export default function WorkPage() {
           </div>
         )}
 
-        {/* 3. Featured Engineering S/A Tier */}
+        {/* Open source projects */}
         {featured.length > 0 && (
           <div className="mb-16">
             <div className="flex items-center gap-3 mb-7">
               <h2 className="text-[15px] font-semibold text-primary flex items-center gap-2">
                 <Code2 className="w-4 h-4 text-accent" />
-                3. Featured Engineering — S/A Tier (Strongest code, production-ready, 589 tests, multi-tenant, RAG)
+                Open Source Projects
               </h2>
-              <span className="badge">{featured.length}</span>
               <div className="h-px flex-1 bg-border-subtle" />
             </div>
             <div className="grid lg:grid-cols-2 gap-6">
@@ -421,9 +388,7 @@ export default function WorkPage() {
                       <div className="absolute inset-0 bg-grid opacity-50" />
                       <div className="absolute top-5 left-5 flex items-center gap-2 z-10">
                         <span className="w-6 h-px bg-accent" />
-                        <span className="body-mono uppercase tracking-[0.15em]">Featured · S/A Tier</span>
-                        {project.title.includes("YGC") && <span className="badge-accent !text-[10px] !py-0.5">S-Tier · 589 tests · Deterministic Safety</span>}
-                        {project.title.includes("Oyster") && <span className="badge-accent !text-[10px] !py-0.5">S-Tier · SaaS · Multi-tenant</span>}
+                        <span className="body-mono uppercase tracking-[0.15em]">{project.categories[0]}</span>
                         {hasLiveDemo && <span className="badge !text-[10px] !py-0.5 !border-success/30 text-success">Live Demo</span>}
                       </div>
                       {hasScreenshots ? (
@@ -479,13 +444,12 @@ export default function WorkPage() {
                         {project.technologies.slice(0, 4).map((t) => (
                           <span key={t} className="badge">{t}</span>
                         ))}
-                        {hasLiveDemo && <span className="badge !border-success/20 text-success !text-[10px]">Live Demo Available</span>}
                       </div>
                       <button onClick={() => setExpanded(isExpanded ? null : globalIdx)} className="btn-link mt-5 cursor-pointer z-20 relative inline-flex items-center gap-2">
                         <span className={`w-7 h-7 rounded-full border flex items-center justify-center transition-all ${isExpanded ? "bg-accent border-accent text-bg" : "border-border-subtle text-secondary"}`}>
                           <ChevronDown className={`w-3.5 h-3.5 ${isExpanded ? "rotate-180" : ""}`} />
                         </span>
-                        {isExpanded ? "Hide details" : "View build journey"}
+                        {isExpanded ? "Hide details" : "View details"}
                       </button>
                       {isExpanded && (
                         <div className="pt-5 mt-5 border-t border-border-subtle space-y-5">
@@ -493,7 +457,7 @@ export default function WorkPage() {
                             <div className="flex flex-wrap gap-2">
                               <a href={project.liveUrl!} target="_blank" rel="noopener noreferrer" className="badge-accent !text-[11px] py-1.5 px-3 flex items-center gap-1.5 border-success/30">
                                 <Rocket className="w-3.5 h-3.5" />
-                                Live: {project.liveUrl}
+                                Live demo
                               </a>
                             </div>
                           )}
@@ -541,19 +505,18 @@ export default function WorkPage() {
           </div>
         )}
 
-        {/* More builds */}
+        {/* More projects */}
         {rest.length > 0 && (
           <div>
             <div className="flex items-center gap-3 mb-7">
               <h2 className="text-[15px] font-semibold text-primary flex items-center gap-2">
                 <GithubIcon className="w-4 h-4" />
-                4. More builds — B/C Tier hobby & supporting
+                More Projects
               </h2>
-              <span className="badge">{rest.length}</span>
               <div className="h-px flex-1 bg-border-subtle" />
             </div>
             <div className="grid gap-6 md:grid-cols-2">
-              {rest.map((project, i) => {
+              {rest.map((project) => {
                 const coverImage = project.thumbnail || project.screenshots?.[0];
                 return (
                   <article key={project.title} className="card card-interactive group overflow-hidden h-full">
@@ -581,7 +544,7 @@ export default function WorkPage() {
                       )}
                       <div className="absolute left-4 top-4 z-10 flex items-center gap-2">
                         <span className="badge border-white/20 bg-black/60 text-white backdrop-blur">
-                          {String(i + 1).padStart(2, "0")} · {project.categories[0]}
+                          {project.categories[0]}
                         </span>
                         {project.liveUrl && <span className="badge !border-success/30 bg-black/60 text-success backdrop-blur">Live</span>}
                       </div>
@@ -609,12 +572,6 @@ export default function WorkPage() {
                         {project.technologies.slice(0, 4).map((technology) => (
                           <span key={technology} className="badge">{technology}</span>
                         ))}
-                        {project.screenshots?.length ? (
-                          <span className="badge !border-accent/20 text-accent">
-                            <ImageIcon className="h-3 w-3" />
-                            {project.screenshots.length} screenshot{project.screenshots.length > 1 ? "s" : ""}
-                          </span>
-                        ) : null}
                       </div>
                     </div>
                   </article>
@@ -631,38 +588,10 @@ export default function WorkPage() {
         )}
 
         <div className="mt-16 pt-8 border-t border-border-subtle">
-          <div className="grid md:grid-cols-3 gap-6 mb-8">
-            <div className="px-4 py-3 rounded-[12px] border border-accent/20 bg-accent/[0.03]">
-              <div className="flex items-center gap-2 mb-1.5">
-                <Briefcase className="w-4 h-4 text-accent" />
-                <span className="text-[13px] font-medium text-primary">Work Projects (WIS Sri Lanka)</span>
-              </div>
-              <div className="text-[12px] text-secondary leading-relaxed">Client projects at Mortgage AI Toolkit: EduFlow built end to end and deploying for testing; Draftlee developed in a two-person team. No public code.</div>
-            </div>
-            <div className="px-4 py-3 rounded-[12px] border border-success/20 bg-success/[0.03]">
-              <div className="flex items-center gap-2 mb-1.5">
-                <Rocket className="w-4 h-4 text-success" />
-                <span className="text-[13px] font-medium text-primary">Live Demos (Vercel / GitHub Pages)</span>
-              </div>
-              <div className="text-[12px] text-secondary leading-relaxed">From GitHub repo homepage field — medimind, RouteIQ BusGo, ConvertLab, DigiBeat, Liya, VoucherRush — recruiter can click & test immediately. Vercel / GH Pages deployed.</div>
-            </div>
-            <div className="px-4 py-3 rounded-[12px] border border-border-subtle bg-bg-elevated/50">
-              <div className="flex items-center gap-2 mb-1.5">
-                <Code2 className="w-4 h-4 text-muted" />
-                <span className="text-[13px] font-medium text-primary">Code Only — S/A Tier</span>
-              </div>
-              <div className="text-[12px] text-secondary leading-relaxed">Oyster360, YGC, BookWise — strongest engineering, Docker, multi-tenant, RAG, 589 tests, Stripe — GitHub only but production-ready, audit in PORTFOLIO_AUDIT.md</div>
-            </div>
-          </div>
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-            <div className="body-mono text-[11px] text-muted">
-              Portfolio audit — see PORTFOLIO_AUDIT.md for full ranking S/A/B/C/D/F tiers, 40+ repos inspected. Live links from GitHub homepage field + README deployment.
-            </div>
-            <Link href="/" className="text-[13px] text-accent hover:text-primary transition-colors inline-flex items-center gap-1.5">
-              <ArrowLeft className="w-3.5 h-3.5" />
-              Back to selected work
-            </Link>
-          </div>
+          <Link href="/" className="text-[13px] text-accent hover:text-primary transition-colors inline-flex items-center gap-1.5">
+            <ArrowLeft className="w-3.5 h-3.5" />
+            Back to home
+          </Link>
         </div>
       </div>
     </div>

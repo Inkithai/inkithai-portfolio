@@ -38,7 +38,6 @@ export function ExperienceSection() {
           <div className="lg:col-span-5 lg:pt-12">
             <p className="body-default max-w-[380px]">
               AI platforms, automation tools, and full-stack systems in production.
-              Click any role to expand technical contributions.
             </p>
           </div>
         </div>
@@ -65,14 +64,6 @@ export function ExperienceSection() {
                     <div className="body-mono normal-case tracking-normal text-[11px] text-muted mt-1">
                       → {exp.period.split(" – ")[1] || "Present"}
                     </div>
-                    {idx === 0 && (
-                      <div className="mt-3 flex items-center gap-1.5">
-                        <span className="w-1.5 h-1.5 rounded-full bg-success animate-pulse-soft" />
-                        <span className="body-mono normal-case tracking-normal text-[10.5px] text-success">
-                          Most Recent
-                        </span>
-                      </div>
-                    )}
                   </div>
 
                   {/* Main content */}
@@ -93,8 +84,6 @@ export function ExperienceSection() {
                       <span className="flex items-center gap-1.5">
                         <MapPin className="w-3 h-3 text-accent" /> {exp.location}
                       </span>
-                      <span>·</span>
-                      <span>{exp.achievements.length} modules / projects</span>
                     </div>
                   </div>
 

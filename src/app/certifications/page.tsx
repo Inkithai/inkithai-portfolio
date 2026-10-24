@@ -25,7 +25,7 @@ export default function CertificationsPage() {
           </Link>
           <div className="label-eyebrow mb-5 flex items-center">
             <span className="eyebrow-bar" />
-            <span>Certifications · {certifications.length} Items</span>
+            <span>Certifications</span>
           </div>
           <h1 className="heading-section max-w-[600px]">
             Learning that{" "}
@@ -122,10 +122,9 @@ export default function CertificationsPage() {
             <span>Continuous Development Approach</span>
           </div>
           <p className="body-default max-w-[720px]">
-            This collection represents verified learning through production shipping,
-            research publication (IEEE ICAC 2024), entrepreneurship award (SPARK 101),
-            and platform-based learning. Each item maps to real project work — not just
-            course completion.
+            Verified learning through production shipping, research publication
+            (IEEE ICAC 2024), entrepreneurship award (SPARK 101), and platform-based
+            learning.
           </p>
           <div className="mt-6 flex flex-wrap gap-3 z-20 relative">
             <Link href="/work" className="btn-primary">

@@ -21,8 +21,8 @@ export function CertificationsPreviewSection() {
           </div>
           <div className="lg:col-span-5 lg:pt-12">
             <p className="body-default max-w-[380px]">
-              Certifications, research, and learning milestones — all mapped to real
-              production work, not just course completion.
+              Certifications, research, and learning milestones mapped to real
+              production work.
             </p>
           </div>
         </div>
