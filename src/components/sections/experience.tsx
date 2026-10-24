@@ -53,6 +53,7 @@ export function ExperienceSection() {
                 }`}
               >
                 <button
+                  aria-expanded={isExpanded}
                   onClick={() => setExpanded(isExpanded ? null : idx)}
                   className="w-full text-left p-6 md:p-8 flex items-start gap-6 md:gap-10 cursor-pointer"
                 >

@@ -42,22 +42,6 @@ export default function WorkPage() {
             public code, and live demos you can try. Each entry includes the challenges,
             decisions, and learnings behind it.
           </p>
-          <div className="mt-6 flex flex-wrap gap-2">
-            <a href="https://www.mortgageaitoolkit.com/products/draftlee" target="_blank" rel="noopener noreferrer" className="badge hover:border-accent/40 hover:text-accent transition-colors !text-[11px] py-1 px-3 flex items-center gap-1.5">
-              <ExternalLink className="w-3.5 h-3.5" />
-              Draftlee
-            </a>
-            <a href="https://www.mortgageaitoolkit.com/products/eduflow" target="_blank" rel="noopener noreferrer" className="badge hover:border-accent/40 hover:text-accent transition-colors !text-[11px] py-1 px-3 flex items-center gap-1.5">
-              <ExternalLink className="w-3.5 h-3.5" />
-              EduFlow
-            </a>
-            {liveDemos.slice(0,4).map(p=>(
-              <a key={p.title} href={p.liveUrl!} target="_blank" rel="noopener noreferrer" className="badge hover:border-success/40 hover:text-success transition-colors !text-[11px] py-1 px-3 flex items-center gap-1.5">
-                <Rocket className="w-3.5 h-3.5" />
-                {p.shortTitle}
-              </a>
-            ))}
-          </div>
         </div>
 
         {/* Category filter */}
@@ -302,7 +286,7 @@ export default function WorkPage() {
                           <span key={t} className="badge">{t}</span>
                         ))}
                       </div>
-                      <button onClick={() => setExpanded(isExpanded ? null : globalIdx)} className="btn-link mt-5 cursor-pointer z-20 relative inline-flex items-center gap-2">
+                      <button aria-expanded={isExpanded} onClick={() => setExpanded(isExpanded ? null : globalIdx)} className="btn-link mt-5 cursor-pointer z-20 relative inline-flex items-center gap-2">
                         <span className={`w-7 h-7 rounded-full border flex items-center justify-center transition-all ${isExpanded ? "bg-success border-success text-bg" : "border-border-subtle text-secondary"}`}>
                           <ChevronDown className={`w-3.5 h-3.5 ${isExpanded ? "rotate-180" : ""}`} />
                         </span>
@@ -445,7 +429,7 @@ export default function WorkPage() {
                           <span key={t} className="badge">{t}</span>
                         ))}
                       </div>
-                      <button onClick={() => setExpanded(isExpanded ? null : globalIdx)} className="btn-link mt-5 cursor-pointer z-20 relative inline-flex items-center gap-2">
+                      <button aria-expanded={isExpanded} onClick={() => setExpanded(isExpanded ? null : globalIdx)} className="btn-link mt-5 cursor-pointer z-20 relative inline-flex items-center gap-2">
                         <span className={`w-7 h-7 rounded-full border flex items-center justify-center transition-all ${isExpanded ? "bg-accent border-accent text-bg" : "border-border-subtle text-secondary"}`}>
                           <ChevronDown className={`w-3.5 h-3.5 ${isExpanded ? "rotate-180" : ""}`} />
                         </span>
