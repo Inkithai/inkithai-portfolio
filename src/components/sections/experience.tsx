@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import { experience } from "@/data/content";
+
+type Achievement = (typeof experience)[number]["achievements"][number];
 import { MapPin, Plus, Minus } from "lucide-react";
 
 function renderFormattedText(text: string) {
@@ -38,7 +40,6 @@ export function ExperienceSection() {
           <div className="lg:col-span-5 lg:pt-12">
             <p className="body-default max-w-[380px]">
               AI platforms, automation tools, and full-stack systems in production.
-              Click any role to expand technical contributions.
             </p>
           </div>
         </div>
@@ -54,6 +55,7 @@ export function ExperienceSection() {
                 }`}
               >
                 <button
+                  aria-expanded={isExpanded}
                   onClick={() => setExpanded(isExpanded ? null : idx)}
                   className="w-full text-left p-6 md:p-8 flex items-start gap-6 md:gap-10 cursor-pointer"
                 >
@@ -65,14 +67,6 @@ export function ExperienceSection() {
                     <div className="body-mono normal-case tracking-normal text-[11px] text-muted mt-1">
                       → {exp.period.split(" – ")[1] || "Present"}
                     </div>
-                    {idx === 0 && (
-                      <div className="mt-3 flex items-center gap-1.5">
-                        <span className="w-1.5 h-1.5 rounded-full bg-success animate-pulse-soft" />
-                        <span className="body-mono normal-case tracking-normal text-[10.5px] text-success">
-                          Most Recent
-                        </span>
-                      </div>
-                    )}
                   </div>
 
                   {/* Main content */}
@@ -93,8 +87,6 @@ export function ExperienceSection() {
                       <span className="flex items-center gap-1.5">
                         <MapPin className="w-3 h-3 text-accent" /> {exp.location}
                       </span>
-                      <span>·</span>
-                      <span>{exp.achievements.length} modules / projects</span>
                     </div>
                   </div>
 
@@ -117,7 +109,7 @@ export function ExperienceSection() {
                         Key Contributions
                       </div>
                       <div className="space-y-7">
-                        {exp.achievements.map((ach: any, j: number) => (
+                        {exp.achievements.map((ach: Achievement, j: number) => (
                           <div key={j}>
                             <div className="flex items-center gap-2 mb-2">
                               <span className="w-1.5 h-1.5 rounded-full bg-accent" />
@@ -128,7 +120,7 @@ export function ExperienceSection() {
 
                             {ach.bullets && ach.bullets.length > 0 ? (
                               <ul className="mt-2.5 ml-3.5 space-y-2 text-[13.5px] leading-relaxed text-secondary">
-                                {ach.bullets.map((bullet: string, bi: number) => (
+                                {ach.bullets.map((bullet, bi) => (
                                   <li key={bi} className="flex items-start gap-2.5">
                                     <span className="text-accent mt-1 shrink-0 text-[10px]">▪</span>
                                     <span>{renderFormattedText(bullet)}</span>
@@ -151,7 +143,7 @@ export function ExperienceSection() {
                             )}
 
                             <div className="flex flex-wrap gap-1.5 mt-3 ml-3.5">
-                              {ach.technologies.map((t: string) => (
+                              {ach.technologies.map((t) => (
                                 <span key={t} className="badge">
                                   {t}
                                 </span>

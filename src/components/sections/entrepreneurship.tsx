@@ -25,8 +25,7 @@ export function EntrepreneurshipSection() {
           </div>
           <div className="lg:col-span-5 lg:pt-12">
             <p className="body-default max-w-[380px]">
-              National recognition, seed funding, and a first stage speech. The messy, real
-              arc of going from concept to validation.
+              National recognition, seed funding, and a first stage speech.
             </p>
           </div>
         </div>

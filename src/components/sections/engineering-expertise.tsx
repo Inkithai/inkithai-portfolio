@@ -17,8 +17,7 @@ export function EngineeringExpertiseSection() {
           </div>
           <div className="lg:col-span-5 lg:pt-12">
             <p className="body-default max-w-[380px]">
-              A focused toolkit for shipping from prototype to production. Organized by
-              actually-used stacks, not aspirational ones.
+              A focused toolkit for shipping from prototype to production.
             </p>
           </div>
         </div>
@@ -38,12 +37,6 @@ export function EngineeringExpertiseSection() {
                 <div className="card card-interactive p-6 md:p-7 h-full group">
                   <div className="flex items-start justify-between gap-4 mb-5">
                     <div>
-                      <div className="flex items-center gap-2 mb-2">
-                        <span className="w-4 h-px bg-accent group-hover:w-6 transition-all" />
-                        <span className="body-mono normal-case tracking-normal text-[10.5px] text-muted">
-                          {cat.skills.length} tools
-                        </span>
-                      </div>
                       <h3 className="heading-sub text-[18px] group-hover:text-accent transition-colors">
                         {cat.title}
                       </h3>

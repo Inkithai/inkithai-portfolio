@@ -22,7 +22,6 @@ export function ResearchSection() {
             </h2>
             <p className="body-default mt-5">
               Peer-reviewed research on educational technology and student well-being.
-              Published in IEEE Xplore.
             </p>
             <div className="mt-6 body-mono normal-case tracking-normal text-[11.5px]">
               <div className="mb-1 text-primary">{publication.conference}</div>

@@ -1,4 +1,4 @@
-import { ArrowUpRight, ExternalLink, Briefcase, Rocket, Image as ImageIcon } from "lucide-react";
+import { ArrowUpRight, ExternalLink, Rocket } from "lucide-react";
 import { projects } from "@/data/content";
 import Link from "next/link";
 import { GithubIcon } from "@/components/ui/icons";
@@ -14,7 +14,7 @@ export function SelectedWorkSection() {
           <div className="lg:col-span-7">
             <div className="label-eyebrow mb-5 flex items-center">
               <span className="eyebrow-bar" />
-              <span>Selected Work · {selected.length} Projects · {selected.filter(p=>p.isWorkProject).length} Work · {selected.filter(p=>p.liveUrl && !p.isWorkProject).length} Live Demo · {selected.filter(p=>!p.liveUrl && !p.isWorkProject).length} Code</span>
+              <span>Selected Work</span>
             </div>
             <h2 className="heading-section max-w-[580px]">
               Products that show how I{" "}
@@ -23,7 +23,8 @@ export function SelectedWorkSection() {
           </div>
           <div className="lg:col-span-5 lg:pt-12">
             <p className="body-default max-w-[440px]">
-              EduFlow, developed end to end and being deployed for client testing, and Draftlee, a two-person project with my contributions in voice input, inline summaries, advanced filtering, and calendar integration — alongside my open-source work.
+              EduFlow, built end to end for client testing, and Draftlee, a two-person
+              project — alongside my open-source work.
             </p>
           </div>
         </div>
@@ -32,8 +33,6 @@ export function SelectedWorkSection() {
           {selected.map((project) => {
             const isWork = project.isWorkProject || project.workType === "wis-sri-lanka";
             const hasLive = !!project.liveUrl;
-            const isVercel = project.liveUrl?.includes("vercel.app");
-            const isGhPages = project.liveUrl?.includes("github.io");
             const linkUrl = project.liveUrl || project.githubUrl;
             const coverImage = project.thumbnail || project.screenshots?.[0];
             const hasScreenshots = !!coverImage;
@@ -46,12 +45,6 @@ export function SelectedWorkSection() {
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img src={coverImage} alt={`${project.shortTitle} screenshot`} className="absolute inset-0 w-full h-full object-cover object-top group-hover:scale-[1.02] transition-transform duration-700" />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
-                      <div className="absolute bottom-3 right-3 z-10 flex items-center gap-1.5">
-                        <span className="badge !text-[10px] !py-0.5 bg-black/60 text-white border-white/20 backdrop-blur flex items-center gap-1">
-                          <ImageIcon className="w-3 h-3" />
-                          {project.screenshots?.length || 1} screenshot{project.screenshots && project.screenshots.length > 1 ? 's' : ''}
-                        </span>
-                      </div>
                     </>
                   ) : (
                     <>
@@ -76,41 +69,19 @@ export function SelectedWorkSection() {
                           </div>
                           <div className="mt-auto flex gap-1.5">
                             <span className={`badge-accent !text-[9.5px] !py-0.5 ${hasLive ? "!border-success/20 !bg-success/10 !text-success" : ""}`}>
-                              {isWork ? "Work · " : hasLive ? "Live Demo · " : ""}
-                              {project.categories[1] || project.categories[0]} · {project.technologies[0]}
+                              {project.categories[0]} · {project.technologies[0]}
                             </span>
                           </div>
                         </div>
                       </div>
-                      <div className="absolute bottom-3 left-5 right-5 flex items-center justify-between z-10">
-                        <span className="body-mono text-[10px] text-muted">Add screenshots: /screenshots/{project.shortTitle.toLowerCase()}/ — see /screenshots/README.md</span>
-                      </div>
                     </>
                   )}
 
-                  {/* Top badges */}
+                  {/* Top badge */}
                   <div className="absolute top-5 left-5 flex items-center gap-2 z-10">
                     <span className={`w-6 h-px ${isWork ? "bg-accent" : hasLive ? "bg-success" : "bg-accent"}`} />
                     <span className={`body-mono uppercase tracking-[0.15em] backdrop-blur px-2 py-0.5 rounded-full text-[10px] border ${isWork ? "bg-accent/10 text-accent border-accent/20" : hasLive ? "bg-success/10 text-success border-success/20" : "bg-bg/80 text-primary border-border-subtle"}`}>
-                      {isWork ? "Client Work" : hasLive ? "Live Demo · Deployed" : "Featured · S/A Tier"}
-                    </span>
-                    {isWork && (
-                      <span className="badge-accent !text-[10px] !py-0.5 flex items-center gap-1 backdrop-blur">
-                        <Briefcase className="w-3 h-3" />
-                        AI
-                      </span>
-                    )}
-                    {hasLive && !isWork && (
-                      <span className="badge !text-[10px] !py-0.5 !border-success/30 text-success flex items-center gap-1 backdrop-blur bg-success/10">
-                        <Rocket className="w-3 h-3" />
-                        {isVercel ? "Vercel" : isGhPages ? "GH Pages" : "Live"}
-                      </span>
-                    )}
-                  </div>
-                  <div className="absolute top-5 right-5 z-10 flex items-center gap-1.5">
-                    <span className={`w-1.5 h-1.5 rounded-full ${isWork ? "bg-accent" : hasLive ? "bg-success" : "bg-muted"} animate-pulse`} />
-                    <span className={`body-mono text-[10px] backdrop-blur px-2 py-0.5 rounded-full border ${isWork ? "text-accent border-accent/20 bg-accent/10" : hasLive ? "text-success border-success/20 bg-success/10" : "text-muted"}`}>
-                      {isWork ? "Client Project" : hasLive ? "Deployed" : "Code"}
+                      {isWork ? "Client Work" : hasLive ? "Live Demo" : project.categories[0]}
                     </span>
                   </div>
                 </div>
@@ -163,8 +134,6 @@ export function SelectedWorkSection() {
                     <div className="mt-5 px-4 py-3 rounded-[12px] border-l-2 border-accent bg-accent/[0.04] transition-colors group-hover:bg-accent/[0.08]">
                       <div className="body-mono uppercase tracking-[0.15em] text-muted mb-1.5 normal-case text-[10.5px] flex items-center gap-2">
                         <span>Outcome</span>
-                        {isWork && <span className="badge-accent !text-[9px]">Client Work</span>}
-                        {hasLive && !isWork && <span className="badge !text-[9px] !border-success/20 text-success">Live Demo</span>}
                       </div>
                       <div className="text-[13.5px] text-secondary leading-relaxed line-clamp-3">
                         {project.outcome}
@@ -178,8 +147,6 @@ export function SelectedWorkSection() {
                         {tech}
                       </span>
                     ))}
-                    {hasLive && !isWork && <span className="badge !border-success/20 text-success !text-[10px]">Live: {isVercel ? "Vercel" : isGhPages ? "GH Pages" : "Deployed"}</span>}
-                    {hasScreenshots && <span className="badge !text-[10px] !border-accent/20 text-accent">+{project.screenshots?.length} screenshots</span>}
                   </div>
 
                   {project.screenshots && project.screenshots.length > 1 && (
@@ -198,12 +165,12 @@ export function SelectedWorkSection() {
 
         <div className="mt-12 flex justify-center gap-3 flex-wrap">
           <Link href="/work" className="btn-ghost">
-            View all {projects.length} projects — {projects.filter(p=>p.liveUrl).length} Live Demos
+            View all projects
             <ArrowUpRight className="w-4 h-4" />
           </Link>
           <a href="https://github.com/Inkithai?tab=repositories" target="_blank" rel="noopener noreferrer" className="btn-ghost">
             <GithubIcon className="w-4 h-4" />
-            GitHub · 40+ repos
+            GitHub
           </a>
         </div>
       </div>
