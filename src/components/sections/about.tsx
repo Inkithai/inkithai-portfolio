@@ -56,23 +56,29 @@ export function AboutSection() {
 
           {/* Right — sidebar */}
           <div className="lg:col-span-5 space-y-4">
-            {/* What I bring */}
-            <div className="card p-6 overflow-hidden group">
-              <div className="label-eyebrow mb-5 flex items-center">
-                <span className="eyebrow-bar" />
-                <span>What I Bring</span>
-              </div>
-              <div className="space-y-4">
-                {about.highlights.slice(0, 4).map((h, i) => (
-                  <div key={i} className="flex gap-3">
-                    <span className="shrink-0 body-mono normal-case tracking-normal text-[10.5px] text-accent mt-0.5 font-semibold">
-                      0{i + 1}
-                    </span>
-                    <span className="text-[13.5px] leading-relaxed text-secondary">
-                      {h.text}
-                    </span>
-                  </div>
-                ))}
+            {/* Core strengths */}
+            <div className="card relative p-6 overflow-hidden group">
+              <div
+                className="absolute inset-0 pointer-events-none bg-net-mesh-tight opacity-50"
+                aria-hidden="true"
+              />
+              <div className="relative z-10">
+                <div className="label-eyebrow mb-5 flex items-center">
+                  <span className="eyebrow-bar" />
+                  <span>Core Strengths</span>
+                </div>
+                <div className="space-y-4">
+                  {about.highlights.slice(0, 4).map((h, i) => (
+                    <div key={i} className="flex gap-3">
+                      <span className="shrink-0 body-mono normal-case tracking-normal text-[10.5px] text-accent mt-0.5 font-semibold">
+                        0{i + 1}
+                      </span>
+                      <span className="text-[13.5px] leading-relaxed text-secondary">
+                        {h.text}
+                      </span>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
 

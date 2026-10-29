@@ -29,7 +29,7 @@ export default function SiteLayout({
 
         {/* Faint blueprint grid */}
         <div
-          className="absolute inset-0 opacity-[0.02]"
+          className="absolute inset-0 opacity-[0.025]"
           style={{
             backgroundImage: `linear-gradient(rgba(139, 148, 158, 0.18) 1px, transparent 1px),
                              linear-gradient(90deg, rgba(139, 148, 158, 0.18) 1px, transparent 1px)`,
@@ -40,6 +40,9 @@ export default function SiteLayout({
               "radial-gradient(ellipse 80% 60% at 50% 30%, black 30%, transparent 75%)",
           }}
         />
+
+        {/* Subtle tactile SVG fractal grain overlay */}
+        <div className="absolute inset-0 bg-grain" />
       </div>
       <Navbar />
       <main className="min-h-screen relative z-0">{children}</main>

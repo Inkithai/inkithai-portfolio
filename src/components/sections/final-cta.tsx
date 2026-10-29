@@ -9,6 +9,12 @@ export function FinalCTASection() {
     <section id="contact" className="section-y">
       <div className="container-max section-padding">
         <div className="relative rounded-[24px] overflow-hidden card !border-border-strong">
+          {/* 7x7px perforated dot-mesh ("net") texture across CTA card */}
+          <div
+            className="absolute inset-0 pointer-events-none bg-net-mesh-blue mask-net-cta opacity-75"
+            aria-hidden="true"
+          />
+
           {/* Subtle blue background halo */}
           <div
             className="absolute -top-40 left-1/2 -translate-x-1/2 w-[520px] h-[420px] rounded-full opacity-[0.16] blur-[120px] pointer-events-none"

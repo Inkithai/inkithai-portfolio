@@ -8,6 +8,22 @@ import { CopyButton } from "@/components/ui/copy-button";
 export function HeroSection() {
   return (
     <section id="hero" className="relative min-h-[88vh] flex items-center pt-32 pb-20 overflow-hidden">
+      {/* Perforated 7x7px dot-mesh ("net") overlay — feathered into the charcoal canvas */}
+      <div
+        className="absolute inset-0 pointer-events-none bg-net-mesh mask-net-hero opacity-85"
+        aria-hidden="true"
+      />
+      <div
+        className="absolute inset-0 pointer-events-none bg-net-mesh-blue opacity-55"
+        style={{
+          WebkitMaskImage:
+            "radial-gradient(circle 460px at 72% 46%, #000 0%, transparent 80%)",
+          maskImage:
+            "radial-gradient(circle 460px at 72% 46%, #000 0%, transparent 80%)",
+        }}
+        aria-hidden="true"
+      />
+
       <div className="container-max section-padding w-full relative z-10">
         <div className="grid lg:grid-cols-12 gap-14 lg:gap-10 items-start">
           {/* LEFT — Content */}
@@ -118,7 +134,13 @@ export function HeroSection() {
 
           {/* RIGHT — Portrait */}
           <div className="lg:col-span-5 lg:pl-4 lg:pt-2">
-            <div className="max-w-[380px] mx-auto lg:mx-0 lg:ml-auto">
+            <div className="max-w-[380px] mx-auto lg:mx-0 lg:ml-auto relative">
+              {/* Subtle 5x5px tight net-mesh offset frame behind portrait */}
+              <div
+                className="hidden sm:block absolute -inset-3 rounded-[26px] border border-border-subtle/70 bg-net-mesh-tight opacity-75 pointer-events-none"
+                aria-hidden="true"
+              />
+
               {/* Portrait card */}
               <div className="relative aspect-[4/5] rounded-[20px] overflow-hidden border border-border-subtle bg-bg-surface group">
                 <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent z-10" />
