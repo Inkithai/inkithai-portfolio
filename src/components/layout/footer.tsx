@@ -154,9 +154,17 @@ export function Footer() {
           <span className="text-[12.5px] text-muted text-center sm:text-left">
             © {new Date().getFullYear()} {personal.name}. Built with Next.js &amp; Tailwind CSS.
           </span>
-          <span className="body-mono normal-case tracking-[0.15em]">
-            Colombo · Remote Worldwide
-          </span>
+          <div className="flex items-center gap-4">
+            <span className="body-mono normal-case tracking-[0.15em]">
+              Colombo · Remote Worldwide
+            </span>
+            <Link
+              href="/concept-archive"
+              className="body-mono normal-case tracking-[0.15em] hover:text-accent transition-colors"
+            >
+              Design concept ↗
+            </Link>
+          </div>
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             aria-label="Back to top"
