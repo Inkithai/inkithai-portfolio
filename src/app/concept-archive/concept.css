@@ -1,0 +1,631 @@
+/* ============================================================================
+   ARCHIVAL PRESS — a design direction for Inkithai Meiyalagan
+   ----------------------------------------------------------------------------
+   Grammar borrowed as PRINCIPLE, not decoration:
+     · cream paper + ink, warm not clinical
+     · oversized condensed display type (Anton) against quiet grotesque (Archivo)
+     · archival catalog metadata in mono (FILE_002 / DATE / SPEC)
+     · physical artifacts: tape, stamps, stickers, clipped photos
+     · hard offset shadows — letterpress, never a soft blur
+     · handwritten margin notes (Caveat) as a human voice
+   ============================================================================ */
+
+.ap {
+  /* ---- Paper ---- */
+  --paper: #f4ecdd;
+  --paper-2: #ede3d2;
+  --paper-3: #e4d8c3;
+  --card: #fbf7ec;
+
+  /* ---- Ink ---- */
+  --ink: #1d1512;
+  --ink-soft: #4a352e;
+  --ink-faint: #7d6a60;
+  --line: rgba(29, 21, 18, 0.18);
+  --line-soft: rgba(29, 21, 18, 0.09);
+
+  /* ---- Accents ---- */
+  --maroon: #6e1d24;
+  --red: #9a2b30;
+  --gold: #c6a163;
+  --olive: #8a9a31;
+  --orange: #e08a3c;
+
+  --font-display: "Anton", "Arial Narrow", sans-serif;
+  --font-body: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --font-hand: "Caveat", cursive;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  position: relative;
+  background-color: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  min-height: 100vh;
+  overflow-x: clip;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Paper grain — sits above the page, below content */
+.ap::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.26;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.42'/%3E%3C/svg%3E");
+}
+
+.ap ::selection {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.ap-wrap {
+  position: relative;
+  z-index: 1;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+@media (min-width: 768px) {
+  .ap-wrap {
+    padding: 0 2.5rem;
+  }
+}
+@media (min-width: 1200px) {
+  .ap-wrap {
+    padding: 0 3.5rem;
+  }
+}
+
+/* ============================================================================
+   TYPE
+   ============================================================================ */
+
+.ap-display {
+  font-family: var(--font-display);
+  font-weight: 400;
+  text-transform: uppercase;
+  line-height: 0.86;
+  letter-spacing: -0.015em;
+}
+
+.ap-mono {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: var(--ink-faint);
+}
+
+.ap-hand {
+  font-family: var(--font-hand);
+  font-weight: 600;
+  color: var(--maroon);
+  line-height: 1.1;
+}
+
+/* ============================================================================
+   HAIRLINES / RULES
+   ============================================================================ */
+
+.ap-rule {
+  border-top: 1px solid var(--line);
+}
+.ap-rule-heavy {
+  border-top: 2px solid var(--ink);
+}
+.ap-dotted {
+  border-top: 1px dotted var(--line);
+}
+
+/* ============================================================================
+   TAPE — the signature "pasted onto paper" move
+   ============================================================================ */
+
+.ap-tape {
+  position: absolute;
+  width: 116px;
+  height: 30px;
+  background: rgba(198, 161, 99, 0.5);
+  box-shadow:
+    inset 0 0 0 1px rgba(29, 21, 18, 0.08),
+    0 1px 2px rgba(29, 21, 18, 0.1);
+  /* torn ends */
+  clip-path: polygon(
+    0 8%, 3% 0, 97% 4%, 100% 12%, 98% 88%, 100% 100%, 4% 96%, 0 92%
+  );
+  pointer-events: none;
+  mix-blend-mode: multiply;
+  z-index: 3;
+}
+.ap-tape--maroon {
+  background: rgba(154, 43, 48, 0.32);
+}
+.ap-tape--olive {
+  background: rgba(138, 154, 49, 0.28);
+}
+
+/* ============================================================================
+   STAMP — rotated catalog mark
+   ============================================================================ */
+
+.ap-stamp {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--maroon);
+  border: 2px solid var(--maroon);
+  padding: 0.3rem 0.55rem;
+  border-radius: 2px;
+  transform: rotate(-2.5deg);
+  opacity: 0.9;
+  background: rgba(251, 247, 236, 0.6);
+}
+
+/* ============================================================================
+   SECTION HEADER
+   ============================================================================ */
+
+.ap-sec {
+  padding: 5rem 0;
+  position: relative;
+}
+@media (min-width: 1024px) {
+  .ap-sec {
+    padding: 7rem 0;
+  }
+}
+
+.ap-sec-head {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  padding-bottom: 0.85rem;
+  border-bottom: 2px solid var(--ink);
+  margin-bottom: 2.5rem;
+}
+.ap-sec-num {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.22em;
+  color: var(--maroon);
+  font-weight: 700;
+  white-space: nowrap;
+  padding-top: 0.2rem;
+}
+.ap-sec-title {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  line-height: 1;
+  letter-spacing: 0.005em;
+}
+.ap-sec-note {
+  margin-left: auto;
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  text-align: right;
+  white-space: nowrap;
+}
+@media (max-width: 640px) {
+  .ap-sec-note {
+    display: none;
+  }
+}
+
+/* ============================================================================
+   CHIPS — technical spec labels
+   ============================================================================ */
+
+.ap-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  background: var(--paper-2);
+  border: 1px solid var(--line);
+  padding: 0.2rem 0.45rem;
+  border-radius: 2px;
+  white-space: nowrap;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+.ap-chip--spec {
+  background: transparent;
+  border-style: dashed;
+}
+.ap-chip:hover {
+  background: var(--ink);
+  color: var(--paper);
+  border-color: var(--ink);
+}
+
+/* ============================================================================
+   FILE ROWS — the project archive
+   ============================================================================ */
+
+.ap-file {
+  display: grid;
+  grid-template-columns: 3.25rem 1fr auto;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 1.15rem 0.5rem;
+  border-top: 1px solid var(--line);
+  position: relative;
+  cursor: pointer;
+  transition: background 0.18s ease, padding 0.18s ease;
+  text-decoration: none;
+  color: inherit;
+}
+.ap-file:last-child {
+  border-bottom: 1px solid var(--line);
+}
+/* maroon fill sweeping in from the left on hover */
+.ap-file::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--maroon);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+  z-index: 0;
+}
+.ap-file:hover::before,
+.ap-file:focus-visible::before {
+  transform: scaleX(1);
+}
+.ap-file > * {
+  position: relative;
+  z-index: 1;
+  transition: color 0.2s ease;
+}
+.ap-file:hover .ap-file-code,
+.ap-file:hover .ap-file-name,
+.ap-file:hover .ap-file-desc,
+.ap-file:hover .ap-file-year,
+.ap-file:hover .ap-file-meta,
+.ap-file:hover .ap-file-arrow {
+  color: var(--paper);
+}
+.ap-file:hover .ap-file-chip {
+  background: rgba(244, 236, 221, 0.12);
+  border-color: rgba(244, 236, 221, 0.35);
+  color: var(--paper);
+}
+
+.ap-file-code {
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  letter-spacing: 0.1em;
+  color: var(--ink-faint);
+  font-weight: 500;
+}
+.ap-file-name {
+  font-family: var(--font-display);
+  font-size: clamp(1.15rem, 2.4vw, 1.75rem);
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  color: var(--ink);
+}
+.ap-file-desc {
+  font-size: 0.75rem;
+  color: var(--ink-faint);
+  margin-top: 0.4rem;
+  letter-spacing: 0.01em;
+  line-height: 1.4;
+  max-width: 46ch;
+}
+.ap-file-chip {
+  font-family: var(--font-mono);
+  font-size: 0.5625rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.14rem 0.35rem;
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  color: var(--ink-soft);
+}
+.ap-file-year {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  color: var(--ink-faint);
+  letter-spacing: 0.08em;
+}
+.ap-file-arrow {
+  color: var(--ink-faint);
+  transition: transform 0.25s ease, color 0.2s ease;
+}
+.ap-file:hover .ap-file-arrow {
+  transform: translate(3px, -3px);
+}
+
+/* ============================================================================
+   RECEIPT — experience as a printed till slip
+   ============================================================================ */
+
+.ap-receipt {
+  background: var(--card);
+  border: 1px solid var(--line);
+  box-shadow: 5px 5px 0 rgba(29, 21, 18, 0.09);
+  padding: 2rem 1.75rem;
+  position: relative;
+  font-family: var(--font-mono);
+}
+/* perforated top & bottom edges */
+.ap-receipt::before,
+.ap-receipt::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 8px;
+  background-image: radial-gradient(
+    circle at 4px 4px,
+    transparent 3.5px,
+    var(--paper) 3.5px
+  );
+  background-size: 8px 8px;
+  background-repeat: repeat-x;
+}
+.ap-receipt::before {
+  top: -1px;
+}
+.ap-receipt::after {
+  bottom: -1px;
+  transform: rotate(180deg);
+}
+
+.ap-receipt-row {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  font-size: 0.6875rem;
+  padding: 0.28rem 0;
+  color: var(--ink-soft);
+}
+.ap-receipt-dots {
+  flex: 1;
+  border-bottom: 1px dotted var(--line);
+  transform: translateY(-3px);
+}
+.ap-receipt-strong {
+  font-weight: 700;
+  color: var(--ink);
+}
+
+/* ============================================================================
+   CARD — clipped print block
+   ============================================================================ */
+
+.ap-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  position: relative;
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+.ap-card--lift:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 rgba(29, 21, 18, 0.13);
+}
+
+/* ============================================================================
+   MARQUEE
+   ============================================================================ */
+
+.ap-marquee {
+  display: flex;
+  overflow: hidden;
+  user-select: none;
+  border-top: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+  background: var(--ink);
+  color: var(--paper);
+}
+.ap-marquee-track {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 0;
+  min-width: 100%;
+  animation: ap-scroll 38s linear infinite;
+}
+.ap-marquee-track > span {
+  font-family: var(--font-display);
+  font-size: 0.8125rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 0.7rem 1.25rem;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+.ap-marquee-track > span::after {
+  content: "✦";
+  color: var(--gold);
+  font-size: 0.7rem;
+}
+@keyframes ap-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ap-marquee-track {
+    animation: none;
+  }
+}
+
+/* ============================================================================
+   MISC
+   ============================================================================ */
+
+.ap-tilt-l {
+  transform: rotate(-1.6deg);
+}
+.ap-tilt-r {
+  transform: rotate(1.4deg);
+}
+
+.ap-index-num {
+  font-family: var(--font-mono);
+  font-size: 0.5625rem;
+  letter-spacing: 0.16em;
+  color: var(--maroon);
+  font-weight: 700;
+}
+
+.ap-portrait {
+  filter: saturate(0.82) contrast(1.04) sepia(0.16);
+  transition: filter 0.5s ease, transform 0.5s ease;
+}
+.ap-portrait:hover {
+  filter: saturate(1) contrast(1.02) sepia(0.04);
+}
+
+.ap-kbd {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  border: 1px solid var(--line);
+  border-bottom-width: 2px;
+  border-radius: 3px;
+  padding: 0.05rem 0.3rem;
+  background: var(--paper-2);
+  color: var(--ink-soft);
+}
+
+.ap-link {
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1px solid var(--line);
+  transition: color 0.18s ease, border-color 0.18s ease;
+}
+.ap-link:hover {
+  color: var(--maroon);
+  border-color: var(--maroon);
+}
+
+.ap-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 0.8rem 1.2rem;
+  background: var(--ink);
+  color: var(--paper);
+  border: 1px solid var(--ink);
+  text-decoration: none;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+}
+.ap-btn:hover {
+  background: var(--maroon);
+  border-color: var(--maroon);
+  transform: translate(-2px, -2px);
+  box-shadow: 4px 4px 0 rgba(29, 21, 18, 0.25);
+}
+.ap-btn--ghost {
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--ink);
+}
+.ap-btn--ghost:hover {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--paper);
+}
+
+.ap-focus:focus-visible {
+  outline: 2px solid var(--maroon);
+  outline-offset: 3px;
+}
+
+/* ============================================================================
+   DROP CAP — a printed first letter
+   ============================================================================ */
+
+.ap-dropcap::first-letter {
+  float: left;
+  font-family: var(--font-display);
+  font-size: 3.6rem;
+  line-height: 0.78;
+  margin: 0.28rem 0.5rem 0 0;
+  color: var(--maroon);
+}
+
+/* ============================================================================
+   MASTHEAD
+   ============================================================================ */
+
+.ap-masthead {
+  background: rgba(244, 236, 221, 0.93);
+  backdrop-filter: blur(8px) saturate(1.2);
+  -webkit-backdrop-filter: blur(8px) saturate(1.2);
+}
+
+/* ============================================================================
+   PAGE CHROME — undo the dark root defaults while this page is mounted
+   ============================================================================ */
+
+html:has(.ap) {
+  color-scheme: light;
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+html:has(.ap) ::-webkit-scrollbar { width: 10px; height: 10px; }
+html:has(.ap) ::-webkit-scrollbar-track { background: var(--paper-2); }
+html:has(.ap) ::-webkit-scrollbar-thumb {
+  background: var(--ink-faint);
+  border-radius: 999px;
+  border: 2px solid var(--paper-2);
+}
+html:has(.ap) ::-webkit-scrollbar-thumb:hover { background: var(--ink); }
+html:has(.ap) *:focus-visible {
+  outline: 2px solid var(--maroon);
+  outline-offset: 3px;
+}
+
+/* ============================================================================
+   RESPONSIVE REFINEMENT
+   ============================================================================ */
+
+@media (max-width: 640px) {
+  .ap-file {
+    grid-template-columns: 2.4rem 1fr;
+    gap: 0.85rem;
+    padding: 1rem 0.25rem;
+  }
+  .ap-file-desc {
+    font-size: 0.7rem;
+    margin-top: 0.3rem;
+  }
+  .ap-hand {
+    font-size: 0.95em;
+  }
+}
