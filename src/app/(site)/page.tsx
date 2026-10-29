@@ -1,5 +1,6 @@
 import { HeroSection } from "@/components/sections/hero";
 import { SelectedWorkSection } from "@/components/sections/selected-work";
+import { WhatIBringWebSection } from "@/components/sections/what-i-bring-web";
 import { EngineeringExpertiseSection } from "@/components/sections/engineering-expertise";
 import { ExperienceSection } from "@/components/sections/experience";
 import { AcademicFoundationSection } from "@/components/sections/academic-foundation";
@@ -14,6 +15,7 @@ export default function Home() {
     <>
       <HeroSection />
       <SelectedWorkSection />
+      <WhatIBringWebSection />
       <EngineeringExpertiseSection />
       <ExperienceSection />
       <AcademicFoundationSection />

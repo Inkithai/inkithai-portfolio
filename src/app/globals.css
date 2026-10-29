@@ -450,6 +450,101 @@ body {
 }
 
 /* ============================================================================
+   PERFORATED DOT-MESH ("NET") & GRAIN TEXTURES
+   Adapted from editorial halftone screen-mesh patterns to Charcoal + Electric Blue
+   ============================================================================ */
+
+/* Subtle SVG fractal noise grain across dark surfaces */
+.bg-grain {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.88' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: 0.038;
+  mix-blend-mode: overlay;
+}
+
+/* 7x7px perforated screen-net mesh (Hero & Stage backdrop) */
+.bg-net-mesh {
+  background-image: radial-gradient(rgba(226, 232, 240, 0.16) 1px, transparent 1.45px);
+  background-size: 7px 7px;
+}
+
+/* 7x7px electric-blue tinted screen-net mesh (Focal highlights & Final CTA) */
+.bg-net-mesh-blue {
+  background-image: radial-gradient(rgba(96, 165, 250, 0.24) 1px, transparent 1.45px);
+  background-size: 7px 7px;
+}
+
+/* 5x5px ultra-fine screen-net mesh (Project archive cards & interactive frames) */
+.bg-net-mesh-tight {
+  background-image: radial-gradient(rgba(226, 232, 240, 0.13) 0.85px, transparent 1.15px);
+  background-size: 5px 5px;
+}
+
+/* Smooth radial masks so net overlays feather organically into #0B0D10 */
+.mask-net-hero {
+  -webkit-mask-image: radial-gradient(ellipse 88% 76% at 52% 44%, #000 28%, rgba(0, 0, 0, 0.55) 66%, transparent 96%);
+  mask-image: radial-gradient(ellipse 88% 76% at 52% 44%, #000 28%, rgba(0, 0, 0, 0.55) 66%, transparent 96%);
+}
+
+.mask-net-stage {
+  -webkit-mask-image: radial-gradient(ellipse 94% 88% at 50% 50%, #000 42%, rgba(0, 0, 0, 0.65) 76%, transparent 100%);
+  mask-image: radial-gradient(ellipse 94% 88% at 50% 50%, #000 42%, rgba(0, 0, 0, 0.65) 76%, transparent 100%);
+}
+
+.mask-net-cta {
+  -webkit-mask-image: radial-gradient(ellipse 85% 85% at 50% 35%, #000 25%, rgba(0, 0, 0, 0.5) 68%, transparent 98%);
+  mask-image: radial-gradient(ellipse 85% 85% at 50% 35%, #000 25%, rgba(0, 0, 0, 0.5) 68%, transparent 98%);
+}
+
+/* Animated signal flow along node-link SVG threads */
+@keyframes netSignalFlow {
+  to {
+    stroke-dashoffset: -120;
+  }
+}
+.animate-net-flow {
+  animation: netSignalFlow 5.5s linear infinite;
+}
+
+@keyframes slowOrbitSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.animate-orbit-spin {
+  animation: slowOrbitSpin 32s linear infinite;
+}
+
+/* ============================================================================
+   SELECTED WORK — ARCHIVE FILE FOLDERS
+   Combines tabbed archival folder accordion with rich cover-image cards
+   ============================================================================ */
+
+.archive-folder-tab {
+  clip-path: polygon(0 20px, 38% 20px, 46% 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.archive-barcode {
+  background: repeating-linear-gradient(
+    90deg,
+    rgba(245, 247, 250, 0.7) 0 2px,
+    transparent 2px 4px,
+    rgba(245, 247, 250, 0.7) 4px 5px,
+    transparent 5px 8px
+  );
+}
+
+.archive-spine-vertical {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg);
+}
+
+.archive-code-vertical {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
+
+/* ============================================================================
    FOCUS — accessibility
    ============================================================================ */
 
